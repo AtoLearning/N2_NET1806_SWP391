@@ -9,4 +9,4 @@ Team list:
 1. Nguyen Tran Gia Bao - SE171211 (Leader's Backend)
 2. Dang Nhat Phi - SE171156 (Backend)
 3. Pham Thi Hai Anh - SE171207 ( Leader's Frontend)
-4. Nguyen Anh - SE171217
+4. Nguyen Anh - SE171217 (Frontend)
