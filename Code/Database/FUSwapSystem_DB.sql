@@ -31,7 +31,13 @@ CREATE TABLE Customer (
 CREATE TABLE District (
   DistrictID   int IDENTITY NOT NULL, 
   DistrictName nvarchar(50) NOT NULL, 
+  CityID       int NOT NULL, 
   PRIMARY KEY (DistrictID));
+CREATE TABLE District_Ward (
+  DistrictID int NOT NULL, 
+  WardID     int NOT NULL, 
+  PRIMARY KEY (DistrictID, 
+  WardID));
 CREATE TABLE Feedback (
   FeedbackID   int IDENTITY NOT NULL, 
   FeedbackText nvarchar(200) NOT NULL, 
@@ -160,3 +166,6 @@ ALTER TABLE Voucher_Customer ADD CONSTRAINT FKVoucher_Cu393522 FOREIGN KEY (Vouc
 ALTER TABLE Voucher_Customer ADD CONSTRAINT FKVoucher_Cu789935 FOREIGN KEY (CustomerCUserName) REFERENCES Customer (CUserName);
 ALTER TABLE Voucher ADD CONSTRAINT FKVoucher634371 FOREIGN KEY (MUserName) REFERENCES Manager (MUserName);
 ALTER TABLE [Transaction] ADD CONSTRAINT FKTransactio184168 FOREIGN KEY (PostPostID) REFERENCES Post (PostID);
+ALTER TABLE District ADD CONSTRAINT FKDistrict133351 FOREIGN KEY (CityID) REFERENCES City (CityID);
+ALTER TABLE District_Ward ADD CONSTRAINT FKDistrict_W223992 FOREIGN KEY (DistrictID) REFERENCES District (DistrictID);
+ALTER TABLE District_Ward ADD CONSTRAINT FKDistrict_W924874 FOREIGN KEY (WardID) REFERENCES Ward (WardID);
