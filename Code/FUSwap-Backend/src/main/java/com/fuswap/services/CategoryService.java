@@ -8,11 +8,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class CategoryService {
 
-    private CategoryRepository categoryRepository;
+    private final CategoryRepository categoryRepository;
 
     public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
@@ -31,5 +32,21 @@ public class CategoryService {
             ));
         }
         return categoryDtoList;
+    }
+
+    public boolean addCategory(CategoryDto categoryDto) {
+        Category category = new Category(
+                categoryDto.getCateName(),
+                categoryDto.isAvailable(),
+                categoryDto.isDelete(),
+                categoryDto.getMUserName()
+        );
+        System.out.println(category.toString());
+        try {
+            Category obj = categoryRepository.save(category);
+            return true;
+        } catch(Exception e) {
+            return false;
+        }
     }
 }

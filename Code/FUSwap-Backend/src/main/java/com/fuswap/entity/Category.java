@@ -1,5 +1,6 @@
 package com.fuswap.entity;
 
+import com.sun.jdi.event.ClassUnloadEvent;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,72 +13,31 @@ import lombok.Setter;
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "CateID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cateid", nullable = false)
     private int CateID;
 
-    @Column(name = "CateName", nullable = false, length = 20)
+    @Column(name = "catename", nullable = false, length = 20)
     private String CateName;
 
-    @Column(name = "isAvailable", nullable = false)
+    @Column(name = "isavailable", nullable = false)
     private boolean isAvailable;
 
-    @Column(name = "isDelete", nullable = false)
+    @Column(name = "isdelete", nullable = false)
     private boolean isDelete;
 
     @JoinColumn
-    @Column(name = "MUserName", nullable = false, length = 30)
+    @Column(name = "musername", nullable = false, length = 30)
     private String MUserName;
 
-    public Category() {
-    }
-
-    public Category(int cateID, String cateName, boolean isAvailable, boolean isDelete, String MUserName) {
-        CateID = cateID;
+    public Category(String cateName, boolean isAvailable, boolean isDelete, String MUserName) {
         CateName = cateName;
         this.isAvailable = isAvailable;
         this.isDelete = isDelete;
         this.MUserName = MUserName;
     }
 
-    public int getCateID() {
-        return CateID;
-    }
-
-    public void setCateID(int cateID) {
-        CateID = cateID;
-    }
-
-    public String getCateName() {
-        return CateName;
-    }
-
-    public void setCateName(String cateName) {
-        CateName = cateName;
-    }
-
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public void setAvailable(boolean available) {
-        isAvailable = available;
-    }
-
-    public boolean isDelete() {
-        return isDelete;
-    }
-
-    public void setDelete(boolean delete) {
-        isDelete = delete;
-    }
-
-    public String getMUserName() {
-        return MUserName;
-    }
-
-    public void setMUserName(String MUserName) {
-        this.MUserName = MUserName;
+    public Category() {
     }
 
     @Override
