@@ -1,60 +1,25 @@
 package com.fuswap.dtos;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
+
+@Getter
+@Setter
 public class UserInfoDto {
-    private String name;
-    private String given_name;
-    private String family_name;
-    private String email;
+    private String cusername;
+    private String givenname;
+    private String familyname;
+    private String picture;
 
     public UserInfoDto() {
     }
 
-    public UserInfoDto(String name, String given_name, String family_name, String email) {
-        this.name = name;
-        this.given_name = given_name;
-        this.family_name = family_name;
-        this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGiven_name() {
-        return given_name;
-    }
-
-    public void setGiven_name(String given_name) {
-        this.given_name = given_name;
-    }
-
-    public String getFamily_name() {
-        return family_name;
-    }
-
-    public void setFamily_name(String family_name) {
-        this.family_name = family_name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "UserInfoDto{" +
-                "name='" + name + '\'' +
-                ", given_name='" + given_name + '\'' +
-                ", family_name='" + family_name + '\'' +
-                ", email='" + email + '\'' +
-                '}';
+    public UserInfoDto(String cusername, String givenname, String familyname, String picture, LocalDate dob) {
+        this.cusername = cusername;
+        this.givenname = givenname;
+        this.familyname = familyname;
+        this.picture = picture;
     }
 }

@@ -1,13 +1,24 @@
-package com.fuswap.controller;
+package com.fuswap.controllers;
 
-import org.springframework.stereotype.Controller;
+
+import com.fuswap.dtos.ResponseDto;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/api/v1")
 public class LoginController {
 
-//    @GetMapping("/login")
-//    public String login() {
-//        return "redirect:/oauth2/authorization/google";
-//    }
+
+    @GetMapping("/auth/fuswap")
+    public ResponseEntity<ResponseDto> loginFuswap() {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
+                new ResponseDto("UNAUTHORIZED", "Login again!", "")
+        );
+    }
+
+
 }
