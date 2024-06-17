@@ -1,14 +1,19 @@
 package com.fuswap.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "Customer")
 public class Customer {
     @Id
@@ -46,22 +51,4 @@ public class Customer {
     @Column(name = "musername", nullable = false)
     private String MUsername;
 
-    public Customer() {
-    }
-
-    public Customer(String CUserName, String givenName, String familyName, String picture,
-                    boolean isAvailable, int wallet, int points, boolean isVerified,
-                    String address, LocalDate DOB, String MUsername) {
-        this.CUserName = CUserName;
-        GivenName = givenName;
-        FamilyName = familyName;
-        Picture = picture;
-        this.isAvailable = isAvailable;
-        Wallet = wallet;
-        Points = points;
-        this.isVerified = isVerified;
-        Address = address;
-        this.DOB = DOB;
-        this.MUsername = MUsername;
-    }
 }

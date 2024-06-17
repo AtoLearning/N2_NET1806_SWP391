@@ -1,7 +1,9 @@
 package com.fuswap.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
@@ -9,6 +11,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "Manager")
 public class Manager {
     @Id
@@ -40,20 +44,4 @@ public class Manager {
     @Column(name = "managermusername", length = 30, nullable = false)
     private String ManagerMUserName;
 
-    public Manager() {
-    }
-
-    public Manager(String MUserName, String password, String givenName, String familyName,
-                   String picture, boolean isAvailable, boolean isAdmin,
-                   LocalDate DOB, String managerMUserName) {
-        this.MUserName = MUserName;
-        Password = password;
-        GivenName = givenName;
-        FamilyName = familyName;
-        Picture = picture;
-        this.isAvailable = isAvailable;
-        this.isAdmin = isAdmin;
-        this.DOB = DOB;
-        ManagerMUserName = managerMUserName;
-    }
 }

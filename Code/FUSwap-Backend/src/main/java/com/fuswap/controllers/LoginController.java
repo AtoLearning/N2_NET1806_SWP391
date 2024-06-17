@@ -7,18 +7,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import java.net.URI;
 
 @RestController
 @RequestMapping("/api/v1")
 public class LoginController {
 
-
-    @GetMapping("/auth/fuswap")
-    public ResponseEntity<ResponseDto> loginFuswap() {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
-                new ResponseDto("UNAUTHORIZED", "Login again!", "")
-        );
+    @GetMapping("/auth/login")
+    public ResponseEntity<Void> loginWithGoogle() {
+        return ResponseEntity.status(HttpStatus.FOUND)
+                .location(URI.create("http://localhost:8080/login"))
+                .build();
     }
-
 
 }
