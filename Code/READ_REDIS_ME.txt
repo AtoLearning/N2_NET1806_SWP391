@@ -1,0 +1,16 @@
+Step 1: Install WSL2
+ Sub-step 1.1: Open CMD
+ Sub-step 1.2: Type "wsl --install"
+
+Step 2: Instal Redis
+ Sub-step 2.1: Press Windows button
+ Sub-step 2.2: Search "WSL" and enter
+ Sub-step 2.3: Type "sudo apt-get update"
+ Sub-step 2.4: Type "sudo apt-get install redis"
+ Sub-step 2.5: Type "sudo service redis-server start"
+ Sub-step 2.6: Type "redis-cli" ( Connect to redis server in localhost: 127.0.0.1 )
+ Sub-step 2.7: Type "ping"
+ Sub-step 2.8: Display "pong" --> SUCCESSFULLY
+
+
+
