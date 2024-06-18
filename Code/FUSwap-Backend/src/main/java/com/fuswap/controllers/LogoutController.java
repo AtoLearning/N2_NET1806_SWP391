@@ -2,14 +2,12 @@ package com.fuswap.controllers;
 
 import com.fuswap.dtos.ResponseDto;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.session.Session;
-import org.springframework.session.data.redis.RedisSessionRepository;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -17,11 +15,11 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class LogoutController {
 
-    @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+    private final RedisTemplate<String, Object> redisTemplate;
 
-    @Autowired
-    private RedisSessionRepository sessionRepository;
+    public LogoutController(RedisTemplate<String, Object> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
 
     @PostMapping("/logout")
     public ResponseEntity<ResponseDto> Logout(@CookieValue("sessionid") String sessionid, HttpServletRequest request) {

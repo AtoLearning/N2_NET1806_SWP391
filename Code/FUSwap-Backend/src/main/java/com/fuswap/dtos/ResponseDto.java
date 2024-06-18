@@ -1,23 +1,30 @@
 package com.fuswap.dtos;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDate;
+import lombok.experimental.FieldDefaults;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class ResponseDto {
-    private String status;
-    private String message;
-    private Object data;
 
-    public ResponseDto() {
+    String status;
+    String message;
+    Object obj;
+
+    @Override
+    public String toString() {
+        return "ResponseDto{" +
+                "status='" + status + '\'' +
+                ", message='" + message + '\'' +
+                ", obj=" + obj +
+                '}';
     }
 
-    public ResponseDto(String status, String message, Object data) {
-        this.status = status;
-        this.message = message;
-        this.data = data;
-    }
 }

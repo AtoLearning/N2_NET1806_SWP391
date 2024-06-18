@@ -1,6 +1,6 @@
-// eslint-disable-next-line no-unused-vars
-import React, {useEffect, useState} from "react";
+
 import Cookies from "js-cookie";
+import React from "react";
 
 
 export default function GetSession() {
@@ -18,7 +18,6 @@ export default function GetSession() {
         }
     };
 
-    // Check for session ID when component mounts
     React.useEffect(() => {
         handleReceiveSessionId();
     }, []);
