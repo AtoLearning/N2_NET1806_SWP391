@@ -1,5 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -10,9 +8,12 @@ const Header = () => {
                 <Typography variant='h6' component="div" sx={{ flexGrow: 1 }}>
                     FUSwap
                 </Typography>
+
+                {/*The URL must match App.jsx*/}
                 <Button color='inherit' component={Link} to="/">Home</Button>
                 <Button color='inherit' component={Link} to="/form/login">Login</Button>
-                <Button color='inherit' component={Link} to="/contact">Contact</Button>
+                <Button color='inherit' component={Link} to="/guest/contact">Contact</Button>
+
             </Toolbar>
         </AppBar>
     );

@@ -1,0 +1,4 @@
+cmd: npm install @mui/material @emotion/react @emotion/styled axios react-router-dom react-toastify
+
+API: https://649911d179fbe9bcf83ea17c.mockapi.io/api/v1/
+endpoint: staffManagement/

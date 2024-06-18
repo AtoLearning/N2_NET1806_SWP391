@@ -1,27 +1,25 @@
 package com.fuswap.dtos;
 
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
+import lombok.AccessLevel;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class CategoryDto {
-    private int cateId;
-    private String cateName;
-    private boolean isAvailable;
-    private boolean isDelete;
-    private String mUserName;
 
-    public CategoryDto() {
-    }
-
-    public CategoryDto(int cateId, String cateName, boolean isAvailable, boolean isDelete, String mUserName) {
-        this.cateId = cateId;
-        this.cateName = cateName;
-        this.isAvailable = isAvailable;
-        this.isDelete = isDelete;
-        this.mUserName = mUserName;
-    }
+    int cateId;
+    String cateName;
+    boolean isAvailable;
+    boolean isDelete;
+    String fullnameManager;
 
     @Override
     public String toString() {
@@ -30,7 +28,8 @@ public class CategoryDto {
                 ", cateName='" + cateName + '\'' +
                 ", isAvailable=" + isAvailable +
                 ", isDelete=" + isDelete +
-                ", mUserName='" + mUserName + '\'' +
+                ", mUserName='" + fullnameManager + '\'' +
                 '}';
     }
+
 }

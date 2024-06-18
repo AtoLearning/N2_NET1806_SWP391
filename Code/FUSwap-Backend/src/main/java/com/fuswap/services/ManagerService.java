@@ -2,7 +2,6 @@ package com.fuswap.services;
 
 import com.fuswap.dtos.ManagerDto;
 import com.fuswap.entity.Manager;
-import com.fuswap.repositories.CategoryRepository;
 import com.fuswap.repositories.ManagerRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +10,7 @@ import java.util.List;
 
 @Service
 public class ManagerService {
+
     private final ManagerRepository managerRepository;
 
     public ManagerService(ManagerRepository managerRepository) {
@@ -32,5 +32,9 @@ public class ManagerService {
             ));
         }
         return managersDto;
+    }
+
+    public Manager findByMUserName(String mUserName) {
+        return managerRepository.findByMUserName(mUserName);
     }
 }

@@ -1,12 +1,11 @@
 package com.fuswap.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,34 +13,57 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Manager")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Manager {
+
     @Id
     @Column(name = "musername", length = 30, nullable = false)
-    private String MUserName;
+    String MUserName;
 
     @Column(name = "password", length = 20, nullable = false)
-    private String Password;
+    String Password;
 
     @Column(name = "givenname", length = 30, nullable = false)
-    private String GivenName;
+    String GivenName;
 
     @Column(name = "familyname", length = 30, nullable = false)
-    private String FamilyName;
+    String FamilyName;
 
-    @Column(name = "picture", length = 200, nullable = true)
-    private String Picture;
+    @Column(name = "picture", length = 200)
+    String Picture;
 
     @Column(name = "isavailable", nullable = false)
-    private boolean isAvailable;
+    boolean isAvailable;
 
     @Column(name = "isadmin", nullable = false)
-    private boolean isAdmin;
+    boolean isAdmin;
 
-    @Column(name = "dob", nullable = true)
-    private LocalDate DOB;
+    @Column(name = "dob")
+    LocalDate DOB;
 
     @JoinColumn
     @Column(name = "managermusername", length = 30, nullable = false)
-    private String ManagerMUserName;
+    String ManagerMUserName;
+
+    @OneToMany(mappedBy = "manager", cascade = CascadeType.ALL)
+    List<Category> categoryList;
+
+    @OneToMany(mappedBy = "manager", cascade = CascadeType.ALL)
+    List<Customer> customerList;
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "MUserName='" + MUserName + '\'' +
+                ", Password='" + Password + '\'' +
+                ", GivenName='" + GivenName + '\'' +
+                ", FamilyName='" + FamilyName + '\'' +
+                ", Picture='" + Picture + '\'' +
+                ", isAvailable=" + isAvailable +
+                ", isAdmin=" + isAdmin +
+                ", DOB=" + DOB +
+                ", ManagerMUserName='" + ManagerMUserName + '\'' +
+                '}';
+    }
 
 }
