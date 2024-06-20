@@ -44,7 +44,7 @@ export default function CDashboard() {
     const handleDelete = async (cateId) => {
         if (window.confirm(`Are you sure that you want to delete a category with ID: ${cateId}`)) {
             const response = await axios.delete(`${baseURLDelete}/${cateId}`, {withCredentials: true });
-            console.log(response.status);
+            console.log(response.data);
             if (response.status === 200) {
                 //load category list again
                 getAllCategoriesHigh();

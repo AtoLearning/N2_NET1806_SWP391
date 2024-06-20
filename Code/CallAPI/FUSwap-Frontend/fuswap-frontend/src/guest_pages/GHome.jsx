@@ -28,6 +28,7 @@ export default function GHome() {
             if(response.status === 200) {
                 //if the back-end returns a json file with the required data, get it
                 setCategories(response.data);
+                // console.log(response.data);
             }
         } catch (error) {
             //if not, console.log the error
