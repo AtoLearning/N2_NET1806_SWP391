@@ -32,6 +32,7 @@ public class Category {
     @Column(name = "isdelete", nullable = false)
     boolean isDelete;
 
+    //Category n - 1 Manager
     @ManyToOne
     @JoinColumn(name = "musername")
     Manager manager;
