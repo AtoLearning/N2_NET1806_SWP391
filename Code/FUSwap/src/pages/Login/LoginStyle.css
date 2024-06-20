@@ -1,0 +1,107 @@
+
+.login{
+    display: flex;
+    margin:0px 200px;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: Taviraj;
+    margin: 100px;
+}
+.login_left{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0px 50px;
+}
+.login_div_1{
+    width: 300px;
+    height: 290px;
+    background-color: #ffa95f;
+    border: 2px black solid;
+    transform: rotate(14deg);
+    
+}
+.login_img_1{
+    padding: 10px;
+    width: 300px;
+    height: 220px;
+    top: 50px;
+}
+.login_div_2{
+    width: 350px;
+    height: 330px;
+    background-color: #ffbe81;
+    border: 2px black solid;
+    transform: rotate(-7deg);
+}
+.login_img_2{
+    padding: 15px;
+    width: 350px;
+    height: 280px;
+}
+.login_div_3{
+    width: 390px;
+    height: 430px;
+    background-color: #fbc89b;
+    border: 2px black solid;
+    transform: rotate(9deg);
+}
+.login_img_3{
+    padding: 20px;
+    width: 390px;
+    height: 350px;
+}
+.login_right{
+    width: 710px;
+    height: 750px;
+    background: linear-gradient(to bottom, #FF9936 0%, #ffd2a4 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px black solid;
+    margin: 0px 50px;
+}
+.login_img{
+    padding: 30px;
+    width: 710px;
+    height: 550px;
+}
+.login_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 30px;
+    border: #000000 2px solid;
+    width: 450px;
+    height: 60px;
+    margin: 0px 0px 30px 0px;
+    box-shadow: 3px 4px 4px 1px #ff7b00e7;
+}
+.login_btn:hover{
+    background-color: #FF9936;
+    color:white;
+    box-shadow: 3px 4px 4px 1px white;
+}
+.login_btn:hover .icon{
+    color:white;
+}
+.login_text{
+    margin: 30px;
+}
+.icon{
+    margin: 2px;
+    text-align: center;
+    font-size: 25px;
+    color: black;
+}
+.login_btn p{
+    margin:0px 10px;
+    text-align: center;
+}
+
+hr{
+    border-top: 2px black solid;
+    width: 600px;
+}

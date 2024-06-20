@@ -1,0 +1,44 @@
+.footer{
+    display: flex;
+    background-color: #FFEEDF;
+    justify-content: space-around;
+    font-family: Taviraj;
+    font-size: 22px;
+    height: 200px;
+}
+.footer_content{
+    width: 400px;
+    margin-top: 10px
+}
+.footer_content h2{
+    font-size: 25px;
+}
+.footer_content p{
+    margin: 10px;
+}
+.footer_detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    text-align: center;
+}
+.footer_a{
+    display: flex;
+    align-content: center;
+}
+.footer_a p{
+    font-size: 22px;
+}
+.footer_rule{
+    align-content: center;
+}
+.footer_follow_us{
+    align-content: center;
+}
+.icon{
+    margin: 2px;
+    text-align: center;
+    font-size: 22px;
+}
