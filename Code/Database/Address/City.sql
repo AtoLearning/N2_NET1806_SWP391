@@ -15,7 +15,7 @@ INSERT INTO City(CityName) values (N'Tỉnh Quảng Ninh');          --14
 INSERT INTO City(CityName) values (N'Tỉnh Bắc Giang');           --15
 INSERT INTO City(CityName) values (N'Tỉnh Phú Thọ');             --16
 INSERT INTO City(CityName) values (N'Tỉnh Vĩnh Phúc');           --17
-INSERT INTO City(CityName) values (N'Tỉnh Bắc Ninh');            --18
+INSERT INTO City(CityName) values (N'Tỉnh Bắc Ninh');		     --18
 INSERT INTO City(CityName) values (N'Tỉnh Hải Dương');           --19
 INSERT INTO City(CityName) values (N'Thành phố Hải Phòng');      --20
 INSERT INTO City(CityName) values (N'Tỉnh Hưng Yên');            --21
