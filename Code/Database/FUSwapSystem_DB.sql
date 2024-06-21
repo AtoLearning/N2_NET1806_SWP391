@@ -123,7 +123,8 @@ CREATE TABLE [Transaction] (
   PostPostID      int NOT NULL, 
   PRIMARY KEY (TransID));
 CREATE TABLE Voucher (
-  VoucherID   int IDENTITY NOT NULL, 
+  VoucherID   int IDENTITY NOT NULL,
+  VoucherName nvarchar(30),
   UnitPoint   int NOT NULL, 
   Discount    float(10) NOT NULL, 
   [Date]      date NOT NULL, 
