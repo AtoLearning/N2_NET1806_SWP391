@@ -45,6 +45,7 @@ public class Manager {
     @Column(name = "managermusername", length = 30, nullable = false)
     String ManagerMUserName;
 
+    //Cate n - 1 Manager
     @OneToMany(mappedBy = "manager", cascade = CascadeType.ALL)
     List<Category> categoryList;
 

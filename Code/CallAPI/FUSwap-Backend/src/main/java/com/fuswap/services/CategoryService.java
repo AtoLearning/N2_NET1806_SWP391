@@ -20,7 +20,7 @@ public class CategoryService {
     public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
-
+    //View -> Controller -> Server -> Repository
     public List<CategoryDto> getAllCategories() {
         List<Category> categoryList = categoryRepository.findAll();
         List<CategoryDto> categoryDtoList = new ArrayList<>();

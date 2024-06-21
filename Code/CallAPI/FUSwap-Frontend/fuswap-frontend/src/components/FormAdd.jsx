@@ -106,7 +106,7 @@ export default function CDashboard() {
                         </div>
                         <div>
                             <label htmlFor="muserName">Manager: </label>
-                            <input type="text" name='muserName' value={state.muserName} onChange={handleInputChange}/>
+                            <input type="text" name='muserName' value={state.muserName} onChange={handleInputChange} readOnly/>
                         </div>
                         <button type='submit' className='form-button'>Submit</button>
                     </form>
