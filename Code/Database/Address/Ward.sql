@@ -4551,3 +4551,2173 @@ INSERT INTO Ward(WardName) values (N'Xã Hải Xuân');              --4550
 INSERT INTO Ward(WardName) values (N'Xã Hải Châu');              --4551
 INSERT INTO Ward(WardName) values (N'Xã Hải Triều');             --4552
 INSERT INTO Ward(WardName) values (N'Xã Hải Hòa');               --4553
+
+--phi--
+INSERT INTO Ward(WardName) values (N'Phường Trảng Dài');         --8434
+INSERT INTO Ward(WardName) values (N'Phường Tân Phong');         --8435
+INSERT INTO Ward(WardName) values (N'Phường Tân Biên');          --8436
+INSERT INTO Ward(WardName) values (N'Phường Hố Nai');            --8437
+INSERT INTO Ward(WardName) values (N'Phường Tân Hòa');           --8438
+INSERT INTO Ward(WardName) values (N'Phường Tân Hiệp');          --8439
+INSERT INTO Ward(WardName) values (N'Phường Bửu Long');          --8440
+INSERT INTO Ward(WardName) values (N'Phường Tân Tiến');          --8441
+INSERT INTO Ward(WardName) values (N'Phường Tam Hiệp');          --8442
+INSERT INTO Ward(WardName) values (N'Phường Long Bình');         --8443
+INSERT INTO Ward(WardName) values (N'Phường Quang Vinh');        --8444
+INSERT INTO Ward(WardName) values (N'Phường Tân Mai');           --8445
+INSERT INTO Ward(WardName) values (N'Phường Thống Nhất');        --8446
+INSERT INTO Ward(WardName) values (N'Phường Trung Dũng');        --8447
+INSERT INTO Ward(WardName) values (N'Phường Tam Hòa');           --8448
+INSERT INTO Ward(WardName) values (N'Phường Hòa Bình');          --8449
+INSERT INTO Ward(WardName) values (N'Phường Quyết Thắng');       --8450
+INSERT INTO Ward(WardName) values (N'Phường Thanh Bình');        --8451
+INSERT INTO Ward(WardName) values (N'Phường Bình Đa');           --8452
+INSERT INTO Ward(WardName) values (N'Phường An Bình');           --8453
+INSERT INTO Ward(WardName) values (N'Phường Bửu Hòa');           --8454
+INSERT INTO Ward(WardName) values (N'Phường Long Bình Tân');     --8455
+INSERT INTO Ward(WardName) values (N'Phường Tân Vạn');           --8456
+INSERT INTO Ward(WardName) values (N'Phường Tân Hạnh');          --8457
+INSERT INTO Ward(WardName) values (N'Phường Hiệp Hòa');          --8458
+INSERT INTO Ward(WardName) values (N'Phường Hóa An');            --8459
+INSERT INTO Ward(WardName) values (N'Phường An Hòa');            --8460
+INSERT INTO Ward(WardName) values (N'Phường Tam Phước');         --8461
+INSERT INTO Ward(WardName) values (N'Phường Phước Tân');         --8462
+INSERT INTO Ward(WardName) values (N'Xã Long Hưng');             --8463
+INSERT INTO Ward(WardName) values (N'Phường Xuân Trung');        --8464
+INSERT INTO Ward(WardName) values (N'Phường Xuân Thanh');        --8465
+INSERT INTO Ward(WardName) values (N'Phường Xuân Bình');         --8466
+INSERT INTO Ward(WardName) values (N'Phường Xuân An');           --8467
+INSERT INTO Ward(WardName) values (N'Phường Xuân Hoà');          --8468
+INSERT INTO Ward(WardName) values (N'Phường Phú Bình');          --8469
+INSERT INTO Ward(WardName) values (N'Xã Bình Lộc');              --8470
+INSERT INTO Ward(WardName) values (N'Xã Bảo Quang');             --8471
+INSERT INTO Ward(WardName) values (N'Phường Suối Tre');          --8472
+INSERT INTO Ward(WardName) values (N'Phường Bảo Vinh');          --8473
+INSERT INTO Ward(WardName) values (N'Phường Xuân Lập');          --8474
+INSERT INTO Ward(WardName) values (N'Phường Bàu Sen');           --8475
+INSERT INTO Ward(WardName) values (N'Xã Bàu Trâm');              --8476
+INSERT INTO Ward(WardName) values (N'Phường Xuân Tân');          --8477
+INSERT INTO Ward(WardName) values (N'Xã Hàng Gòn');              --8478
+INSERT INTO Ward(WardName) values (N'Thị trấn Tân Phú');         --8479
+INSERT INTO Ward(WardName) values (N'Xã Dak Lua');               --8480
+INSERT INTO Ward(WardName) values (N'Xã Nam Cát Tiên');          --8481
+INSERT INTO Ward(WardName) values (N'Xã Phú An');                --8482
+INSERT INTO Ward(WardName) values (N'Xã Núi Tượng');             --8483
+INSERT INTO Ward(WardName) values (N'Xã Tà Lài');                --8484
+INSERT INTO Ward(WardName) values (N'Xã Phú Lập');               --8485
+INSERT INTO Ward(WardName) values (N'Xã Phú Sơn');               --8486
+INSERT INTO Ward(WardName) values (N'Xã Phú Thịnh');             --8487
+INSERT INTO Ward(WardName) values (N'Xã Thanh Sơn');             --8488
+INSERT INTO Ward(WardName) values (N'Xã Phú Trung');             --8489
+INSERT INTO Ward(WardName) values (N'Xã Phú Xuân');              --8490
+INSERT INTO Ward(WardName) values (N'Xã Phú Lộc');               --8491
+INSERT INTO Ward(WardName) values (N'Xã Phú Lâm');               --8492
+INSERT INTO Ward(WardName) values (N'Xã Phú Bình');              --8493
+INSERT INTO Ward(WardName) values (N'Xã Phú Thanh');             --8494
+INSERT INTO Ward(WardName) values (N'Xã Trà Cổ');                --8495
+INSERT INTO Ward(WardName) values (N'Xã Phú Điền');              --8496
+INSERT INTO Ward(WardName) values (N'Thị trấn Vĩnh An');         --8497
+INSERT INTO Ward(WardName) values (N'Xã Phú Lý');                --8498
+INSERT INTO Ward(WardName) values (N'Xã Trị An');                --8499
+INSERT INTO Ward(WardName) values (N'Xã Tân An');                --8500
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Tân');              --8501
+INSERT INTO Ward(WardName) values (N'Xã Bình Lợi');              --8502
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Phú');             --8503
+INSERT INTO Ward(WardName) values (N'Xã Thiện Tân');             --8504
+INSERT INTO Ward(WardName) values (N'Xã Tân Bình');              --8505
+INSERT INTO Ward(WardName) values (N'Xã Bình Hòa');              --8506
+INSERT INTO Ward(WardName) values (N'Xã Mã Đà');                 --8507
+INSERT INTO Ward(WardName) values (N'Xã Hiếu Liêm');             --8508
+INSERT INTO Ward(WardName) values (N'Thị trấn Định Quán');       --8509
+INSERT INTO Ward(WardName) values (N'Xã Thanh Sơn');             --8510
+INSERT INTO Ward(WardName) values (N'Xã Phú Tân');               --8511
+INSERT INTO Ward(WardName) values (N'Xã Phú Vinh');              --8512
+INSERT INTO Ward(WardName) values (N'Xã Phú Lợi');               --8513
+INSERT INTO Ward(WardName) values (N'Xã Phú Hòa');               --8514
+INSERT INTO Ward(WardName) values (N'Xã Ngọc Định');             --8515
+INSERT INTO Ward(WardName) values (N'Xã La Ngà');                --8516
+INSERT INTO Ward(WardName) values (N'Xã Gia Canh');              --8517
+INSERT INTO Ward(WardName) values (N'Xã Phú Ngọc');              --8518
+INSERT INTO Ward(WardName) values (N'Xã Phú Cường');             --8519
+INSERT INTO Ward(WardName) values (N'Xã Túc Trưng');             --8520
+INSERT INTO Ward(WardName) values (N'Xã Phú Túc');               --8521
+INSERT INTO Ward(WardName) values (N'Xã Suối Nho');              --8522
+INSERT INTO Ward(WardName) values (N'Thị trấn Trảng Bom');       --8523
+INSERT INTO Ward(WardName) values (N'Xã Thanh Bình');            --8524
+INSERT INTO Ward(WardName) values (N'Xã Cây Gáo');               --8525
+INSERT INTO Ward(WardName) values (N'Xã Bàu Hàm');               --8526
+INSERT INTO Ward(WardName) values (N'Xã Sông Thao');             --8527
+INSERT INTO Ward(WardName) values (N'Xã Sông Trầu');             --8528
+INSERT INTO Ward(WardName) values (N'Xã Đông Hoà');              --8529
+INSERT INTO Ward(WardName) values (N'Xã Bắc Sơn');               --8530
+INSERT INTO Ward(WardName) values (N'Xã Hố Nai 3');              --8531
+INSERT INTO Ward(WardName) values (N'Xã Tây Hoà');               --8532
+INSERT INTO Ward(WardName) values (N'Xã Bình Minh');             --8533
+INSERT INTO Ward(WardName) values (N'Xã Trung Hoà');             --8534
+INSERT INTO Ward(WardName) values (N'Xã Đồi 61');                --8535
+INSERT INTO Ward(WardName) values (N'Xã Hưng Thịnh');            --8536
+INSERT INTO Ward(WardName) values (N'Xã Quảng Tiến');            --8537
+INSERT INTO Ward(WardName) values (N'Xã Giang Điền');            --8538
+INSERT INTO Ward(WardName) values (N'Xã An Viễn');               --8539
+INSERT INTO Ward(WardName) values (N'Xã Gia Tân 1');             --8540
+INSERT INTO Ward(WardName) values (N'Xã Gia Tân 2');             --8541
+INSERT INTO Ward(WardName) values (N'Xã Gia Tân 3');             --8542
+INSERT INTO Ward(WardName) values (N'Xã Gia Kiệm');              --8543
+INSERT INTO Ward(WardName) values (N'Xã Quang Trung');           --8544
+INSERT INTO Ward(WardName) values (N'Xã Bàu Hàm 2');             --8545
+INSERT INTO Ward(WardName) values (N'Xã Hưng Lộc');              --8546
+INSERT INTO Ward(WardName) values (N'Xã Lộ 25');                 --8547
+INSERT INTO Ward(WardName) values (N'Xã Xuân Thiện');            --8548
+INSERT INTO Ward(WardName) values (N'Thị trấn Dầu Giây');        --8549
+INSERT INTO Ward(WardName) values (N'Xã Sông Nhạn');             --8550
+INSERT INTO Ward(WardName) values (N'Xã Xuân Quế');              --8551
+INSERT INTO Ward(WardName) values (N'Xã Nhân Nghĩa');            --8552
+INSERT INTO Ward(WardName) values (N'Xã Xuân Đường');            --8553
+INSERT INTO Ward(WardName) values (N'Thị trấn Long Giao');       --8554
+INSERT INTO Ward(WardName) values (N'Xã Xuân Mỹ');               --8555
+INSERT INTO Ward(WardName) values (N'Xã Thừa Đức');              --8556
+INSERT INTO Ward(WardName) values (N'Xã Bảo Bình');              --8557
+INSERT INTO Ward(WardName) values (N'Xã Xuân Bảo');              --8558
+INSERT INTO Ward(WardName) values (N'Xã Xuân Tây');              --8559
+INSERT INTO Ward(WardName) values (N'Xã Xuân Đông');             --8560
+INSERT INTO Ward(WardName) values (N'Xã Sông Ray');              --8561
+INSERT INTO Ward(WardName) values (N'Xã Lâm San');               --8562
+INSERT INTO Ward(WardName) values (N'Thị trấn Long Thành');      --8563
+INSERT INTO Ward(WardName) values (N'Xã An Phước');              --8564
+INSERT INTO Ward(WardName) values (N'Xã Bình An');               --8565
+INSERT INTO Ward(WardName) values (N'Xã Long Đức');              --8566
+INSERT INTO Ward(WardName) values (N'Xã Lộc An');                --8567
+INSERT INTO Ward(WardName) values (N'Xã Bình Sơn');              --8568
+INSERT INTO Ward(WardName) values (N'Xã Tam An');                --8569
+INSERT INTO Ward(WardName) values (N'Xã Cẩm Đường');             --8570
+INSERT INTO Ward(WardName) values (N'Xã Long An');               --8571
+INSERT INTO Ward(WardName) values (N'Xã Bàu Cạn');               --8572
+INSERT INTO Ward(WardName) values (N'Xã Long Phước');            --8573
+INSERT INTO Ward(WardName) values (N'Xã Phước Bình');            --8574
+INSERT INTO Ward(WardName) values (N'Xã Tân Hiệp');              --8575
+INSERT INTO Ward(WardName) values (N'Xã Phước Thái');            --8576
+INSERT INTO Ward(WardName) values (N'Thị trấn Gia Ray');         --8577
+INSERT INTO Ward(WardName) values (N'Xã Xuân Bắc');              --8578
+INSERT INTO Ward(WardName) values (N'Xã Suối Cao');              --8579
+INSERT INTO Ward(WardName) values (N'Xã Xuân Thành');            --8580
+INSERT INTO Ward(WardName) values (N'Xã Xuân Thọ');              --8581
+INSERT INTO Ward(WardName) values (N'Xã Xuân Trường');           --8582
+INSERT INTO Ward(WardName) values (N'Xã Xuân Hòa');              --8583
+INSERT INTO Ward(WardName) values (N'Xã Xuân Hưng');             --8584
+INSERT INTO Ward(WardName) values (N'Xã Xuân Tâm');              --8585
+INSERT INTO Ward(WardName) values (N'Xã Suối Cát');              --8586
+INSERT INTO Ward(WardName) values (N'Xã Xuân Hiệp');             --8587
+INSERT INTO Ward(WardName) values (N'Xã Xuân Phú');              --8588
+INSERT INTO Ward(WardName) values (N'Xã Xuân Định');             --8589
+INSERT INTO Ward(WardName) values (N'Xã Bảo Hoà');               --8590
+INSERT INTO Ward(WardName) values (N'Xã Lang Minh');             --8591
+INSERT INTO Ward(WardName) values (N'Xã Phước Thiền');           --8592
+INSERT INTO Ward(WardName) values (N'Xã Long Tân');              --8593
+INSERT INTO Ward(WardName) values (N'Xã Đại Phước');             --8594
+INSERT INTO Ward(WardName) values (N'Thị trấn Hiệp Phước');      --8595
+INSERT INTO Ward(WardName) values (N'Xã Phú Hữu');               --8596
+INSERT INTO Ward(WardName) values (N'Xã Phú Hội');               --8597
+INSERT INTO Ward(WardName) values (N'Xã Phú Thạnh');             --8598
+INSERT INTO Ward(WardName) values (N'Xã Phú Đông');              --8599
+INSERT INTO Ward(WardName) values (N'Xã Long Thọ');              --8600
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thanh');            --8601
+INSERT INTO Ward(WardName) values (N'Xã Phước Khánh');           --8602
+INSERT INTO Ward(WardName) values (N'Xã Phước An');              --8603
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --8604
+INSERT INTO Ward(WardName) values (N'Phường Thắng Tam');         --8605
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --8606
+INSERT INTO Ward(WardName) values (N'Phường 3');                 --8607
+INSERT INTO Ward(WardName) values (N'Phường 4');                 --8608
+INSERT INTO Ward(WardName) values (N'Phường 5');                 --8609
+INSERT INTO Ward(WardName) values (N'Phường Thắng Nhì');         --8610
+INSERT INTO Ward(WardName) values (N'Phường 7');                 --8611
+INSERT INTO Ward(WardName) values (N'Phường Nguyễn An Ninh');    --8612
+INSERT INTO Ward(WardName) values (N'Phường 8');                 --8613
+INSERT INTO Ward(WardName) values (N'Phường 9');                 --8614
+INSERT INTO Ward(WardName) values (N'Phường Thắng Nhất');        --8615
+INSERT INTO Ward(WardName) values (N'Phường Rạch Dừa');          --8616
+INSERT INTO Ward(WardName) values (N'Phường 10');                --8617
+INSERT INTO Ward(WardName) values (N'Phường 11');                --8618
+INSERT INTO Ward(WardName) values (N'Phường 12');                --8619
+INSERT INTO Ward(WardName) values (N'Xã Long Sơn');              --8620
+INSERT INTO Ward(WardName) values (N'Phường Phước Hưng');        --8621
+INSERT INTO Ward(WardName) values (N'Phường Phước Hiệp');        --8622
+INSERT INTO Ward(WardName) values (N'Phường Phước Nguyên');      --8623
+INSERT INTO Ward(WardName) values (N'Phường Long Toàn');         --8624
+INSERT INTO Ward(WardName) values (N'Phường Long Tâm');          --8625
+INSERT INTO Ward(WardName) values (N'Phường Phước Trung');       --8626
+INSERT INTO Ward(WardName) values (N'Phường Long Hương');        --8627
+INSERT INTO Ward(WardName) values (N'Phường Kim Dinh');          --8628
+INSERT INTO Ward(WardName) values (N'Xã Tân Hưng');              --8629
+INSERT INTO Ward(WardName) values (N'Xã Long Phước');            --8630
+INSERT INTO Ward(WardName) values (N'Xã Hoà Long');              --8631
+INSERT INTO Ward(WardName) values (N'Xã Bàu Chinh');             --8632
+INSERT INTO Ward(WardName) values (N'Thị trấn Ngãi Giao');       --8633
+INSERT INTO Ward(WardName) values (N'Xã Bình Ba');               --8634
+INSERT INTO Ward(WardName) values (N'Xã Suối Nghệ');             --8635
+INSERT INTO Ward(WardName) values (N'Xã Xuân Sơn');              --8636
+INSERT INTO Ward(WardName) values (N'Xã Sơn Bình');              --8637
+INSERT INTO Ward(WardName) values (N'Xã Bình Giã');              --8638
+INSERT INTO Ward(WardName) values (N'Xã Bình Trung');            --8639
+INSERT INTO Ward(WardName) values (N'Xã Xà Bang');               --8640
+INSERT INTO Ward(WardName) values (N'Xã Cù Bị');                 --8641
+INSERT INTO Ward(WardName) values (N'Xã Láng Lớn');              --8642
+INSERT INTO Ward(WardName) values (N'Xã Quảng Thành');           --8643
+INSERT INTO Ward(WardName) values (N'Xã Kim Long');              --8644
+INSERT INTO Ward(WardName) values (N'Xã Suối Rao');              --8645
+INSERT INTO Ward(WardName) values (N'Xã Đá Bạc');                --8646
+INSERT INTO Ward(WardName) values (N'Xã Nghĩa Thành');           --8647
+INSERT INTO Ward(WardName) values (N'Thị trấn Phước Bửu');       --8648
+INSERT INTO Ward(WardName) values (N'Xã Phước Thuận');           --8649
+INSERT INTO Ward(WardName) values (N'Xã Phước Tân');             --8650
+INSERT INTO Ward(WardName) values (N'Xã Xuyên Mộc');             --8651
+INSERT INTO Ward(WardName) values (N'Xã Bông Trang');            --8652
+INSERT INTO Ward(WardName) values (N'Xã Tân Lâm');               --8653
+INSERT INTO Ward(WardName) values (N'Xã Bàu Lâm');               --8654
+INSERT INTO Ward(WardName) values (N'Xã Hòa Bình');              --8655
+INSERT INTO Ward(WardName) values (N'Xã Hòa Hưng');              --8656
+INSERT INTO Ward(WardName) values (N'Xã Hòa Hiệp');              --8657
+INSERT INTO Ward(WardName) values (N'Xã Hòa Hội');               --8658
+INSERT INTO Ward(WardName) values (N'Xã Bưng Riềng');            --8659
+INSERT INTO Ward(WardName) values (N'Xã Bình Châu');             --8660
+INSERT INTO Ward(WardName) values (N'Thị trấn Long Điền');       --8661
+INSERT INTO Ward(WardName) values (N'Thị trấn Long Hải');        --8662
+INSERT INTO Ward(WardName) values (N'Xã An Ngãi');               --8663
+INSERT INTO Ward(WardName) values (N'Xã Tam Phước');             --8664
+INSERT INTO Ward(WardName) values (N'Xã An Nhứt');               --8665
+INSERT INTO Ward(WardName) values (N'Xã Phước Tỉnh');            --8666
+INSERT INTO Ward(WardName) values (N'Xã Phước Hưng');            --8667
+INSERT INTO Ward(WardName) values (N'Thị trấn Đất Đỏ');          --8668
+INSERT INTO Ward(WardName) values (N'Xã Phước Long Thọ');        --8669
+INSERT INTO Ward(WardName) values (N'Xã Phước Hội');             --8670
+INSERT INTO Ward(WardName) values (N'Xã Long Mỹ');               --8671
+INSERT INTO Ward(WardName) values (N'Thị trấn Phước Hải');       --8672
+INSERT INTO Ward(WardName) values (N'Xã Long Tân');              --8673
+INSERT INTO Ward(WardName) values (N'Xã Láng Dài');              --8674
+INSERT INTO Ward(WardName) values (N'Xã Lộc An');                --8675
+INSERT INTO Ward(WardName) values (N'Phường Phú Mỹ');            --8676
+INSERT INTO Ward(WardName) values (N'Xã Tân Hoà');               --8677
+INSERT INTO Ward(WardName) values (N'Xã Tân Hải');               --8678
+INSERT INTO Ward(WardName) values (N'Phường Phước Hoà');         --8679
+INSERT INTO Ward(WardName) values (N'Phường Tân Phước');         --8680
+INSERT INTO Ward(WardName) values (N'Phường Mỹ Xuân');           --8681
+INSERT INTO Ward(WardName) values (N'Xã Sông Xoài');             --8682
+INSERT INTO Ward(WardName) values (N'Phường Hắc Dịch');          --8683
+INSERT INTO Ward(WardName) values (N'Xã Châu Pha');              --8684
+INSERT INTO Ward(WardName) values (N'Xã Tóc Tiên');              --8685
+INSERT INTO Ward(WardName) values (N'None');                     --8686
+INSERT INTO Ward(WardName) values (N'Phường Tân Định');          --8687
+INSERT INTO Ward(WardName) values (N'Phường Đa Kao');            --8688
+INSERT INTO Ward(WardName) values (N'Phường Bến Nghé');          --8689
+INSERT INTO Ward(WardName) values (N'Phường Bến Thành');         --8690
+INSERT INTO Ward(WardName) values (N'Phường Nguyễn Thái Bình');  --8691
+INSERT INTO Ward(WardName) values (N'Phường Phạm Ngũ Lão');      --8692
+INSERT INTO Ward(WardName) values (N'Phường Cầu Ông Lãnh');      --8693
+INSERT INTO Ward(WardName) values (N'Phường Cô Giang');          --8694
+INSERT INTO Ward(WardName) values (N'Phường Nguyễn Cư Trinh');   --8695
+INSERT INTO Ward(WardName) values (N'Phường Cầu Kho');           --8696
+INSERT INTO Ward(WardName) values (N'Phường Thạnh Xuân');        --8697
+INSERT INTO Ward(WardName) values (N'Phường Thạnh Lộc');         --8698
+INSERT INTO Ward(WardName) values (N'Phường Hiệp Thành');        --8699
+INSERT INTO Ward(WardName) values (N'Phường Thới An');           --8700
+INSERT INTO Ward(WardName) values (N'Phường Tân Chánh Hiệp');    --8701
+INSERT INTO Ward(WardName) values (N'Phường An Phú Đông');       --8702
+INSERT INTO Ward(WardName) values (N'Phường Tân Thới Hiệp');     --8703
+INSERT INTO Ward(WardName) values (N'Phường Trung Mỹ Tây');      --8704
+INSERT INTO Ward(WardName) values (N'Phường Tân Hưng Thuận');    --8705
+INSERT INTO Ward(WardName) values (N'Phường Đông Hưng Thuận');   --8706
+INSERT INTO Ward(WardName) values (N'Phường Tân Thới Nhất');     --8707
+INSERT INTO Ward(WardName) values (N'Phường 15');                --8708
+INSERT INTO Ward(WardName) values (N'Phường 13');                --8709
+INSERT INTO Ward(WardName) values (N'Phường 17');                --8710
+INSERT INTO Ward(WardName) values (N'Phường 6');                 --8711
+INSERT INTO Ward(WardName) values (N'Phường 16');                --8712
+INSERT INTO Ward(WardName) values (N'Phường 12');                --8713
+INSERT INTO Ward(WardName) values (N'Phường 14');                --8714
+INSERT INTO Ward(WardName) values (N'Phường 10');                --8715
+INSERT INTO Ward(WardName) values (N'Phường 05');                --8716
+INSERT INTO Ward(WardName) values (N'Phường 07');                --8717
+INSERT INTO Ward(WardName) values (N'Phường 04');                --8718
+INSERT INTO Ward(WardName) values (N'Phường 01');                --8719
+INSERT INTO Ward(WardName) values (N'Phường 9');                 --8720
+INSERT INTO Ward(WardName) values (N'Phường 8');                 --8721
+INSERT INTO Ward(WardName) values (N'Phường 11');                --8722
+INSERT INTO Ward(WardName) values (N'Phường 03');                --8723
+INSERT INTO Ward(WardName) values (N'Phường 13');                --8724
+INSERT INTO Ward(WardName) values (N'Phường 11');                --8725
+INSERT INTO Ward(WardName) values (N'Phường 27');                --8726
+INSERT INTO Ward(WardName) values (N'Phường 26');                --8727
+INSERT INTO Ward(WardName) values (N'Phường 12');                --8728
+INSERT INTO Ward(WardName) values (N'Phường 25');                --8729
+INSERT INTO Ward(WardName) values (N'Phường 05');                --8730
+INSERT INTO Ward(WardName) values (N'Phường 07');                --8731
+INSERT INTO Ward(WardName) values (N'Phường 24');                --8732
+INSERT INTO Ward(WardName) values (N'Phường 06');                --8733
+INSERT INTO Ward(WardName) values (N'Phường 14');                --8734
+INSERT INTO Ward(WardName) values (N'Phường 15');                --8735
+INSERT INTO Ward(WardName) values (N'Phường 02');                --8736
+INSERT INTO Ward(WardName) values (N'Phường 01');                --8737
+INSERT INTO Ward(WardName) values (N'Phường 03');                --8738
+INSERT INTO Ward(WardName) values (N'Phường 17');                --8739
+INSERT INTO Ward(WardName) values (N'Phường 21');                --8740
+INSERT INTO Ward(WardName) values (N'Phường 22');                --8741
+INSERT INTO Ward(WardName) values (N'Phường 19');                --8742
+INSERT INTO Ward(WardName) values (N'Phường 28');                --8743
+INSERT INTO Ward(WardName) values (N'Phường 02');                --8744
+INSERT INTO Ward(WardName) values (N'Phường 04');                --8745
+INSERT INTO Ward(WardName) values (N'Phường 12');                --8746
+INSERT INTO Ward(WardName) values (N'Phường 13');                --8747
+INSERT INTO Ward(WardName) values (N'Phường 01');                --8748
+INSERT INTO Ward(WardName) values (N'Phường 03');                --8749
+INSERT INTO Ward(WardName) values (N'Phường 11');                --8750
+INSERT INTO Ward(WardName) values (N'Phường 07');                --8751
+INSERT INTO Ward(WardName) values (N'Phường 05');                --8752
+INSERT INTO Ward(WardName) values (N'Phường 10');                --8753
+INSERT INTO Ward(WardName) values (N'Phường 06');                --8754
+INSERT INTO Ward(WardName) values (N'Phường 08');                --8755
+INSERT INTO Ward(WardName) values (N'Phường 09');                --8756
+INSERT INTO Ward(WardName) values (N'Phường 14');                --8757
+INSERT INTO Ward(WardName) values (N'Phường 15');                --8758
+INSERT INTO Ward(WardName) values (N'Phường Tân Sơn Nhì');       --8759
+INSERT INTO Ward(WardName) values (N'Phường Tây Thạnh');         --8760
+INSERT INTO Ward(WardName) values (N'Phường Sơn Kỳ');            --8761
+INSERT INTO Ward(WardName) values (N'Phường Tân Quý');           --8762
+INSERT INTO Ward(WardName) values (N'Phường Tân Thành');         --8763
+INSERT INTO Ward(WardName) values (N'Phường Phú Thọ Hòa');       --8764
+INSERT INTO Ward(WardName) values (N'Phường Phú Thạnh');         --8765
+INSERT INTO Ward(WardName) values (N'Phường Phú Trung');         --8766
+INSERT INTO Ward(WardName) values (N'Phường Hòa Thạnh');         --8767
+INSERT INTO Ward(WardName) values (N'Phường Hiệp Tân');          --8768
+INSERT INTO Ward(WardName) values (N'Phường Tân Thới Hòa');      --8769
+INSERT INTO Ward(WardName) values (N'Phường 04');                --8770
+INSERT INTO Ward(WardName) values (N'Phường 05');                --8771
+INSERT INTO Ward(WardName) values (N'Phường 09');                --8772
+INSERT INTO Ward(WardName) values (N'Phường 07');                --8773
+INSERT INTO Ward(WardName) values (N'Phường 03');                --8774
+INSERT INTO Ward(WardName) values (N'Phường 01');                --8775
+INSERT INTO Ward(WardName) values (N'Phường 02');                --8776
+INSERT INTO Ward(WardName) values (N'Phường 08');                --8777
+INSERT INTO Ward(WardName) values (N'Phường 15');                --8778
+INSERT INTO Ward(WardName) values (N'Phường 10');                --8779
+INSERT INTO Ward(WardName) values (N'Phường 11');                --8780
+INSERT INTO Ward(WardName) values (N'Phường 17');                --8781
+INSERT INTO Ward(WardName) values (N'Phường 13');                --8782
+INSERT INTO Ward(WardName) values (N'Phường Linh Xuân');         --8783
+INSERT INTO Ward(WardName) values (N'Phường Bình Chiểu');        --8784
+INSERT INTO Ward(WardName) values (N'Phường Linh Trung');        --8785
+INSERT INTO Ward(WardName) values (N'Phường Tam Bình');          --8786
+INSERT INTO Ward(WardName) values (N'Phường Tam Phú');           --8787
+INSERT INTO Ward(WardName) values (N'Phường Hiệp Bình Phước');   --8788
+INSERT INTO Ward(WardName) values (N'Phường Hiệp Bình Chánh');   --8789
+INSERT INTO Ward(WardName) values (N'Phường Linh Chiểu');        --8790
+INSERT INTO Ward(WardName) values (N'Phường Linh Tây');          --8791
+INSERT INTO Ward(WardName) values (N'Phường Linh Đông');         --8792
+INSERT INTO Ward(WardName) values (N'Phường Bình Thọ');          --8793
+INSERT INTO Ward(WardName) values (N'Phường Trường Thọ');        --8794
+INSERT INTO Ward(WardName) values (N'Phường Long Bình');         --8795
+INSERT INTO Ward(WardName) values (N'Phường Long Thạnh Mỹ');     --8796
+INSERT INTO Ward(WardName) values (N'Phường Tân Phú');           --8797
+INSERT INTO Ward(WardName) values (N'Phường Hiệp Phú');          --8798
+INSERT INTO Ward(WardName) values (N'Phường Tăng Nhơn Phú A');   --8799
+INSERT INTO Ward(WardName) values (N'Phường Tăng Nhơn Phú B');   --8800
+INSERT INTO Ward(WardName) values (N'Phường Phước Long B');      --8801
+INSERT INTO Ward(WardName) values (N'Phường Phước Long A');      --8802
+INSERT INTO Ward(WardName) values (N'Phường Trường Thạnh');      --8803
+INSERT INTO Ward(WardName) values (N'Phường Long Phước');        --8804
+INSERT INTO Ward(WardName) values (N'Phường Long Trường');       --8805
+INSERT INTO Ward(WardName) values (N'Phường Phước Bình');        --8806
+INSERT INTO Ward(WardName) values (N'Phường Phú Hữu');           --8807
+INSERT INTO Ward(WardName) values (N'Phường Thảo Điền');         --8808
+INSERT INTO Ward(WardName) values (N'Phường An Phú');            --8809
+INSERT INTO Ward(WardName) values (N'Phường An Khánh');          --8810
+INSERT INTO Ward(WardName) values (N'Phường Bình Trưng Đông');   --8811
+INSERT INTO Ward(WardName) values (N'Phường Bình Trưng Tây');    --8812
+INSERT INTO Ward(WardName) values (N'Phường Cát Lái');           --8813
+INSERT INTO Ward(WardName) values (N'Phường Thạnh Mỹ Lợi');      --8814
+INSERT INTO Ward(WardName) values (N'Phường An Lợi Đông');       --8815
+INSERT INTO Ward(WardName) values (N'Phường Thủ Thiêm');         --8816
+INSERT INTO Ward(WardName) values (N'Phường 14');                --8817
+INSERT INTO Ward(WardName) values (N'Phường 12');                --8818
+INSERT INTO Ward(WardName) values (N'Phường 11');                --8819
+INSERT INTO Ward(WardName) values (N'Phường 13');                --8820
+INSERT INTO Ward(WardName) values (N'Phường Võ Thị Sáu');        --8821
+INSERT INTO Ward(WardName) values (N'Phường 09');                --8822
+INSERT INTO Ward(WardName) values (N'Phường 10');                --8823
+INSERT INTO Ward(WardName) values (N'Phường 04');                --8824
+INSERT INTO Ward(WardName) values (N'Phường 05');                --8825
+INSERT INTO Ward(WardName) values (N'Phường 03');                --8826
+INSERT INTO Ward(WardName) values (N'Phường 02');                --8827
+INSERT INTO Ward(WardName) values (N'Phường 01');                --8828
+INSERT INTO Ward(WardName) values (N'Phường 15');                --8829
+INSERT INTO Ward(WardName) values (N'Phường 13');                --8830
+INSERT INTO Ward(WardName) values (N'Phường 14');                --8831
+INSERT INTO Ward(WardName) values (N'Phường 12');                --8832
+INSERT INTO Ward(WardName) values (N'Phường 11');                --8833
+INSERT INTO Ward(WardName) values (N'Phường 10');                --8834
+INSERT INTO Ward(WardName) values (N'Phường 09');                --8835
+INSERT INTO Ward(WardName) values (N'Phường 01');                --8836
+INSERT INTO Ward(WardName) values (N'Phường 08');                --8837
+INSERT INTO Ward(WardName) values (N'Phường 02');                --8838
+INSERT INTO Ward(WardName) values (N'Phường 04');                --8839
+INSERT INTO Ward(WardName) values (N'Phường 07');                --8840
+INSERT INTO Ward(WardName) values (N'Phường 05');                --8841
+INSERT INTO Ward(WardName) values (N'Phường 06');                --8842
+INSERT INTO Ward(WardName) values (N'Phường 15');                --8843
+INSERT INTO Ward(WardName) values (N'Phường 05');                --8844
+INSERT INTO Ward(WardName) values (N'Phường 14');                --8845
+INSERT INTO Ward(WardName) values (N'Phường 11');                --8846
+INSERT INTO Ward(WardName) values (N'Phường 03');                --8847
+INSERT INTO Ward(WardName) values (N'Phường 10');                --8848
+INSERT INTO Ward(WardName) values (N'Phường 13');                --8849
+INSERT INTO Ward(WardName) values (N'Phường 08');                --8850
+INSERT INTO Ward(WardName) values (N'Phường 09');                --8851
+INSERT INTO Ward(WardName) values (N'Phường 12');                --8852
+INSERT INTO Ward(WardName) values (N'Phường 07');                --8853
+INSERT INTO Ward(WardName) values (N'Phường 06');                --8854
+INSERT INTO Ward(WardName) values (N'Phường 04');                --8855
+INSERT INTO Ward(WardName) values (N'Phường 01');                --8856
+INSERT INTO Ward(WardName) values (N'Phường 02');                --8857
+INSERT INTO Ward(WardName) values (N'Phường 16');                --8858
+INSERT INTO Ward(WardName) values (N'Phường 13');                --8859
+INSERT INTO Ward(WardName) values (N'Phường 09');                --8860
+INSERT INTO Ward(WardName) values (N'Phường 06');                --8861
+INSERT INTO Ward(WardName) values (N'Phường 08');                --8862
+INSERT INTO Ward(WardName) values (N'Phường 10');                --8863
+INSERT INTO Ward(WardName) values (N'Phường 18');                --8864
+INSERT INTO Ward(WardName) values (N'Phường 14');                --8865
+INSERT INTO Ward(WardName) values (N'Phường 04');                --8866
+INSERT INTO Ward(WardName) values (N'Phường 03');                --8867
+INSERT INTO Ward(WardName) values (N'Phường 16');                --8868
+INSERT INTO Ward(WardName) values (N'Phường 02');                --8869
+INSERT INTO Ward(WardName) values (N'Phường 15');                --8870
+INSERT INTO Ward(WardName) values (N'Phường 01');                --8871
+INSERT INTO Ward(WardName) values (N'Phường 04');                --8872
+INSERT INTO Ward(WardName) values (N'Phường 09');                --8873
+INSERT INTO Ward(WardName) values (N'Phường 03');                --8874
+INSERT INTO Ward(WardName) values (N'Phường 12');                --8875
+INSERT INTO Ward(WardName) values (N'Phường 02');                --8876
+INSERT INTO Ward(WardName) values (N'Phường 08');                --8877
+INSERT INTO Ward(WardName) values (N'Phường 07');                --8878
+INSERT INTO Ward(WardName) values (N'Phường 01');                --8879
+INSERT INTO Ward(WardName) values (N'Phường 11');                --8880
+INSERT INTO Ward(WardName) values (N'Phường 14');                --8881
+INSERT INTO Ward(WardName) values (N'Phường 05');                --8882
+INSERT INTO Ward(WardName) values (N'Phường 06');                --8883
+INSERT INTO Ward(WardName) values (N'Phường 10');                --8884
+INSERT INTO Ward(WardName) values (N'Phường 13');                --8885
+INSERT INTO Ward(WardName) values (N'Phường 14');                --8886
+INSERT INTO Ward(WardName) values (N'Phường 13');                --8887
+INSERT INTO Ward(WardName) values (N'Phường 09');                --8888
+INSERT INTO Ward(WardName) values (N'Phường 06');                --8889
+INSERT INTO Ward(WardName) values (N'Phường 12');                --8890
+INSERT INTO Ward(WardName) values (N'Phường 05');                --8891
+INSERT INTO Ward(WardName) values (N'Phường 11');                --8892
+INSERT INTO Ward(WardName) values (N'Phường 02');                --8893
+INSERT INTO Ward(WardName) values (N'Phường 01');                --8894
+INSERT INTO Ward(WardName) values (N'Phường 04');                --8895
+INSERT INTO Ward(WardName) values (N'Phường 08');                --8896
+INSERT INTO Ward(WardName) values (N'Phường 03');                --8897
+INSERT INTO Ward(WardName) values (N'Phường 07');                --8898
+INSERT INTO Ward(WardName) values (N'Phường 10');                --8899
+INSERT INTO Ward(WardName) values (N'Phường 08');                --8900
+INSERT INTO Ward(WardName) values (N'Phường 02');                --8901
+INSERT INTO Ward(WardName) values (N'Phường 01');                --8902
+INSERT INTO Ward(WardName) values (N'Phường 03');                --8903
+INSERT INTO Ward(WardName) values (N'Phường 11');                --8904
+INSERT INTO Ward(WardName) values (N'Phường 09');                --8905
+INSERT INTO Ward(WardName) values (N'Phường 10');                --8906
+INSERT INTO Ward(WardName) values (N'Phường 04');                --8907
+INSERT INTO Ward(WardName) values (N'Phường 13');                --8908
+INSERT INTO Ward(WardName) values (N'Phường 12');                --8909
+INSERT INTO Ward(WardName) values (N'Phường 05');                --8910
+INSERT INTO Ward(WardName) values (N'Phường 14');                --8911
+INSERT INTO Ward(WardName) values (N'Phường 06');                --8912
+INSERT INTO Ward(WardName) values (N'Phường 15');                --8913
+INSERT INTO Ward(WardName) values (N'Phường 16');                --8914
+INSERT INTO Ward(WardName) values (N'Phường 07');                --8915
+INSERT INTO Ward(WardName) values (N'Phường Bình Hưng Hòa');     --8916
+INSERT INTO Ward(WardName) values (N'Phường Bình Hưng Hoà A');   --8917
+INSERT INTO Ward(WardName) values (N'Phường Bình Hưng Hoà B');   --8918
+INSERT INTO Ward(WardName) values (N'Phường Bình Trị Đông');     --8919
+INSERT INTO Ward(WardName) values (N'Phường Bình Trị Đông A');   --8920
+INSERT INTO Ward(WardName) values (N'Phường Bình Trị Đông B');   --8921
+INSERT INTO Ward(WardName) values (N'Phường Tân Tạo');           --8922
+INSERT INTO Ward(WardName) values (N'Phường Tân Tạo A');         --8923
+INSERT INTO Ward(WardName) values (N'Phường  An Lạc');           --8924
+INSERT INTO Ward(WardName) values (N'Phường An Lạc A');          --8925
+INSERT INTO Ward(WardName) values (N'Phường Tân Thuận Đông');    --8926
+INSERT INTO Ward(WardName) values (N'Phường Tân Thuận Tây');     --8927
+INSERT INTO Ward(WardName) values (N'Phường Tân Kiểng');         --8928
+INSERT INTO Ward(WardName) values (N'Phường Tân Hưng');          --8929
+INSERT INTO Ward(WardName) values (N'Phường Bình Thuận');        --8930
+INSERT INTO Ward(WardName) values (N'Phường Tân Quy');           --8931
+INSERT INTO Ward(WardName) values (N'Phường Phú Thuận');         --8932
+INSERT INTO Ward(WardName) values (N'Phường Tân Phú');           --8933
+INSERT INTO Ward(WardName) values (N'Phường Tân Phong');         --8934
+INSERT INTO Ward(WardName) values (N'Phường Phú Mỹ');            --8935
+INSERT INTO Ward(WardName) values (N'Thị trấn Củ Chi');          --8936
+INSERT INTO Ward(WardName) values (N'Xã Phú Mỹ Hưng');           --8937
+INSERT INTO Ward(WardName) values (N'Xã An Phú');                --8938
+INSERT INTO Ward(WardName) values (N'Xã Trung Lập Thượng');      --8939
+INSERT INTO Ward(WardName) values (N'Xã An Nhơn Tây');           --8940
+INSERT INTO Ward(WardName) values (N'Xã Nhuận Đức');             --8941
+INSERT INTO Ward(WardName) values (N'Xã Phạm Văn Cội');          --8942
+INSERT INTO Ward(WardName) values (N'Xã Phú Hòa Đông');          --8943
+INSERT INTO Ward(WardName) values (N'Xã Trung Lập Hạ');          --8944
+INSERT INTO Ward(WardName) values (N'Xã Trung An');              --8945
+INSERT INTO Ward(WardName) values (N'Xã Phước Thạnh');           --8946
+INSERT INTO Ward(WardName) values (N'Xã Phước Hiệp');            --8947
+INSERT INTO Ward(WardName) values (N'Xã Tân An Hội');            --8948
+INSERT INTO Ward(WardName) values (N'Xã Phước Vĩnh An');         --8949
+INSERT INTO Ward(WardName) values (N'Xã Thái Mỹ');               --8950
+INSERT INTO Ward(WardName) values (N'Xã Tân Thạnh Tây');         --8951
+INSERT INTO Ward(WardName) values (N'Xã Hòa Phú');               --8952
+INSERT INTO Ward(WardName) values (N'Xã Tân Thạnh Đông');        --8953
+INSERT INTO Ward(WardName) values (N'Xã Bình Mỹ');               --8954
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú Trung');         --8955
+INSERT INTO Ward(WardName) values (N'Xã Tân Thông Hội');         --8956
+INSERT INTO Ward(WardName) values (N'Thị trấn Hóc Môn');         --8957
+INSERT INTO Ward(WardName) values (N'Xã Tân Hiệp');              --8958
+INSERT INTO Ward(WardName) values (N'Xã Nhị Bình');              --8959
+INSERT INTO Ward(WardName) values (N'Xã Đông Thạnh');            --8960
+INSERT INTO Ward(WardName) values (N'Xã Tân Thới Nhì');          --8961
+INSERT INTO Ward(WardName) values (N'Xã Thới Tam Thôn');         --8962
+INSERT INTO Ward(WardName) values (N'Xã Xuân Thới Sơn');         --8963
+INSERT INTO Ward(WardName) values (N'Xã Tân Xuân');              --8964
+INSERT INTO Ward(WardName) values (N'Xã Xuân Thới Đông');        --8965
+INSERT INTO Ward(WardName) values (N'Xã Trung Chánh');           --8966
+INSERT INTO Ward(WardName) values (N'Xã Xuân Thới Thượng');      --8967
+INSERT INTO Ward(WardName) values (N'Xã Bà Điểm');               --8968
+INSERT INTO Ward(WardName) values (N'Thị trấn Tân Túc');         --8969
+INSERT INTO Ward(WardName) values (N'Xã Phạm Văn Hai');          --8970
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Lộc A');            --8971
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Lộc B');            --8972
+INSERT INTO Ward(WardName) values (N'Xã Bình Lợi');              --8973
+INSERT INTO Ward(WardName) values (N'Xã Lê Minh Xuân');          --8974
+INSERT INTO Ward(WardName) values (N'Xã Tân Nhựt');              --8975
+INSERT INTO Ward(WardName) values (N'Xã Tân Kiên');              --8976
+INSERT INTO Ward(WardName) values (N'Xã Bình Hưng');             --8977
+INSERT INTO Ward(WardName) values (N'Xã Phong Phú');             --8978
+INSERT INTO Ward(WardName) values (N'Xã An Phú Tây');            --8979
+INSERT INTO Ward(WardName) values (N'Xã Hưng Long');             --8980
+INSERT INTO Ward(WardName) values (N'Xã Đa Phước');              --8981
+INSERT INTO Ward(WardName) values (N'Xã Tân Quý Tây');           --8982
+INSERT INTO Ward(WardName) values (N'Xã Bình Chánh');            --8983
+INSERT INTO Ward(WardName) values (N'Xã Quy Đức');               --8984
+INSERT INTO Ward(WardName) values (N'Thị trấn Nhà Bè');          --8985
+INSERT INTO Ward(WardName) values (N'Xã Phước Kiển');            --8986
+INSERT INTO Ward(WardName) values (N'Xã Phước Lộc');             --8987
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Đức');              --8988
+INSERT INTO Ward(WardName) values (N'Xã Phú Xuân');              --8989
+INSERT INTO Ward(WardName) values (N'Xã Long Thới');             --8990
+INSERT INTO Ward(WardName) values (N'Xã Hiệp Phước');            --8991
+INSERT INTO Ward(WardName) values (N'Thị trấn Cần Thạnh');       --8992
+INSERT INTO Ward(WardName) values (N'Xã Bình Khánh');            --8993
+INSERT INTO Ward(WardName) values (N'Xã Tam Thôn Hiệp');         --8994
+INSERT INTO Ward(WardName) values (N'Xã An Thới Đông');          --8995
+INSERT INTO Ward(WardName) values (N'Xã Thạnh An');              --8996
+INSERT INTO Ward(WardName) values (N'Xã Long Hòa');              --8997
+INSERT INTO Ward(WardName) values (N'Xã Lý Nhơn');               --8998
+INSERT INTO Ward(WardName) values (N'Phường 5');                 --8999
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --9000
+INSERT INTO Ward(WardName) values (N'Phường 4');                 --9001
+INSERT INTO Ward(WardName) values (N'Phường Tân Khánh');         --9002
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --9003
+INSERT INTO Ward(WardName) values (N'Phường 3');                 --9004
+INSERT INTO Ward(WardName) values (N'Phường 7');                 --9005
+INSERT INTO Ward(WardName) values (N'Phường 6');                 --9006
+INSERT INTO Ward(WardName) values (N'Xã Hướng Thọ Phú');         --9007
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Thạnh Trung');      --9008
+INSERT INTO Ward(WardName) values (N'Xã Lợi Bình Nhơn');         --9009
+INSERT INTO Ward(WardName) values (N'Xã Bình Tâm');              --9010
+INSERT INTO Ward(WardName) values (N'Phường Khánh Hậu');         --9011
+INSERT INTO Ward(WardName) values (N'Xã An Vĩnh Ngãi');          --9012
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --9013
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --9014
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Trị');             --9015
+INSERT INTO Ward(WardName) values (N'Xã Bình Hiệp');             --9016
+INSERT INTO Ward(WardName) values (N'Xã Bình Tân');              --9017
+INSERT INTO Ward(WardName) values (N'Xã Tuyên Thạnh');           --9018
+INSERT INTO Ward(WardName) values (N'Phường 3');                 --9019
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Hưng');            --9020
+INSERT INTO Ward(WardName) values (N'Thị trấn Tân Hưng');        --9021
+INSERT INTO Ward(WardName) values (N'Xã Hưng Hà');               --9022
+INSERT INTO Ward(WardName) values (N'Xã Hưng Điền B');           --9023
+INSERT INTO Ward(WardName) values (N'Xã Hưng Điền');             --9024
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Hưng');            --9025
+INSERT INTO Ward(WardName) values (N'Xã Hưng Thạnh');            --9026
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thạnh');            --9027
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Châu B');           --9028
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Lợi');              --9029
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Đại');              --9030
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Châu A');           --9031
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Bửu');              --9032
+INSERT INTO Ward(WardName) values (N'Thị trấn Vĩnh Hưng');       --9033
+INSERT INTO Ward(WardName) values (N'Xã Hưng Điền A');           --9034
+INSERT INTO Ward(WardName) values (N'Xã Khánh Hưng');            --9035
+INSERT INTO Ward(WardName) values (N'Xã Thái Trị');              --9036
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Trị');              --9037
+INSERT INTO Ward(WardName) values (N'Xã Thái Bình Trung');       --9038
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Bình');             --9039
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thuận');            --9040
+INSERT INTO Ward(WardName) values (N'Xã Tuyên Bình');            --9041
+INSERT INTO Ward(WardName) values (N'Xã Tuyên Bình Tây');        --9042
+INSERT INTO Ward(WardName) values (N'Xã Bình Hòa Tây');          --9043
+INSERT INTO Ward(WardName) values (N'Xã Bình Thạnh');            --9044
+INSERT INTO Ward(WardName) values (N'Xã Bình Hòa Trung');        --9045
+INSERT INTO Ward(WardName) values (N'Xã Bình Hòa Đông');         --9046
+INSERT INTO Ward(WardName) values (N'Thị trấn Bình Phong Thạnh'); --9047
+INSERT INTO Ward(WardName) values (N'Xã Tân Lập');               --9048
+INSERT INTO Ward(WardName) values (N'Xã Tân Thành');             --9049
+INSERT INTO Ward(WardName) values (N'Thị trấn Tân Thạnh');       --9050
+INSERT INTO Ward(WardName) values (N'Xã Bắc Hòa');               --9051
+INSERT INTO Ward(WardName) values (N'Xã Hậu Thạnh Tây');         --9052
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Hòa Lập');          --9053
+INSERT INTO Ward(WardName) values (N'Xã Tân Lập');               --9054
+INSERT INTO Ward(WardName) values (N'Xã Hậu Thạnh Đông');        --9055
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Hoà');              --9056
+INSERT INTO Ward(WardName) values (N'Xã Kiến Bình');             --9057
+INSERT INTO Ward(WardName) values (N'Xã Tân Thành');             --9058
+INSERT INTO Ward(WardName) values (N'Xã Tân Bình');              --9059
+INSERT INTO Ward(WardName) values (N'Xã Tân Ninh');              --9060
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Ninh');             --9061
+INSERT INTO Ward(WardName) values (N'Xã Tân Hòa');               --9062
+INSERT INTO Ward(WardName) values (N'Thị trấn Thạnh Hóa');       --9063
+INSERT INTO Ward(WardName) values (N'Xã Tân Hiệp');              --9064
+INSERT INTO Ward(WardName) values (N'Xã Thuận Bình');            --9065
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Phước');           --9066
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Phú');             --9067
+INSERT INTO Ward(WardName) values (N'Xã Thuận Nghĩa Hòa');       --9068
+INSERT INTO Ward(WardName) values (N'Xã Thủy Đông');             --9069
+INSERT INTO Ward(WardName) values (N'Xã Thủy Tây');              --9070
+INSERT INTO Ward(WardName) values (N'Xã Tân Tây');               --9071
+INSERT INTO Ward(WardName) values (N'Xã Tân Đông');              --9072
+INSERT INTO Ward(WardName) values (N'Xã Thạnh An');              --9073
+INSERT INTO Ward(WardName) values (N'Thị trấn Đông Thành');      --9074
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Quý Đông');           --9075
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thạnh Bắc');          --9076
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Quý Tây');            --9077
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thạnh Tây');          --9078
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thạnh Đông');         --9079
+INSERT INTO Ward(WardName) values (N'Xã Bình Thành');            --9080
+INSERT INTO Ward(WardName) values (N'Xã Bình Hòa Bắc');          --9081
+INSERT INTO Ward(WardName) values (N'Xã Bình Hòa Hưng');         --9082
+INSERT INTO Ward(WardName) values (N'Xã Bình Hòa Nam');          --9083
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Bình');               --9084
+INSERT INTO Ward(WardName) values (N'Thị trấn Hậu Nghĩa');       --9085
+INSERT INTO Ward(WardName) values (N'Thị trấn Hiệp Hòa');        --9086
+INSERT INTO Ward(WardName) values (N'Thị trấn Đức Hòa');         --9087
+INSERT INTO Ward(WardName) values (N'Xã Lộc Giang');             --9088
+INSERT INTO Ward(WardName) values (N'Xã An Ninh Đông');          --9089
+INSERT INTO Ward(WardName) values (N'Xã An Ninh Tây');           --9090
+INSERT INTO Ward(WardName) values (N'Xã Tân Mỹ');                --9091
+INSERT INTO Ward(WardName) values (N'Xã Hiệp Hòa');              --9092
+INSERT INTO Ward(WardName) values (N'Xã Đức Lập Thượng');        --9093
+INSERT INTO Ward(WardName) values (N'Xã Đức Lập Hạ');            --9094
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú');               --9095
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hạnh Bắc');           --9096
+INSERT INTO Ward(WardName) values (N'Xã Đức Hòa Thượng');        --9097
+INSERT INTO Ward(WardName) values (N'Xã Hòa Khánh Tây');         --9098
+INSERT INTO Ward(WardName) values (N'Xã Hòa Khánh Đông');        --9099
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hạnh Nam');           --9100
+INSERT INTO Ward(WardName) values (N'Xã Hòa Khánh Nam');         --9101
+INSERT INTO Ward(WardName) values (N'Xã Đức Hòa Đông');          --9102
+INSERT INTO Ward(WardName) values (N'Xã Đức Hòa Hạ');            --9103
+INSERT INTO Ward(WardName) values (N'Xã Hựu Thạnh');             --9104
+INSERT INTO Ward(WardName) values (N'Thị trấn Bến Lức');         --9105
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Lợi');             --9106
+INSERT INTO Ward(WardName) values (N'Xã Lương Bình');            --9107
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Hòa');             --9108
+INSERT INTO Ward(WardName) values (N'Xã Lương Hòa');             --9109
+INSERT INTO Ward(WardName) values (N'Xã Tân Hòa');               --9110
+INSERT INTO Ward(WardName) values (N'Xã Tân Bửu');               --9111
+INSERT INTO Ward(WardName) values (N'Xã An Thạnh');              --9112
+INSERT INTO Ward(WardName) values (N'Xã Bình Đức');              --9113
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Yên');                --9114
+INSERT INTO Ward(WardName) values (N'Xã Thanh Phú');             --9115
+INSERT INTO Ward(WardName) values (N'Xã Long Hiệp');             --9116
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Đức');             --9117
+INSERT INTO Ward(WardName) values (N'Xã Phước Lợi');             --9118
+INSERT INTO Ward(WardName) values (N'Xã Nhựt Chánh');            --9119
+INSERT INTO Ward(WardName) values (N'Thị trấn Thủ Thừa');        --9120
+INSERT INTO Ward(WardName) values (N'Xã Long Thạnh');            --9121
+INSERT INTO Ward(WardName) values (N'Xã Tân Thành');             --9122
+INSERT INTO Ward(WardName) values (N'Xã Long Thuận');            --9123
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Lạc');                --9124
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thạnh');              --9125
+INSERT INTO Ward(WardName) values (N'Xã Bình An');               --9126
+INSERT INTO Ward(WardName) values (N'Xã Nhị Thành');             --9127
+INSERT INTO Ward(WardName) values (N'Xã Mỹ An');                 --9128
+INSERT INTO Ward(WardName) values (N'Xã Bình Thạnh');            --9129
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Phú');                --9130
+INSERT INTO Ward(WardName) values (N'Xã Tân Long');              --9131
+INSERT INTO Ward(WardName) values (N'Thị trấn Tân Trụ');         --9132
+INSERT INTO Ward(WardName) values (N'Xã Tân Bình');              --9133
+INSERT INTO Ward(WardName) values (N'Xã Quê Mỹ Thạnh');          --9134
+INSERT INTO Ward(WardName) values (N'Xã Lạc Tấn');               --9135
+INSERT INTO Ward(WardName) values (N'Xã Bình Trinh Đông');       --9136
+INSERT INTO Ward(WardName) values (N'Xã Tân Phước Tây');         --9137
+INSERT INTO Ward(WardName) values (N'Xã Bình Lãng');             --9138
+INSERT INTO Ward(WardName) values (N'Xã Bình Tịnh');             --9139
+INSERT INTO Ward(WardName) values (N'Xã Đức Tân');               --9140
+INSERT INTO Ward(WardName) values (N'Xã Nhựt Ninh');             --9141
+INSERT INTO Ward(WardName) values (N'Thị trấn Cần Đước');        --9142
+INSERT INTO Ward(WardName) values (N'Xã Long Trạch');            --9143
+INSERT INTO Ward(WardName) values (N'Xã Long Khê');              --9144
+INSERT INTO Ward(WardName) values (N'Xã Long Định');             --9145
+INSERT INTO Ward(WardName) values (N'Xã Phước Vân');             --9146
+INSERT INTO Ward(WardName) values (N'Xã Long Hòa');              --9147
+INSERT INTO Ward(WardName) values (N'Xã Long Cang');             --9148
+INSERT INTO Ward(WardName) values (N'Xã Long Sơn');              --9149
+INSERT INTO Ward(WardName) values (N'Xã Tân Trạch');             --9150
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Lệ');                 --9151
+INSERT INTO Ward(WardName) values (N'Xã Tân Lân');               --9152
+INSERT INTO Ward(WardName) values (N'Xã Phước Tuy');             --9153
+INSERT INTO Ward(WardName) values (N'Xã Long Hựu Đông');         --9154
+INSERT INTO Ward(WardName) values (N'Xã Tân Ân');                --9155
+INSERT INTO Ward(WardName) values (N'Xã Phước Đông');            --9156
+INSERT INTO Ward(WardName) values (N'Xã Long Hựu Tây');          --9157
+INSERT INTO Ward(WardName) values (N'Xã Tân Chánh');             --9158
+INSERT INTO Ward(WardName) values (N'Thị trấn Cần Giuộc');       --9159
+INSERT INTO Ward(WardName) values (N'Xã Phước Lý');              --9160
+INSERT INTO Ward(WardName) values (N'Xã Long Thượng');           --9161
+INSERT INTO Ward(WardName) values (N'Xã Long Hậu');              --9162
+INSERT INTO Ward(WardName) values (N'Xã Phước Hậu');             --9163
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Lộc');                --9164
+INSERT INTO Ward(WardName) values (N'Xã Phước Lại');             --9165
+INSERT INTO Ward(WardName) values (N'Xã Phước Lâm');             --9166
+INSERT INTO Ward(WardName) values (N'Xã Thuận Thành');           --9167
+INSERT INTO Ward(WardName) values (N'Xã Phước Vĩnh Tây');        --9168
+INSERT INTO Ward(WardName) values (N'Xã Phước Vĩnh Đông');       --9169
+INSERT INTO Ward(WardName) values (N'Xã Long An');               --9170
+INSERT INTO Ward(WardName) values (N'Xã Long Phụng');            --9171
+INSERT INTO Ward(WardName) values (N'Xã Đông Thạnh');            --9172
+INSERT INTO Ward(WardName) values (N'Xã Tân Tập');               --9173
+INSERT INTO Ward(WardName) values (N'Thị trấn Tầm Vu');          --9174
+INSERT INTO Ward(WardName) values (N'Xã Bình Quới');             --9175
+INSERT INTO Ward(WardName) values (N'Xã Hòa Phú');               --9176
+INSERT INTO Ward(WardName) values (N'Xã Phú Ngãi Trị');          --9177
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Công');             --9178
+INSERT INTO Ward(WardName) values (N'Xã Thuận Mỹ');              --9179
+INSERT INTO Ward(WardName) values (N'Xã Hiệp Thạnh');            --9180
+INSERT INTO Ward(WardName) values (N'Xã Phước Tân Hưng');        --9181
+INSERT INTO Ward(WardName) values (N'Xã Thanh Phú Long');        --9182
+INSERT INTO Ward(WardName) values (N'Xã Dương Xuân Hội');        --9183
+INSERT INTO Ward(WardName) values (N'Xã An Lục Long');           --9184
+INSERT INTO Ward(WardName) values (N'Xã Long Trì');              --9185
+INSERT INTO Ward(WardName) values (N'Xã Thanh Vĩnh Đông');       --9186
+INSERT INTO Ward(WardName) values (N'Phường 5');                 --9187
+INSERT INTO Ward(WardName) values (N'Phường 4');                 --9188
+INSERT INTO Ward(WardName) values (N'Phường 7');                 --9189
+INSERT INTO Ward(WardName) values (N'Phường 3');                 --9190
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --9191
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --9192
+INSERT INTO Ward(WardName) values (N'Phường 8');                 --9193
+INSERT INTO Ward(WardName) values (N'Phường 6');                 --9194
+INSERT INTO Ward(WardName) values (N'Phường 9');                 --9195
+INSERT INTO Ward(WardName) values (N'Phường 10');                --9196
+INSERT INTO Ward(WardName) values (N'Phường Tân Long');          --9197
+INSERT INTO Ward(WardName) values (N'Xã Đạo Thạnh');             --9198
+INSERT INTO Ward(WardName) values (N'Xã Trung An');              --9199
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Phong');              --9200
+INSERT INTO Ward(WardName) values (N'Xã Tân Mỹ Chánh');          --9201
+INSERT INTO Ward(WardName) values (N'Xã Phước Thạnh');           --9202
+INSERT INTO Ward(WardName) values (N'Xã Thới Sơn');              --9203
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --9204
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --9205
+INSERT INTO Ward(WardName) values (N'Phường 5');                 --9206
+INSERT INTO Ward(WardName) values (N'Phường Long Hưng');         --9207
+INSERT INTO Ward(WardName) values (N'Phường Long Thuận');        --9208
+INSERT INTO Ward(WardName) values (N'Phường Long Chánh');        --9209
+INSERT INTO Ward(WardName) values (N'Phường Long Hòa');          --9210
+INSERT INTO Ward(WardName) values (N'Xã Bình Đông');             --9211
+INSERT INTO Ward(WardName) values (N'Xã Bình Xuân');             --9212
+INSERT INTO Ward(WardName) values (N'Xã Tân Trung');             --9213
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --9214
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --9215
+INSERT INTO Ward(WardName) values (N'Phường 3');                 --9216
+INSERT INTO Ward(WardName) values (N'Phường 4');                 --9217
+INSERT INTO Ward(WardName) values (N'Phường 5');                 --9218
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Phước Tây');          --9219
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hạnh Đông');          --9220
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hạnh Trung');         --9221
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú');               --9222
+INSERT INTO Ward(WardName) values (N'Xã Tân Bình');              --9223
+INSERT INTO Ward(WardName) values (N'Xã Tân Hội');               --9224
+INSERT INTO Ward(WardName) values (N'Phường Nhị Mỹ');            --9225
+INSERT INTO Ward(WardName) values (N'Xã Nhị Quý');               --9226
+INSERT INTO Ward(WardName) values (N'Xã Thanh Hòa');             --9227
+INSERT INTO Ward(WardName) values (N'Xã Phú Quý');               --9228
+INSERT INTO Ward(WardName) values (N'Xã Long Khánh');            --9229
+INSERT INTO Ward(WardName) values (N'Thị trấn Mỹ Phước');        --9230
+INSERT INTO Ward(WardName) values (N'Xã Tân Hòa Đông');          --9231
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Tân');             --9232
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Mỹ');              --9233
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Hoà');             --9234
+INSERT INTO Ward(WardName) values (N'Xã Phú Mỹ');                --9235
+INSERT INTO Ward(WardName) values (N'Xã Tân Hòa Thành');         --9236
+INSERT INTO Ward(WardName) values (N'Xã Hưng Thạnh');            --9237
+INSERT INTO Ward(WardName) values (N'Xã Tân Lập 1');             --9238
+INSERT INTO Ward(WardName) values (N'Xã Tân Hòa Tây');           --9239
+INSERT INTO Ward(WardName) values (N'Xã Tân Lập 2');             --9240
+INSERT INTO Ward(WardName) values (N'Xã Phước Lập');             --9241
+INSERT INTO Ward(WardName) values (N'Thị trấn Cái Bè');          --9242
+INSERT INTO Ward(WardName) values (N'Xã Hậu Mỹ Bắc B');          --9243
+INSERT INTO Ward(WardName) values (N'Xã Hậu Mỹ Bắc A');          --9244
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Trung');              --9245
+INSERT INTO Ward(WardName) values (N'Xã Hậu Mỹ Trinh');          --9246
+INSERT INTO Ward(WardName) values (N'Xã Hậu Mỹ Phú');            --9247
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Tân');                --9248
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Lợi B');              --9249
+INSERT INTO Ward(WardName) values (N'Xã Thiện Trung');           --9250
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hội');                --9251
+INSERT INTO Ward(WardName) values (N'Xã An Cư');                 --9252
+INSERT INTO Ward(WardName) values (N'Xã Hậu Thành');             --9253
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Lợi A');              --9254
+INSERT INTO Ward(WardName) values (N'Xã Hòa Khánh');             --9255
+INSERT INTO Ward(WardName) values (N'Xã Thiện Trí');             --9256
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Đức Đông');           --9257
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Đức Tây');            --9258
+INSERT INTO Ward(WardName) values (N'Xã Đông Hòa Hiệp');         --9259
+INSERT INTO Ward(WardName) values (N'Xã An Thái Đông');          --9260
+INSERT INTO Ward(WardName) values (N'Xã Tân Hưng');              --9261
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Lương');              --9262
+INSERT INTO Ward(WardName) values (N'Xã Tân Thanh');             --9263
+INSERT INTO Ward(WardName) values (N'Xã An Thái Trung');         --9264
+INSERT INTO Ward(WardName) values (N'Xã An Hữu');                --9265
+INSERT INTO Ward(WardName) values (N'Xã Hòa Hưng');              --9266
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Lộc');             --9267
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thành Bắc');          --9268
+INSERT INTO Ward(WardName) values (N'Xã Phú Cường');             --9269
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thành Nam');          --9270
+INSERT INTO Ward(WardName) values (N'Xã Phú Nhuận');             --9271
+INSERT INTO Ward(WardName) values (N'Thị trấn Bình Phú');        --9272
+INSERT INTO Ward(WardName) values (N'Xã Cẩm Sơn');               --9273
+INSERT INTO Ward(WardName) values (N'Xã Phú An');                --9274
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Long');               --9275
+INSERT INTO Ward(WardName) values (N'Xã Long Tiên');             --9276
+INSERT INTO Ward(WardName) values (N'Xã Hiệp Đức');              --9277
+INSERT INTO Ward(WardName) values (N'Xã Long Trung');            --9278
+INSERT INTO Ward(WardName) values (N'Xã Hội Xuân');              --9279
+INSERT INTO Ward(WardName) values (N'Xã Tân Phong');             --9280
+INSERT INTO Ward(WardName) values (N'Xã Tam Bình');              --9281
+INSERT INTO Ward(WardName) values (N'Xã Ngũ Hiệp');              --9282
+INSERT INTO Ward(WardName) values (N'Thị trấn Tân Hiệp');        --9283
+INSERT INTO Ward(WardName) values (N'Xã Tân Hội Đông');          --9284
+INSERT INTO Ward(WardName) values (N'Xã Tân Hương');             --9285
+INSERT INTO Ward(WardName) values (N'Xã Tân Lý Đông');           --9286
+INSERT INTO Ward(WardName) values (N'Xã Tân Lý Tây');            --9287
+INSERT INTO Ward(WardName) values (N'Xã Thân Cửu Nghĩa');        --9288
+INSERT INTO Ward(WardName) values (N'Xã Tam Hiệp');              --9289
+INSERT INTO Ward(WardName) values (N'Xã Điềm Hy');               --9290
+INSERT INTO Ward(WardName) values (N'Xã Nhị Bình');              --9291
+INSERT INTO Ward(WardName) values (N'Xã Dưỡng Điềm');            --9292
+INSERT INTO Ward(WardName) values (N'Xã Đông Hòa');              --9293
+INSERT INTO Ward(WardName) values (N'Xã Long Định');             --9294
+INSERT INTO Ward(WardName) values (N'Xã Hữu Đạo');               --9295
+INSERT INTO Ward(WardName) values (N'Xã Long An');               --9296
+INSERT INTO Ward(WardName) values (N'Xã Long Hưng');             --9297
+INSERT INTO Ward(WardName) values (N'Xã Bình Trưng');            --9298
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Phú');             --9299
+INSERT INTO Ward(WardName) values (N'Xã Bàn Long');              --9300
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Kim');              --9301
+INSERT INTO Ward(WardName) values (N'Xã Bình Đức');              --9302
+INSERT INTO Ward(WardName) values (N'Xã Song Thuận');            --9303
+INSERT INTO Ward(WardName) values (N'Xã Kim Sơn');               --9304
+INSERT INTO Ward(WardName) values (N'Xã Phú Phong');             --9305
+INSERT INTO Ward(WardName) values (N'Thị trấn Chợ Gạo');         --9306
+INSERT INTO Ward(WardName) values (N'Xã Trung Hòa');             --9307
+INSERT INTO Ward(WardName) values (N'Xã Hòa Tịnh');              --9308
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Tịnh An');            --9309
+INSERT INTO Ward(WardName) values (N'Xã Tân Bình Thạnh');        --9310
+INSERT INTO Ward(WardName) values (N'Xã Phú Kiết');              --9311
+INSERT INTO Ward(WardName) values (N'Xã Lương Hòa Lạc');         --9312
+INSERT INTO Ward(WardName) values (N'Xã Thanh Bình');            --9313
+INSERT INTO Ward(WardName) values (N'Xã Quơn Long');             --9314
+INSERT INTO Ward(WardName) values (N'Xã Bình Phục Nhứt');        --9315
+INSERT INTO Ward(WardName) values (N'Xã Đăng Hưng Phước');       --9316
+INSERT INTO Ward(WardName) values (N'Xã Tân Thuận Bình');        --9317
+INSERT INTO Ward(WardName) values (N'Xã Song Bình');             --9318
+INSERT INTO Ward(WardName) values (N'Xã Bình Phan');             --9319
+INSERT INTO Ward(WardName) values (N'Xã Long Bình Điền');        --9320
+INSERT INTO Ward(WardName) values (N'Xã An Thạnh Thủy');         --9321
+INSERT INTO Ward(WardName) values (N'Xã Xuân Đông');             --9322
+INSERT INTO Ward(WardName) values (N'Xã Hòa Định');              --9323
+INSERT INTO Ward(WardName) values (N'Xã Bình Ninh');             --9324
+INSERT INTO Ward(WardName) values (N'Thị trấn Vĩnh Bình');       --9325
+INSERT INTO Ward(WardName) values (N'Xã Đồng Sơn');              --9326
+INSERT INTO Ward(WardName) values (N'Xã Bình Phú');              --9327
+INSERT INTO Ward(WardName) values (N'Xã Đồng Thạnh');            --9328
+INSERT INTO Ward(WardName) values (N'Xã Thành Công');            --9329
+INSERT INTO Ward(WardName) values (N'Xã Bình Nhì');              --9330
+INSERT INTO Ward(WardName) values (N'Xã Yên Luông');             --9331
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Trị');             --9332
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Nhựt');            --9333
+INSERT INTO Ward(WardName) values (N'Xã Long Vĩnh');             --9334
+INSERT INTO Ward(WardName) values (N'Xã Bình Tân');              --9335
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hựu');              --9336
+INSERT INTO Ward(WardName) values (N'Xã Long Bình');             --9337
+INSERT INTO Ward(WardName) values (N'Thị trấn Tân Hòa');         --9338
+INSERT INTO Ward(WardName) values (N'Xã Tăng Hoà');              --9339
+INSERT INTO Ward(WardName) values (N'Xã Tân Phước');             --9340
+INSERT INTO Ward(WardName) values (N'Xã Gia Thuận');             --9341
+INSERT INTO Ward(WardName) values (N'Thị trấn Vàm Láng');        --9342
+INSERT INTO Ward(WardName) values (N'Xã Tân Tây');               --9343
+INSERT INTO Ward(WardName) values (N'Xã Kiểng Phước');           --9344
+INSERT INTO Ward(WardName) values (N'Xã Tân Đông');              --9345
+INSERT INTO Ward(WardName) values (N'Xã Bình Ân');               --9346
+INSERT INTO Ward(WardName) values (N'Xã Tân Điền');              --9347
+INSERT INTO Ward(WardName) values (N'Xã Bình Nghị');             --9348
+INSERT INTO Ward(WardName) values (N'Xã Phước Trung');           --9349
+INSERT INTO Ward(WardName) values (N'Xã Tân Thành');             --9350
+INSERT INTO Ward(WardName) values (N'Xã Tân Thới');              --9351
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú');               --9352
+INSERT INTO Ward(WardName) values (N'Xã Phú Thạnh');             --9353
+INSERT INTO Ward(WardName) values (N'Xã Tân Thạnh');             --9354
+INSERT INTO Ward(WardName) values (N'Xã Phú Đông');              --9355
+INSERT INTO Ward(WardName) values (N'Xã Phú Tân');               --9356
+INSERT INTO Ward(WardName) values (N'Phường Phú Khương');        --9357
+INSERT INTO Ward(WardName) values (N'Phường Phú Tân');           --9358
+INSERT INTO Ward(WardName) values (N'Phường 8');                 --9359
+INSERT INTO Ward(WardName) values (N'Phường 6');                 --9360
+INSERT INTO Ward(WardName) values (N'Phường 4');                 --9361
+INSERT INTO Ward(WardName) values (N'Phường 5');                 --9362
+INSERT INTO Ward(WardName) values (N'Phường An Hội');            --9363
+INSERT INTO Ward(WardName) values (N'Phường 7');                 --9364
+INSERT INTO Ward(WardName) values (N'Xã Sơn Đông');              --9365
+INSERT INTO Ward(WardName) values (N'Xã Phú Hưng');              --9366
+INSERT INTO Ward(WardName) values (N'Xã Bình Phú');              --9367
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thạnh An');           --9368
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Thạnh');            --9369
+INSERT INTO Ward(WardName) values (N'Xã Phú Nhuận');             --9370
+INSERT INTO Ward(WardName) values (N'Thị trấn Châu Thành');      --9371
+INSERT INTO Ward(WardName) values (N'Xã Tân Thạch');             --9372
+INSERT INTO Ward(WardName) values (N'Xã Qưới Sơn');              --9373
+INSERT INTO Ward(WardName) values (N'Xã An Khánh');              --9374
+INSERT INTO Ward(WardName) values (N'Xã Giao Long');             --9375
+INSERT INTO Ward(WardName) values (N'Xã Phú Túc');               --9376
+INSERT INTO Ward(WardName) values (N'Xã Phú Đức');               --9377
+INSERT INTO Ward(WardName) values (N'Xã Phú An Hòa');            --9378
+INSERT INTO Ward(WardName) values (N'Xã An Phước');              --9379
+INSERT INTO Ward(WardName) values (N'Xã Tam Phước');             --9380
+INSERT INTO Ward(WardName) values (N'Xã Thành Triệu');           --9381
+INSERT INTO Ward(WardName) values (N'Xã Tường Đa');              --9382
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú');               --9383
+INSERT INTO Ward(WardName) values (N'Xã Quới Thành');            --9384
+INSERT INTO Ward(WardName) values (N'Xã Phước Thạnh');           --9385
+INSERT INTO Ward(WardName) values (N'Xã An Hóa');                --9386
+INSERT INTO Ward(WardName) values (N'Xã Tiên Long');             --9387
+INSERT INTO Ward(WardName) values (N'Xã An Hiệp');               --9388
+INSERT INTO Ward(WardName) values (N'Xã Hữu Định');              --9389
+INSERT INTO Ward(WardName) values (N'Thị trấn Tiên Thủy');       --9390
+INSERT INTO Ward(WardName) values (N'Xã Sơn Hòa');               --9391
+INSERT INTO Ward(WardName) values (N'Thị trấn Chợ Lách');        --9392
+INSERT INTO Ward(WardName) values (N'Xã Phú Phụng');             --9393
+INSERT INTO Ward(WardName) values (N'Xã Sơn Định');              --9394
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Bình');             --9395
+INSERT INTO Ward(WardName) values (N'Xã Hòa Nghĩa');             --9396
+INSERT INTO Ward(WardName) values (N'Xã Long Thới');             --9397
+INSERT INTO Ward(WardName) values (N'Xã Phú Sơn');               --9398
+INSERT INTO Ward(WardName) values (N'Xã Tân Thiềng');            --9399
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thành');            --9400
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hòa');              --9401
+INSERT INTO Ward(WardName) values (N'Xã Hưng Khánh Trung B');    --9402
+INSERT INTO Ward(WardName) values (N'Thị trấn Mỏ Cày');          --9403
+INSERT INTO Ward(WardName) values (N'Xã Định Thủy');             --9404
+INSERT INTO Ward(WardName) values (N'Xã Đa Phước Hội');          --9405
+INSERT INTO Ward(WardName) values (N'Xã Tân Hội');               --9406
+INSERT INTO Ward(WardName) values (N'Xã Phước Hiệp');            --9407
+INSERT INTO Ward(WardName) values (N'Xã Bình Khánh ');           --9408
+INSERT INTO Ward(WardName) values (N'Xã An Thạnh');              --9409
+INSERT INTO Ward(WardName) values (N'Xã An Định');               --9410
+INSERT INTO Ward(WardName) values (N'Xã Thành Thới B');          --9411
+INSERT INTO Ward(WardName) values (N'Xã Tân Trung');             --9412
+INSERT INTO Ward(WardName) values (N'Xã An Thới');               --9413
+INSERT INTO Ward(WardName) values (N'Xã Thành Thới A');          --9414
+INSERT INTO Ward(WardName) values (N'Xã Minh Đức');              --9415
+INSERT INTO Ward(WardName) values (N'Xã Ngãi Đăng');             --9416
+INSERT INTO Ward(WardName) values (N'Xã Cẩm Sơn');               --9417
+INSERT INTO Ward(WardName) values (N'Xã Hương Mỹ');              --9418
+INSERT INTO Ward(WardName) values (N'Thị trấn Giồng Trôm');      --9419
+INSERT INTO Ward(WardName) values (N'Xã Phong Nẫm');             --9420
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thạnh');              --9421
+INSERT INTO Ward(WardName) values (N'Xã Châu Hòa');              --9422
+INSERT INTO Ward(WardName) values (N'Xã Lương Hòa');             --9423
+INSERT INTO Ward(WardName) values (N'Xã Lương Quới');            --9424
+INSERT INTO Ward(WardName) values (N'Xã Lương Phú');             --9425
+INSERT INTO Ward(WardName) values (N'Xã Châu Bình');             --9426
+INSERT INTO Ward(WardName) values (N'Xã Thuận Điền');            --9427
+INSERT INTO Ward(WardName) values (N'Xã Sơn Phú');               --9428
+INSERT INTO Ward(WardName) values (N'Xã Bình Hoà');              --9429
+INSERT INTO Ward(WardName) values (N'Xã Phước Long');            --9430
+INSERT INTO Ward(WardName) values (N'Xã Hưng Phong');            --9431
+INSERT INTO Ward(WardName) values (N'Xã Long Mỹ');               --9432
+INSERT INTO Ward(WardName) values (N'Xã Tân Hào');               --9433
+INSERT INTO Ward(WardName) values (N'Xã Bình Thành');            --9434
+INSERT INTO Ward(WardName) values (N'Xã Tân Thanh');             --9435
+INSERT INTO Ward(WardName) values (N'Xã Tân Lợi Thạnh');         --9436
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Phú Đông');        --9437
+INSERT INTO Ward(WardName) values (N'Xã Hưng Nhượng');           --9438
+INSERT INTO Ward(WardName) values (N'Xã Hưng Lễ');               --9439
+INSERT INTO Ward(WardName) values (N'Thị trấn Bình Đại');        --9440
+INSERT INTO Ward(WardName) values (N'Xã Tam Hiệp');              --9441
+INSERT INTO Ward(WardName) values (N'Xã Long Định');             --9442
+INSERT INTO Ward(WardName) values (N'Xã Long Hòa');              --9443
+INSERT INTO Ward(WardName) values (N'Xã Phú Thuận');             --9444
+INSERT INTO Ward(WardName) values (N'Xã Vang Quới Tây');         --9445
+INSERT INTO Ward(WardName) values (N'Xã Vang Quới Đông');        --9446
+INSERT INTO Ward(WardName) values (N'Xã Châu Hưng');             --9447
+INSERT INTO Ward(WardName) values (N'Xã Phú Vang');              --9448
+INSERT INTO Ward(WardName) values (N'Xã Lộc Thuận');             --9449
+INSERT INTO Ward(WardName) values (N'Xã Định Trung');            --9450
+INSERT INTO Ward(WardName) values (N'Xã Thới Lai');              --9451
+INSERT INTO Ward(WardName) values (N'Xã Bình Thới');             --9452
+INSERT INTO Ward(WardName) values (N'Xã Phú Long');              --9453
+INSERT INTO Ward(WardName) values (N'Xã Bình Thắng');            --9454
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Trị');             --9455
+INSERT INTO Ward(WardName) values (N'Xã Đại Hòa Lộc');           --9456
+INSERT INTO Ward(WardName) values (N'Xã Thừa Đức');              --9457
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Phước');           --9458
+INSERT INTO Ward(WardName) values (N'Xã Thới Thuận');            --9459
+INSERT INTO Ward(WardName) values (N'Thị trấn Ba Tri');          --9460
+INSERT INTO Ward(WardName) values (N'Xã Tân Mỹ');                --9461
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hòa');                --9462
+INSERT INTO Ward(WardName) values (N'Xã Tân Xuân');              --9463
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Chánh');              --9464
+INSERT INTO Ward(WardName) values (N'Xã Bảo Thạnh');             --9465
+INSERT INTO Ward(WardName) values (N'Xã An Phú Trung');          --9466
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thạnh');              --9467
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Nhơn');               --9468
+INSERT INTO Ward(WardName) values (N'Xã Phước Ngãi');            --9469
+INSERT INTO Ward(WardName) values (N'Xã An Ngãi Trung');         --9470
+INSERT INTO Ward(WardName) values (N'Xã Phú Lễ');                --9471
+INSERT INTO Ward(WardName) values (N'Xã An Bình Tây');           --9472
+INSERT INTO Ward(WardName) values (N'Xã Bảo Thuận');             --9473
+INSERT INTO Ward(WardName) values (N'Xã Tân Hưng');              --9474
+INSERT INTO Ward(WardName) values (N'Xã An Ngãi Tây');           --9475
+INSERT INTO Ward(WardName) values (N'Xã An Hiệp');               --9476
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hòa');              --9477
+INSERT INTO Ward(WardName) values (N'Xã Tân Thủy');              --9478
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh An');               --9479
+INSERT INTO Ward(WardName) values (N'Xã An Đức');                --9480
+INSERT INTO Ward(WardName) values (N'Xã An Hòa Tây');            --9481
+INSERT INTO Ward(WardName) values (N'Thị trấn Tiệm Tôm');        --9482
+INSERT INTO Ward(WardName) values (N'Thị trấn Thạnh Phú');       --9483
+INSERT INTO Ward(WardName) values (N'Xã Phú Khánh');             --9484
+INSERT INTO Ward(WardName) values (N'Xã Đại Điền');              --9485
+INSERT INTO Ward(WardName) values (N'Xã Quới Điền');             --9486
+INSERT INTO Ward(WardName) values (N'Xã Tân Phong');             --9487
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hưng');               --9488
+INSERT INTO Ward(WardName) values (N'Xã An Thạnh');              --9489
+INSERT INTO Ward(WardName) values (N'Xã Thới Thạnh');            --9490
+INSERT INTO Ward(WardName) values (N'Xã Hòa Lợi');               --9491
+INSERT INTO Ward(WardName) values (N'Xã An Điền');               --9492
+INSERT INTO Ward(WardName) values (N'Xã Bình Thạnh');            --9493
+INSERT INTO Ward(WardName) values (N'Xã An Thuận');              --9494
+INSERT INTO Ward(WardName) values (N'Xã An Quy');                --9495
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Hải');             --9496
+INSERT INTO Ward(WardName) values (N'Xã An Nhơn');               --9497
+INSERT INTO Ward(WardName) values (N'Xã Giao Thạnh');            --9498
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Phong');           --9499
+INSERT INTO Ward(WardName) values (N'Xã Mỹ An');                 --9500
+INSERT INTO Ward(WardName) values (N'Xã Phú Mỹ');                --9501
+INSERT INTO Ward(WardName) values (N'Xã Hưng Khánh Trung A');    --9502
+INSERT INTO Ward(WardName) values (N'Xã Thanh Tân');             --9503
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Ngãi');            --9504
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú Tây');           --9505
+INSERT INTO Ward(WardName) values (N'Thị trấn Phước Mỹ Trung');  --9506
+INSERT INTO Ward(WardName) values (N'Xã Tân Thành Bình');        --9507
+INSERT INTO Ward(WardName) values (N'Xã Thành An');              --9508
+INSERT INTO Ward(WardName) values (N'Xã Hòa Lộc');               --9509
+INSERT INTO Ward(WardName) values (N'Xã Tân Thanh Tây');         --9510
+INSERT INTO Ward(WardName) values (N'Xã Tân Bình');              --9511
+INSERT INTO Ward(WardName) values (N'Xã Nhuận Phú Tân');         --9512
+INSERT INTO Ward(WardName) values (N'Xã Khánh Thạnh Tân');       --9513
+INSERT INTO Ward(WardName) values (N'Phường 4');                 --9514
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --9515
+INSERT INTO Ward(WardName) values (N'Phường 3');                 --9516
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --9517
+INSERT INTO Ward(WardName) values (N'Phường 5');                 --9518
+INSERT INTO Ward(WardName) values (N'Phường 6');                 --9519
+INSERT INTO Ward(WardName) values (N'Phường 7');                 --9520
+INSERT INTO Ward(WardName) values (N'Phường 8');                 --9521
+INSERT INTO Ward(WardName) values (N'Phường 9');                 --9522
+INSERT INTO Ward(WardName) values (N'Xã Long Đức');              --9523
+INSERT INTO Ward(WardName) values (N'Thị trấn Càng Long');       --9524
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Cẩm');                --9525
+INSERT INTO Ward(WardName) values (N'Xã An Trường A');           --9526
+INSERT INTO Ward(WardName) values (N'Xã An Trường');             --9527
+INSERT INTO Ward(WardName) values (N'Xã Huyền Hội');             --9528
+INSERT INTO Ward(WardName) values (N'Xã Tân An');                --9529
+INSERT INTO Ward(WardName) values (N'Xã Tân Bình');              --9530
+INSERT INTO Ward(WardName) values (N'Xã Bình Phú');              --9531
+INSERT INTO Ward(WardName) values (N'Xã Phương Thạnh');          --9532
+INSERT INTO Ward(WardName) values (N'Xã Đại Phúc');              --9533
+INSERT INTO Ward(WardName) values (N'Xã Đại Phước');             --9534
+INSERT INTO Ward(WardName) values (N'Xã Nhị Long Phú');          --9535
+INSERT INTO Ward(WardName) values (N'Xã Nhị Long');              --9536
+INSERT INTO Ward(WardName) values (N'Xã Đức Mỹ');                --9537
+INSERT INTO Ward(WardName) values (N'Thị trấn Cầu Kè');          --9538
+INSERT INTO Ward(WardName) values (N'Xã Hòa Ân');                --9539
+INSERT INTO Ward(WardName) values (N'Xã Châu Điền');             --9540
+INSERT INTO Ward(WardName) values (N'Xã An Phú Tân');            --9541
+INSERT INTO Ward(WardName) values (N'Xã Hoà Tân');               --9542
+INSERT INTO Ward(WardName) values (N'Xã Ninh Thới');             --9543
+INSERT INTO Ward(WardName) values (N'Xã Phong Phú');             --9544
+INSERT INTO Ward(WardName) values (N'Xã Phong Thạnh');           --9545
+INSERT INTO Ward(WardName) values (N'Xã Tam Ngãi');              --9546
+INSERT INTO Ward(WardName) values (N'Xã Thông Hòa');             --9547
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Phú');             --9548
+INSERT INTO Ward(WardName) values (N'Thị trấn Tiểu Cần');        --9549
+INSERT INTO Ward(WardName) values (N'Thị trấn Cầu Quan');        --9550
+INSERT INTO Ward(WardName) values (N'Xã Phú Cần');               --9551
+INSERT INTO Ward(WardName) values (N'Xã Hiếu Tử');               --9552
+INSERT INTO Ward(WardName) values (N'Xã Hiếu Trung');            --9553
+INSERT INTO Ward(WardName) values (N'Xã Long Thới');             --9554
+INSERT INTO Ward(WardName) values (N'Xã Hùng Hòa');              --9555
+INSERT INTO Ward(WardName) values (N'Xã Tân Hùng');              --9556
+INSERT INTO Ward(WardName) values (N'Xã Tập Ngãi');              --9557
+INSERT INTO Ward(WardName) values (N'Xã Ngãi Hùng');             --9558
+INSERT INTO Ward(WardName) values (N'Xã Tân Hòa');               --9559
+INSERT INTO Ward(WardName) values (N'Thị trấn Châu Thành');      --9560
+INSERT INTO Ward(WardName) values (N'Xã Đa Lộc');                --9561
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Chánh');              --9562
+INSERT INTO Ward(WardName) values (N'Xã Thanh Mỹ');              --9563
+INSERT INTO Ward(WardName) values (N'Xã Lương Hoà A');           --9564
+INSERT INTO Ward(WardName) values (N'Xã Lương Hòa');             --9565
+INSERT INTO Ward(WardName) values (N'Xã Song Lộc');              --9566
+INSERT INTO Ward(WardName) values (N'Xã Nguyệt Hóa');            --9567
+INSERT INTO Ward(WardName) values (N'Xã Hòa Thuận');             --9568
+INSERT INTO Ward(WardName) values (N'Xã Hòa Lợi');               --9569
+INSERT INTO Ward(WardName) values (N'Xã Phước Hảo');             --9570
+INSERT INTO Ward(WardName) values (N'Xã Hưng Mỹ');               --9571
+INSERT INTO Ward(WardName) values (N'Xã Hòa Minh');              --9572
+INSERT INTO Ward(WardName) values (N'Xã Long Hòa');              --9573
+INSERT INTO Ward(WardName) values (N'Thị trấn Cầu Ngang');       --9574
+INSERT INTO Ward(WardName) values (N'Thị trấn Mỹ Long');         --9575
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Long Bắc');           --9576
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Long Nam');           --9577
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hòa');                --9578
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Kim');              --9579
+INSERT INTO Ward(WardName) values (N'Xã Kim Hòa');               --9580
+INSERT INTO Ward(WardName) values (N'Xã Hiệp Hòa');              --9581
+INSERT INTO Ward(WardName) values (N'Xã Thuận Hòa');             --9582
+INSERT INTO Ward(WardName) values (N'Xã Long Sơn');              --9583
+INSERT INTO Ward(WardName) values (N'Xã Nhị Trường');            --9584
+INSERT INTO Ward(WardName) values (N'Xã Trường Thọ');            --9585
+INSERT INTO Ward(WardName) values (N'Xã Hiệp Mỹ Đông');          --9586
+INSERT INTO Ward(WardName) values (N'Xã Hiệp Mỹ Tây');           --9587
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Hòa Sơn');         --9588
+INSERT INTO Ward(WardName) values (N'Thị trấn Trà Cú');          --9589
+INSERT INTO Ward(WardName) values (N'Thị trấn Định An');         --9590
+INSERT INTO Ward(WardName) values (N'Xã Phước Hưng');            --9591
+INSERT INTO Ward(WardName) values (N'Xã Tập Sơn');               --9592
+INSERT INTO Ward(WardName) values (N'Xã Tân Sơn');               --9593
+INSERT INTO Ward(WardName) values (N'Xã An Quảng Hữu');          --9594
+INSERT INTO Ward(WardName) values (N'Xã Lưu Nghiệp Anh');        --9595
+INSERT INTO Ward(WardName) values (N'Xã Ngãi Xuyên');            --9596
+INSERT INTO Ward(WardName) values (N'Xã Kim Sơn');               --9597
+INSERT INTO Ward(WardName) values (N'Xã Thanh Sơn');             --9598
+INSERT INTO Ward(WardName) values (N'Xã Hàm Giang');             --9599
+INSERT INTO Ward(WardName) values (N'Xã Hàm Tân');               --9600
+INSERT INTO Ward(WardName) values (N'Xã Đại An');                --9601
+INSERT INTO Ward(WardName) values (N'Xã Định An');               --9602
+INSERT INTO Ward(WardName) values (N'Xã Ngọc Biên');             --9603
+INSERT INTO Ward(WardName) values (N'Xã Long Hiệp');             --9604
+INSERT INTO Ward(WardName) values (N'Xã Tân Hiệp');              --9605
+INSERT INTO Ward(WardName) values (N'Xã Đôn Xuân');              --9606
+INSERT INTO Ward(WardName) values (N'Xã Đôn Châu');              --9607
+INSERT INTO Ward(WardName) values (N'Thị trấn Long Thành');      --9608
+INSERT INTO Ward(WardName) values (N'Xã Long Khánh');            --9609
+INSERT INTO Ward(WardName) values (N'Xã Ngũ Lạc');               --9610
+INSERT INTO Ward(WardName) values (N'Xã Long Vĩnh');             --9611
+INSERT INTO Ward(WardName) values (N'Xã Đông Hải');              --9612
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --9613
+INSERT INTO Ward(WardName) values (N'Xã Long Toàn');             --9614
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --9615
+INSERT INTO Ward(WardName) values (N'Xã Long Hữu');              --9616
+INSERT INTO Ward(WardName) values (N'Xã Dân Thành');             --9617
+INSERT INTO Ward(WardName) values (N'Xã Trường Long Hòa');       --9618
+INSERT INTO Ward(WardName) values (N'Xã Hiệp Thạnh');            --9619
+INSERT INTO Ward(WardName) values (N'Phường 9');                 --9620
+INSERT INTO Ward(WardName) values (N'Phường 5');                 --9621
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --9622
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --9623
+INSERT INTO Ward(WardName) values (N'Phường 4');                 --9624
+INSERT INTO Ward(WardName) values (N'Phường 3');                 --9625
+INSERT INTO Ward(WardName) values (N'Phường 8');                 --9626
+INSERT INTO Ward(WardName) values (N'Phường Tân Ngãi');          --9627
+INSERT INTO Ward(WardName) values (N'Phường Tân Hòa');           --9628
+INSERT INTO Ward(WardName) values (N'Phường Tân Hội');           --9629
+INSERT INTO Ward(WardName) values (N'Phường Trường An');         --9630
+INSERT INTO Ward(WardName) values (N'Thị trấn Long Hồ');         --9631
+INSERT INTO Ward(WardName) values (N'Xã Đồng Phú');              --9632
+INSERT INTO Ward(WardName) values (N'Xã Bình Hòa Phước');        --9633
+INSERT INTO Ward(WardName) values (N'Xã Hòa Ninh');              --9634
+INSERT INTO Ward(WardName) values (N'Xã An Bình');               --9635
+INSERT INTO Ward(WardName) values (N'Xã Thanh Đức');             --9636
+INSERT INTO Ward(WardName) values (N'Xã Tân Hạnh');              --9637
+INSERT INTO Ward(WardName) values (N'Xã Phước Hậu');             --9638
+INSERT INTO Ward(WardName) values (N'Xã Long Phước');            --9639
+INSERT INTO Ward(WardName) values (N'Xã Phú Đức');               --9640
+INSERT INTO Ward(WardName) values (N'Xã Lộc Hòa');               --9641
+INSERT INTO Ward(WardName) values (N'Xã Long An');               --9642
+INSERT INTO Ward(WardName) values (N'Xã Phú Quới');              --9643
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Quới');            --9644
+INSERT INTO Ward(WardName) values (N'Xã Hòa Phú');               --9645
+INSERT INTO Ward(WardName) values (N'Xã Mỹ An');                 --9646
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Phước');              --9647
+INSERT INTO Ward(WardName) values (N'Xã An Phước');              --9648
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Phú');              --9649
+INSERT INTO Ward(WardName) values (N'Xã Long Mỹ');               --9650
+INSERT INTO Ward(WardName) values (N'Xã Hòa Tịnh');              --9651
+INSERT INTO Ward(WardName) values (N'Thị trấn Cái Nhum');        --9652
+INSERT INTO Ward(WardName) values (N'Xã Bình Phước');            --9653
+INSERT INTO Ward(WardName) values (N'Xã Chánh An');              --9654
+INSERT INTO Ward(WardName) values (N'Xã Tân An Hội');            --9655
+INSERT INTO Ward(WardName) values (N'Xã Tân Long');              --9656
+INSERT INTO Ward(WardName) values (N'Xã Tân Long Hội');          --9657
+INSERT INTO Ward(WardName) values (N'Thị trấn Vũng Liêm');       --9658
+INSERT INTO Ward(WardName) values (N'Xã Tân Quới Trung');        --9659
+INSERT INTO Ward(WardName) values (N'Xã Quới Thiện');            --9660
+INSERT INTO Ward(WardName) values (N'Xã Quới An');               --9661
+INSERT INTO Ward(WardName) values (N'Xã Trung Chánh');           --9662
+INSERT INTO Ward(WardName) values (N'Xã Tân An Luông');          --9663
+INSERT INTO Ward(WardName) values (N'Xã Thanh Bình');            --9664
+INSERT INTO Ward(WardName) values (N'Xã Trung Thành Tây');       --9665
+INSERT INTO Ward(WardName) values (N'Xã Trung Hiệp');            --9666
+INSERT INTO Ward(WardName) values (N'Xã Hiếu Phụng');            --9667
+INSERT INTO Ward(WardName) values (N'Xã Trung Thành Đông');      --9668
+INSERT INTO Ward(WardName) values (N'Xã Trung Thành');           --9669
+INSERT INTO Ward(WardName) values (N'Xã Trung Hiếu');            --9670
+INSERT INTO Ward(WardName) values (N'Xã Trung Ngãi');            --9671
+INSERT INTO Ward(WardName) values (N'Xã Hiếu Thuận');            --9672
+INSERT INTO Ward(WardName) values (N'Xã Trung Nghĩa');           --9673
+INSERT INTO Ward(WardName) values (N'Xã Trung An');              --9674
+INSERT INTO Ward(WardName) values (N'Xã Hiếu Nhơn');             --9675
+INSERT INTO Ward(WardName) values (N'Xã Hiếu Thành');            --9676
+INSERT INTO Ward(WardName) values (N'Xã Hiếu Nghĩa');            --9677
+INSERT INTO Ward(WardName) values (N'Thị trấn Tam Bình');        --9678
+INSERT INTO Ward(WardName) values (N'Xã Tân Lộc');               --9679
+INSERT INTO Ward(WardName) values (N'Xã Phú Thịnh');             --9680
+INSERT INTO Ward(WardName) values (N'Xã Hậu Lộc');               --9681
+INSERT INTO Ward(WardName) values (N'Xã Hòa Thạnh');             --9682
+INSERT INTO Ward(WardName) values (N'Xã Hoà Lộc');               --9683
+INSERT INTO Ward(WardName) values (N'Xã Phú Lộc');               --9684
+INSERT INTO Ward(WardName) values (N'Xã Song Phú');              --9685
+INSERT INTO Ward(WardName) values (N'Xã Hòa Hiệp');              --9686
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Lộc');                --9687
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú');               --9688
+INSERT INTO Ward(WardName) values (N'Xã Long Phú');              --9689
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thạnh Trung');        --9690
+INSERT INTO Ward(WardName) values (N'Xã Tường Lộc');             --9691
+INSERT INTO Ward(WardName) values (N'Xã Loan Mỹ');               --9692
+INSERT INTO Ward(WardName) values (N'Xã Ngãi Tứ');               --9693
+INSERT INTO Ward(WardName) values (N'Xã Bình Ninh');             --9694
+INSERT INTO Ward(WardName) values (N'Phường Cái Vồn');           --9695
+INSERT INTO Ward(WardName) values (N'Phường Thành Phước');       --9696
+INSERT INTO Ward(WardName) values (N'Xã Thuận An');              --9697
+INSERT INTO Ward(WardName) values (N'Xã Đông Thạnh');            --9698
+INSERT INTO Ward(WardName) values (N'Xã Đông Bình');             --9699
+INSERT INTO Ward(WardName) values (N'Phường Đông Thuận');        --9700
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hòa');                --9701
+INSERT INTO Ward(WardName) values (N'Xã Đông Thành');            --9702
+INSERT INTO Ward(WardName) values (N'Thị trấn Trà Ôn');          --9703
+INSERT INTO Ward(WardName) values (N'Xã Xuân Hiệp');             --9704
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Bình');             --9705
+INSERT INTO Ward(WardName) values (N'Xã Hòa Bình');              --9706
+INSERT INTO Ward(WardName) values (N'Xã Thới Hòa');              --9707
+INSERT INTO Ward(WardName) values (N'Xã Trà Côn');               --9708
+INSERT INTO Ward(WardName) values (N'Xã Tân Mỹ');                --9709
+INSERT INTO Ward(WardName) values (N'Xã Hựu Thành');             --9710
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Xuân');             --9711
+INSERT INTO Ward(WardName) values (N'Xã Thuận Thới');            --9712
+INSERT INTO Ward(WardName) values (N'Xã Phú Thành');             --9713
+INSERT INTO Ward(WardName) values (N'Xã Thiện Mỹ');              --9714
+INSERT INTO Ward(WardName) values (N'Xã Lục Sỹ Thành');          --9715
+INSERT INTO Ward(WardName) values (N'Xã Tích Thiện');            --9716
+INSERT INTO Ward(WardName) values (N'Xã Tân Hưng');              --9717
+INSERT INTO Ward(WardName) values (N'Xã Tân Thành');             --9718
+INSERT INTO Ward(WardName) values (N'Xã Thành Trung');           --9719
+INSERT INTO Ward(WardName) values (N'Xã Tân An Thạnh');          --9720
+INSERT INTO Ward(WardName) values (N'Xã Tân Lược');              --9721
+INSERT INTO Ward(WardName) values (N'Xã Nguyễn Văn Thảnh');      --9722
+INSERT INTO Ward(WardName) values (N'Xã Thành Lợi');             --9723
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thuận');              --9724
+INSERT INTO Ward(WardName) values (N'Xã Tân Bình');              --9725
+INSERT INTO Ward(WardName) values (N'Thị trấn Tân Quới');        --9726
+INSERT INTO Ward(WardName) values (N'Phường 11');                --9727
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --9728
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --9729
+INSERT INTO Ward(WardName) values (N'Phường 4');                 --9730
+INSERT INTO Ward(WardName) values (N'Phường 3');                 --9731
+INSERT INTO Ward(WardName) values (N'Phường 6');                 --9732
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Ngãi');               --9733
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Tân');                --9734
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Trà');                --9735
+INSERT INTO Ward(WardName) values (N'Phường Mỹ Phú');            --9736
+INSERT INTO Ward(WardName) values (N'Xã Tân Thuận Tây');         --9737
+INSERT INTO Ward(WardName) values (N'Phường Hoà Thuận');         --9738
+INSERT INTO Ward(WardName) values (N'Xã Hòa An');                --9739
+INSERT INTO Ward(WardName) values (N'Xã Tân Thuận Đông');        --9740
+INSERT INTO Ward(WardName) values (N'Xã Tịnh Thới');             --9741
+INSERT INTO Ward(WardName) values (N'Phường 3');                 --9742
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --9743
+INSERT INTO Ward(WardName) values (N'Phường 4');                 --9744
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --9745
+INSERT INTO Ward(WardName) values (N'Xã Tân Khánh Đông');        --9746
+INSERT INTO Ward(WardName) values (N'Phường Tân Quy Đông');      --9747
+INSERT INTO Ward(WardName) values (N'Phường An Hoà');            --9748
+INSERT INTO Ward(WardName) values (N'Xã Tân Quy Tây');           --9749
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú Đông');          --9750
+INSERT INTO Ward(WardName) values (N'Phường An Lộc');            --9751
+INSERT INTO Ward(WardName) values (N'Phường An Thạnh');          --9752
+INSERT INTO Ward(WardName) values (N'Xã Bình Thạnh');            --9753
+INSERT INTO Ward(WardName) values (N'Xã Tân Hội');               --9754
+INSERT INTO Ward(WardName) values (N'Phường An Lạc');            --9755
+INSERT INTO Ward(WardName) values (N'Phường An Bình B');         --9756
+INSERT INTO Ward(WardName) values (N'Phường An Bình A');         --9757
+INSERT INTO Ward(WardName) values (N'Thị trấn Sa Rài');          --9758
+INSERT INTO Ward(WardName) values (N'Xã Tân Hộ Cơ');             --9759
+INSERT INTO Ward(WardName) values (N'Xã Thông Bình');            --9760
+INSERT INTO Ward(WardName) values (N'Xã Bình Phú');              --9761
+INSERT INTO Ward(WardName) values (N'Xã Tân Thành A');           --9762
+INSERT INTO Ward(WardName) values (N'Xã Tân Thành B');           --9763
+INSERT INTO Ward(WardName) values (N'Xã Tân Phước');             --9764
+INSERT INTO Ward(WardName) values (N'Xã Tân Công Chí');          --9765
+INSERT INTO Ward(WardName) values (N'Xã An Phước');              --9766
+INSERT INTO Ward(WardName) values (N'Xã Thường Phước 1');        --9767
+INSERT INTO Ward(WardName) values (N'Xã Thường Thới Hậu A');     --9768
+INSERT INTO Ward(WardName) values (N'Thị trấn Thường Thới Tiền'); --9769
+INSERT INTO Ward(WardName) values (N'Xã Thường Phước 2');        --9770
+INSERT INTO Ward(WardName) values (N'Xã Thường Lạc');            --9771
+INSERT INTO Ward(WardName) values (N'Xã Long Khánh A');          --9772
+INSERT INTO Ward(WardName) values (N'Xã Long Khánh B');          --9773
+INSERT INTO Ward(WardName) values (N'Xã Long Thuận');            --9774
+INSERT INTO Ward(WardName) values (N'Xã Phú Thuận B');           --9775
+INSERT INTO Ward(WardName) values (N'Xã Phú Thuận A');           --9776
+INSERT INTO Ward(WardName) values (N'Thị trấn Tràm Chim');       --9777
+INSERT INTO Ward(WardName) values (N'Xã Hoà Bình');              --9778
+INSERT INTO Ward(WardName) values (N'Xã Tân Công Sính');         --9779
+INSERT INTO Ward(WardName) values (N'Xã Phú Hiệp');              --9780
+INSERT INTO Ward(WardName) values (N'Xã Phú Đức');               --9781
+INSERT INTO Ward(WardName) values (N'Xã Phú Thành B');           --9782
+INSERT INTO Ward(WardName) values (N'Xã An Hòa');                --9783
+INSERT INTO Ward(WardName) values (N'Xã An Long');               --9784
+INSERT INTO Ward(WardName) values (N'Xã Phú Cường');             --9785
+INSERT INTO Ward(WardName) values (N'Xã Phú Ninh');              --9786
+INSERT INTO Ward(WardName) values (N'Xã Phú Thọ');               --9787
+INSERT INTO Ward(WardName) values (N'Xã Phú Thành A');           --9788
+INSERT INTO Ward(WardName) values (N'Thị trấn Mỹ An');           --9789
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Lợi');             --9790
+INSERT INTO Ward(WardName) values (N'Xã Hưng Thạnh');            --9791
+INSERT INTO Ward(WardName) values (N'Xã Trường Xuân');           --9792
+INSERT INTO Ward(WardName) values (N'Xã Tân Kiều');              --9793
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hòa');                --9794
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Quý');                --9795
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Đông');               --9796
+INSERT INTO Ward(WardName) values (N'Xã Đốc Binh Kiều');         --9797
+INSERT INTO Ward(WardName) values (N'Xã Mỹ An');                 --9798
+INSERT INTO Ward(WardName) values (N'Xã Phú Điền');              --9799
+INSERT INTO Ward(WardName) values (N'Xã Láng Biển');             --9800
+INSERT INTO Ward(WardName) values (N'Xã Thanh Mỹ');              --9801
+INSERT INTO Ward(WardName) values (N'Thị trấn Mỹ Thọ');          --9802
+INSERT INTO Ward(WardName) values (N'Xã Gáo Giồng');             --9803
+INSERT INTO Ward(WardName) values (N'Xã Phương Thịnh');          --9804
+INSERT INTO Ward(WardName) values (N'Xã Ba Sao');                --9805
+INSERT INTO Ward(WardName) values (N'Xã Phong Mỹ');              --9806
+INSERT INTO Ward(WardName) values (N'Xã Tân Nghĩa');             --9807
+INSERT INTO Ward(WardName) values (N'Xã Phương Trà');            --9808
+INSERT INTO Ward(WardName) values (N'Xã Nhị Mỹ');                --9809
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thọ');                --9810
+INSERT INTO Ward(WardName) values (N'Xã Tân Hội Trung');         --9811
+INSERT INTO Ward(WardName) values (N'Xã An Bình');               --9812
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hội');                --9813
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hiệp');               --9814
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Long');               --9815
+INSERT INTO Ward(WardName) values (N'Xã Bình Hàng Trung');       --9816
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Xương');              --9817
+INSERT INTO Ward(WardName) values (N'Xã Bình Hàng Tây');         --9818
+INSERT INTO Ward(WardName) values (N'Xã Bình Thạnh');            --9819
+INSERT INTO Ward(WardName) values (N'Thị trấn Thanh Bình');      --9820
+INSERT INTO Ward(WardName) values (N'Xã Tân Quới');              --9821
+INSERT INTO Ward(WardName) values (N'Xã Tân Hòa');               --9822
+INSERT INTO Ward(WardName) values (N'Xã An Phong');              --9823
+INSERT INTO Ward(WardName) values (N'Xã Phú Lợi');               --9824
+INSERT INTO Ward(WardName) values (N'Xã Tân Mỹ');                --9825
+INSERT INTO Ward(WardName) values (N'Xã Bình Tấn');              --9826
+INSERT INTO Ward(WardName) values (N'Xã Tân Huề');               --9827
+INSERT INTO Ward(WardName) values (N'Xã Tân Bình');              --9828
+INSERT INTO Ward(WardName) values (N'Xã Tân Thạnh');             --9829
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú');               --9830
+INSERT INTO Ward(WardName) values (N'Xã Bình Thành');            --9831
+INSERT INTO Ward(WardName) values (N'Xã Tân Long');              --9832
+INSERT INTO Ward(WardName) values (N'Thị trấn Lấp Vò');          --9833
+INSERT INTO Ward(WardName) values (N'Xã Mỹ An Hưng A');          --9834
+INSERT INTO Ward(WardName) values (N'Xã Tân Mỹ');                --9835
+INSERT INTO Ward(WardName) values (N'Xã Mỹ An Hưng B');          --9836
+INSERT INTO Ward(WardName) values (N'Xã Tân  Khánh Trung');      --9837
+INSERT INTO Ward(WardName) values (N'Xã Long Hưng A');           --9838
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thạnh');            --9839
+INSERT INTO Ward(WardName) values (N'Xã Long Hưng B');           --9840
+INSERT INTO Ward(WardName) values (N'Xã Bình Thành');            --9841
+INSERT INTO Ward(WardName) values (N'Xã Định An');               --9842
+INSERT INTO Ward(WardName) values (N'Xã Định Yên');              --9843
+INSERT INTO Ward(WardName) values (N'Xã Hội An Đông');           --9844
+INSERT INTO Ward(WardName) values (N'Xã Bình Thạnh Trung');      --9845
+INSERT INTO Ward(WardName) values (N'Thị trấn Lai Vung');        --9846
+INSERT INTO Ward(WardName) values (N'Xã Tân Dương');             --9847
+INSERT INTO Ward(WardName) values (N'Xã Hòa Thành');             --9848
+INSERT INTO Ward(WardName) values (N'Xã Long Hậu');              --9849
+INSERT INTO Ward(WardName) values (N'Xã Tân Phước');             --9850
+INSERT INTO Ward(WardName) values (N'Xã Hòa Long');              --9851
+INSERT INTO Ward(WardName) values (N'Xã Tân Thành');             --9852
+INSERT INTO Ward(WardName) values (N'Xã Long Thắng');            --9853
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thới');             --9854
+INSERT INTO Ward(WardName) values (N'Xã Tân Hòa');               --9855
+INSERT INTO Ward(WardName) values (N'Xã Định Hòa');              --9856
+INSERT INTO Ward(WardName) values (N'Xã Phong Hòa');             --9857
+INSERT INTO Ward(WardName) values (N'Thị trấn Cái Tàu Hạ');      --9858
+INSERT INTO Ward(WardName) values (N'Xã An Hiệp');               --9859
+INSERT INTO Ward(WardName) values (N'Xã An Nhơn');               --9860
+INSERT INTO Ward(WardName) values (N'Xã Tân Nhuận Đông');        --9861
+INSERT INTO Ward(WardName) values (N'Xã Tân Bình');              --9862
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú Trung');         --9863
+INSERT INTO Ward(WardName) values (N'Xã Phú Long');              --9864
+INSERT INTO Ward(WardName) values (N'Xã An Phú Thuận');          --9865
+INSERT INTO Ward(WardName) values (N'Xã Phú Hựu');               --9866
+INSERT INTO Ward(WardName) values (N'Xã An Khánh');              --9867
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú');               --9868
+INSERT INTO Ward(WardName) values (N'Xã Hòa Tân');               --9869
+INSERT INTO Ward(WardName) values (N'Phường Mỹ Bình');           --9870
+INSERT INTO Ward(WardName) values (N'Phường Mỹ Long');           --9871
+INSERT INTO Ward(WardName) values (N'Phường Đông Xuyên');        --9872
+INSERT INTO Ward(WardName) values (N'Phường Mỹ Xuyên');          --9873
+INSERT INTO Ward(WardName) values (N'Phường Bình Đức');          --9874
+INSERT INTO Ward(WardName) values (N'Phường Bình Khánh');        --9875
+INSERT INTO Ward(WardName) values (N'Phường Mỹ Phước');          --9876
+INSERT INTO Ward(WardName) values (N'Phường Mỹ Quý');            --9877
+INSERT INTO Ward(WardName) values (N'Phường Mỹ Thới');           --9878
+INSERT INTO Ward(WardName) values (N'Phường Mỹ Thạnh');          --9879
+INSERT INTO Ward(WardName) values (N'Phường Mỹ Hòa');            --9880
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Khánh');              --9881
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hoà Hưng');           --9882
+INSERT INTO Ward(WardName) values (N'Phường Châu Phú B');        --9883
+INSERT INTO Ward(WardName) values (N'Phường Châu Phú A');        --9884
+INSERT INTO Ward(WardName) values (N'Phường Vĩnh Mỹ');           --9885
+INSERT INTO Ward(WardName) values (N'Phường Núi Sam');           --9886
+INSERT INTO Ward(WardName) values (N'Phường Vĩnh Ngươn');        --9887
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Tế');               --9888
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Châu');             --9889
+INSERT INTO Ward(WardName) values (N'Thị trấn An Phú');          --9890
+INSERT INTO Ward(WardName) values (N'Xã Khánh An');              --9891
+INSERT INTO Ward(WardName) values (N'Thị Trấn Long Bình');       --9892
+INSERT INTO Ward(WardName) values (N'Xã Khánh Bình');            --9893
+INSERT INTO Ward(WardName) values (N'Xã Quốc Thái');             --9894
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Hội');              --9895
+INSERT INTO Ward(WardName) values (N'Xã Phú Hữu');               --9896
+INSERT INTO Ward(WardName) values (N'Xã Phú Hội');               --9897
+INSERT INTO Ward(WardName) values (N'Xã Phước Hưng');            --9898
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Lộc');              --9899
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hậu');              --9900
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Trường');           --9901
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hội Đông');         --9902
+INSERT INTO Ward(WardName) values (N'Thị trấn Đa Phước');        --9903
+INSERT INTO Ward(WardName) values (N'Phường Long Thạnh');        --9904
+INSERT INTO Ward(WardName) values (N'Phường Long Hưng');         --9905
+INSERT INTO Ward(WardName) values (N'Phường Long Châu');         --9906
+INSERT INTO Ward(WardName) values (N'Xã Phú Lộc');               --9907
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Xương');            --9908
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hòa');              --9909
+INSERT INTO Ward(WardName) values (N'Xã Tân Thạnh');             --9910
+INSERT INTO Ward(WardName) values (N'Xã Tân An');                --9911
+INSERT INTO Ward(WardName) values (N'Xã Long An');               --9912
+INSERT INTO Ward(WardName) values (N'Phường Long Phú');          --9913
+INSERT INTO Ward(WardName) values (N'Xã Châu Phong');            --9914
+INSERT INTO Ward(WardName) values (N'Xã Phú Vĩnh');              --9915
+INSERT INTO Ward(WardName) values (N'Xã Lê Chánh');              --9916
+INSERT INTO Ward(WardName) values (N'Phường Long Sơn');          --9917
+INSERT INTO Ward(WardName) values (N'Thị trấn Phú Mỹ');          --9918
+INSERT INTO Ward(WardName) values (N'Thị trấn Chợ Vàm');         --9919
+INSERT INTO Ward(WardName) values (N'Xã Long Hoà');              --9920
+INSERT INTO Ward(WardName) values (N'Xã Phú Long');              --9921
+INSERT INTO Ward(WardName) values (N'Xã Phú Lâm');               --9922
+INSERT INTO Ward(WardName) values (N'Xã Phú Hiệp');              --9923
+INSERT INTO Ward(WardName) values (N'Xã Phú Thạnh');             --9924
+INSERT INTO Ward(WardName) values (N'Xã Hoà Lạc');               --9925
+INSERT INTO Ward(WardName) values (N'Xã Phú Thành');             --9926
+INSERT INTO Ward(WardName) values (N'Xã Phú An');                --9927
+INSERT INTO Ward(WardName) values (N'Xã Phú Xuân');              --9928
+INSERT INTO Ward(WardName) values (N'Xã Hiệp Xương');            --9929
+INSERT INTO Ward(WardName) values (N'Xã Phú Bình');              --9930
+INSERT INTO Ward(WardName) values (N'Xã Phú Thọ');               --9931
+INSERT INTO Ward(WardName) values (N'Xã Phú Hưng');              --9932
+INSERT INTO Ward(WardName) values (N'Xã Bình Thạnh Đông');       --9933
+INSERT INTO Ward(WardName) values (N'Xã Tân Hòa');               --9934
+INSERT INTO Ward(WardName) values (N'Xã Tân Trung');             --9935
+INSERT INTO Ward(WardName) values (N'Thị trấn Cái Dầu');         --9936
+INSERT INTO Ward(WardName) values (N'Xã Khánh Hòa');             --9937
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Đức');                --9938
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Phú');                --9939
+INSERT INTO Ward(WardName) values (N'Xã Ô Long Vỹ');             --9940
+INSERT INTO Ward(WardName) values (N'Thị trấn Vĩnh Thạnh Trung'); --9941
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Mỹ Tây');          --9942
+INSERT INTO Ward(WardName) values (N'Xã Bình Long');             --9943
+INSERT INTO Ward(WardName) values (N'Xã Bình Mỹ');               --9944
+INSERT INTO Ward(WardName) values (N'Xã Bình Thủy');             --9945
+INSERT INTO Ward(WardName) values (N'Xã Đào Hữu Cảnh');          --9946
+INSERT INTO Ward(WardName) values (N'Xã Bình Phú');              --9947
+INSERT INTO Ward(WardName) values (N'Xã Bình Chánh');            --9948
+INSERT INTO Ward(WardName) values (N'Phường Nhà Bàng');          --9949
+INSERT INTO Ward(WardName) values (N'Phường Chi Lăng');          --9950
+INSERT INTO Ward(WardName) values (N'Phường Núi Voi');           --9951
+INSERT INTO Ward(WardName) values (N'Phường Nhơn Hưng');         --9952
+INSERT INTO Ward(WardName) values (N'Phường An Phú');            --9953
+INSERT INTO Ward(WardName) values (N'Phường Thới Sơn');          --9954
+INSERT INTO Ward(WardName) values (N'Phường Tịnh Biên');         --9955
+INSERT INTO Ward(WardName) values (N'Xã Văn Giáo');              --9956
+INSERT INTO Ward(WardName) values (N'Xã An Cư');                 --9957
+INSERT INTO Ward(WardName) values (N'Xã An Nông');               --9958
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Trung');            --9959
+INSERT INTO Ward(WardName) values (N'Xã Tân Lợi');               --9960
+INSERT INTO Ward(WardName) values (N'Xã An Hảo');                --9961
+INSERT INTO Ward(WardName) values (N'Xã Tân Lập');               --9962
+INSERT INTO Ward(WardName) values (N'Thị trấn Tri Tôn');         --9963
+INSERT INTO Ward(WardName) values (N'Thị trấn Ba Chúc');         --9964
+INSERT INTO Ward(WardName) values (N'Xã Lạc Quới');              --9965
+INSERT INTO Ward(WardName) values (N'Xã Lê Trì');                --9966
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Gia');              --9967
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Phước');            --9968
+INSERT INTO Ward(WardName) values (N'Xã Châu Lăng');             --9969
+INSERT INTO Ward(WardName) values (N'Xã Lương Phi');             --9970
+INSERT INTO Ward(WardName) values (N'Xã Lương An Trà');          --9971
+INSERT INTO Ward(WardName) values (N'Xã Tà Đảnh');               --9972
+INSERT INTO Ward(WardName) values (N'Xã Núi Tô');                --9973
+INSERT INTO Ward(WardName) values (N'Xã An Tức');                --9974
+INSERT INTO Ward(WardName) values (N'Thị trấn Cô Tô');           --9975
+INSERT INTO Ward(WardName) values (N'Xã Tân Tuyến');             --9976
+INSERT INTO Ward(WardName) values (N'Xã Ô Lâm');                 --9977
+INSERT INTO Ward(WardName) values (N'Thị trấn An Châu');         --9978
+INSERT INTO Ward(WardName) values (N'Xã An Hòa');                --9979
+INSERT INTO Ward(WardName) values (N'Xã Cần Đăng');              --9980
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hanh');             --9981
+INSERT INTO Ward(WardName) values (N'Xã Bình Thạnh');            --9982
+INSERT INTO Ward(WardName) values (N'Thị trấn Vĩnh Bình');       --9983
+INSERT INTO Ward(WardName) values (N'Xã Bình Hòa');              --9984
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh An');               --9985
+INSERT INTO Ward(WardName) values (N'Xã Hòa Bình Thạnh');        --9986
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Lợi');              --9987
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Nhuận');            --9988
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú');               --9989
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thành');            --9990
+INSERT INTO Ward(WardName) values (N'Thị trấn Chợ Mới');         --9991
+INSERT INTO Ward(WardName) values (N'Thị trấn Mỹ Luông');        --9992
+INSERT INTO Ward(WardName) values (N'Xã Kiến An');               --9993
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hội Đông');           --9994
+INSERT INTO Ward(WardName) values (N'Xã Long Điền A');           --9995
+INSERT INTO Ward(WardName) values (N'Xã Tấn Mỹ');                --9996
+INSERT INTO Ward(WardName) values (N'Xã Long Điền B');           --9997
+INSERT INTO Ward(WardName) values (N'Xã Kiến Thành');            --9998
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hiệp');               --9999
+INSERT INTO Ward(WardName) values (N'Xã Mỹ An');                 --10000
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Mỹ');               --10001
+INSERT INTO Ward(WardName) values (N'Xã Long Giang');            --10002
+INSERT INTO Ward(WardName) values (N'Xã Long Kiến');             --10003
+INSERT INTO Ward(WardName) values (N'Xã Bình Phước Xuân');       --10004
+INSERT INTO Ward(WardName) values (N'Xã An Thạnh Trung');        --10005
+INSERT INTO Ward(WardName) values (N'Thị trấn Hội An');          --10006
+INSERT INTO Ward(WardName) values (N'Xã Hòa Bình');              --10007
+INSERT INTO Ward(WardName) values (N'Xã Hòa An');                --10008
+INSERT INTO Ward(WardName) values (N'Thị trấn Núi Sập');         --10009
+INSERT INTO Ward(WardName) values (N'Thị trấn Phú Hoà');         --10010
+INSERT INTO Ward(WardName) values (N'Thị Trấn Óc Eo');           --10011
+INSERT INTO Ward(WardName) values (N'Xã Tây Phú');               --10012
+INSERT INTO Ward(WardName) values (N'Xã An Bình');               --10013
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Phú');              --10014
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Trạch');            --10015
+INSERT INTO Ward(WardName) values (N'Xã Phú Thuận');             --10016
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Chánh');            --10017
+INSERT INTO Ward(WardName) values (N'Xã Định Mỹ');               --10018
+INSERT INTO Ward(WardName) values (N'Xã Định Thành');            --10019
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Phú Đông');           --10020
+INSERT INTO Ward(WardName) values (N'Xã Vọng Đông');             --10021
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Khánh');            --10022
+INSERT INTO Ward(WardName) values (N'Xã Thoại Giang');           --10023
+INSERT INTO Ward(WardName) values (N'Xã Bình Thành');            --10024
+INSERT INTO Ward(WardName) values (N'Xã Vọng Thê');              --10025
+INSERT INTO Ward(WardName) values (N'Phường Vĩnh Thanh Vân');    --10026
+INSERT INTO Ward(WardName) values (N'Phường Vĩnh Thanh');        --10027
+INSERT INTO Ward(WardName) values (N'Phường Vĩnh Quang');        --10028
+INSERT INTO Ward(WardName) values (N'Phường Vĩnh Hiệp');         --10029
+INSERT INTO Ward(WardName) values (N'Phường Vĩnh Bảo');          --10030
+INSERT INTO Ward(WardName) values (N'Phường Vĩnh Lạc');          --10031
+INSERT INTO Ward(WardName) values (N'Phường An Hòa');            --10032
+INSERT INTO Ward(WardName) values (N'Phường An Bình');           --10033
+INSERT INTO Ward(WardName) values (N'Phường Rạch Sỏi');          --10034
+INSERT INTO Ward(WardName) values (N'Phường Vĩnh Lợi');          --10035
+INSERT INTO Ward(WardName) values (N'Phường Vĩnh Thông');        --10036
+INSERT INTO Ward(WardName) values (N'Xã Phi Thông');             --10037
+INSERT INTO Ward(WardName) values (N'Phường Tô Châu');           --10038
+INSERT INTO Ward(WardName) values (N'Phường Đông Hồ');           --10039
+INSERT INTO Ward(WardName) values (N'Phường Bình San');          --10040
+INSERT INTO Ward(WardName) values (N'Phường Pháo Đài');          --10041
+INSERT INTO Ward(WardName) values (N'Phường Mỹ Đức');            --10042
+INSERT INTO Ward(WardName) values (N'Xã Tiên Hải');              --10043
+INSERT INTO Ward(WardName) values (N'Xã Thuận Yên');             --10044
+INSERT INTO Ward(WardName) values (N'Thị trấn Kiên Lương');      --10045
+INSERT INTO Ward(WardName) values (N'Xã Kiên Bình');             --10046
+INSERT INTO Ward(WardName) values (N'Xã Hòa Điền');              --10047
+INSERT INTO Ward(WardName) values (N'Xã Dương Hòa');             --10048
+INSERT INTO Ward(WardName) values (N'Xã Bình An');               --10049
+INSERT INTO Ward(WardName) values (N'Xã Bình Trị');              --10050
+INSERT INTO Ward(WardName) values (N'Xã Sơn Hải');               --10051
+INSERT INTO Ward(WardName) values (N'Xã Hòn Nghệ');              --10052
+INSERT INTO Ward(WardName) values (N'Thị trấn Hòn Đất');         --10053
+INSERT INTO Ward(WardName) values (N'Thị trấn Sóc Sơn');         --10054
+INSERT INTO Ward(WardName) values (N'Xã Bình Sơn');              --10055
+INSERT INTO Ward(WardName) values (N'Xã Bình Giang');            --10056
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thái');               --10057
+INSERT INTO Ward(WardName) values (N'Xã Nam Thái Sơn');          --10058
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hiệp Sơn');           --10059
+INSERT INTO Ward(WardName) values (N'Xã Sơn Kiên');              --10060
+INSERT INTO Ward(WardName) values (N'Xã Sơn Bình');              --10061
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thuận');              --10062
+INSERT INTO Ward(WardName) values (N'Xã Lình Huỳnh');            --10063
+INSERT INTO Ward(WardName) values (N'Xã Thổ Sơn');               --10064
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Lâm');                --10065
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Phước');              --10066
+INSERT INTO Ward(WardName) values (N'Thị trấn Tân Hiệp');        --10067
+INSERT INTO Ward(WardName) values (N'Xã Tân Hội');               --10068
+INSERT INTO Ward(WardName) values (N'Xã Tân Thành');             --10069
+INSERT INTO Ward(WardName) values (N'Xã Tân Hiệp B');            --10070
+INSERT INTO Ward(WardName) values (N'Xã Tân Hoà');               --10071
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Đông B');          --10072
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Đông');            --10073
+INSERT INTO Ward(WardName) values (N'Xã Tân Hiệp A');            --10074
+INSERT INTO Ward(WardName) values (N'Xã Tân An');                --10075
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Đông A');          --10076
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Trị');             --10077
+INSERT INTO Ward(WardName) values (N'Thị trấn Minh Lương');      --10078
+INSERT INTO Ward(WardName) values (N'Xã Mong Thọ A');            --10079
+INSERT INTO Ward(WardName) values (N'Xã Mong Thọ B');            --10080
+INSERT INTO Ward(WardName) values (N'Xã Mong Thọ');              --10081
+INSERT INTO Ward(WardName) values (N'Xã Giục Tượng');            --10082
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hòa Hiệp');         --10083
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hoà Phú');          --10084
+INSERT INTO Ward(WardName) values (N'Xã Minh Hòa');              --10085
+INSERT INTO Ward(WardName) values (N'Xã Bình An');               --10086
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Lộc');             --10087
+INSERT INTO Ward(WardName) values (N'Thị Trấn Giồng Riềng');     --10088
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Hưng');            --10089
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Phước');           --10090
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Lộc');             --10091
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Hòa');             --10092
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Bình');            --10093
+INSERT INTO Ward(WardName) values (N'Xã Bàn Thạch');             --10094
+INSERT INTO Ward(WardName) values (N'Xã Bàn Tân Định');          --10095
+INSERT INTO Ward(WardName) values (N'Xã Ngọc Thành');            --10096
+INSERT INTO Ward(WardName) values (N'Xã Ngọc Chúc');             --10097
+INSERT INTO Ward(WardName) values (N'Xã Ngọc Thuận');            --10098
+INSERT INTO Ward(WardName) values (N'Xã Hòa Hưng');              --10099
+INSERT INTO Ward(WardName) values (N'Xã Hoà Lợi');               --10100
+INSERT INTO Ward(WardName) values (N'Xã Hoà An');                --10101
+INSERT INTO Ward(WardName) values (N'Xã Long Thạnh');            --10102
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thạnh');            --10103
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Phú');              --10104
+INSERT INTO Ward(WardName) values (N'Xã  Hòa Thuận');            --10105
+INSERT INTO Ward(WardName) values (N'Xã Ngọc Hoà');              --10106
+INSERT INTO Ward(WardName) values (N'Thị trấn Gò Quao');         --10107
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hòa Hưng Bắc');     --10108
+INSERT INTO Ward(WardName) values (N'Xã Định Hòa');              --10109
+INSERT INTO Ward(WardName) values (N'Xã Thới Quản');             --10110
+INSERT INTO Ward(WardName) values (N'Xã Định An');               --10111
+INSERT INTO Ward(WardName) values (N'Xã Thủy Liễu');             --10112
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hòa Hưng Nam');     --10113
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Phước A');          --10114
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Phước B');          --10115
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Tuy');              --10116
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thắng');            --10117
+INSERT INTO Ward(WardName) values (N'Thị trấn Thứ Ba');          --10118
+INSERT INTO Ward(WardName) values (N'Xã Tây Yên');               --10119
+INSERT INTO Ward(WardName) values (N'Xã Tây Yên A');             --10120
+INSERT INTO Ward(WardName) values (N'Xã Nam Yên');               --10121
+INSERT INTO Ward(WardName) values (N'Xã Hưng Yên');              --10122
+INSERT INTO Ward(WardName) values (N'Xã Nam Thái');              --10123
+INSERT INTO Ward(WardName) values (N'Xã Nam Thái A');            --10124
+INSERT INTO Ward(WardName) values (N'Xã Đông Thái');             --10125
+INSERT INTO Ward(WardName) values (N'Xã Đông Yên');              --10126
+INSERT INTO Ward(WardName) values (N'Thị trấn Thứ Mười Một');    --10127
+INSERT INTO Ward(WardName) values (N'Xã Thuận Hoà');             --10128
+INSERT INTO Ward(WardName) values (N'Xã Đông Hòa');              --10129
+INSERT INTO Ward(WardName) values (N'Xã Đông Thạnh');            --10130
+INSERT INTO Ward(WardName) values (N'Xã Tân Thạnh');             --10131
+INSERT INTO Ward(WardName) values (N'Xã Đông Hưng');             --10132
+INSERT INTO Ward(WardName) values (N'Xã Đông Hưng A');           --10133
+INSERT INTO Ward(WardName) values (N'Xã Đông Hưng B');           --10134
+INSERT INTO Ward(WardName) values (N'Xã Vân Khánh');             --10135
+INSERT INTO Ward(WardName) values (N'Xã Vân Khánh Đông');        --10136
+INSERT INTO Ward(WardName) values (N'Xã Vân Khánh Tây');         --10137
+INSERT INTO Ward(WardName) values (N'Thị trấn Vĩnh Thuận');      --10138
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Bình Bắc');         --10139
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Bình Nam');         --10140
+INSERT INTO Ward(WardName) values (N'Xã Bình Minh');             --10141
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thuận');            --10142
+INSERT INTO Ward(WardName) values (N'Xã Tân Thuận');             --10143
+INSERT INTO Ward(WardName) values (N'Xã Phong Đông');            --10144
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Phong');            --10145
+INSERT INTO Ward(WardName) values (N'Phường Dương Đông');        --10146
+INSERT INTO Ward(WardName) values (N'Phường An Thới');           --10147
+INSERT INTO Ward(WardName) values (N'Xã Cửa Cạn');               --10148
+INSERT INTO Ward(WardName) values (N'Xã Gành Dầu');              --10149
+INSERT INTO Ward(WardName) values (N'Xã Cửa Dương');             --10150
+INSERT INTO Ward(WardName) values (N'Xã Hàm Ninh');              --10151
+INSERT INTO Ward(WardName) values (N'Xã Dương Tơ');              --10152
+INSERT INTO Ward(WardName) values (N'Xã Bãi Thơm');              --10153
+INSERT INTO Ward(WardName) values (N'Xã Thổ Châu');              --10154
+INSERT INTO Ward(WardName) values (N'Xã Hòn Tre');               --10155
+INSERT INTO Ward(WardName) values (N'Xã Lại Sơn');               --10156
+INSERT INTO Ward(WardName) values (N'Xã An Sơn');                --10157
+INSERT INTO Ward(WardName) values (N'Xã Nam Du');                --10158
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Yên');             --10159
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Yên A');           --10160
+INSERT INTO Ward(WardName) values (N'Xã An Minh Bắc');           --10161
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hòa');              --10162
+INSERT INTO Ward(WardName) values (N'Xã Hoà Chánh');             --10163
+INSERT INTO Ward(WardName) values (N'Xã Minh Thuận');            --10164
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Phú');              --10165
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Điều');             --10166
+INSERT INTO Ward(WardName) values (N'Xã Tân Khánh Hòa');         --10167
+INSERT INTO Ward(WardName) values (N'Xã Phú Lợi');               --10168
+INSERT INTO Ward(WardName) values (N'Xã Phú Mỹ');                --10169
+INSERT INTO Ward(WardName) values (N'Phường Cái Khế');           --10170
+INSERT INTO Ward(WardName) values (N'Phường An Hòa');            --10171
+INSERT INTO Ward(WardName) values (N'Phường Thới Bình');         --10172
+INSERT INTO Ward(WardName) values (N'Phường An Nghiệp');         --10173
+INSERT INTO Ward(WardName) values (N'Phường An Cư');             --10174
+INSERT INTO Ward(WardName) values (N'Phường Tân An');            --10175
+INSERT INTO Ward(WardName) values (N'Phường An Phú');            --10176
+INSERT INTO Ward(WardName) values (N'Phường Xuân Khánh');        --10177
+INSERT INTO Ward(WardName) values (N'Phường Hưng Lợi');          --10178
+INSERT INTO Ward(WardName) values (N'Phường An Khánh');          --10179
+INSERT INTO Ward(WardName) values (N'Phường An Bình');           --10180
+INSERT INTO Ward(WardName) values (N'Phường Châu Văn Liêm');     --10181
+INSERT INTO Ward(WardName) values (N'Phường Thới Hòa');          --10182
+INSERT INTO Ward(WardName) values (N'Phường Thới Long');         --10183
+INSERT INTO Ward(WardName) values (N'Phường Long Hưng');         --10184
+INSERT INTO Ward(WardName) values (N'Phường Thới An');           --10185
+INSERT INTO Ward(WardName) values (N'Phường Phước Thới');        --10186
+INSERT INTO Ward(WardName) values (N'Phường Trường Lạc');        --10187
+INSERT INTO Ward(WardName) values (N'Phường Bình Thủy');         --10188
+INSERT INTO Ward(WardName) values (N'Phường Trà An');            --10189
+INSERT INTO Ward(WardName) values (N'Phường Trà Nóc');           --10190
+INSERT INTO Ward(WardName) values (N'Phường Thới An Đông');      --10191
+INSERT INTO Ward(WardName) values (N'Phường An Thới');           --10192
+INSERT INTO Ward(WardName) values (N'Phường Bùi Hữu Nghĩa');     --10193
+INSERT INTO Ward(WardName) values (N'Phường Long Hòa');          --10194
+INSERT INTO Ward(WardName) values (N'Phường Long Tuyền');        --10195
+INSERT INTO Ward(WardName) values (N'Phường Lê Bình');           --10196
+INSERT INTO Ward(WardName) values (N'Phường Hưng Phú');          --10197
+INSERT INTO Ward(WardName) values (N'Phường Hưng Thạnh');        --10198
+INSERT INTO Ward(WardName) values (N'Phường Ba Láng');           --10199
+INSERT INTO Ward(WardName) values (N'Phường Thường Thạnh');      --10200
+INSERT INTO Ward(WardName) values (N'Phường Phú Thứ');           --10201
+INSERT INTO Ward(WardName) values (N'Phường Tân Phú');           --10202
+INSERT INTO Ward(WardName) values (N'Phường Thốt Nốt');          --10203
+INSERT INTO Ward(WardName) values (N'Phường Thới Thuận');        --10204
+INSERT INTO Ward(WardName) values (N'Phường Thuận An');          --10205
+INSERT INTO Ward(WardName) values (N'Phường Tân Lộc');           --10206
+INSERT INTO Ward(WardName) values (N'Phường Trung Nhứt');        --10207
+INSERT INTO Ward(WardName) values (N'Phường Thạnh Hoà');         --10208
+INSERT INTO Ward(WardName) values (N'Phường Trung Kiên');        --10209
+INSERT INTO Ward(WardName) values (N'Phường Tân Hưng');          --10210
+INSERT INTO Ward(WardName) values (N'Phường Thuận Hưng');        --10211
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Bình');             --10212
+INSERT INTO Ward(WardName) values (N'Thị trấn Thanh An');        --10213
+INSERT INTO Ward(WardName) values (N'Thị trấn Vĩnh Thạnh');      --10214
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Mỹ');              --10215
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Trinh');            --10216
+INSERT INTO Ward(WardName) values (N'Xã Thạnh An');              --10217
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Tiến');            --10218
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Thắng');           --10219
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Lợi');             --10220
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Qưới');            --10221
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Lộc');             --10222
+INSERT INTO Ward(WardName) values (N'Xã Trung An');              --10223
+INSERT INTO Ward(WardName) values (N'Xã Trung Thạnh');           --10224
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Phú');             --10225
+INSERT INTO Ward(WardName) values (N'Xã Trung Hưng');            --10226
+INSERT INTO Ward(WardName) values (N'Thị trấn Cờ Đỏ');           --10227
+INSERT INTO Ward(WardName) values (N'Xã Thới Hưng');             --10228
+INSERT INTO Ward(WardName) values (N'Xã Đông Hiệp');             --10229
+INSERT INTO Ward(WardName) values (N'Xã Đông Thắng');            --10230
+INSERT INTO Ward(WardName) values (N'Xã Thới Đông');             --10231
+INSERT INTO Ward(WardName) values (N'Xã Thới Xuân');             --10232
+INSERT INTO Ward(WardName) values (N'Thị trấn Phong Điền');      --10233
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Ái');               --10234
+INSERT INTO Ward(WardName) values (N'Xã Giai Xuân');             --10235
+INSERT INTO Ward(WardName) values (N'Xã Tân Thới');              --10236
+INSERT INTO Ward(WardName) values (N'Xã Trường Long');           --10237
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Khánh');              --10238
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Nghĩa');            --10239
+INSERT INTO Ward(WardName) values (N'Thị trấn Thới Lai');        --10240
+INSERT INTO Ward(WardName) values (N'Xã Thới Thạnh');            --10241
+INSERT INTO Ward(WardName) values (N'Xã Tân Thạnh');             --10242
+INSERT INTO Ward(WardName) values (N'Xã Xuân Thắng');            --10243
+INSERT INTO Ward(WardName) values (N'Xã Đông Bình');             --10244
+INSERT INTO Ward(WardName) values (N'Xã Đông Thuận');            --10245
+INSERT INTO Ward(WardName) values (N'Xã Thới Tân');              --10246
+INSERT INTO Ward(WardName) values (N'Xã Trường Thắng');          --10247
+INSERT INTO Ward(WardName) values (N'Xã Định Môn');              --10248
+INSERT INTO Ward(WardName) values (N'Xã Trường Thành');          --10249
+INSERT INTO Ward(WardName) values (N'Xã Trường Xuân');           --10250
+INSERT INTO Ward(WardName) values (N'Xã Trường Xuân A');         --10251
+INSERT INTO Ward(WardName) values (N'Xã Trường Xuân B');         --10252
+INSERT INTO Ward(WardName) values (N'Phường I');                 --10253
+INSERT INTO Ward(WardName) values (N'Phường III');               --10254
+INSERT INTO Ward(WardName) values (N'Phường IV');                --10255
+INSERT INTO Ward(WardName) values (N'Phường V');                 --10256
+INSERT INTO Ward(WardName) values (N'Phường VII');               --10257
+INSERT INTO Ward(WardName) values (N'Xã Vị Tân');                --10258
+INSERT INTO Ward(WardName) values (N'Xã Hoả Lựu');               --10259
+INSERT INTO Ward(WardName) values (N'Xã Tân Tiến');              --10260
+INSERT INTO Ward(WardName) values (N'Xã Hoả Tiến');              --10261
+INSERT INTO Ward(WardName) values (N'Phường Ngã Bảy');           --10262
+INSERT INTO Ward(WardName) values (N'Phường Lái Hiếu');          --10263
+INSERT INTO Ward(WardName) values (N'Phường Hiệp Thành');        --10264
+INSERT INTO Ward(WardName) values (N'Phường Hiệp Lợi');          --10265
+INSERT INTO Ward(WardName) values (N'Xã Đại Thành');             --10266
+INSERT INTO Ward(WardName) values (N'Xã Tân Thành');             --10267
+INSERT INTO Ward(WardName) values (N'Thị trấn Một Ngàn');        --10268
+INSERT INTO Ward(WardName) values (N'Xã Tân Hoà');               --10269
+INSERT INTO Ward(WardName) values (N'Thị trấn Bảy Ngàn');        --10270
+INSERT INTO Ward(WardName) values (N'Xã Trường Long Tây');       --10271
+INSERT INTO Ward(WardName) values (N'Xã Trường Long A');         --10272
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Nghĩa A');          --10273
+INSERT INTO Ward(WardName) values (N'Thị trấn Rạch Gòi');        --10274
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Xuân');            --10275
+INSERT INTO Ward(WardName) values (N'Thị trấn Cái Tắc');         --10276
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú Thạnh');         --10277
+INSERT INTO Ward(WardName) values (N'Thị Trấn Ngã Sáu');         --10278
+INSERT INTO Ward(WardName) values (N'Xã Đông Thạnh');            --10279
+INSERT INTO Ward(WardName) values (N'Xã Đông Phú');              --10280
+INSERT INTO Ward(WardName) values (N'Xã Phú Hữu');               --10281
+INSERT INTO Ward(WardName) values (N'Xã Phú Tân');               --10282
+INSERT INTO Ward(WardName) values (N'Thị trấn Mái Dầm');         --10283
+INSERT INTO Ward(WardName) values (N'Xã Đông Phước');            --10284
+INSERT INTO Ward(WardName) values (N'Xã Đông Phước A');          --10285
+INSERT INTO Ward(WardName) values (N'Thị trấn Kinh Cùng');       --10286
+INSERT INTO Ward(WardName) values (N'Thị trấn Cây Dương');       --10287
+INSERT INTO Ward(WardName) values (N'Xã Tân Bình');              --10288
+INSERT INTO Ward(WardName) values (N'Xã Bình Thành');            --10289
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Hòa');             --10290
+INSERT INTO Ward(WardName) values (N'Xã Long Thạnh');            --10291
+INSERT INTO Ward(WardName) values (N'Xã Phụng Hiệp');            --10292
+INSERT INTO Ward(WardName) values (N'Xã Hòa Mỹ');                --10293
+INSERT INTO Ward(WardName) values (N'Xã Hòa An');                --10294
+INSERT INTO Ward(WardName) values (N'Xã Phương Bình');           --10295
+INSERT INTO Ward(WardName) values (N'Xã Hiệp Hưng');             --10296
+INSERT INTO Ward(WardName) values (N'Xã Tân Phước Hưng');        --10297
+INSERT INTO Ward(WardName) values (N'Thị trấn Búng Tàu');        --10298
+INSERT INTO Ward(WardName) values (N'Xã Phương Phú');            --10299
+INSERT INTO Ward(WardName) values (N'Xã Tân Long');              --10300
+INSERT INTO Ward(WardName) values (N'Thị trấn Nàng Mau');        --10301
+INSERT INTO Ward(WardName) values (N'Xã Vị Trung');              --10302
+INSERT INTO Ward(WardName) values (N'Xã Vị Thuỷ');               --10303
+INSERT INTO Ward(WardName) values (N'Xã Vị Thắng');              --10304
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thuận Tây');        --10305
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Trung');            --10306
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Tường');            --10307
+INSERT INTO Ward(WardName) values (N'Xã Vị Đông');               --10308
+INSERT INTO Ward(WardName) values (N'Xã Vị Thanh');              --10309
+INSERT INTO Ward(WardName) values (N'Xã Vị Bình');               --10310
+INSERT INTO Ward(WardName) values (N'Xã Thuận Hưng');            --10311
+INSERT INTO Ward(WardName) values (N'Xã Thuận Hòa');             --10312
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thuận Đông');       --10313
+INSERT INTO Ward(WardName) values (N'Thị trấn Vĩnh Viễn');       --10314
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Viễn A');           --10315
+INSERT INTO Ward(WardName) values (N'Xã Lương Tâm');             --10316
+INSERT INTO Ward(WardName) values (N'Xã Lương Nghĩa');           --10317
+INSERT INTO Ward(WardName) values (N'Xã Xà Phiên');              --10318
+INSERT INTO Ward(WardName) values (N'Phường Thuận An');          --10319
+INSERT INTO Ward(WardName) values (N'Phường Trà Lồng');          --10320
+INSERT INTO Ward(WardName) values (N'Phường Bình Thạnh');        --10321
+INSERT INTO Ward(WardName) values (N'Xã Long Bình');             --10322
+INSERT INTO Ward(WardName) values (N'Phường Vĩnh Tường');        --10323
+INSERT INTO Ward(WardName) values (N'Xã Long Trị');              --10324
+INSERT INTO Ward(WardName) values (N'Xã Long Trị A');            --10325
+INSERT INTO Ward(WardName) values (N'Xã Long Phú');              --10326
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú');               --10327
+INSERT INTO Ward(WardName) values (N'Phường 5');                 --10328
+INSERT INTO Ward(WardName) values (N'Phường 7');                 --10329
+INSERT INTO Ward(WardName) values (N'Phường 8');                 --10330
+INSERT INTO Ward(WardName) values (N'Phường 6');                 --10331
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --10332
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --10333
+INSERT INTO Ward(WardName) values (N'Phường 4');                 --10334
+INSERT INTO Ward(WardName) values (N'Phường 3');                 --10335
+INSERT INTO Ward(WardName) values (N'Phường 9');                 --10336
+INSERT INTO Ward(WardName) values (N'Phường 10');                --10337
+INSERT INTO Ward(WardName) values (N'Thị trấn Châu Thành');      --10338
+INSERT INTO Ward(WardName) values (N'Xã Hồ Đắc Kiện');           --10339
+INSERT INTO Ward(WardName) values (N'Xã Phú Tâm');               --10340
+INSERT INTO Ward(WardName) values (N'Xã Thuận Hòa');             --10341
+INSERT INTO Ward(WardName) values (N'Xã Phú Tân');               --10342
+INSERT INTO Ward(WardName) values (N'Xã Thiện Mỹ');              --10343
+INSERT INTO Ward(WardName) values (N'Xã An Hiệp');               --10344
+INSERT INTO Ward(WardName) values (N'Xã An Ninh');               --10345
+INSERT INTO Ward(WardName) values (N'Thị trấn Kế Sách');         --10346
+INSERT INTO Ward(WardName) values (N'Thị trấn An Lạc Thôn');     --10347
+INSERT INTO Ward(WardName) values (N'Xã Xuân Hòa');              --10348
+INSERT INTO Ward(WardName) values (N'Xã Phong Nẫm');             --10349
+INSERT INTO Ward(WardName) values (N'Xã An Lạc Tây');            --10350
+INSERT INTO Ward(WardName) values (N'Xã Trinh Phú');             --10351
+INSERT INTO Ward(WardName) values (N'Xã Ba Trinh');              --10352
+INSERT INTO Ward(WardName) values (N'Xã Thới An Hội');           --10353
+INSERT INTO Ward(WardName) values (N'Xã Nhơn Mỹ');               --10354
+INSERT INTO Ward(WardName) values (N'Xã Kế Thành');              --10355
+INSERT INTO Ward(WardName) values (N'Xã Kế An');                 --10356
+INSERT INTO Ward(WardName) values (N'Xã Đại Hải');               --10357
+INSERT INTO Ward(WardName) values (N'Xã An Mỹ');                 --10358
+INSERT INTO Ward(WardName) values (N'Thị trấn Huỳnh Hữu Nghĩa'); --10359
+INSERT INTO Ward(WardName) values (N'Xã Long Hưng');             --10360
+INSERT INTO Ward(WardName) values (N'Xã Hưng Phú');              --10361
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Hương');              --10362
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Tú');                 --10363
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Phước');              --10364
+INSERT INTO Ward(WardName) values (N'Xã Thuận Hưng');            --10365
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Thuận');              --10366
+INSERT INTO Ward(WardName) values (N'Xã Phú Mỹ');                --10367
+INSERT INTO Ward(WardName) values (N'Thị trấn Cù Lao Dung');     --10368
+INSERT INTO Ward(WardName) values (N'Xã An Thạnh 1');            --10369
+INSERT INTO Ward(WardName) values (N'Xã An Thạnh Tây');          --10370
+INSERT INTO Ward(WardName) values (N'Xã An Thạnh Đông');         --10371
+INSERT INTO Ward(WardName) values (N'Xã Đại Ân 1');              --10372
+INSERT INTO Ward(WardName) values (N'Xã An Thạnh 2');            --10373
+INSERT INTO Ward(WardName) values (N'Xã An Thạnh 3');            --10374
+INSERT INTO Ward(WardName) values (N'Xã An Thạnh Nam');          --10375
+INSERT INTO Ward(WardName) values (N'Thị trấn Long Phú');        --10376
+INSERT INTO Ward(WardName) values (N'Xã Song Phụng');            --10377
+INSERT INTO Ward(WardName) values (N'Thị trấn Đại Ngãi');        --10378
+INSERT INTO Ward(WardName) values (N'Xã Hậu Thạnh');             --10379
+INSERT INTO Ward(WardName) values (N'Xã Long Đức');              --10380
+INSERT INTO Ward(WardName) values (N'Xã Trường Khánh');          --10381
+INSERT INTO Ward(WardName) values (N'Xã Phú Hữu');               --10382
+INSERT INTO Ward(WardName) values (N'Xã Tân Hưng');              --10383
+INSERT INTO Ward(WardName) values (N'Xã Châu Khánh');            --10384
+INSERT INTO Ward(WardName) values (N'Xã Tân Thạnh');             --10385
+INSERT INTO Ward(WardName) values (N'Xã Long Phú');              --10386
+INSERT INTO Ward(WardName) values (N'Thị trấn Mỹ Xuyên');        --10387
+INSERT INTO Ward(WardName) values (N'Xã Đại Tâm');               --10388
+INSERT INTO Ward(WardName) values (N'Xã Tham Đôn');              --10389
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Phú');             --10390
+INSERT INTO Ward(WardName) values (N'Xã Ngọc Đông');             --10391
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Quới');            --10392
+INSERT INTO Ward(WardName) values (N'Xã Hòa Tú 1');              --10393
+INSERT INTO Ward(WardName) values (N'Xã Gia Hòa 1');             --10394
+INSERT INTO Ward(WardName) values (N'Xã Ngọc Tố');               --10395
+INSERT INTO Ward(WardName) values (N'Xã Gia Hòa 2');             --10396
+INSERT INTO Ward(WardName) values (N'Xã Hòa Tú II');             --10397
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --10398
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --10399
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Quới');             --10400
+INSERT INTO Ward(WardName) values (N'Xã Tân Long');              --10401
+INSERT INTO Ward(WardName) values (N'Xã Long Bình');             --10402
+INSERT INTO Ward(WardName) values (N'Phường 3');                 --10403
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Bình');               --10404
+INSERT INTO Ward(WardName) values (N'Xã Mỹ Quới');               --10405
+INSERT INTO Ward(WardName) values (N'Thị trấn Phú Lộc');         --10406
+INSERT INTO Ward(WardName) values (N'Thị trấn Hưng Lợi');        --10407
+INSERT INTO Ward(WardName) values (N'Xã Lâm Tân');               --10408
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Tân');             --10409
+INSERT INTO Ward(WardName) values (N'Xã Lâm Kiết');              --10410
+INSERT INTO Ward(WardName) values (N'Xã Tuân Tức');              --10411
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thành');            --10412
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Trị');             --10413
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Lợi');              --10414
+INSERT INTO Ward(WardName) values (N'Xã Châu Hưng');             --10415
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --10416
+INSERT INTO Ward(WardName) values (N'Xã Hòa Đông');              --10417
+INSERT INTO Ward(WardName) values (N'Phường Khánh Hòa');         --10418
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hiệp');             --10419
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hải');              --10420
+INSERT INTO Ward(WardName) values (N'Xã Lạc Hòa');               --10421
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --10422
+INSERT INTO Ward(WardName) values (N'Phường Vĩnh Phước');        --10423
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Tân');              --10424
+INSERT INTO Ward(WardName) values (N'Xã Lai Hòa');               --10425
+INSERT INTO Ward(WardName) values (N'Xã Đại Ân  2');             --10426
+INSERT INTO Ward(WardName) values (N'Thị trấn Trần Đề');         --10427
+INSERT INTO Ward(WardName) values (N'Xã Liêu Tú');               --10428
+INSERT INTO Ward(WardName) values (N'Xã Lịch Hội Thượng');       --10429
+INSERT INTO Ward(WardName) values (N'Thị trấn Lịch Hội Thượng'); --10430
+INSERT INTO Ward(WardName) values (N'Xã Trung Bình');            --10431
+INSERT INTO Ward(WardName) values (N'Xã Tài Văn');               --10432
+INSERT INTO Ward(WardName) values (N'Xã Viên An');               --10433
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Thới An');         --10434
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Thới Thuận');      --10435
+INSERT INTO Ward(WardName) values (N'Xã Viên Bình');             --10436
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --10437
+INSERT INTO Ward(WardName) values (N'Phường 3');                 --10438
+INSERT INTO Ward(WardName) values (N'Phường 5');                 --10439
+INSERT INTO Ward(WardName) values (N'Phường 7');                 --10440
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --10441
+INSERT INTO Ward(WardName) values (N'Phường 8');                 --10442
+INSERT INTO Ward(WardName) values (N'Phường Nhà Mát');           --10443
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Trạch');            --10444
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Trạch Đông');       --10445
+INSERT INTO Ward(WardName) values (N'Xã Hiệp Thành');            --10446
+INSERT INTO Ward(WardName) values (N'Thị trấn Ngan Dừa');        --10447
+INSERT INTO Ward(WardName) values (N'Xã Ninh Quới');             --10448
+INSERT INTO Ward(WardName) values (N'Xã Ninh Quới A');           --10449
+INSERT INTO Ward(WardName) values (N'Xã Ninh Hòa');              --10450
+INSERT INTO Ward(WardName) values (N'Xã Lộc Ninh');              --10451
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Lộc');              --10452
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Lộc A');            --10453
+INSERT INTO Ward(WardName) values (N'Xã Ninh Thạnh Lợi A');      --10454
+INSERT INTO Ward(WardName) values (N'Xã Ninh Thạnh Lợi');        --10455
+INSERT INTO Ward(WardName) values (N'Thị trấn Phước Long');      --10456
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Phú Đông');         --10457
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Phú Tây');          --10458
+INSERT INTO Ward(WardName) values (N'Xã Phước Long');            --10459
+INSERT INTO Ward(WardName) values (N'Xã Hưng Phú');              --10460
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thanh');            --10461
+INSERT INTO Ward(WardName) values (N'Xã Phong Thạnh Tây A');     --10462
+INSERT INTO Ward(WardName) values (N'Xã Phong Thạnh Tây B');     --10463
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hưng');             --10464
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hưng A');           --10465
+INSERT INTO Ward(WardName) values (N'Thị trấn Châu Hưng');       --10466
+INSERT INTO Ward(WardName) values (N'Xã Châu Hưng A');           --10467
+INSERT INTO Ward(WardName) values (N'Xã Hưng Thành');            --10468
+INSERT INTO Ward(WardName) values (N'Xã Hưng Hội');              --10469
+INSERT INTO Ward(WardName) values (N'Xã Châu Thới');             --10470
+INSERT INTO Ward(WardName) values (N'Xã Long Thạnh');            --10471
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --10472
+INSERT INTO Ward(WardName) values (N'Phường Hộ Phòng');          --10473
+INSERT INTO Ward(WardName) values (N'Xã Phong Thạnh Đông');      --10474
+INSERT INTO Ward(WardName) values (N'Phường Láng Tròn');         --10475
+INSERT INTO Ward(WardName) values (N'Xã Phong Tân');             --10476
+INSERT INTO Ward(WardName) values (N'Xã Tân Phong');             --10477
+INSERT INTO Ward(WardName) values (N'Xã Phong Thạnh');           --10478
+INSERT INTO Ward(WardName) values (N'Xã Phong Thạnh A');         --10479
+INSERT INTO Ward(WardName) values (N'Xã Phong Thạnh Tây');       --10480
+INSERT INTO Ward(WardName) values (N'Xã Tân Thạnh');             --10481
+INSERT INTO Ward(WardName) values (N'Thị trấn Gành Hào');        --10482
+INSERT INTO Ward(WardName) values (N'Xã Long Điền Đông');        --10483
+INSERT INTO Ward(WardName) values (N'Xã Long Điền Đông A');      --10484
+INSERT INTO Ward(WardName) values (N'Xã Long Điền');             --10485
+INSERT INTO Ward(WardName) values (N'Xã Long Điền Tây');         --10486
+INSERT INTO Ward(WardName) values (N'Xã Điền Hải');              --10487
+INSERT INTO Ward(WardName) values (N'Xã An Trạch');              --10488
+INSERT INTO Ward(WardName) values (N'Xã An Trạch A');            --10489
+INSERT INTO Ward(WardName) values (N'Xã An Phúc');               --10490
+INSERT INTO Ward(WardName) values (N'Xã Định Thành');            --10491
+INSERT INTO Ward(WardName) values (N'Xã Định Thành A');          --10492
+INSERT INTO Ward(WardName) values (N'Thị trấn Hòa Bình');        --10493
+INSERT INTO Ward(WardName) values (N'Xã Minh Diệu');             --10494
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Bình');             --10495
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Mỹ B');             --10496
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hậu');              --10497
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Hậu A');            --10498
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Mỹ A');             --10499
+INSERT INTO Ward(WardName) values (N'Xã Vĩnh Thịnh');            --10500
+INSERT INTO Ward(WardName) values (N'Phường 9');                 --10501
+INSERT INTO Ward(WardName) values (N'Phường 4');                 --10502
+INSERT INTO Ward(WardName) values (N'Phường 1');                 --10503
+INSERT INTO Ward(WardName) values (N'Phường 5');                 --10504
+INSERT INTO Ward(WardName) values (N'Phường 2');                 --10505
+INSERT INTO Ward(WardName) values (N'Phường 8');                 --10506
+INSERT INTO Ward(WardName) values (N'Phường 6');                 --10507
+INSERT INTO Ward(WardName) values (N'Phường 7');                 --10508
+INSERT INTO Ward(WardName) values (N'Phường Tân Xuyên');         --10509
+INSERT INTO Ward(WardName) values (N'Xã An Xuyên');              --10510
+INSERT INTO Ward(WardName) values (N'Phường Tân Thành');         --10511
+INSERT INTO Ward(WardName) values (N'Xã Tân Thành');             --10512
+INSERT INTO Ward(WardName) values (N'Xã Tắc Vân');               --10513
+INSERT INTO Ward(WardName) values (N'Xã Lý Văn Lâm');            --10514
+INSERT INTO Ward(WardName) values (N'Xã Định Bình');             --10515
+INSERT INTO Ward(WardName) values (N'Xã Hòa Thành');             --10516
+INSERT INTO Ward(WardName) values (N'Xã Hòa Tân');               --10517
+INSERT INTO Ward(WardName) values (N'Thị trấn U Minh');          --10518
+INSERT INTO Ward(WardName) values (N'Xã Khánh Hòa');             --10519
+INSERT INTO Ward(WardName) values (N'Xã Khánh Thuận');           --10520
+INSERT INTO Ward(WardName) values (N'Xã Khánh Tiến');            --10521
+INSERT INTO Ward(WardName) values (N'Xã Nguyễn Phích');          --10522
+INSERT INTO Ward(WardName) values (N'Xã Khánh Lâm');             --10523
+INSERT INTO Ward(WardName) values (N'Xã Khánh An');              --10524
+INSERT INTO Ward(WardName) values (N'Xã Khánh Hội');             --10525
+INSERT INTO Ward(WardName) values (N'Thị trấn Thới Bình');       --10526
+INSERT INTO Ward(WardName) values (N'Xã Biển Bạch');             --10527
+INSERT INTO Ward(WardName) values (N'Xã Tân Bằng');              --10528
+INSERT INTO Ward(WardName) values (N'Xã Trí Phải');              --10529
+INSERT INTO Ward(WardName) values (N'Xã Trí Lực');               --10530
+INSERT INTO Ward(WardName) values (N'Xã Biển Bạch Đông');        --10531
+INSERT INTO Ward(WardName) values (N'Xã Thới Bình');             --10532
+INSERT INTO Ward(WardName) values (N'Xã Tân Phú');               --10533
+INSERT INTO Ward(WardName) values (N'Xã Tân Lộc Bắc');           --10534
+INSERT INTO Ward(WardName) values (N'Xã Tân Lộc');               --10535
+INSERT INTO Ward(WardName) values (N'Xã Tân Lộc Đông');          --10536
+INSERT INTO Ward(WardName) values (N'Xã Hồ Thị Kỷ');             --10537
+INSERT INTO Ward(WardName) values (N'Thị trấn Trần Văn Thời');   --10538
+INSERT INTO Ward(WardName) values (N'Thị trấn Sông Đốc');        --10539
+INSERT INTO Ward(WardName) values (N'Xã Khánh Bình Tây Bắc');    --10540
+INSERT INTO Ward(WardName) values (N'Xã Khánh Bình Tây');        --10541
+INSERT INTO Ward(WardName) values (N'Xã Trần Hợi');              --10542
+INSERT INTO Ward(WardName) values (N'Xã Khánh Lộc');             --10543
+INSERT INTO Ward(WardName) values (N'Xã Khánh Bình');            --10544
+INSERT INTO Ward(WardName) values (N'Xã Khánh Hưng');            --10545
+INSERT INTO Ward(WardName) values (N'Xã Khánh Bình Đông');       --10546
+INSERT INTO Ward(WardName) values (N'Xã Khánh Hải');             --10547
+INSERT INTO Ward(WardName) values (N'Xã Lợi An');                --10548
+INSERT INTO Ward(WardName) values (N'Xã Phong Điền');            --10549
+INSERT INTO Ward(WardName) values (N'Xã Phong Lạc');             --10550
+INSERT INTO Ward(WardName) values (N'Thị trấn Cái Nước');        --10551
+INSERT INTO Ward(WardName) values (N'Xã Thạnh Phú');             --10552
+INSERT INTO Ward(WardName) values (N'Xã Lương Thế Trân');        --10553
+INSERT INTO Ward(WardName) values (N'Xã Phú Hưng');              --10554
+INSERT INTO Ward(WardName) values (N'Xã Tân Hưng');              --10555
+INSERT INTO Ward(WardName) values (N'Xã Hưng Mỹ');               --10556
+INSERT INTO Ward(WardName) values (N'Xã Hoà Mỹ');                --10557
+INSERT INTO Ward(WardName) values (N'Xã Đông Hưng');             --10558
+INSERT INTO Ward(WardName) values (N'Xã Đông Thới');             --10559
+INSERT INTO Ward(WardName) values (N'Xã Tân Hưng Đông');         --10560
+INSERT INTO Ward(WardName) values (N'Xã Trần Thới');             --10561
+INSERT INTO Ward(WardName) values (N'Thị trấn Đầm Dơi');         --10562
+INSERT INTO Ward(WardName) values (N'Xã Tạ An Khương');          --10563
+INSERT INTO Ward(WardName) values (N'Xã Tạ An Khương  Đông');    --10564
+INSERT INTO Ward(WardName) values (N'Xã Trần Phán');             --10565
+INSERT INTO Ward(WardName) values (N'Xã Tân Trung');             --10566
+INSERT INTO Ward(WardName) values (N'Xã Tân Đức');               --10567
+INSERT INTO Ward(WardName) values (N'Xã Tân Thuận');             --10568
+INSERT INTO Ward(WardName) values (N'Xã Tạ An Khương  Nam');     --10569
+INSERT INTO Ward(WardName) values (N'Xã Tân Duyệt');             --10570
+INSERT INTO Ward(WardName) values (N'Xã Tân Dân');               --10571
+INSERT INTO Ward(WardName) values (N'Xã Tân Tiến');              --10572
+INSERT INTO Ward(WardName) values (N'Xã Quách Phẩm Bắc');        --10573
+INSERT INTO Ward(WardName) values (N'Xã Quách Phẩm');            --10574
+INSERT INTO Ward(WardName) values (N'Xã Thanh Tùng');            --10575
+INSERT INTO Ward(WardName) values (N'Xã Ngọc Chánh');            --10576
+INSERT INTO Ward(WardName) values (N'Xã Nguyễn Huân');           --10577
+INSERT INTO Ward(WardName) values (N'Thị Trấn Năm Căn');         --10578
+INSERT INTO Ward(WardName) values (N'Xã Hàm Rồng');              --10579
+INSERT INTO Ward(WardName) values (N'Xã Hiệp Tùng');             --10580
+INSERT INTO Ward(WardName) values (N'Xã Đất Mới');               --10581
+INSERT INTO Ward(WardName) values (N'Xã Lâm Hải');               --10582
+INSERT INTO Ward(WardName) values (N'Xã Hàng Vịnh');             --10583
+INSERT INTO Ward(WardName) values (N'Xã Tam Giang');             --10584
+INSERT INTO Ward(WardName) values (N'Xã Tam Giang Đông');        --10585
+INSERT INTO Ward(WardName) values (N'Thị trấn Cái Đôi Vàm');     --10586
+INSERT INTO Ward(WardName) values (N'Xã Phú Thuận');             --10587
+INSERT INTO Ward(WardName) values (N'Xã Phú Mỹ');                --10588
+INSERT INTO Ward(WardName) values (N'Xã Phú Tân');               --10589
+INSERT INTO Ward(WardName) values (N'Xã Tân Hải');               --10590
+INSERT INTO Ward(WardName) values (N'Xã Việt Thắng');            --10591
+INSERT INTO Ward(WardName) values (N'Xã Tân Hưng Tây');          --10592
+INSERT INTO Ward(WardName) values (N'Xã Rạch Chèo');             --10593
+INSERT INTO Ward(WardName) values (N'Xã Nguyễn Việt Khái');      --10594
+INSERT INTO Ward(WardName) values (N'Xã Tam Giang Tây');         --10595
+INSERT INTO Ward(WardName) values (N'Xã Tân Ân Tây');            --10596
+INSERT INTO Ward(WardName) values (N'Xã Viên An Đông');          --10597
+INSERT INTO Ward(WardName) values (N'Xã Viên An');               --10598
+INSERT INTO Ward(WardName) values (N'Thị trấn Rạch Gốc');        --10599
+INSERT INTO Ward(WardName) values (N'Xã Tân Ân');                --10600
+INSERT INTO Ward(WardName) values (N'Xã Đất Mũi'); 
