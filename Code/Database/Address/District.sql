@@ -256,3 +256,183 @@ INSERT INTO District(CityID, DistrictName) values (24, N'Huyện Trực Ninh'); 
 INSERT INTO District(CityID, DistrictName) values (24, N'Huyện Xuân Trường');    --256
 INSERT INTO District(CityID, DistrictName) values (24, N'Huyện Giao Thủy');      --257
 INSERT INTO District(CityID, DistrictName) values (24, N'Huyện Hải Hậu');        --258
+<<<<<<< HEAD
+=======
+
+--phi--
+INSERT INTO District(CityID, DistrictName) values (48, N'Thành phố Biên Hòa');   --731
+INSERT INTO District(CityID, DistrictName) values (48, N'Thành phố Long Khánh'); --732
+INSERT INTO District(CityID, DistrictName) values (48, N'Huyện Tân Phú');        --733
+INSERT INTO District(CityID, DistrictName) values (48, N'Huyện Vĩnh Cửu');       --734
+INSERT INTO District(CityID, DistrictName) values (48, N'Huyện Định Quán');      --735
+INSERT INTO District(CityID, DistrictName) values (48, N'Huyện Trảng Bom');      --736
+INSERT INTO District(CityID, DistrictName) values (48, N'Huyện Thống Nhất');     --737
+INSERT INTO District(CityID, DistrictName) values (48, N'Huyện Cẩm Mỹ');         --738
+INSERT INTO District(CityID, DistrictName) values (48, N'Huyện Long Thành');     --739
+INSERT INTO District(CityID, DistrictName) values (48, N'Huyện Xuân Lộc');       --740
+INSERT INTO District(CityID, DistrictName) values (48, N'Huyện Nhơn Trạch');     --741
+INSERT INTO District(CityID, DistrictName) values (49, N'Thành phố Vũng Tàu');   --742
+INSERT INTO District(CityID, DistrictName) values (49, N'Thành phố Bà Rịa');     --743
+INSERT INTO District(CityID, DistrictName) values (49, N'Huyện Châu Đức');       --744
+INSERT INTO District(CityID, DistrictName) values (49, N'Huyện Xuyên Mộc');      --745
+INSERT INTO District(CityID, DistrictName) values (49, N'Huyện Long Điền');      --746
+INSERT INTO District(CityID, DistrictName) values (49, N'Huyện Đất Đỏ');         --747
+INSERT INTO District(CityID, DistrictName) values (49, N'Thị xã Phú Mỹ');        --748
+INSERT INTO District(CityID, DistrictName) values (49, N'Huyện Côn Đảo');        --749
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận 1');               --750
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận 12');              --751
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận Gò Vấp');          --752
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận Bình Thạnh');      --753
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận Tân Bình');        --754
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận Tân Phú');         --755
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận Phú Nhuận');       --756
+INSERT INTO District(CityID, DistrictName) values (50, N'Thành phố Thủ Đức');    --757
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận 3');               --758
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận 10');              --759
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận 11');              --760
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận 4');               --761
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận 5');               --762
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận 6');               --763
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận 8');               --764
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận Bình Tân');        --765
+INSERT INTO District(CityID, DistrictName) values (50, N'Quận 7');               --766
+INSERT INTO District(CityID, DistrictName) values (50, N'Huyện Củ Chi');         --767
+INSERT INTO District(CityID, DistrictName) values (50, N'Huyện Hóc Môn');        --768
+INSERT INTO District(CityID, DistrictName) values (50, N'Huyện Bình Chánh');     --769
+INSERT INTO District(CityID, DistrictName) values (50, N'Huyện Nhà Bè');         --770
+INSERT INTO District(CityID, DistrictName) values (50, N'Huyện Cần Giờ');        --771
+INSERT INTO District(CityID, DistrictName) values (51, N'Thành phố Tân An');     --772
+INSERT INTO District(CityID, DistrictName) values (51, N'Thị xã Kiến Tường');    --773
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Tân Hưng');       --774
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Vĩnh Hưng');      --775
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Mộc Hóa');        --776
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Tân Thạnh');      --777
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Thạnh Hóa');      --778
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Đức Huệ');        --779
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Đức Hòa');        --780
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Bến Lức');        --781
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Thủ Thừa');       --782
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Tân Trụ');        --783
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Cần Đước');       --784
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Cần Giuộc');      --785
+INSERT INTO District(CityID, DistrictName) values (51, N'Huyện Châu Thành');     --786
+INSERT INTO District(CityID, DistrictName) values (52, N'Thành phố Mỹ Tho');     --787
+INSERT INTO District(CityID, DistrictName) values (52, N'Thành phố Gò Công');    --788
+INSERT INTO District(CityID, DistrictName) values (52, N'Thị xã Cai Lậy');       --789
+INSERT INTO District(CityID, DistrictName) values (52, N'Huyện Tân Phước');      --790
+INSERT INTO District(CityID, DistrictName) values (52, N'Huyện Cái Bè');         --791
+INSERT INTO District(CityID, DistrictName) values (52, N'Huyện Cai Lậy');        --792
+INSERT INTO District(CityID, DistrictName) values (52, N'Huyện Châu Thành');     --793
+INSERT INTO District(CityID, DistrictName) values (52, N'Huyện Chợ Gạo');        --794
+INSERT INTO District(CityID, DistrictName) values (52, N'Huyện Gò Công Tây');    --795
+INSERT INTO District(CityID, DistrictName) values (52, N'Huyện Gò Công Đông');   --796
+INSERT INTO District(CityID, DistrictName) values (52, N'Huyện Tân Phú Đông');   --797
+INSERT INTO District(CityID, DistrictName) values (53, N'Thành phố Bến Tre');    --798
+INSERT INTO District(CityID, DistrictName) values (53, N'Huyện Châu Thành');     --799
+INSERT INTO District(CityID, DistrictName) values (53, N'Huyện Chợ Lách');       --800
+INSERT INTO District(CityID, DistrictName) values (53, N'Huyện Mỏ Cày Nam');     --801
+INSERT INTO District(CityID, DistrictName) values (53, N'Huyện Giồng Trôm');     --802
+INSERT INTO District(CityID, DistrictName) values (53, N'Huyện Bình Đại');       --803
+INSERT INTO District(CityID, DistrictName) values (53, N'Huyện Ba Tri');         --804
+INSERT INTO District(CityID, DistrictName) values (53, N'Huyện Thạnh Phú');      --805
+INSERT INTO District(CityID, DistrictName) values (53, N'Huyện Mỏ Cày Bắc');     --806
+INSERT INTO District(CityID, DistrictName) values (54, N'Thành phố Trà Vinh');   --807
+INSERT INTO District(CityID, DistrictName) values (54, N'Huyện Càng Long');      --808
+INSERT INTO District(CityID, DistrictName) values (54, N'Huyện Cầu Kè');         --809
+INSERT INTO District(CityID, DistrictName) values (54, N'Huyện Tiểu Cần');       --810
+INSERT INTO District(CityID, DistrictName) values (54, N'Huyện Châu Thành');     --811
+INSERT INTO District(CityID, DistrictName) values (54, N'Huyện Cầu Ngang');      --812
+INSERT INTO District(CityID, DistrictName) values (54, N'Huyện Trà Cú');         --813
+INSERT INTO District(CityID, DistrictName) values (54, N'Huyện Duyên Hải');      --814
+INSERT INTO District(CityID, DistrictName) values (54, N'Thị xã Duyên Hải');     --815
+INSERT INTO District(CityID, DistrictName) values (55, N'Thành phố Vĩnh Long');  --816
+INSERT INTO District(CityID, DistrictName) values (55, N'Huyện Long Hồ');        --817
+INSERT INTO District(CityID, DistrictName) values (55, N'Huyện Mang Thít');      --818
+INSERT INTO District(CityID, DistrictName) values (55, N'Huyện  Vũng Liêm');     --819
+INSERT INTO District(CityID, DistrictName) values (55, N'Huyện Tam Bình');       --820
+INSERT INTO District(CityID, DistrictName) values (55, N'Thị xã Bình Minh');     --821
+INSERT INTO District(CityID, DistrictName) values (55, N'Huyện Trà Ôn');         --822
+INSERT INTO District(CityID, DistrictName) values (55, N'Huyện Bình Tân');       --823
+INSERT INTO District(CityID, DistrictName) values (56, N'Thành phố Cao Lãnh');   --824
+INSERT INTO District(CityID, DistrictName) values (56, N'Thành phố Sa Đéc');     --825
+INSERT INTO District(CityID, DistrictName) values (56, N'Thành phố Hồng Ngự');   --826
+INSERT INTO District(CityID, DistrictName) values (56, N'Huyện Tân Hồng');       --827
+INSERT INTO District(CityID, DistrictName) values (56, N'Huyện Hồng Ngự');       --828
+INSERT INTO District(CityID, DistrictName) values (56, N'Huyện Tam Nông');       --829
+INSERT INTO District(CityID, DistrictName) values (56, N'Huyện Tháp Mười');      --830
+INSERT INTO District(CityID, DistrictName) values (56, N'Huyện Cao Lãnh');       --831
+INSERT INTO District(CityID, DistrictName) values (56, N'Huyện Thanh Bình');     --832
+INSERT INTO District(CityID, DistrictName) values (56, N'Huyện Lấp Vò');         --833
+INSERT INTO District(CityID, DistrictName) values (56, N'Huyện Lai Vung');       --834
+INSERT INTO District(CityID, DistrictName) values (56, N'Huyện Châu Thành');     --835
+INSERT INTO District(CityID, DistrictName) values (57, N'Thành phố Long Xuyên'); --836
+INSERT INTO District(CityID, DistrictName) values (57, N'Thành phố Châu Đốc');   --837
+INSERT INTO District(CityID, DistrictName) values (57, N'Huyện An Phú');         --838
+INSERT INTO District(CityID, DistrictName) values (57, N'Thị xã Tân Châu');      --839
+INSERT INTO District(CityID, DistrictName) values (57, N'Huyện Phú Tân');        --840
+INSERT INTO District(CityID, DistrictName) values (57, N'Huyện Châu Phú');       --841
+INSERT INTO District(CityID, DistrictName) values (57, N'Thị xã Tịnh Biên');     --842
+INSERT INTO District(CityID, DistrictName) values (57, N'Huyện Tri Tôn');        --843
+INSERT INTO District(CityID, DistrictName) values (57, N'Huyện Châu Thành');     --844
+INSERT INTO District(CityID, DistrictName) values (57, N'Huyện Chợ Mới');        --845
+INSERT INTO District(CityID, DistrictName) values (57, N'Huyện Thoại Sơn');      --846
+INSERT INTO District(CityID, DistrictName) values (58, N'Thành phố Rạch Giá');   --847
+INSERT INTO District(CityID, DistrictName) values (58, N'Thành phố Hà Tiên');    --848
+INSERT INTO District(CityID, DistrictName) values (58, N'Huyện Kiên Lương');     --849
+INSERT INTO District(CityID, DistrictName) values (58, N'Huyện Hòn Đất');        --850
+INSERT INTO District(CityID, DistrictName) values (58, N'Huyện Tân Hiệp');       --851
+INSERT INTO District(CityID, DistrictName) values (58, N'Huyện Châu Thành');     --852
+INSERT INTO District(CityID, DistrictName) values (58, N'Huyện Giồng Riềng');    --853
+INSERT INTO District(CityID, DistrictName) values (58, N'Huyện Gò Quao');        --854
+INSERT INTO District(CityID, DistrictName) values (58, N'Huyện An Biên');        --855
+INSERT INTO District(CityID, DistrictName) values (58, N'Huyện An Minh');        --856
+INSERT INTO District(CityID, DistrictName) values (58, N'Huyện Vĩnh Thuận');     --857
+INSERT INTO District(CityID, DistrictName) values (58, N'Thành phố Phú Quốc');   --858
+INSERT INTO District(CityID, DistrictName) values (58, N'Huyện Kiên Hải');       --859
+INSERT INTO District(CityID, DistrictName) values (58, N'Huyện U Minh Thượng');  --860
+INSERT INTO District(CityID, DistrictName) values (58, N'Huyện Giang Thành');    --861
+INSERT INTO District(CityID, DistrictName) values (59, N'Quận Ninh Kiều');       --862
+INSERT INTO District(CityID, DistrictName) values (59, N'Quận Ô Môn');           --863
+INSERT INTO District(CityID, DistrictName) values (59, N'Quận Bình Thuỷ');       --864
+INSERT INTO District(CityID, DistrictName) values (59, N'Quận Cái Răng');        --865
+INSERT INTO District(CityID, DistrictName) values (59, N'Quận Thốt Nốt');        --866
+INSERT INTO District(CityID, DistrictName) values (59, N'Huyện Vĩnh Thạnh');     --867
+INSERT INTO District(CityID, DistrictName) values (59, N'Huyện Cờ Đỏ');          --868
+INSERT INTO District(CityID, DistrictName) values (59, N'Huyện Phong Điền');     --869
+INSERT INTO District(CityID, DistrictName) values (59, N'Huyện Thới Lai');       --870
+INSERT INTO District(CityID, DistrictName) values (60, N'Thành phố Vị Thanh');   --871
+INSERT INTO District(CityID, DistrictName) values (60, N'Thành phố Ngã Bảy');    --872
+INSERT INTO District(CityID, DistrictName) values (60, N'Huyện Châu Thành A');   --873
+INSERT INTO District(CityID, DistrictName) values (60, N'Huyện Châu Thành');     --874
+INSERT INTO District(CityID, DistrictName) values (60, N'Huyện Phụng Hiệp');     --875
+INSERT INTO District(CityID, DistrictName) values (60, N'Huyện Vị Thuỷ');        --876
+INSERT INTO District(CityID, DistrictName) values (60, N'Huyện Long Mỹ');        --877
+INSERT INTO District(CityID, DistrictName) values (60, N'Thị xã Long Mỹ');       --878
+INSERT INTO District(CityID, DistrictName) values (61, N'Thành phố Sóc Trăng');  --879
+INSERT INTO District(CityID, DistrictName) values (61, N'Huyện Châu Thành');     --880
+INSERT INTO District(CityID, DistrictName) values (61, N'Huyện Kế Sách');        --881
+INSERT INTO District(CityID, DistrictName) values (61, N'Huyện Mỹ Tú');          --882
+INSERT INTO District(CityID, DistrictName) values (61, N'Huyện Cù Lao Dung');    --883
+INSERT INTO District(CityID, DistrictName) values (61, N'Huyện Long Phú');       --884
+INSERT INTO District(CityID, DistrictName) values (61, N'Huyện Mỹ Xuyên');       --885
+INSERT INTO District(CityID, DistrictName) values (61, N'Thị xã Ngã Năm');       --886
+INSERT INTO District(CityID, DistrictName) values (61, N'Huyện Thạnh Trị');      --887
+INSERT INTO District(CityID, DistrictName) values (61, N'Thị xã Vĩnh Châu');     --888
+INSERT INTO District(CityID, DistrictName) values (61, N'Huyện Trần Đề');        --889
+INSERT INTO District(CityID, DistrictName) values (62, N'Thành phố Bạc Liêu');   --890
+INSERT INTO District(CityID, DistrictName) values (62, N'Huyện Hồng Dân');       --891
+INSERT INTO District(CityID, DistrictName) values (62, N'Huyện Phước Long');     --892
+INSERT INTO District(CityID, DistrictName) values (62, N'Huyện Vĩnh Lợi');       --893
+INSERT INTO District(CityID, DistrictName) values (62, N'Thị xã Giá Rai');       --894
+INSERT INTO District(CityID, DistrictName) values (62, N'Huyện Đông Hải');       --895
+INSERT INTO District(CityID, DistrictName) values (62, N'Huyện Hoà Bình');       --896
+INSERT INTO District(CityID, DistrictName) values (63, N'Thành phố Cà Mau');     --897
+INSERT INTO District(CityID, DistrictName) values (63, N'Huyện U Minh');         --898
+INSERT INTO District(CityID, DistrictName) values (63, N'Huyện Thới Bình');      --899
+INSERT INTO District(CityID, DistrictName) values (63, N'Huyện Trần Văn Thời');  --900
+INSERT INTO District(CityID, DistrictName) values (63, N'Huyện Cái Nước');       --901
+INSERT INTO District(CityID, DistrictName) values (63, N'Huyện Đầm Dơi');        --902
+INSERT INTO District(CityID, DistrictName) values (63, N'Huyện Năm Căn');        --903
+INSERT INTO District(CityID, DistrictName) values (63, N'Huyện Phú Tân');        --904
+INSERT INTO District(CityID, DistrictName) values (63, N'Huyện Ngọc Hiển');
+>>>>>>> bf35aaf91965ff6953514eaeb1a721e8fdb6c9b8
