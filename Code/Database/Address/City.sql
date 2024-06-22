@@ -22,3 +22,21 @@ INSERT INTO City(CityName) values (N'Tỉnh Hưng Yên');            --21
 INSERT INTO City(CityName) values (N'Tỉnh Thái Bình');           --22
 INSERT INTO City(CityName) values (N'Tỉnh Hà Nam');              --23
 INSERT INTO City(CityName) values (N'Tỉnh Nam Định');            --24
+
+-phi-
+INSERT INTO City(CityName) values (N'Tỉnh Đồng Nai');            
+INSERT INTO City(CityName) values (N'Tỉnh Bà Rịa - Vũng Tàu');   
+INSERT INTO City(CityName) values (N'Thành phố Hồ Chí Minh');    
+INSERT INTO City(CityName) values (N'Tỉnh Long An');             
+INSERT INTO City(CityName) values (N'Tỉnh Tiền Giang');          
+INSERT INTO City(CityName) values (N'Tỉnh Bến Tre');             
+INSERT INTO City(CityName) values (N'Tỉnh Trà Vinh');           
+INSERT INTO City(CityName) values (N'Tỉnh Vĩnh Long');           
+INSERT INTO City(CityName) values (N'Tỉnh Đồng Tháp');           
+INSERT INTO City(CityName) values (N'Tỉnh An Giang');           
+INSERT INTO City(CityName) values (N'Tỉnh Kiên Giang');       
+INSERT INTO City(CityName) values (N'Thành phố Cần Thơ');      
+INSERT INTO City(CityName) values (N'Tỉnh Hậu Giang');          
+INSERT INTO City(CityName) values (N'Tỉnh Sóc Trăng');        
+INSERT INTO City(CityName) values (N'Tỉnh Bạc Liêu');            
+INSERT INTO City(CityName) values (N'Tỉnh Cà Mau');
