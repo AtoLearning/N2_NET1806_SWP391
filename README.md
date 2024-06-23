@@ -2,9 +2,8 @@
 
 Project Introduction: FUSwap
  
-==========
 TEAM LIST:
-==========
+
 1. Nguyen Tran Gia Bao - SE171211 (Leader's Backend)
 2. Dang Nhat Phi - SE171156 (Backend)
 3. Pham Thi Hai Anh - SE171207 ( Leader's Frontend)
