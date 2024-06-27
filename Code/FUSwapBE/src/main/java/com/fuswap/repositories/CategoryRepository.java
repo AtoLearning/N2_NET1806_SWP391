@@ -18,4 +18,9 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
     @Modifying
     @Query("UPDATE Category SET isDelete = true, isAvailable = false WHERE CateID = ?1")
     void updelCategory(long cateId);
+
+    @Transactional
+    @Modifying
+    @Query("SELECT Category FROM Category WHERE CateName LIKE %?1%")
+    void searchCategory(String keyword);
 }

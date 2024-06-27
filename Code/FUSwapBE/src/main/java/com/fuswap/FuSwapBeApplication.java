@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FuSwapBeApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(FuSwapBeApplication.class, args);
 	}
 

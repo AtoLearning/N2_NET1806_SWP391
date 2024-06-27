@@ -35,6 +35,7 @@ public class ManagerService {
     }
 
     public Manager findByMUserName(String mUserName) {
+
         return managerRepository.findByMUserName(mUserName);
     }
 }

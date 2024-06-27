@@ -111,4 +111,10 @@ public class CategoryService {
             return true;
         } else return false;
     }
+    //create searchCatalogItems method
+
+    public List<Category> searchCategory(String keyword) {
+//        return CategoryRepository.searchCategory(keyword);
+    }
+
 }
