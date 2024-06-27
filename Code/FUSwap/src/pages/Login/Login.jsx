@@ -2,7 +2,13 @@ import React from 'react'
 import { FaGooglePlus } from "react-icons/fa";
 import './LoginStyle.css'
 
+const baseURL = "http://localhost:8080/api/v1/auth/login";
+
 export default function Login() {
+  const handleLogin = () => {
+    window.location.href = baseURL;
+  };
+
   return (
       <div className='login'>
         <div className='login_left'>
@@ -34,7 +40,7 @@ export default function Login() {
             src='https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2Flogin.jpeg?alt=media&token=4f1459b1-2bf9-430d-bc52-7f9579ced301'
             alt='login_img'
           />
-          <button className='login_btn'>
+          <button className='login_btn' onClick={handleLogin}>
             <FaGooglePlus className='icon'/>
             <div><p>Login email @fpt.edu.vn</p></div>
           </button>

@@ -1,4 +1,4 @@
-package com.fuswap.controllers;
+package com.fuswap.controllers.authentication;
 
 import com.fuswap.dtos.ResponseDto;
 import jakarta.servlet.http.HttpServletRequest;

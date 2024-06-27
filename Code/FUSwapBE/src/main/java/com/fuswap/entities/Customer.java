@@ -4,11 +4,13 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.time.LocalDate;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+@Entity
 @Getter
 @Setter
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "Customer")
@@ -16,39 +18,39 @@ import java.time.LocalDate;
 public class Customer {
 
     @Id
-    @Column(name = "cusername", length = 30, nullable = false)
+    @Column(name = "cusername", length = 50)
     String CUserName;
-
-    @Column(name = "givenname", length = 30, nullable = false)
+    @Column(name = "givenname")
     String GivenName;
-
-    @Column(name = "familyname", length = 30, nullable = false)
+    @Column(name = "familyname")
     String FamilyName;
-
-    @Column(name = "picture", length = 200)
-    String Picture;
-
-    @Column(name = "isavailable", nullable = false)
-    boolean isAvailable;
-
-    @Column(name = "wallet", nullable = false)
-    int Wallet;
-
-    @Column(name = "points", nullable = false)
-    int Points;
-
-    @Column(name = "isverified", nullable = false)
-    boolean isVerified;
-
-    @Column(name = "address", length = 100)
-    String Address;
-
+    @Column(name = "nickname")
+    String Nickname;
+    @Column(name = "avatar")
+    String Avatar;
+    @Column(name = "coins")
+    Float Coins;
+    @Column(name = "points")
+    Float Points;
     @Column(name = "dob")
-    LocalDate DOB;
+    Date DOB;
+    @Column(name = "address")
+    String Address;
+    @Column(name = "isavailable")
+    Boolean IsAvailable;
+    @Column(name = "isverified")
+    Boolean IsVerified;
 
     @ManyToOne
     @JoinColumn(name = "musername")
     Manager manager;
+
+    @ManyToOne
+    @JoinColumn(name = "roleid")
+    Role role;
+
+    @OneToMany(mappedBy = "customer")
+    Set<GoodsPost> postSet = new HashSet<GoodsPost>();
 
     @Override
     public String toString() {
@@ -56,15 +58,17 @@ public class Customer {
                 "CUserName='" + CUserName + '\'' +
                 ", GivenName='" + GivenName + '\'' +
                 ", FamilyName='" + FamilyName + '\'' +
-                ", Picture='" + Picture + '\'' +
-                ", isAvailable=" + isAvailable +
-                ", Wallet=" + Wallet +
+                ", Nickname='" + Nickname + '\'' +
+                ", Avatar='" + Avatar + '\'' +
+                ", Coins=" + Coins +
                 ", Points=" + Points +
-                ", isVerified=" + isVerified +
-                ", Address='" + Address + '\'' +
                 ", DOB=" + DOB +
+                ", Address='" + Address + '\'' +
+                ", IsAvailable=" + IsAvailable +
+                ", IsVerified=" + IsVerified +
                 ", manager=" + manager +
+                ", role=" + role +
+                ", postSet=" + postSet +
                 '}';
     }
-
 }

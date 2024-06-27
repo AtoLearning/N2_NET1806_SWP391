@@ -1,10 +1,10 @@
 package com.fuswap.repositories;
 
-import com.fuswap.entities.Manager;
+import com.fuswap.entities.GoodsPost;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ManagerRepository extends JpaRepository<Manager, String> {
-    Manager findByMUserName(String mUserName);
+public interface GoodsPostRepository extends JpaRepository<GoodsPost, Long> {
+
 }
