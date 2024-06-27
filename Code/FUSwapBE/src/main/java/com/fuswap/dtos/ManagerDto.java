@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -16,24 +17,21 @@ import java.time.LocalDate;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ManagerDto {
 
-    long id;
-    String givenName;
-    String familyName;
-    String picture;
-    String role;
-    LocalDate dob;
+    String MUserName;
+    String NickName;
+    String FullName;
+    String Avatar;
+    Date DOB;
 
     @Override
     public String toString() {
         return "ManagerDto{" +
-                "id=" + id +
-                ", givenName='" + givenName + '\'' +
-                ", familyName='" + familyName + '\'' +
-                ", picture='" + picture + '\'' +
-                ", role='" + role + '\'' +
-                ", dob=" + dob +
+                "MUserName='" + MUserName + '\'' +
+                ", NickName='" + NickName + '\'' +
+                ", FullName='" + FullName + '\'' +
+                ", Avatar='" + Avatar + '\'' +
+                ", DOB=" + DOB +
                 '}';
     }
-
 }
 

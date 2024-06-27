@@ -1,38 +1,28 @@
 package com.fuswap.entities;
 
+
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-
-@Entity
-@Table(name = "Category")
-@Setter
 @Getter
+@Setter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "Post")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Category {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cateid", nullable = false)
-    int CateID;
+    @Column(name = "cateid")
+    Integer CateID;
 
-    @Column(name = "catename", nullable = false, length = 20)
+    @Column(name = "catename")
     String CateName;
+    @Column(name = "isavailable")
+    Boolean IsAvailable;
 
-    @Column(name = "isavailable", nullable = false)
-    boolean isAvailable;
-
-    @Column(name = "isdelete", nullable = false)
-    boolean isDelete;
-
-    //Category n - 1 Manager
     @ManyToOne
     @JoinColumn(name = "musername")
     Manager manager;
@@ -42,10 +32,8 @@ public class Category {
         return "Category{" +
                 "CateID=" + CateID +
                 ", CateName='" + CateName + '\'' +
-                ", isAvailable=" + isAvailable +
-                ", isDelete=" + isDelete +
-                ", Manager=" + manager +
+                ", IsAvailable=" + IsAvailable +
+                ", manager=" + manager +
                 '}';
     }
-
 }

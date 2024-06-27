@@ -43,11 +43,11 @@ CREATE TABLE WardByDistrict (
   WardID     int, 
   PRIMARY KEY (DistrictID, WardID));
 CREATE TABLE Feedback (
-  FeedbackID   int IDENTITY, 
+  FeedbackID   bigint IDENTITY, 
   Content      nvarchar(200) NOT NULL, 
   CreateAt	   date NOT NULL, 
   CUserName    varchar(50), 
-  PostID       varchar(5), 
+  PostID       bigint, 
   PRIMARY KEY (FeedbackID));
 CREATE TABLE Manager (
   MUserName        varchar(30), 
@@ -60,7 +60,8 @@ CREATE TABLE Manager (
   ManagerMUserName varchar(30),
   PRIMARY KEY (MUserName));
 CREATE TABLE Post (
-  PostID        varchar(5), 
+  PostID        bigint, 
+  SpecialPostID	varchar(5) UNIQUE,
   Tittle        nvarchar(100) NOT NULL, 
   Description   nvarchar(200) NOT NULL, 
   IsAvailable   bit NOT NULL,  
@@ -70,15 +71,15 @@ CREATE TABLE Post (
   CreateAt      date NOT NULL, 
   MUserName     varchar(30), 
   CUserName     varchar(50), 
-  PostAddressID int, 
+  PostAddressID bigint, 
   CateID        int, 
   PRIMARY KEY (PostID));
 CREATE TABLE PostServiceDetails (
-  PostID               varchar(5), 
+  PostID               bigint, 
   PostServiceID		   int, 
   PRIMARY KEY (PostID, PostServiceID));
 CREATE TABLE PostAddress (
-  PostAddressID int IDENTITY, 
+  PostAddressID bigint IDENTITY, 
   StreetNumber  varchar(50) NOT NULL, 
   Street        nvarchar(150) NOT NULL, 
   WardID        int, 
@@ -96,7 +97,7 @@ CREATE TABLE PostService (
   MUserName     varchar(30), 
   PRIMARY KEY (PostServiceID));
 CREATE TABLE Report (
-  ReportID   int IDENTITY,
+  ReportID   bigint IDENTITY,
   Name		 nvarchar(50) NOT NULL,
   Content    nvarchar(200) NOT NULL, 
   Status     nvarchar(30) NOT NULL, 
@@ -106,21 +107,21 @@ CREATE TABLE Report (
   CUserName  varchar(50), 
   PRIMARY KEY (ReportID));
 CREATE TABLE ServiceOrder (
-  ServiceOrderID int IDENTITY, 
+  ServiceOrderID bigint IDENTITY, 
   TotalCoin      float NOT NULL, 
   CreateAt       date NOT NULL, 
   CUserName      varchar(50), 
   PRIMARY KEY (ServiceOrderID));
 CREATE TABLE ServiceOrderDetails (
-  ServiceOrderID  int, 
+  ServiceOrderID  bigint, 
   PostServiceID   int, 
   PRIMARY KEY (ServiceOrderID, PostServiceID));
 CREATE TABLE [Transaction] (
-  TransID         int IDENTITY, 
+  TransID         bigint IDENTITY, 
   CreateAt        date NOT NULL, 
   Consumer        varchar(50) NOT NULL, 
   Supplier        varchar(50) NOT NULL, 
-  PostID          varchar(5), 
+  PostID          bigint, 
   PRIMARY KEY (TransID));
 CREATE TABLE Voucher (
   VoucherID   int IDENTITY,

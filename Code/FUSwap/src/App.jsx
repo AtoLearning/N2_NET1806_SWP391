@@ -9,6 +9,7 @@ import Welcome from './pages/Welcome'
 import AboutUs from './pages/AboutUs'
 import Login from './pages/Login/Login'
 import Header from './components/Header/Header'
+import Session from "./private/Session.jsx";
 
 function App() {
   return (
@@ -27,6 +28,10 @@ function Main() {
       <Route path='/Home' element={<Home />} />
       <Route path='/AboutUs' element={<AboutUs />} />
       <Route path='/Login' element={<Login />} />
+
+
+
+      <Route path="/sesion" element={<Session />} />
     </Routes>
   );
 }
