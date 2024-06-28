@@ -8,15 +8,15 @@ import Home from './pages/Home'
 import Welcome from './pages/Welcome'
 import AboutUs from './pages/AboutUs'
 import Login from './pages/Login/Login'
-import Header from './components/Header/Header'
-import Session from "./private/Session.jsx";
+import GHeader from './components/Header/GHeader'
+import CHeader from './components/Header/CHeader'
 
 function App() {
   return (
     <BrowserRouter>
-      <Header/>
+      <HeaderControl/>
       <Main />
-      <FooterControl />
+      <FooterControl/>
     </BrowserRouter>
   );
 }
@@ -28,19 +28,24 @@ function Main() {
       <Route path='/Home' element={<Home />} />
       <Route path='/AboutUs' element={<AboutUs />} />
       <Route path='/Login' element={<Login />} />
-
-
-
-      <Route path="/sesion" element={<Session />} />
+      <Route path='/TestCHeader' element={<CHeader/>}/>
     </Routes>
   );
 }
-
-function FooterControl(){
+function HeaderControl() {
   const location = useLocation();
-  if(location.pathname === '/Login'){
+  if (location.pathname === '/Login' || location.pathname === '/Home' || location.pathname === '/AboutUs' || location.pathname === '/' ) {
+    return <GHeader/>;
+  } else {
     return null;
-  }else{
+  }
+}
+
+function FooterControl() {
+  const location = useLocation();
+  if (location.pathname === '/Login' || location.pathname=== '/TestCHeader') {
+    return null;
+  } else {
     return <Footer />;
   }
 }

@@ -1,9 +1,9 @@
 .footer{
     display: flex;
-    background-color: #FFEEDF;
+    background-color: #F4F4F4;
     justify-content: space-around;
     font-family: Taviraj;
-    font-size: 22px;
+    font-size: 18px;
     height: 200px;
 }
 .footer_content{
@@ -11,34 +11,51 @@
     margin-top: 10px
 }
 .footer_content h2{
-    font-size: 25px;
+    font-size: 22px;
 }
 .footer_content p{
     margin: 10px;
 }
 .footer_detail{
-    display: flex;
+    width: 400px;
+    display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 400px;
     text-align: center;
+}
+.footer_detail span{
+    width: 400px;
 }
 .footer_a{
     display: flex;
-    align-content: center;
+    align-items: center;
 }
-.footer_a p{
-    font-size: 22px;
+.footer_a div{
+    display: flex;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
 }
 .footer_rule{
-    align-content: center;
+    display: inline-flex;
+    flex-direction: column;
 }
 .footer_follow_us{
     align-content: center;
 }
 .icon{
-    margin: 2px;
     text-align: center;
-    font-size: 22px;
+    font-size: 18px;
+}
+.icon_div_FB{
+    background-color: #ffde59;
+}
+.icon_div_TT{
+    background-color: #FFB252;
+}
+.icon_div_IG{
+    background-color: #ff914d;
 }

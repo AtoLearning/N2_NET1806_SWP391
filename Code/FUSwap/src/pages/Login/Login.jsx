@@ -4,13 +4,13 @@ import './LoginStyle.css'
 
 const baseURL = "http://localhost:8080/api/v1/auth/login";
 
-export default function Login() {
-  const handleLogin = () => {
-    window.location.href = baseURL;
-  };
+const handleLogin = () => {
+  window.location.href = baseURL;
+};
 
+export default function Login() {
   return (
-      <div className='login'>
+    <div className='login'>
         <div className='login_left'>
           <div className='login_div_1'>
             <img
@@ -48,6 +48,6 @@ export default function Login() {
           <div className='login_text'><p>Join with us</p></div>
         </div>
       </div>
-
+      
   )
 }
