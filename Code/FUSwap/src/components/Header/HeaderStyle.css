@@ -1,56 +1,53 @@
 
 .header{
-    height: 140px;
-    background: #FFD6B1;
+    height: 100px;
+    background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
     display: flex;
     justify-content: space-between;
+}
+.img_logo{
+    width: 100px;
 }
 .header_left{
     display: flex;
 }
 .header_nav{
     align-content: center;
-    width: 462px;
+    width: 600px;
     margin-left: 100px;
 }
 .header_ul{
     display: flex;
+    height: 40px;
     justify-content: space-around;
-    font-size: 26px;
+    align-items: center;
+    font-size: 22px;
     font-family: Taviraj;
 }
-
+.header_ul li{
+    width: 100px;
+    text-align: center;
+}
+.header_ul li:hover{
+    width: 130px;
+    border-bottom: 2px black solid;
+    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: all 0.4s linear ;
+    letter-spacing: 2px;
+}
 .header_right{
     display: flex;
     align-items: center;
     margin-right: 30px;
 }
-.header_search{
-    display: flex;
-    margin-right: 30px;
-}
-.header_search .search_text{
-    border: 0;
-    outline: 0;
-    background: none;
-    font-family: Taviraj;
-    font-size: 18px;
-    width: 0;
-    padding: 0;
-    transition: all 0.25s ease-in-out;
-}
-.header_search:hover .search_text, .header_search .search_text:valid{
-    background: #fff;
-    width: 300px;
-    padding: 10px 15px;
-    border-radius: 30px;
-}
-.header_search .search_btn{
-    padding: 15px;
-    font-size: 20px;
-    border-radius: 50%;
-}
+
 .header_login{
     font-size: 20px;
     font-family: Taviraj;
+}
+
+.img_avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
