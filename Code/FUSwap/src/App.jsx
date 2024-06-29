@@ -3,51 +3,62 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
-import Footer from './components/Footer/Footer'
-import Home from './pages/Home'
-import Welcome from './pages/Welcome'
-import AboutUs from './pages/AboutUs'
-import Login from './pages/Login/Login'
 import GHeader from './components/Header/GHeader'
 import CHeader from './components/Header/CHeader'
+import Footer from './components/Footer/Footer'
+import Welcome from './pages/Welcome'
+import Home from './pages/Home'
+import AboutUs from './pages/AboutUs'
+import Login from './pages/Login/Login'
+import CProfile from './pages/CProfile'
+
 
 function App() {
   return (
     <BrowserRouter>
-      <HeaderControl/>
       <Main />
-      <FooterControl/>
     </BrowserRouter>
   );
 }
 
+
 function Main() {
-  return (
+  
+  
+  const user = false;
+  const guestRoutes = (
     <Routes>
       <Route path='/' element={<Welcome />} />
-      <Route path='/Home' element={<Home />} />
-      <Route path='/AboutUs' element={<AboutUs />} />
-      <Route path='/Login' element={<Login />} />
-      <Route path='/TestCHeader' element={<CHeader/>}/>
+      <Route path='/home' element={<Home />} />
+      <Route path='/about_us' element={<AboutUs />} />
+      <Route path='/login' element={<Login />} />
     </Routes>
   );
-}
-function HeaderControl() {
-  const location = useLocation();
-  if (location.pathname === '/Login' || location.pathname === '/Home' || location.pathname === '/AboutUs' || location.pathname === '/' ) {
-    return <GHeader/>;
-  } else {
-    return null;
-  }
+
+  const customerRoutes = (
+    <Routes>
+      <Route path='/home' element={<Home />} />
+      <Route path='/customer_profile' element={<CProfile />} />
+    </Routes>
+  );
+
+  return (
+    <>
+      {user ? <GHeader /> : <CHeader />}
+      {user ? guestRoutes : customerRoutes}
+      {FooterControl()}
+    </>
+  );
 }
 
 function FooterControl() {
   const location = useLocation();
-  if (location.pathname === '/Login' || location.pathname=== '/TestCHeader') {
-    return null;
-  } else {
+  if(location.pathname !== '/login'){
     return <Footer />;
+  }else{
+    return null;
   }
 }
+
 
 export default App

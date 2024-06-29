@@ -23,10 +23,10 @@ export default function Header() {
               <Link to="/" aria-current="page">Welcome</Link>
             </li>
             <li>
-              <Link to="/Home">Home</Link>
+              <Link to="/home">Home</Link>
             </li>
             <li>
-              <Link to="/AboutUs">About Us</Link>
+              <Link to="/about_us">About Us</Link>
             </li>
           </ul>
         </nav>
@@ -36,7 +36,7 @@ export default function Header() {
       <div className="header_right">
         <SearchBox />
         <div className="header_login">
-          <Link to="/Login" title="login"><FaUser /></Link>
+          <Link to="/login" title="login"><FaUser /></Link>
         </div>
       </div>
     </header >
