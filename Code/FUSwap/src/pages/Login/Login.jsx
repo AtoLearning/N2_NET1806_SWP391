@@ -42,9 +42,8 @@ export default function Login() {
           />
           <button className='login_btn' onClick={handleLogin}>
             <FaGooglePlus className='icon'/>
-            <div><p>Login email @fpt.edu.vn</p></div>
+            <div><p className='login_text'>Login email @fpt.edu.vn</p></div>
           </button>
-          <hr/>
           <div className='login_text'><p>Join with us</p></div>
         </div>
       </div>

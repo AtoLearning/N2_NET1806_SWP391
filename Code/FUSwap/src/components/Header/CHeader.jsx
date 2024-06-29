@@ -19,13 +19,13 @@ export default function CHeader() {
                 <nav className="header_nav">
                     <ul className="header_ul">
                         <li>
-                            <Link to="/Home" aria-current="page"><span>Home</span></Link>
+                            <Link to="/home" aria-current="page"><span>Home</span></Link>
                         </li>
                         <li>
-                            <Link to="/Trade"><span>Trade</span></Link>
+                            <Link to=""><span>Trade</span></Link>
                         </li>
                         <li>
-                            <Link to="/Sell"><span>Sell</span></Link>
+                            <Link to=""><span>Sell</span></Link>
                         </li>
                     </ul>
                 </nav>
@@ -44,17 +44,17 @@ export default function CHeader() {
                     </DropdownTrigger>
                     <DropdownMenu aria-label="User Actions">
                         <DropdownItem key="UserInfo">
-                            <Link to="/UserInfo">
-                                User Info
+                            <Link to="/customer_profile">
+                                My Profile
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="TheOrders">
-                            <Link to="/TheOrders">
+                            <Link to="">
                                 The Orders
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="LogOut">
-                            <Link to="/logout">
+                            <Link to="">
                                 Log out
                             </Link>
                         </DropdownItem>

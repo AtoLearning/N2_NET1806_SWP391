@@ -3,52 +3,64 @@
     background-color: #F4F4F4;
     justify-content: space-around;
     font-family: Taviraj;
-    font-size: 18px;
-    height: 200px;
+    font-size: 1vw;
+    height: 25vh;
 }
 .footer_content{
-    width: 400px;
-    margin-top: 10px
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
-.footer_content h2{
-    font-size: 22px;
+.title{
+    width: 75vw;
+    height: 30%;
+    font-size: 1.5vw;
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
-.footer_content p{
-    margin: 10px;
+.title h2{
+    width: 30%;
 }
-.footer_detail{
-    width: 400px;
+.footer_hr{
+    width: 75vw;
+    height: 3%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.footer_hr hr{
+    border-top: 0.25vh solid rgb(174, 174, 174);
+    width: 30%;
+}
+.content{
+    width: 75vw;
+    height: 70%;
+    display: inline-flex;
+    justify-content: space-evenly;
+}
+.content span{
+    width: 30%;
+    line-height: 2.5;
     display: inline-flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-.footer_detail span{
-    width: 400px;
+    padding:0% 1%;
 }
 .footer_a{
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+.footer_a p{
+    width: 85%;
 }
 .footer_a div{
     display: flex;
     border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 10%;
+    height: 4vh;
     align-items: center;
     justify-content: center;
-}
-.footer_rule{
-    display: inline-flex;
-    flex-direction: column;
-}
-.footer_follow_us{
-    align-content: center;
-}
-.icon{
     text-align: center;
-    font-size: 18px;
 }
 .icon_div_FB{
     background-color: #ffde59;
@@ -59,3 +71,7 @@
 .icon_div_IG{
     background-color: #ff914d;
 }
+.footer_icon{
+    font-size: 100%;
+ }
+
