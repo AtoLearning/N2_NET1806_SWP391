@@ -7,7 +7,7 @@ import GHeader from './components/Header/GHeader'
 import CHeader from './components/Header/CHeader'
 import Footer from './components/Footer/Footer'
 import Welcome from './pages/Welcome'
-import Home from './pages/Home'
+import HomePage from './pages/HomePage/HomePage'
 import AboutUs from './pages/AboutUs'
 import Login from './pages/Login/Login'
 import CProfile from './pages/CProfile'
@@ -25,11 +25,12 @@ function App() {
 function Main() {
   
   
-  const user = false;
+  const user = true;
+
   const guestRoutes = (
     <Routes>
       <Route path='/' element={<Welcome />} />
-      <Route path='/home' element={<Home />} />
+      <Route path='/home' element={<HomePage />} />
       <Route path='/about_us' element={<AboutUs />} />
       <Route path='/login' element={<Login />} />
     </Routes>
@@ -37,7 +38,7 @@ function Main() {
 
   const customerRoutes = (
     <Routes>
-      <Route path='/home' element={<Home />} />
+      <Route path='/home' element={<HomePage />} />
       <Route path='/customer_profile' element={<CProfile />} />
     </Routes>
   );
