@@ -12,7 +12,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "District")
+@Table(name = "tbldistrict")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class District {
     @Id
@@ -20,6 +20,7 @@ public class District {
     @Column(name = "districtid")
     Integer DistrictID;
 
+    @Column(name = "districtname")
     String DistrictName;
 
     @ManyToMany(mappedBy = "districtSet")

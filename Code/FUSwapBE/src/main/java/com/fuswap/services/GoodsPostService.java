@@ -39,7 +39,7 @@ public class GoodsPostService {
                 goodsPostDtoList.add(new GoodsPostDto(
                     goodsPost.getPostID(),
                     goodsPost.getTittle(),
-                    goodsPost.getDescription(),
+                    goodsPost.getContent(),
                     goodsPost.getIsExchange(),
                     goodsPost.getUnitPrice(),
                     goodsPost.getCreateAt(),
@@ -68,7 +68,7 @@ public class GoodsPostService {
         GoodsPost goodsPost = new GoodsPost(
                 RandomStringUtils.randomAlphanumeric(5),
                 goodsPostDto.getTitle(),
-                goodsPostDto.getDescription(),
+                goodsPostDto.getContent(),
                 goodsPostDto.getIsExchange(),
                 false,
                 goodsPostDto.getUnitPrice(),

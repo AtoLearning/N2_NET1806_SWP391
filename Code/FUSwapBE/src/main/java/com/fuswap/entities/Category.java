@@ -10,7 +10,7 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Post")
+@Table(name = "tblcategory")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Category {
     @Id

@@ -15,7 +15,7 @@ import java.util.Date;
 public class GoodsPostDto {
     Long postID;
     String title;
-    String description;
+    String content;
     Boolean isExchange;
     Float unitPrice;
     Date createAt;
@@ -28,7 +28,7 @@ public class GoodsPostDto {
         return "GoodsPostDto{" +
                 "postID=" + postID +
                 ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
+                ", content='" + content + '\'' +
                 ", isExchange=" + isExchange +
                 ", unitPrice=" + unitPrice +
                 ", createAt=" + createAt +
