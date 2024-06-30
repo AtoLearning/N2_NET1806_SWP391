@@ -16,47 +16,45 @@ Welcome to the FPT Student Exchange and Sale platform, a unique initiative desig
 MAJOR FEATURES OF THE PROJECT
 =============================
 FE01 - Authentication
-FE02 - View & Search goods
-FE03 - View & Sort goods
-FE04 - View & Filter goods
-FE05 - Authorization
-FE06 - Manage Personal's Information
-FE07 - Manage Post
-FE08 - Moderate Post
-FE09 - Payment
-FE10 - View Goods Details
-FE11 - Make Transaction
-FE12 - View Transaction
-FE13 - Moderate Report
-FE14 - Manage User Account
-FE15 - View Statistic
-FE16 - Get Voucher 
+FE02 - Search Goods
+FE03 - View Goods
+FE04 - Manage Post
+FE05 - Transaction
+FE06 - Sort Goods
+FE07 - Filter Goods
+FE08 - Payment
+FE09 - Authorization
+FE10 - Manage Personal's Information
+FE11 - Moderate Post
+FE12 - Moderate Report
+FE13 - Manage User Account
+FE14 - Statistic
+FE15 - Voucher
  
 TECHNOLOGIES: React - Spring boot - SQL Server - Redis
 ======================================================
 
-USERCASE - SPRINT - ASSIGNMENT
-==============================
-| UserCase | Sprint 1 | Sprint 2 | Sprint 3 | Sprint 4 | Gia Bao | Nhat Phi | Hai Anh | Nguyen Anh |
-|   UC01   |   xxxx   |          |          |          |   xxx   |          |   xxx   |            |
-|   UC02   |   xxxx   |          |          |          |   xxx   |   xxx    |   xxx   |            |
-|   UC03   |   xxxx   |          |          |          |   xxx   |          |         |            |
-|   UC04   |   xxxx   |          |          |          |   xxx   |   xxx    |   xxx   |     xxx    |
-|   UC05   |          |          |   xxxx   |          |
-|   UC06   |          |          |   xxxx   |          |
-|   UC07   |          |   xxxx   |          |          |
-|   UC08   |          |          |   xxxx   |          |
-|   UC09   |          |   xxxx   |          |          |
-|   UC10   |          |          |   xxxx   |          |
-|   UC11   |          |          |   xxxx   |          |
-|   UC12   |   xxxx   |          |          |          |   xxx   |   xxx    |         |     xxx    |
-|   UC13   |          |   xxxx   |          |          |
-|   UC14   |          |   xxxx   |          |          |
-|   UC15   |          |   xxxx   |          |          |
-|   UC16   |          |   xxxx   |          |          |
-|   UC17   |          |          |          |   xxxx   |
-|   UC18   |          |   xxxx   |          |          |
-|   UC19   |          |          |          |   xxxx   |
-|   UC20   |          |          |          |   xxxx   |
-|   UC21   |          |          |          |   xxxx   |
-|   UC22   |          |          |          |   xxxx   |
+USECASE LIST
+============
+| Sprint | Use case |
+| ------------- | ------------- |
+| 1 | UC01 - UC02 - UC03 - UC04 |
+| 2 | UC05 - UC06 - UC07 |
+| 3 | UC08 - UC09 - UC10 - UC11 - UC12 - UC13 - UC14 - UC15 - UC16 |
+| 4 | UC17 - UC18 - UC19 - UC20 - UC21 - UC22 |
+
+SPRINT 1
+========
+* Nguyen Tran Gia Bao: UC01
+* Pham Thi Hai Anh: UC02
+* Nguyen Anh: UC03
+* Dang Nhat Phi: UC02
+* _Tran Hoang Huan_: UC04
+
+SPRINT 2
+========
+* Nguyen Tran Gia Bao: UC06
+* Pham Thi Hai Anh: UC07 (MP13 - MP17)
+* Nguyen Anh: UC07 (MP18 - MP21)
+* Dang Nhat Phi: UC05
+* _Tran Hoang Huan_: UC05
