@@ -15,21 +15,21 @@ Welcome to the FPT Student Exchange and Sale platform, a unique initiative desig
  
 MAJOR FEATURES OF THE PROJECT
 =============================
-FE01 - Authentication
-FE02 - Search Goods
-FE03 - View Goods
-FE04 - Manage Post
-FE05 - Transaction
-FE06 - Sort Goods
-FE07 - Filter Goods
-FE08 - Payment
-FE09 - Authorization
-FE10 - Manage Personal's Information
-FE11 - Moderate Post
-FE12 - Moderate Report
-FE13 - Manage User Account
-FE14 - Statistic
-FE15 - Voucher
+* FE01 - Authentication
+* FE02 - Search Goods
+* FE03 - View Goods
+* FE04 - Manage Post
+* FE05 - Transaction
+* FE06 - Sort Goods
+* FE07 - Filter Goods
+* FE08 - Payment
+* FE09 - Authorization
+* FE10 - Manage Personal's Information
+* FE11 - Moderate Post
+* FE12 - Moderate Report
+* FE13 - Manage User Account
+* FE14 - Statistic
+* FE15 - Voucher
  
 TECHNOLOGIES: React - Spring boot - SQL Server - Redis
 ======================================================
