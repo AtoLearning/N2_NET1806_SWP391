@@ -9,14 +9,14 @@ import lombok.experimental.FieldDefaults;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class RoleDto {
-    Integer RoleID;
-    String RoleName;
+    Integer roleID;
+    String roleName;
 
     @Override
     public String toString() {
         return "RoleDto{" +
-                "RoleID=" + RoleID +
-                ", RoleName='" + RoleName + '\'' +
+                "RoleID=" + roleID +
+                ", RoleName='" + roleName + '\'' +
                 '}';
     }
 }

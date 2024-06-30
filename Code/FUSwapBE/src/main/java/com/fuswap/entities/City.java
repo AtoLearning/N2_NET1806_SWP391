@@ -9,7 +9,7 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "City")
+@Table(name = "tblcity")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class City {
     @Id
@@ -17,6 +17,7 @@ public class City {
     @Column(name = "cityid")
     Integer CityID;
 
+    @Column(name = "cityname")
     String CityName;
 
     @Override

@@ -14,17 +14,17 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Manager")
+@Table(name = "tblmanager")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Manager {
 
     @Id
-    @Column(name = "musername", length = 30)
+    @Column(name = "musername")
     String MUserName;
-    @Column(name = "password")
+    @Column(name = "strpassword")
     String Password;
     @Column(name = "nickname")
-    String NickName;
+    String Nickname;
     @Column(name = "fullname")
     String FullName;
     @Column(name = "avatar")
@@ -48,7 +48,7 @@ public class Manager {
         return "Manager{" +
                 "MUserName='" + MUserName + '\'' +
                 ", Password='" + Password + '\'' +
-                ", NickName='" + NickName + '\'' +
+                ", Nickname='" + Nickname + '\'' +
                 ", FullName='" + FullName + '\'' +
                 ", Avatar='" + Avatar + '\'' +
                 ", DOB=" + DOB +

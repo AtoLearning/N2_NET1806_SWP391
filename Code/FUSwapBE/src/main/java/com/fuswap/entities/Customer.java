@@ -13,12 +13,12 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Customer")
+@Table(name = "tblcustomer")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Customer {
 
     @Id
-    @Column(name = "cusername", length = 50)
+    @Column(name = "cusername")
     String CUserName;
     @Column(name = "givenname")
     String GivenName;
@@ -34,7 +34,7 @@ public class Customer {
     Float Points;
     @Column(name = "dob")
     Date DOB;
-    @Column(name = "address")
+    @Column(name = "straddress")
     String Address;
     @Column(name = "isavailable")
     Boolean IsAvailable;

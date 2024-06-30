@@ -12,7 +12,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Ward")
+@Table(name = "tblward")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Ward {
     @Id
@@ -20,10 +20,11 @@ public class Ward {
     @Column(name = "wardid")
     Integer WardID;
 
+    @Column(name = "wardname")
     String WardName;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "WardByDistrict",
+    @JoinTable(name = "tblWardByDistrict",
                 joinColumns = {@JoinColumn(name = "wardid")},
                 inverseJoinColumns = {@JoinColumn(name = "districtid")})
     Set<District> districtSet = new HashSet<District>();

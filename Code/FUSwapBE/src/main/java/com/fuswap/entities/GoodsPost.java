@@ -10,7 +10,7 @@ import java.util.Date;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Post")
+@Table(name = "tblpost")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class GoodsPost {
     @Id
@@ -22,8 +22,8 @@ public class GoodsPost {
     String SpecialPostID;
     @Column(name = "tittle")
     String Tittle;
-    @Column(name = "description")
-    String Description;
+    @Column(name = "content")
+    String Content;
     @Column(name = "isexchange")
     Boolean IsExchange;
     @Column(name = "isavailable")
@@ -51,10 +51,10 @@ public class GoodsPost {
     @JoinColumn(name = "cateid")
     Category category;
 
-    public GoodsPost(String specialPostID, String tittle, String description, Boolean isExchange, Boolean isAvailable, Float unitPrice, Float postCoin, Date createAt, Manager manager, Customer customer, PostAddress postAddress, Category category) {
+    public GoodsPost(String specialPostID, String tittle, String content, Boolean isExchange, Boolean isAvailable, Float unitPrice, Float postCoin, Date createAt, Manager manager, Customer customer, PostAddress postAddress, Category category) {
         SpecialPostID = specialPostID;
         Tittle = tittle;
-        Description = description;
+        Content = content;
         IsExchange = isExchange;
         IsAvailable = isAvailable;
         UnitPrice = unitPrice;
@@ -72,7 +72,7 @@ public class GoodsPost {
                 "PostID=" + PostID +
                 ", SpecialPostID='" + SpecialPostID + '\'' +
                 ", Tittle='" + Tittle + '\'' +
-                ", Description='" + Description + '\'' +
+                ", Content='" + Content + '\'' +
                 ", IsExchange=" + IsExchange +
                 ", IsAvailable=" + IsAvailable +
                 ", UnitPrice=" + UnitPrice +

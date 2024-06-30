@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -11,7 +12,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Role")
+@Table(name = "tblrole")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Role {
 
@@ -22,8 +23,8 @@ public class Role {
     @Column(name = "rolename")
     String RoleName;
 
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL)
-    Set<Customer> customerSet;
+    @OneToMany(mappedBy = "role")
+    Set<Customer> customerSet = new HashSet<Customer>();
 
     @Override
     public String toString() {

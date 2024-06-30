@@ -17,20 +17,20 @@ import java.util.Date;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ManagerDto {
 
-    String MUserName;
-    String NickName;
-    String FullName;
-    String Avatar;
-    Date DOB;
+    String mUserName;
+    String nickName;
+    String fullName;
+    String avatar;
+    Date dob;
 
     @Override
     public String toString() {
         return "ManagerDto{" +
-                "MUserName='" + MUserName + '\'' +
-                ", NickName='" + NickName + '\'' +
-                ", FullName='" + FullName + '\'' +
-                ", Avatar='" + Avatar + '\'' +
-                ", DOB=" + DOB +
+                "MUserName='" + mUserName + '\'' +
+                ", NickName='" + nickName + '\'' +
+                ", FullName='" + fullName + '\'' +
+                ", Avatar='" + avatar + '\'' +
+                ", DOB=" + dob +
                 '}';
     }
 }

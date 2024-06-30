@@ -25,5 +25,12 @@ spring:
       client:
         registration:
           google:
-            client-id: 
-            client-secret: 
+            client-id: "250587081956-to3je2s2subplq809ieelrbc6gv1n0hm.apps.googleusercontent.com"
+            client-secret: "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"
+server:
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        path: "/"
+        max-age: 3600

@@ -9,7 +9,7 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "PostAddress")
+@Table(name = "tblpostaddress")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class PostAddress {
     @Id
@@ -17,7 +17,9 @@ public class PostAddress {
     @Column(name = "postaddressid")
     Integer PostAddressID;
 
+    @Column(name = "streetnumber")
     String StreetNumber;
+    @Column(name = "street")
     String Street;
 
     @ManyToOne
