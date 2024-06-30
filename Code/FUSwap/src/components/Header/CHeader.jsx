@@ -1,10 +1,15 @@
-import { Dropdown, DropdownMenu, DropdownTrigger, DropdownItem } from "@nextui-org/react";
+import {Dropdown, DropdownMenu, DropdownTrigger, DropdownItem, Button} from "@nextui-org/react";
 import React from 'react'
 import { Link } from "react-router-dom"
 import SearchBox from '../SearchBox/SearchBox'
 import './HeaderStyle.css';
 
+const baseURL = "http://localhost:8080/logout";
+
 export default function CHeader() {
+    const handleLogout = () => {
+        window.location.href = baseURL;
+    };
     return (
         <header className="header">
             <div className="header_left">
@@ -54,7 +59,7 @@ export default function CHeader() {
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="LogOut">
-                            <Link to="">
+                            <Link to="#" onClick={handleLogout}>
                                 Log out
                             </Link>
                         </DropdownItem>
