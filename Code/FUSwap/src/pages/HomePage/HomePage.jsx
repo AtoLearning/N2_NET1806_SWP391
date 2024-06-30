@@ -269,29 +269,29 @@ export default function App() {
     
   ];
 
-  const [cities, setCities] = useState([]);
-  const [districts, setDistricts] = useState([]);
-  const [wards, setWards] = useState([]);
-
-  useEffect(() => {
-    // Lấy dữ liệu cities
-    fetch('http://localhost:3000/api/cities')
-      .then(response => response.json())
-      .then(data => setCities(data))
-      .catch(error => console.error('Error fetching cities:', error));
-
-    // Lấy dữ liệu districts
-    fetch('http://localhost:3000/api/districts')
-      .then(response => response.json())
-      .then(data => setDistricts(data))
-      .catch(error => console.error('Error fetching districts:', error));
-
-    // Lấy dữ liệu wards
-    fetch('http://localhost:3000/api/wards')
-      .then(response => response.json())
-      .then(data => setWards(data))
-      .catch(error => console.error('Error fetching wards:', error));
-  }, []);
+  // const [cities, setCities] = useState([]);
+  // const [districts, setDistricts] = useState([]);
+  // const [wards, setWards] = useState([]);
+  //
+  // useEffect(() => {
+  //   // Lấy dữ liệu cities
+  //   fetch('http://localhost:3000/api/cities')
+  //     .then(response => response.json())
+  //     .then(data => setCities(data))
+  //     .catch(error => console.error('Error fetching cities:', error));
+  //
+  //   // Lấy dữ liệu districts
+  //   fetch('http://localhost:3000/api/districts')
+  //     .then(response => response.json())
+  //     .then(data => setDistricts(data))
+  //     .catch(error => console.error('Error fetching districts:', error));
+  //
+  //   // Lấy dữ liệu wards
+  //   fetch('http://localhost:3000/api/wards')
+  //     .then(response => response.json())
+  //     .then(data => setWards(data))
+  //     .catch(error => console.error('Error fetching wards:', error));
+  // }, []);
 
   return (
     <main className="main-container">
