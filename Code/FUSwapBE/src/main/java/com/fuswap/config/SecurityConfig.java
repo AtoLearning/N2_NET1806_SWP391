@@ -50,9 +50,8 @@ public class SecurityConfig {
         httpSecurity.cors(AbstractHttpConfigurer::disable);
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
         httpSecurity.authorizeHttpRequests(request -> request
-//                .requestMatchers(PUBLIC_ENDPOINT).permitAll()
-//                .anyRequest().authenticated()
-                .anyRequest().permitAll());
+                .requestMatchers(PUBLIC_ENDPOINT).permitAll()
+                .anyRequest().authenticated());
         httpSecurity.oauth2Login(oauth2 -> oauth2
                 .loginPage(LOGIN_PAGE)
                 .successHandler(CustomerAuthenticationSuccessHandler())
