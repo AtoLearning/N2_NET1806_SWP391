@@ -11,7 +11,7 @@ const Header = () => {
 
                 {/*The URL must match App.jsx*/}
                 <Button color='inherit' component={Link} to="/">Home</Button>
-                <Button color='inherit' component={Link} to="/form/login">Login</Button>
+                <Button color='inherit' component={Link} to="/login">Login</Button>
                 <Button color='inherit' component={Link} to="/guest/contact">Contact</Button>
 
             </Toolbar>

@@ -1,4 +1,4 @@
-package com.fuswap.entity;
+package com.fuswap.entities;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -10,27 +10,22 @@ import lombok.experimental.FieldDefaults;
 
 
 @Entity
-@Table(name = "Category")
+@Table(name = "tblcategory")
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Category {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cateid", nullable = false)
-    int CateID;
+    @Column(name = "cateid")
+    Integer CateID;
 
-    @Column(name = "catename", nullable = false, length = 20)
+    @Column(name = "catename")
     String CateName;
-
-    @Column(name = "isavailable", nullable = false)
-    boolean isAvailable;
-
-    @Column(name = "isdelete", nullable = false)
-    boolean isDelete;
+    @Column(name = "isavailable")
+    Boolean IsAvailable;
 
     @ManyToOne
     @JoinColumn(name = "musername")
@@ -41,10 +36,8 @@ public class Category {
         return "Category{" +
                 "CateID=" + CateID +
                 ", CateName='" + CateName + '\'' +
-                ", isAvailable=" + isAvailable +
-                ", isDelete=" + isDelete +
-                ", Manager=" + manager +
+                ", IsAvailable=" + IsAvailable +
+                ", manager=" + manager +
                 '}';
     }
-
 }

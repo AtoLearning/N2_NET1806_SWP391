@@ -1,18 +1,16 @@
 import Footer from "../components/Footer.jsx";
 import CHeader from "../components/CHeader.jsx";
-import Cookies from "js-cookie";
 import '../styles/styles.css';
-import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {toast} from "react-toastify";
-import {useEffect, useState} from "react";
+import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 const baseURL = "http://localhost:8080/api/v1/customer/category";
 
 const initialState = {
     cateName: '',
     available: '',
-    delete: false,
     muserName: "admin"
 }
 
@@ -22,17 +20,7 @@ const error_init = {
 }
 
 export default function CDashboard() {
-
-    //check if there is 'sessionid' in the cookie
     const navigate = useNavigate();
-    useEffect(() => {
-        const sessionCookie = Cookies.get("sessionid");
-        if (!sessionCookie) {
-            //navigate to homepage if not logged in (or no cookie or expired cookie)
-            navigate("/");
-        }
-    }, [navigate]);
-
     const [state, setState] = useState(initialState);
     const { cateName, available } = state;
     const [errors, setErrors] = useState(error_init);
@@ -100,9 +88,6 @@ export default function CDashboard() {
                             <label htmlFor="available">Available: </label>
                             <input type="text" name='available' value={state.available} onChange={handleInputChange}/>
                             {errors.available_err && <span className='error'>{errors.available_err}</span>}
-                        </div>
-                        <div>
-                            <input type="hidden" name='delete' value={state.delete} onChange={handleInputChange}/>
                         </div>
                         <div>
                             <label htmlFor="muserName">Manager: </label>

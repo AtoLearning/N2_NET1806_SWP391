@@ -4,12 +4,12 @@ import com.fuswap.dtos.CategoryDto;
 import com.fuswap.dtos.ManagerDto;
 import com.fuswap.services.CategoryService;
 import com.fuswap.services.ManagerService;
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -29,8 +29,9 @@ public class GuestController {
     }
 
     @GetMapping("/homepage")
-    public List<CategoryDto> getAllCategories() {
-        return categoryService.getAllCategories();
+    public Page<CategoryDto> getAllCategories(
+            @RequestParam(defaultValue = "0") int page) {
+        return categoryService.getAllCategories(page);
     }
 
     @GetMapping("/contact")

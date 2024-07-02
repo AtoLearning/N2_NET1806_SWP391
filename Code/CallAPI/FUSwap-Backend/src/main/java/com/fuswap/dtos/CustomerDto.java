@@ -8,7 +8,7 @@ import lombok.experimental.FieldDefaults;
 import lombok.AccessLevel;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -17,28 +17,30 @@ import java.time.LocalDate;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CustomerDto implements Serializable{
 
-    String CUserName;
-    String GivenName;
-    String FamilyName;
-    String Picture;
-    int Wallet;
-    int Points;
-    boolean isVerified;
-    String Address;
-    LocalDate DOB;
+    String cUserName;
+    String givenName;
+    String familyName;
+    String nickname;
+    String avatar;
+    Float coins;
+    Float points;
+    Date dob;
+    String address;
+    Boolean isVerified;
 
     @Override
     public String toString() {
         return "CustomerDto{" +
-                "CUserName='" + CUserName + '\'' +
-                ", GivenName='" + GivenName + '\'' +
-                ", FamilyName='" + FamilyName + '\'' +
-                ", Picture='" + Picture + '\'' +
-                ", Wallet=" + Wallet +
-                ", Points=" + Points +
+                "cUserName='" + cUserName + '\'' +
+                ", givenName='" + givenName + '\'' +
+                ", familyName='" + familyName + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", coins=" + coins +
+                ", points=" + points +
+                ", dob=" + dob +
+                ", address='" + address + '\'' +
                 ", isVerified=" + isVerified +
-                ", Address='" + Address + '\'' +
-                ", DOB=" + DOB +
                 '}';
     }
 

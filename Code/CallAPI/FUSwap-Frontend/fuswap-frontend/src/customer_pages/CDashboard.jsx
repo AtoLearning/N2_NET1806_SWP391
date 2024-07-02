@@ -1,8 +1,7 @@
 import Footer from "../components/Footer.jsx";
 import axios from "axios";
 import CHeader from "../components/CHeader.jsx";
-import {Link, useNavigate} from "react-router-dom";
-import Cookies from "js-cookie";
+import {Link} from "react-router-dom";
 import {Button} from "@mui/material";
 import {toast} from "react-toastify";
 import {useEffect, useState} from "react";
@@ -11,16 +10,6 @@ const baseURL = "http://localhost:8080/api/v1/customer/homepage/permission";
 const baseURLDelete = "http://localhost:8080/api/v1/customer/category";
 
 export default function CDashboard() {
-
-    //check if there is 'sessionid' in the cookie
-    const navigate = useNavigate();
-    useEffect(() => {
-        const sessionCookie = Cookies.get("sessionid");
-        if (!sessionCookie) {
-            //navigate to homepage if not logged in (or no cookie or expired cookie)
-            navigate("/");
-        }
-    }, [navigate]);
 
     //get all category (high) in back-end ( call api by GET )
     const [categories, setCategories] = useState([]);

@@ -1,32 +1,30 @@
 import Footer from "../components/Footer.jsx";
 import axios from "axios";
 import CHeader from "../components/CHeader.jsx";
-import {useNavigate} from "react-router-dom";
-import Cookies from "js-cookie";
 import {useEffect, useState} from "react";
 
 const baseURL = "http://localhost:8080/api/v1/customer/homepage";
 
 export default function CHome() {
 
-    //check if there is 'sessionid' in the cookie
-    const navigate = useNavigate();
-    useEffect(() => {
-        const sessionCookie = Cookies.get("sessionid");
-        if (!sessionCookie) {
-            //navigate to homepage if not logged in (or no cookie or expired cookie)
-            navigate("/");
-        }
-    }, [navigate]);
-
     //get all category in back-end ( call api by GET )
     const [categories, setCategories] = useState([]);
-    const getAllCategories = async () => {
+    const [page, setPage] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
+    const getAllCategories = async (page) => {
         try {
-            const response = await axios.get(baseURL, { withCredentials: true });
+            const response = await axios.get(baseURL, {
+                params: {
+                    page: page,
+                    // size: 3,
+                },
+                withCredentials: true });
             if(response.status === 200) {
                 //if the back-end returns a json file with the required data, get it
-                setCategories(response.data);
+                setCategories(response.data.content);
+                console.log(response.data);
+                setTotalPages(response.data.totalPages);
+                // console.log(response.data);
             }
         } catch (error) {
             //if not, console.log the error
@@ -34,9 +32,11 @@ export default function CHome() {
         }
     };
     useEffect(() => {
-        getAllCategories();
-    }, []);
-
+        getAllCategories(page);
+    }, [page]);
+    const handlePageChange = (newPage) => {
+        setPage(newPage);
+    };
     return (
         <>
             <CHeader/>
@@ -50,11 +50,8 @@ export default function CHome() {
                     </tr>
                     </thead>
                     <tbody>
-                    {(categories) ? (categories.map((category) => (
-
-                            // The field to call to get the data must match
-                            //     the field on the back-end OR match the returned json
-
+                    {Array.isArray(categories) && categories.length > 0 ? (
+                        categories.map((category) => (
                             <tr key={category.cateId}>
                                 <td style={{textAlign: 'center'}}>{category.cateId}</td>
                                 <td style={{textAlign: 'center'}}>{category.cateName}</td>
@@ -68,6 +65,15 @@ export default function CHome() {
                     )}
                     </tbody>
                 </table>
+                <div style={{textAlign: 'center', marginTop: '20px'}}>
+                    <button onClick={() => handlePageChange(page - 1)} disabled={page <= 0}>
+                        Previous
+                    </button>
+                    <span style={{margin: '0 10px'}}>{page + 1} / {totalPages}</span>
+                    <button onClick={() => handlePageChange(page + 1)} disabled={page >= totalPages - 1}>
+                        Next
+                    </button>
+                </div>
             </div>
             <Footer/>
         </>
