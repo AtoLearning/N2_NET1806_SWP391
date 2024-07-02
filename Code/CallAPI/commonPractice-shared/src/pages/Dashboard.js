@@ -32,14 +32,14 @@ const Dashboard = () => {
 
     const handleDelete = async (id) => {
         if (window.confirm(`Are you sure that you want to delete a staff with ID: ${id}`)) {
-        const res = await axios.delete(`${URL}/${id}`);
-        console.log(res.status);
-        if (res.status === 200) {
-            getListStaff();
-            toast.success("Deleted Successfully ~");
-        } else {
-            toast.error("Delete: Error!");
-        }
+            const res = await axios.delete(`${URL}/${id}`);
+            console.log(res.status);
+            if (res.status === 200) {
+                getListStaff();
+                toast.success("Deleted Successfully ~");
+            } else {
+                toast.error("Delete: Error!");
+            }
         }
     }
 

@@ -18,7 +18,6 @@ public class CategoryDto {
     int cateId;
     String cateName;
     boolean isAvailable;
-    boolean isDelete;
     String fullnameManager;
 
     @Override
@@ -27,7 +26,6 @@ public class CategoryDto {
                 "cateId='" + cateId + '\'' +
                 ", cateName='" + cateName + '\'' +
                 ", isAvailable=" + isAvailable +
-                ", isDelete=" + isDelete +
                 ", mUserName='" + fullnameManager + '\'' +
                 '}';
     }

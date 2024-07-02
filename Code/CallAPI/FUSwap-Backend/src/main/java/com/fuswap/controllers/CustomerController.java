@@ -4,20 +4,20 @@ import com.fuswap.dtos.CategoryDto;
 import com.fuswap.dtos.CustomerDto;
 import com.fuswap.dtos.ManagerDto;
 import com.fuswap.dtos.ResponseDto;
-import com.fuswap.entity.Manager;
+import com.fuswap.entities.Manager;
 import com.fuswap.services.CategoryService;
 import com.fuswap.services.ManagerService;
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.session.data.redis.RedisSessionRepository;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.session.Session;
 
+import java.util.Base64;
 import java.util.List;
+import java.util.Map;
+
 @Slf4j
 @RestController
 @RequestMapping("/api/v1/customer")
@@ -26,22 +26,21 @@ public class CustomerController {
     private final RedisTemplate<String, Object> redisTemplate;
     private final CategoryService categoryService;
     private final ManagerService managerService;
-    private final RedisSessionRepository sessionRepository;
 
     public CustomerController(
             RedisTemplate<String, Object> redisTemplate,
             CategoryService categoryService,
-            ManagerService managerService,
-            RedisSessionRepository sessionRepository) {
+            ManagerService managerService) {
         this.redisTemplate = redisTemplate;
         this.categoryService = categoryService;
         this.managerService = managerService;
-        this.sessionRepository = sessionRepository;
     }
 
     @GetMapping("/homepage")
-    public List<CategoryDto> getAllCategories() {
-        return categoryService.getAllCategories();
+    public Page<CategoryDto> getAllCategories(
+            @RequestParam(defaultValue = "0") int page) {
+        log.info("page {}", page);
+        return categoryService.getAllCategories(page);
     }
 
     @GetMapping("/homepage/permission")
@@ -68,23 +67,30 @@ public class CustomerController {
         }
     }
 
-    @GetMapping("/info")
-    public ResponseEntity<ResponseDto> getInfo(@CookieValue("sessionid") String sessionid) {
-        Boolean exists = redisTemplate.hasKey("spring:session:sessions:" + sessionid);
+    @GetMapping("/profile")
+    public ResponseEntity<ResponseDto> getCustomerProfile(
+            @CookieValue(name = "SESSION", defaultValue = "") String sessionId) {
+        sessionId = new String(Base64.getDecoder().decode(sessionId));
+        log.info("sessionId: {}", sessionId);
+        Boolean exists = redisTemplate.hasKey("spring:session:sessions:" + sessionId);
         if(Boolean.TRUE.equals(exists)) {
-            Session session = sessionRepository.findById(sessionid);
-            Object obj = session.getAttribute("info");
-            CustomerDto customer = (CustomerDto) obj;
+            Map<Object, Object> sessionAttributes = redisTemplate
+                    .opsForHash()
+                    .entries("spring:session:sessions:" + sessionId);
+            CustomerDto customerDto = (CustomerDto)sessionAttributes.get("sessionAttr:profile");
+            log.info("customerDto: {}", customerDto);
+            if(customerDto == null) {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
+                        new ResponseDto("401", "PROFILE IS NOT FOUND", null)
+                );
+            }
             return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseDto("OK", "Customer information", customer)
+                    new ResponseDto("200", "PROFILE IS FOUND", customerDto)
             );
         }
-        else {
-            log.info("Session ID not found");
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                    new ResponseDto("NOT_FOUND", "Customer information not found", "")
-            );
-        }
+        return ResponseEntity.status(HttpStatus.OK).body(
+                new ResponseDto("401", "PROFILE IS NOT FOUND", null)
+        );
     }
 
     @GetMapping("/contact")

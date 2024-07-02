@@ -1,7 +1,7 @@
 package com.fuswap.services;
 
 import com.fuswap.dtos.ManagerDto;
-import com.fuswap.entity.Manager;
+import com.fuswap.entities.Manager;
 import com.fuswap.repositories.ManagerRepository;
 import org.springframework.stereotype.Service;
 
@@ -20,14 +20,12 @@ public class ManagerService {
     public List<ManagerDto> getAllManagers() {
         List<ManagerDto> managersDto = new ArrayList<>();
         List<Manager> managers = managerRepository.findAll();
-        int id = 1;
         for (Manager manager : managers) {
             managersDto.add(new ManagerDto(
-                    id++,
-                    manager.getGivenName(),
-                    manager.getFamilyName(),
-                    manager.getPicture(),
-                    manager.isAdmin() ? "Admin" : "Moderator",
+                    manager.getMUserName(),
+                    manager.getNickname(),
+                    manager.getFullName(),
+                    manager.getAvatar(),
                     manager.getDOB()
             ));
         }

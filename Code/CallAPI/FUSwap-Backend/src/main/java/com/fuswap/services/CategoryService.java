@@ -1,10 +1,13 @@
 package com.fuswap.services;
 
 import com.fuswap.dtos.CategoryDto;
-import com.fuswap.entity.Category;
-import com.fuswap.entity.Manager;
+import com.fuswap.entities.Category;
+import com.fuswap.entities.Manager;
 import com.fuswap.repositories.CategoryRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,38 +24,30 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
     //View -> Controller -> Server -> Repository
-    public List<CategoryDto> getAllCategories() {
-        List<Category> categoryList = categoryRepository.findAll();
-        List<CategoryDto> categoryDtoList = new ArrayList<>();
-        for(Category category : categoryList) {
-            if(category.isAvailable() && !category.isDelete()) {
-                categoryDtoList.add(new CategoryDto(
-                        category.getCateID(),
-                        category.getCateName(),
-                        true,
-                        false,
-                        category.getManager().getGivenName() + " " +
-                                category.getManager().getFamilyName()
-                ));
-            }
-        }
-        return categoryDtoList;
+    public Page<CategoryDto> getAllCategories(Integer pageNo) {
+        Pageable pageable = PageRequest.of(pageNo, 3);
+        Page<Category> categoryPage = categoryRepository.findAllWithAvailable(pageable);
+
+        Page<CategoryDto> categoryDtoPage = categoryPage.map(category -> new CategoryDto(
+                category.getCateID(),
+                category.getCateName(),
+                category.getIsAvailable(),
+                category.getManager().getFullName()
+        ));
+
+        return categoryDtoPage;
     }
 
     public List<CategoryDto> getAllCategoriesHigh() {
         List<Category> categoryList = categoryRepository.findAll();
         List<CategoryDto> categoryDtoList = new ArrayList<>();
         for(Category category : categoryList) {
-            if(!category.isDelete()) {
-                categoryDtoList.add(new CategoryDto(
-                        category.getCateID(),
-                        category.getCateName(),
-                        category.isAvailable(),
-                        false,
-                        category.getManager().getGivenName() + " " +
-                                category.getManager().getFamilyName()
-                ));
-            }
+            categoryDtoList.add(new CategoryDto(
+                    category.getCateID(),
+                    category.getCateName(),
+                    category.getIsAvailable(),
+                    category.getManager().getFullName()
+            ));
         }
         return categoryDtoList;
     }
@@ -60,8 +55,7 @@ public class CategoryService {
     public boolean createCategory(CategoryDto categoryDto, Manager manager) {
         Category category = new Category();
         category.setCateName(categoryDto.getCateName());
-        category.setAvailable(categoryDto.isAvailable());
-        category.setDelete(categoryDto.isDelete());
+        category.setIsAvailable(true);
         category.setManager(manager);
         try {
             categoryRepository.save(category);
@@ -78,10 +72,8 @@ public class CategoryService {
         return category.map(value -> new CategoryDto(
                 value.getCateID(),
                 value.getCateName(),
-                value.isAvailable(),
-                value.isDelete(),
-                value.getManager().getGivenName() + " " +
-                        value.getManager().getFamilyName()
+                value.getIsAvailable(),
+                value.getManager().getFullName()
         )).orElse(null);
 
 //        if(category.isPresent()) {

@@ -1,8 +1,7 @@
 import Footer from "../components/Footer.jsx";
 import CHeader from "../components/CHeader.jsx";
-import Cookies from "js-cookie";
 import '../styles/styles.css';
-import {useNavigate, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import axios from "axios";
 import {toast} from "react-toastify";
 import {useEffect, useState} from "react";
@@ -22,16 +21,6 @@ const error_init = {
 }
 
 export default function CDashboard() {
-
-    //check if there is 'sessionid' in the cookie
-    const navigate = useNavigate();
-    useEffect(() => {
-        const sessionCookie = Cookies.get("sessionid");
-        if (!sessionCookie) {
-            //navigate to homepage if not logged in (or no cookie or expired cookie)
-            navigate("/");
-        }
-    }, [navigate]);
 
     const { cateId } = useParams();
     const [state, setState] = useState(initialState);
