@@ -269,30 +269,6 @@ export default function App() {
     
   ];
 
-  // const [cities, setCities] = useState([]);
-  // const [districts, setDistricts] = useState([]);
-  // const [wards, setWards] = useState([]);
-  //
-  // useEffect(() => {
-  //   // Lấy dữ liệu cities
-  //   fetch('http://localhost:3000/api/cities')
-  //     .then(response => response.json())
-  //     .then(data => setCities(data))
-  //     .catch(error => console.error('Error fetching cities:', error));
-  //
-  //   // Lấy dữ liệu districts
-  //   fetch('http://localhost:3000/api/districts')
-  //     .then(response => response.json())
-  //     .then(data => setDistricts(data))
-  //     .catch(error => console.error('Error fetching districts:', error));
-  //
-  //   // Lấy dữ liệu wards
-  //   fetch('http://localhost:3000/api/wards')
-  //     .then(response => response.json())
-  //     .then(data => setWards(data))
-  //     .catch(error => console.error('Error fetching wards:', error));
-  // }, []);
-
   return (
     <main className="main-container">
       <div className="content-wrapper">
@@ -332,49 +308,6 @@ export default function App() {
         </section>
 
         <CategoryList categories={categories} />
-        
-        {/* <section className="filter-section">
-          <div className="filter-label">Sorted by</div>
-          <div>
-            <Autocomplete
-              label="City"
-              placeholder="Search a City in Viet Nam"
-              className="filter-options"
-            >
-              {cities.map((city) => (
-                <AutocompleteItem key={city.id} value={city.name}>
-                  {city.name}
-                </AutocompleteItem>
-              ))}
-            </Autocomplete>
-          </div>
-          <div>
-            <Autocomplete
-              label="District"
-              placeholder="Search a District in Viet Nam"
-              className="filter-options"
-            >
-              {districts.map((district) => (
-                <AutocompleteItem key={district.id} value={district.name}>
-                  {district.name}
-                </AutocompleteItem>
-              ))}
-            </Autocomplete>
-          </div>
-          <div>
-            <Autocomplete
-              label="Ward"
-              placeholder="Search a Ward in Viet Nam"
-              className="filter-options"
-            >
-              {wards.map((ward) => (
-                <AutocompleteItem key={ward.id} value={ward.name}>
-                  {ward.name}
-                </AutocompleteItem>
-              ))}
-            </Autocomplete>
-          </div>
-        </section> */}
 
         <h2 className="section-title">Recent listings</h2>
 
