@@ -1,0 +1,56 @@
+.category-list-container {
+  margin-top: 50px;
+}
+
+.category-section {
+  box-shadow: 0 0 4px 5px #FF974E;
+  background-color: #ffde5970;
+  display: flex;
+  margin-top: 30px;
+  gap: 17px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 14px 48px;
+}
+
+.category-item {
+  flex: 0 0 auto;
+  background-color: #fff;
+  display: flex;
+  padding-bottom: 13px;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+}
+
+.category-icon {
+  width: 100%;
+  max-width: 147px;
+  aspect-ratio: 1.05;
+  object-fit: cover;
+}
+
+.category-name {
+  font-family: Taviraj, sans-serif;
+  margin-top: 7px;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center; /* Canh giữa */
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pagination-container button {
+  margin: 0 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.no-data {
+  text-align: center;
+  width: 100%;
+  font-size: 18px;
+  color: #555;
+}
