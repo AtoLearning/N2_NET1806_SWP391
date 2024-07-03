@@ -56,6 +56,7 @@ CREATE TABLE tblManager (
   Nickname         nvarchar(10) NOT NULL, 
   FullName         nvarchar(100) NOT NULL, 
   Avatar           varchar(350) NOT NULL, 
+  Phone			   varchar(10) NOT NULL,
   IsAvailable      bit NOT NULL,  
   DOB              date NOT NULL, 
   ManagerMUserName varchar(30),
@@ -76,10 +77,6 @@ CREATE TABLE tblPost (
   PostAddressID bigint, 
   CateID        int, 
   PRIMARY KEY (PostID));
-CREATE TABLE tblPostServiceDetails (
-  PostID               bigint, 
-  PostServiceID		   int, 
-  PRIMARY KEY (PostID, PostServiceID));
 CREATE TABLE tblPostAddress (
   PostAddressID bigint IDENTITY, 
   StreetNumber  varchar(50) NOT NULL, 
@@ -88,16 +85,6 @@ CREATE TABLE tblPostAddress (
   DistrictID    int, 
   CityID        int, 
   PRIMARY KEY (PostAddressID));
-CREATE TABLE tblPostService (
-  PostServiceID		int IDENTITY, 
-  PostServiceName   nvarchar(50) NOT NULL, 
-  Content			nvarchar(150) NOT NULL, 
-  UnitCoin			float NOT NULL, 
-  intPriority		int NOT NULL, 
-  CreateAt			date NOT NULL, 
-  IsAvailable		bit NOT NULL,  
-  MUserName			varchar(30), 
-  PRIMARY KEY (PostServiceID));
 CREATE TABLE tblReport (
   ReportID		bigint IDENTITY,
   ReportName	nvarchar(50) NOT NULL,
@@ -108,16 +95,6 @@ CREATE TABLE tblReport (
   MUserName		varchar(30), 
   CUserName		varchar(50), 
   PRIMARY KEY (ReportID));
-CREATE TABLE tblServiceOrder (
-  ServiceOrderID bigint IDENTITY, 
-  TotalCoin      float NOT NULL, 
-  CreateAt       date NOT NULL, 
-  CUserName      varchar(50), 
-  PRIMARY KEY (ServiceOrderID));
-CREATE TABLE tblServiceOrderDetails (
-  ServiceOrderID  bigint, 
-  PostServiceID   int, 
-  PRIMARY KEY (ServiceOrderID, PostServiceID));
 CREATE TABLE tblTransaction (
   TransID         bigint IDENTITY, 
   CreateAt        date NOT NULL, 
@@ -125,21 +102,6 @@ CREATE TABLE tblTransaction (
   Supplier        varchar(50) NOT NULL, 
   PostID          bigint, 
   PRIMARY KEY (TransID));
-CREATE TABLE tblVoucher (
-  VoucherID   int IDENTITY,
-  VoucherName nvarchar(50) NOT NULL,
-  Content	  nvarchar(150) NOT NULL,
-  UnitPoint   float NOT NULL, 
-  Discount    float NOT NULL,
-  VoucherType nvarchar(30) NOT NULL,
-  CreateAt    date NOT NULL, 
-  IsAvailable bit NOT NULL,  
-  MUserName   varchar(30), 
-  PRIMARY KEY (VoucherID));
-CREATE TABLE tblCustomerVoucher (
-  VoucherID  int, 
-  CUserName  varchar(50), 
-  PRIMARY KEY (VoucherID, CUserName));
 CREATE TABLE tblWard (
   WardID   int IDENTITY, 
   WardName nvarchar(100), 
@@ -150,7 +112,6 @@ CREATE TABLE tblManagerRole (
   PRIMARY KEY (MUserName, RoleID));
 ALTER TABLE tblCustomer ADD CONSTRAINT FKCustomer393390 FOREIGN KEY (MUserName) REFERENCES tblManager (MUserName);
 ALTER TABLE tblPost ADD CONSTRAINT FKPost719752 FOREIGN KEY (MUserName) REFERENCES tblManager (MUserName);
-ALTER TABLE tblPostService ADD CONSTRAINT FKPostServic54562 FOREIGN KEY (MUserName) REFERENCES tblManager (MUserName);
 ALTER TABLE tblCategory ADD CONSTRAINT FKCategory58042 FOREIGN KEY (MUserName) REFERENCES tblManager (MUserName);
 ALTER TABLE tblReport ADD CONSTRAINT FKReport101973 FOREIGN KEY (MUserName) REFERENCES tblManager (MUserName);
 ALTER TABLE tblPost ADD CONSTRAINT FKPost463187 FOREIGN KEY (CUserName) REFERENCES tblCustomer (CUserName);
@@ -162,17 +123,9 @@ ALTER TABLE tblPostAddress ADD CONSTRAINT FKPostAddres809418 FOREIGN KEY (CityID
 ALTER TABLE tblPostAddress ADD CONSTRAINT FKPostAddres43697 FOREIGN KEY (DistrictID) REFERENCES tblDistrict (DistrictID);
 ALTER TABLE tblPostAddress ADD CONSTRAINT FKPostAddres628776 FOREIGN KEY (WardID) REFERENCES tblWard (WardID);
 ALTER TABLE tblPost ADD CONSTRAINT FKPost738984 FOREIGN KEY (CateID) REFERENCES tblCategory (CateID);
-ALTER TABLE tblServiceOrder ADD CONSTRAINT FKServiceOrd410399 FOREIGN KEY (CUserName) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblTransaction ADD CONSTRAINT FKTransactio71904 FOREIGN KEY (Consumer) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblTransaction ADD CONSTRAINT FKTransactio355745 FOREIGN KEY (Supplier) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblManager ADD CONSTRAINT FKManager173667 FOREIGN KEY (ManagerMUserName) REFERENCES tblManager (MUserName);
-ALTER TABLE tblPostServiceDetails ADD CONSTRAINT FKPost_PostS939301 FOREIGN KEY (PostID) REFERENCES tblPost (PostID);
-ALTER TABLE tblPostServiceDetails ADD CONSTRAINT FKPost_PostS956358 FOREIGN KEY (PostServiceID) REFERENCES tblPostService (PostServiceID);
-ALTER TABLE tblServiceOrderDetails ADD CONSTRAINT FKServiceOrd488214 FOREIGN KEY (ServiceOrderID) REFERENCES tblServiceOrder (ServiceOrderID);
-ALTER TABLE tblServiceOrderDetails ADD CONSTRAINT FKServiceOrd184579 FOREIGN KEY (PostServiceID) REFERENCES tblPostService (PostServiceID);
-ALTER TABLE tblCustomerVoucher ADD CONSTRAINT FKVoucher_Cu393522 FOREIGN KEY (VoucherID) REFERENCES tblVoucher (VoucherID);
-ALTER TABLE tblCustomerVoucher ADD CONSTRAINT FKVoucher_Cu789935 FOREIGN KEY (CUserName) REFERENCES tblCustomer (CUserName);
-ALTER TABLE tblVoucher ADD CONSTRAINT FKVoucher634371 FOREIGN KEY (MUserName) REFERENCES tblManager (MUserName);
 ALTER TABLE tblTransaction ADD CONSTRAINT FKTransactio184168 FOREIGN KEY (PostID) REFERENCES tblPost (PostID);
 ALTER TABLE tblDistrict ADD CONSTRAINT FKDistrict133351 FOREIGN KEY (CityID) REFERENCES tblCity (CityID);
 ALTER TABLE tblWardByDistrict ADD CONSTRAINT FKDistrict_W223992 FOREIGN KEY (DistrictID) REFERENCES tblDistrict (DistrictID);
