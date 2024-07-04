@@ -48,7 +48,6 @@ CREATE TABLE tblFeedback (
   Content      nvarchar(200) NOT NULL, 
   CreateAt	   date NOT NULL, 
   CUserName    varchar(50), 
-  PostID       bigint, 
   PRIMARY KEY (FeedbackID));
 CREATE TABLE tblManager (
   MUserName        varchar(30), 
@@ -74,6 +73,7 @@ CREATE TABLE tblPost (
   CreateAt      date NOT NULL, 
   MUserName     varchar(30), 
   CUserName     varchar(50), 
+  FeedbackID	bigint NULL,
   PostAddressID bigint, 
   CateID        int, 
   PRIMARY KEY (PostID));
@@ -117,12 +117,12 @@ ALTER TABLE tblReport ADD CONSTRAINT FKReport101973 FOREIGN KEY (MUserName) REFE
 ALTER TABLE tblPost ADD CONSTRAINT FKPost463187 FOREIGN KEY (CUserName) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblReport ADD CONSTRAINT FKReport358538 FOREIGN KEY (CUserName) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblFeedback ADD CONSTRAINT FKFeedback814255 FOREIGN KEY (CUserName) REFERENCES tblCustomer (CUserName);
-ALTER TABLE tblFeedback ADD CONSTRAINT FKFeedback434768 FOREIGN KEY (PostID) REFERENCES tblPost (PostID);
 ALTER TABLE tblPost ADD CONSTRAINT FKPost138133 FOREIGN KEY (PostAddressID) REFERENCES tblPostAddress (PostAddressID);
 ALTER TABLE tblPostAddress ADD CONSTRAINT FKPostAddres809418 FOREIGN KEY (CityID) REFERENCES tblCity (CityID);
 ALTER TABLE tblPostAddress ADD CONSTRAINT FKPostAddres43697 FOREIGN KEY (DistrictID) REFERENCES tblDistrict (DistrictID);
 ALTER TABLE tblPostAddress ADD CONSTRAINT FKPostAddres628776 FOREIGN KEY (WardID) REFERENCES tblWard (WardID);
 ALTER TABLE tblPost ADD CONSTRAINT FKPost738984 FOREIGN KEY (CateID) REFERENCES tblCategory (CateID);
+ALTER TABLE tblPost ADD CONSTRAINT FKPost856936 FOREIGN KEY (FeedbackID) REFERENCES tblFeedback (FeedbackID);
 ALTER TABLE tblTransaction ADD CONSTRAINT FKTransactio71904 FOREIGN KEY (Consumer) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblTransaction ADD CONSTRAINT FKTransactio355745 FOREIGN KEY (Supplier) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblManager ADD CONSTRAINT FKManager173667 FOREIGN KEY (ManagerMUserName) REFERENCES tblManager (MUserName);
