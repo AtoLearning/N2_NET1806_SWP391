@@ -1,10 +1,7 @@
 package com.fuswap.controllers;
 
-import com.fuswap.dtos.CustomerDto;
-import com.fuswap.dtos.ResponseDto;
-import com.fuswap.services.CustomerService;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
+import com.fuswap.dtos.response.CustomerRes;
+import com.fuswap.dtos.response.ResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
@@ -21,40 +18,36 @@ import java.util.Map;
 @RequestMapping("/api/v1/customer")
 @Slf4j
 public class CustomerController {
-    private final CustomerService customerService;
     private final RedisTemplate<String, Object> redisTemplate;
 
     public CustomerController(
-            CustomerService customerService,
             RedisTemplate<String, Object> redisTemplate) {
-        this.customerService = customerService;
         this.redisTemplate = redisTemplate;
     }
 
     @GetMapping("/profile")
     public ResponseEntity<ResponseDto> getCustomerProfile(
-            @CookieValue(name = "SESSION", defaultValue = "") String sessionId,
-            HttpSession request) {
+            @CookieValue(name = "SESSION", defaultValue = "") String sessionId) {
         sessionId = new String(Base64.getDecoder().decode(sessionId));
-        log.info("sessionId: {}", sessionId);
+//        log.info("sessionId: {}", sessionId);
         Boolean exists = redisTemplate.hasKey("spring:session:sessions:" + sessionId);
         if(Boolean.TRUE.equals(exists)) {
             Map<Object, Object> sessionAttributes = redisTemplate
                                                     .opsForHash()
                                                     .entries("spring:session:sessions:" + sessionId);
-            CustomerDto customerDto = (CustomerDto)sessionAttributes.get("sessionAttr:profile");
-            log.info("customerDto: {}", customerDto);
-            if(customerDto == null) {
+            CustomerRes customerRes = (CustomerRes)sessionAttributes.get("sessionAttr:profile");
+            log.info("customerDto: {}", customerRes);
+            if(customerRes == null) {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
-                        new ResponseDto("401", "PROFILE IS NOT FOUND", null)
+                        new ResponseDto("401", "PROFILE IS NOT FOUND", null, 0)
                 );
             }
             return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseDto("200", "PROFILE IS FOUND", customerDto)
+                    new ResponseDto("200", "PROFILE IS FOUND", customerRes, 0)
             );
         }
         return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseDto("401", "PROFILE IS NOT FOUND", null)
+                new ResponseDto("401", "PROFILE IS NOT FOUND", null, 0)
         );
     }
 }
