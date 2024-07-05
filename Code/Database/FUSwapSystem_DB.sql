@@ -11,6 +11,7 @@ CREATE TABLE tblRole(
 CREATE TABLE tblCategory (
   CateID      int IDENTITY, 
   CateName    nvarchar(30) NOT NULL, 
+  CateImage	  varchar(350),
   IsAvailable bit NOT NULL, 
   MUserName   varchar(30), 
   PRIMARY KEY (CateID));
@@ -24,7 +25,6 @@ CREATE TABLE tblCustomer (
   FamilyName  nvarchar(30) NOT NULL, 
   Nickname    nvarchar(10) NOT NULL,
   Avatar	  varchar(350) NOT NULL,  
-  Coins       float NOT NULL, 
   Points      float NOT NULL, 
   Phone	      varchar(10) NOT NULL,
   strAddress  nvarchar(200) NOT NULL, 
@@ -69,11 +69,11 @@ CREATE TABLE tblPost (
   IsExchange    bit NOT NULL, 
   PostImage     varchar(350) NOT NULL,
   UnitPrice     float NOT NULL, 
-  PostCoin      float NOT NULL, 
   CreateAt      date NOT NULL, 
   MUserName     varchar(30), 
   CUserName     varchar(50), 
   FeedbackID	bigint NULL,
+  TransID	    bigint NULL,
   PostAddressID bigint, 
   CateID        int, 
   PRIMARY KEY (PostID));
@@ -100,7 +100,6 @@ CREATE TABLE tblTransaction (
   CreateAt        date NOT NULL, 
   Consumer        varchar(50) NOT NULL, 
   Supplier        varchar(50) NOT NULL, 
-  PostID          bigint, 
   PRIMARY KEY (TransID));
 CREATE TABLE tblWard (
   WardID   int IDENTITY, 
@@ -115,6 +114,7 @@ ALTER TABLE tblPost ADD CONSTRAINT FKPost719752 FOREIGN KEY (MUserName) REFERENC
 ALTER TABLE tblCategory ADD CONSTRAINT FKCategory58042 FOREIGN KEY (MUserName) REFERENCES tblManager (MUserName);
 ALTER TABLE tblReport ADD CONSTRAINT FKReport101973 FOREIGN KEY (MUserName) REFERENCES tblManager (MUserName);
 ALTER TABLE tblPost ADD CONSTRAINT FKPost463187 FOREIGN KEY (CUserName) REFERENCES tblCustomer (CUserName);
+ALTER TABLE tblPost ADD CONSTRAINT FKPost856939 FOREIGN KEY (TransID) REFERENCES tblTransaction (TransID);
 ALTER TABLE tblReport ADD CONSTRAINT FKReport358538 FOREIGN KEY (CUserName) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblFeedback ADD CONSTRAINT FKFeedback814255 FOREIGN KEY (CUserName) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblPost ADD CONSTRAINT FKPost138133 FOREIGN KEY (PostAddressID) REFERENCES tblPostAddress (PostAddressID);
@@ -126,7 +126,6 @@ ALTER TABLE tblPost ADD CONSTRAINT FKPost856936 FOREIGN KEY (FeedbackID) REFEREN
 ALTER TABLE tblTransaction ADD CONSTRAINT FKTransactio71904 FOREIGN KEY (Consumer) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblTransaction ADD CONSTRAINT FKTransactio355745 FOREIGN KEY (Supplier) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblManager ADD CONSTRAINT FKManager173667 FOREIGN KEY (ManagerMUserName) REFERENCES tblManager (MUserName);
-ALTER TABLE tblTransaction ADD CONSTRAINT FKTransactio184168 FOREIGN KEY (PostID) REFERENCES tblPost (PostID);
 ALTER TABLE tblDistrict ADD CONSTRAINT FKDistrict133351 FOREIGN KEY (CityID) REFERENCES tblCity (CityID);
 ALTER TABLE tblWardByDistrict ADD CONSTRAINT FKDistrict_W223992 FOREIGN KEY (DistrictID) REFERENCES tblDistrict (DistrictID);
 ALTER TABLE tblWardByDistrict ADD CONSTRAINT FKDistrict_W924874 FOREIGN KEY (WardID) REFERENCES tblWard (WardID);
