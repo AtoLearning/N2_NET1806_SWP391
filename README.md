@@ -32,24 +32,24 @@ MAJOR FEATURES OF THE PROJECT
 
 USE CASE LIST
 =============
-UC01	Log in with Google				
-UC02	Log in with username/password				
-UC03	Log out				
-UC04	Search goods				
-UC05	View goods				
-UC06	View contact information				
-UC07	Manage posts				
-UC08	Make transactions				
-UC09	View transactios							
-UC10	Feedback				
-UC11	Report				
-UC12	Sort goods				
-UC13	Filter goods				
-UC14	Authorization				
-UC15	Manage personal's information				
-UC16	Moderate posts				
-UC17	Moderate reports				
-UC18	Manage user accounts				
+* UC01	Log in with Google				
+* UC02	Log in with username/password				
+* UC03	Log out				
+* UC04	Search goods				
+* UC05	View goods				
+* UC06	View contact information				
+* UC07	Manage posts				
+* UC08	Make transactions				
+* UC09	View transactios							
+* UC10	Feedback				
+* UC11	Report				
+* UC12	Sort goods				
+* UC13	Filter goods				
+* UC14	Authorization				
+* UC15	Manage personal's information				
+* UC16	Moderate posts				
+* UC17	Moderate reports				
+* UC18	Manage user accounts				
 
 USE CASE ASSIGNMENT
 ===================
