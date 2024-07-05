@@ -1,11 +1,7 @@
 package com.fuswap.config;
 
-import com.fuswap.dtos.CustomerDto;
-import com.fuswap.services.CustomerService;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.fuswap.dtos.response.CustomerRes;
+import com.fuswap.services.user.CustomerService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
@@ -13,23 +9,18 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
-import org.springframework.security.oauth2.core.user.OAuth2User;
-import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.web.filter.RequestContextFilter;
 
-import java.io.IOException;
-import java.security.Principal;
 import java.util.Date;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
     private final CustomerService customerService;
+    private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
+    private final CorsConfig corsConfig;
 
     private final String[] PUBLIC_ENDPOINT = {
             "/api/v1/oauth2/**",
@@ -40,18 +31,25 @@ public class SecurityConfig {
     private final String HOMEPAGE_AFTER_EXPIRE = "http://localhost:3000";
     private final String HOMEPAGE_AUTHORIZED = "http://localhost:3000/customer_profile";
 
-    public SecurityConfig(CustomerService customerService) {
+    public SecurityConfig(CustomerService customerService,
+                          CustomAuthenticationEntryPoint customAuthenticationEntryPoint,
+                          CorsConfig corsConfig) {
         this.customerService = customerService;
+        this.customAuthenticationEntryPoint = customAuthenticationEntryPoint;
+        this.corsConfig = corsConfig;
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity, RequestContextFilter requestContextFilter) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 
-        httpSecurity.cors(AbstractHttpConfigurer::disable);
+        httpSecurity.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer
+                .configurationSource(corsConfig.corsConfigurationSource()));
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
         httpSecurity.authorizeHttpRequests(request -> request
                 .requestMatchers(PUBLIC_ENDPOINT).permitAll()
                 .anyRequest().authenticated());
+        httpSecurity.exceptionHandling(exceptionHandling -> exceptionHandling
+                .authenticationEntryPoint(customAuthenticationEntryPoint));
         httpSecurity.oauth2Login(oauth2 -> oauth2
                 .loginPage(LOGIN_PAGE)
                 .successHandler(CustomerAuthenticationSuccessHandler())
@@ -72,30 +70,31 @@ public class SecurityConfig {
 
     @Bean
     public AuthenticationSuccessHandler CustomerAuthenticationSuccessHandler() {
-        return new AuthenticationSuccessHandler() {
-            @Override
-            public void onAuthenticationSuccess(
-                    HttpServletRequest request,
-                    HttpServletResponse response,
-                    Authentication authentication) throws IOException, ServletException {
+        return (request, response, authentication) -> {
 
-                OidcUser user = (OidcUser)authentication.getPrincipal();
-                CustomerDto customer = customerService.findByCUserName(user.getEmail());
-                if(customer == null) {
-                    customer = new CustomerDto(
-                            user.getEmail(),
-                            user.getGivenName(),
-                            user.getFamilyName(),
-                            user.getNickName(),
-                            user.getPicture(),
-                            0f,
-                            0f,
-                            new Date(),
-                            "",
-                            false
-                    );
+            OidcUser user = (OidcUser)authentication.getPrincipal();
+            CustomerRes customerRes = customerService.findByCUserName(user.getEmail());
+            if(customerRes == null) {
+                customerRes = new CustomerRes(
+                        user.getEmail(),
+                        user.getGivenName() == null ? "" : user.getGivenName(),
+                        user.getFamilyName() == null ? "" : user.getFamilyName(),
+                        user.getNickName() == null ? "" : user.getNickName(),
+                        user.getPicture() == null ? "" : user.getPicture(),
+                        0f,
+                        "",
+                        new Date(),
+                        "",
+                        false
+                );
+                if(customerService.createAccount(customerRes)) {
+                    request.getSession().setAttribute("profile", customerRes);
+                    response.sendRedirect(HOMEPAGE_AUTHORIZED);
+                } else {
+                    response.sendRedirect(FAILURE_LOGIN_PAGE);
                 }
-                request.getSession().setAttribute("profile", customer);
+            } else {
+                request.getSession().setAttribute("profile", customerRes);
                 response.sendRedirect(HOMEPAGE_AUTHORIZED);
             }
         };

@@ -1,9 +1,11 @@
 package com.fuswap.controllers;
 
-import com.fuswap.dtos.GoodsPostDto;
-import com.fuswap.dtos.ResponseDto;
-import com.fuswap.services.GoodsPostService;
+import com.fuswap.dtos.request.GoodsPostReq;
+import com.fuswap.dtos.response.GoodsPostRes;
+import com.fuswap.dtos.response.ResponseDto;
+import com.fuswap.services.post.GoodsPostService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/")
+@RequestMapping("/api/v1")
 @Slf4j
 public class GoodsPostController {
 
@@ -21,33 +23,36 @@ public class GoodsPostController {
         this.goodsPostService = goodsPostService;
     }
 
-    @GetMapping("/posts")
-    public ResponseEntity<ResponseDto> getAllPosts() {
-        List<GoodsPostDto> goodsPostDtoList = goodsPostService.getAllPosts();
-        if(goodsPostDtoList.isEmpty()) {
+    @GetMapping("/guest/posts")
+    public ResponseEntity<ResponseDto> getAllPosts(@RequestParam(name = "pageNo", defaultValue = "1") int pageNo) {
+        if(pageNo <= 0) pageNo = 1;
+        Page<GoodsPostRes> goodsPostResPage = goodsPostService.getAllPosts(pageNo);
+        if(goodsPostResPage.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(new ResponseDto("200 OK", "Having no any posts!", ""));
+                    .body(new ResponseDto("200 OK", "Having no any posts!", "", 0));
         } else {
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(new ResponseDto("200 OK", "200 OK", goodsPostDtoList));
+                    .body(new ResponseDto("200 OK", "200 OK", goodsPostResPage.get(), goodsPostResPage.getTotalPages()));
         }
     }
 
     @PostMapping("/customer/post")
-    public ResponseEntity<ResponseDto> createGoodsPost(@RequestBody GoodsPostDto goodsPostDto) {
-        boolean isCreated = goodsPostService.createGoodsPost(goodsPostDto);
+    public ResponseEntity<ResponseDto> createGoodsPost(
+            @RequestBody GoodsPostReq goodsPostReq,
+            @CookieValue(name = "SESSION") String sessionId) {
+        boolean isCreated = goodsPostService.createGoodsPost(goodsPostReq, sessionId);
         if(isCreated) {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(new ResponseDto(
                             "201 CREATED",
-                            "Post #" + goodsPostDto.getPostID() + " is created successfully!",
-                            goodsPostDto));
+                            "Your post is moderating! Please wait for a moment.",
+                            goodsPostReq, 0));
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(new ResponseDto(
                             "400 BAD REQUEST",
                             "Create post failed!",
-                            ""));
+                            "", 0));
         }
     }
 }

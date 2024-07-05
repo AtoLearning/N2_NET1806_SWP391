@@ -4,6 +4,7 @@ spring:
     username: sa
     password: 12345
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
   jpa:
     show-sql: true
     properties:
@@ -11,15 +12,18 @@ spring:
         format_sql: true
         ddl-auto: update
         dialect: org.hibernate.dialect.SQLServerDialect
+
   data:
     redis:
       host: localhost
       port: 6379
       database: 0
+
   session:
     redis:
       flush-mode: on_save
     timeout: 60m
+
   security:
     oauth2:
       client:
@@ -27,6 +31,7 @@ spring:
           google:
             client-id: "250587081956-to3je2s2subplq809ieelrbc6gv1n0hm.apps.googleusercontent.com"
             client-secret: "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"
+
 server:
   servlet:
     session:
