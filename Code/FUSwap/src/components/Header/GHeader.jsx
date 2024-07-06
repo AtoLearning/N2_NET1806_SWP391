@@ -35,8 +35,8 @@ export default function Header() {
       {/* left header */}
       <div className="header_right">
         <SearchBox />
-        <div className="header_login">
-          <Link to="/login" title="login"><FaUser /></Link>
+        <div className="header_role">
+          <Link to="/role" title="role"><FaUser /></Link>
         </div>
       </div>
     </header >
