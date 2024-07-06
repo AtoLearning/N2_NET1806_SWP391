@@ -9,9 +9,11 @@ import Footer from './components/Footer/Footer'
 import Welcome from './pages/Welcome'
 import HomePage from './pages/HomePage/HomePage'
 import AboutUs from './pages/AboutUs'
-import Login from './pages/Login/Login'
 import CProfile from './pages/CProfile'
 import NotFound from './pages/NotFound/NotFound'
+import Role from './pages/Login/Role/Role'
+import LoginCustomer from './pages/Login/LoginCustomer/LoginCustomer'
+import LoginManager from './pages/Login/LoginManager/LoginManager'
 
 const baseURL = 'http://localhost:8080/api/v1/customer/profile';
 
@@ -54,8 +56,10 @@ useEffect(() => {
       <Route path='/' element={<Welcome />} />
       <Route path='/home' element={<HomePage />} />
       <Route path='/about_us' element={<AboutUs />} />
-      <Route path='/login' element={<Login />} />
       <Route path='/not_found' element={<NotFound />} />
+      <Route path='/role' element={<Role />} />
+      <Route path='/login_customer' element={<LoginCustomer />} />
+      <Route path='/login_manager' element={<LoginManager />} />
     </Routes>
   );
 
@@ -78,7 +82,7 @@ useEffect(() => {
 
 function FooterControl() {
   const location = useLocation();
-  if(location.pathname !== '/login' && location.pathname !== '/not_found'){
+  if(location.pathname !== '/login_customer' && location.pathname !=='/login_manager'&& location.pathname !== '/not_found'&& location.pathname !=='/role'){
     return <Footer />;
   }else{
     return null;
