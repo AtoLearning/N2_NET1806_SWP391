@@ -24,6 +24,9 @@ public class Category {
     @Column(name = "catename")
     String CateName;
 
+    @Column(name = "cateimage")
+    String CateImage;
+
     @Column(name = "isavailable")
     Boolean IsAvailable;
 
@@ -39,6 +42,7 @@ public class Category {
         return "Category{" +
                 "CateID=" + CateID +
                 ", CateName='" + CateName + '\'' +
+                ", CateImage='" + CateImage + '\'' +
                 ", IsAvailable=" + IsAvailable +
                 ", manager=" + manager +
                 ", goodsPostSet=" + (goodsPostSet != null ? goodsPostSet.size() : 0) +

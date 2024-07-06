@@ -51,7 +51,7 @@ CREATE TABLE tblFeedback (
   PRIMARY KEY (FeedbackID));
 CREATE TABLE tblManager (
   MUserName        varchar(30), 
-  strPassword      varchar(20) NOT NULL, 
+  strPassword      varchar(150) NOT NULL, 
   Nickname         nvarchar(10) NOT NULL, 
   FullName         nvarchar(100) NOT NULL, 
   Avatar           varchar(350) NOT NULL, 
