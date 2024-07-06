@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage/HomePage'
 import AboutUs from './pages/AboutUs'
 import Login from './pages/Login/Login'
 import CProfile from './pages/CProfile'
+import NotFound from './pages/NotFound/NotFound'
 
 const baseURL = 'http://localhost:8080/api/v1/customer/profile';
 
@@ -54,6 +55,7 @@ useEffect(() => {
       <Route path='/home' element={<HomePage />} />
       <Route path='/about_us' element={<AboutUs />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/not_found' element={<NotFound />} />
     </Routes>
   );
 
@@ -61,6 +63,7 @@ useEffect(() => {
     <Routes>
       <Route path='/home' element={<HomePage />} />
       <Route path='/customer_profile' element={<CProfile />} />
+      <Route path='/not_found' element={<NotFound />} />
     </Routes>
   );
 
@@ -75,7 +78,7 @@ useEffect(() => {
 
 function FooterControl() {
   const location = useLocation();
-  if(location.pathname !== '/login'){
+  if(location.pathname !== '/login' && location.pathname !== '/not_found'){
     return <Footer />;
   }else{
     return null;
