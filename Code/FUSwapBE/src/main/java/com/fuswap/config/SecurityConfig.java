@@ -2,9 +2,10 @@ package com.fuswap.config;
 
 import com.fuswap.dtos.response.CustomerRes;
 import com.fuswap.services.user.CustomerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -18,6 +19,7 @@ import java.util.Date;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+    private static final Logger log = LoggerFactory.getLogger(SecurityConfig.class);
     private final CustomerService customerService;
     private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
     private final CorsConfig corsConfig;
@@ -29,7 +31,7 @@ public class SecurityConfig {
     private final String LOGIN_PAGE = "http://localhost:3000/login";
     private final String FAILURE_LOGIN_PAGE = "http://localhost:3000/login?error=true";
     private final String HOMEPAGE_AFTER_EXPIRE = "http://localhost:3000";
-    private final String HOMEPAGE_AUTHORIZED = "http://localhost:3000/customer_profile";
+    private final String HOMEPAGE_AUTHORIZED = "http://localhost:3000/";
 
     public SecurityConfig(CustomerService customerService,
                           CustomAuthenticationEntryPoint customAuthenticationEntryPoint,
@@ -46,7 +48,7 @@ public class SecurityConfig {
                 .configurationSource(corsConfig.corsConfigurationSource()));
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
         httpSecurity.authorizeHttpRequests(request -> request
-                .requestMatchers(PUBLIC_ENDPOINT).permitAll()
+//                .requestMatchers(PUBLIC_ENDPOINT).permitAll()
                 .anyRequest().authenticated());
         httpSecurity.exceptionHandling(exceptionHandling -> exceptionHandling
                 .authenticationEntryPoint(customAuthenticationEntryPoint));
@@ -99,5 +101,6 @@ public class SecurityConfig {
             }
         };
     }
+
 
 }
