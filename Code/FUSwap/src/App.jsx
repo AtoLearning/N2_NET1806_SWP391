@@ -14,6 +14,7 @@ import NotFound from './pages/NotFound/NotFound'
 import Role from './pages/Login/Role/Role'
 import LoginCustomer from './pages/Login/LoginCustomer/LoginCustomer'
 import LoginManager from './pages/Login/LoginManager/LoginManager'
+import SearchPage from "./pages/SearchPage/SearchPage.jsx";
 
 const baseURL = 'http://localhost:8080/api/v1/customer/profile';
 
@@ -29,27 +30,27 @@ function App() {
 function Main() {
 
 const [user, setUser] = useState(null);
-// useEffect(() => {
-//     const getUserProfile = async () => {
-//         try {
-//             const response = await axios.get(baseURL, { withCredentials: true });
-//             if (response.status === 200) {
-//                 setUser(response.data.obj);
-//                 // console.log(response.data.obj);
-//             }
-//         } catch (error) {
-//             if (error.response && error.response.status === 401) {
-//                 setUser(null);
-//                 // console.log("Unauthorized, no data");
-//             } else {
-//                 // console.log("Error: ");
-//                 // console.log(error);
-//             }
-//         }
-//     };
-//
-//     getUserProfile();
-// }, []);
+useEffect(() => {
+    const getUserProfile = async () => {
+        try {
+            const response = await axios.get(baseURL, { withCredentials: true });
+            if (response.status === 200) {
+                setUser(response.data.obj);
+                // console.log(response.data.obj);
+            }
+        } catch (error) {
+            if (error.response && error.response.status === 401) {
+                setUser(null);
+                // console.log("Unauthorized, no data");
+            } else {
+                // console.log("Error: ");
+                // console.log(error);
+            }
+        }
+    };
+
+    getUserProfile();
+}, []);
 
   const guestRoutes = (
     <Routes>
@@ -58,8 +59,9 @@ const [user, setUser] = useState(null);
       <Route path='/about_us' element={<AboutUs />} />
       <Route path='/not_found' element={<NotFound />} />
       <Route path='/role' element={<Role />} />
-      <Route path='/c/login' element={<LoginCustomer />} />
-      <Route path='/m/login' element={<LoginManager />} />
+      <Route path='/login_customer' element={<LoginCustomer />} />
+      <Route path='/login_manager' element={<LoginManager />} />
+      <Route path='/SearchPage' element={<SearchPage />} />
     </Routes>
   );
 
