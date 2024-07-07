@@ -29,27 +29,27 @@ function App() {
 function Main() {
 
 const [user, setUser] = useState(null);
-useEffect(() => {
-    const getUserProfile = async () => {
-        try {
-            const response = await axios.get(baseURL, { withCredentials: true });
-            if (response.status === 200) {
-                setUser(response.data.obj);
-                // console.log(response.data.obj);
-            }
-        } catch (error) {
-            if (error.response && error.response.status === 401) {
-                setUser(null);
-                // console.log("Unauthorized, no data");
-            } else {
-                // console.log("Error: ");
-                // console.log(error);
-            }
-        }
-    };
-
-    getUserProfile();
-}, []);
+// useEffect(() => {
+//     const getUserProfile = async () => {
+//         try {
+//             const response = await axios.get(baseURL, { withCredentials: true });
+//             if (response.status === 200) {
+//                 setUser(response.data.obj);
+//                 // console.log(response.data.obj);
+//             }
+//         } catch (error) {
+//             if (error.response && error.response.status === 401) {
+//                 setUser(null);
+//                 // console.log("Unauthorized, no data");
+//             } else {
+//                 // console.log("Error: ");
+//                 // console.log(error);
+//             }
+//         }
+//     };
+//
+//     getUserProfile();
+// }, []);
 
   const guestRoutes = (
     <Routes>
@@ -58,8 +58,8 @@ useEffect(() => {
       <Route path='/about_us' element={<AboutUs />} />
       <Route path='/not_found' element={<NotFound />} />
       <Route path='/role' element={<Role />} />
-      <Route path='/login_customer' element={<LoginCustomer />} />
-      <Route path='/login_manager' element={<LoginManager />} />
+      <Route path='/c/login' element={<LoginCustomer />} />
+      <Route path='/m/login' element={<LoginManager />} />
     </Routes>
   );
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { FaGooglePlus } from "react-icons/fa";
 import './LoginCustomerStyle.css'
 
-const baseURL = "http://localhost:8080/api/v1/auth/login";
+const baseURL = "http://localhost:8080/oauth2/authorization/google";
 
 const handleLogin = () => {
   window.location.href = baseURL;

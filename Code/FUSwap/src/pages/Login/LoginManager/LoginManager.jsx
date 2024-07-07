@@ -1,7 +1,42 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../LoginManager/LoginManagerStyle.css'
+import {useNavigate} from "react-router-dom";
+import axios from "axios";
+
+const baseURL = "http://localhost:8080/api/v1/perform_login";
 
 export default function Login() {
+  const [username, setUserName] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(username + ": " + password)
+    try {
+      const response = await axios.post(baseURL, {username, password}, {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        withCredentials: true
+      })
+      console.log(response)
+      if (response.status === 200 && response.data.status === 'success') {
+        navigate('/home')
+      }else{
+        setError(response.message)
+      }
+
+    } catch (error) {
+      console.log(error)
+      setError(error.message)
+      setTimeout(()=>{
+        setError('');
+      }, 5000);
+    }
+  }
+
   return (
     <div className='login'>
       <div className='loginContainer'>
@@ -25,16 +60,17 @@ export default function Login() {
               alt='Logo'
             />
           </div>
-          <form className='loginInput' method='post'>
+          <form className='loginInput' onSubmit={handleSubmit}>
             <div className='inputField'>
-              <input  type='text' required />
+              <input type="text" value={username} onChange={(e) => setUserName(e.target.value)} required/>
               <span>Username</span>
             </div>
             <div className='inputField'>
-              <input  type='password' required/>
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
               <span>Password</span>
             </div>
-            <button className='loginButton'><p>Login</p></button>
+            {/*<button className='loginButton' type="submit"><p>Login</p></button>*/}
+            <button className='loginButton' type="submit">Login</button>
           </form>
         </div>
       </div>
