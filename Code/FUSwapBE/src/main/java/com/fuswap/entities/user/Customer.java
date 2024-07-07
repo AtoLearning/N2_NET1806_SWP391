@@ -8,6 +8,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
@@ -18,7 +19,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Table(name = "tblcustomer")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Customer {
+public class Customer implements Serializable {
     @Id
     @Column(name = "cusername")
     String CUserName;
