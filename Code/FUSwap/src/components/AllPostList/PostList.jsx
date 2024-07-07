@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Pagination } from "@nextui-org/react";
 import './PostListStyle.css';
 import { FaHandshake, FaMoneyBillWave } from "react-icons/fa";
+import {useNavigate} from "react-router-dom";
 
 const baseURL = "http://localhost:8080/api/v1/guest/posts";
 
@@ -14,6 +15,7 @@ export default function PostList() {
 
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
+    const navigate = useNavigate();
 
     // Dữ liệu mẫu
     // const sampleProducts = [
@@ -68,7 +70,11 @@ export default function PostList() {
                 setTotalPages(response.data.totalPages);
             }
         } catch (error) {
-            console.log(error);
+            if (error.response && error.response.status === 403) {
+                navigate('/not_found');
+            } else {
+                console.log(error);
+            }
         }
     };
 

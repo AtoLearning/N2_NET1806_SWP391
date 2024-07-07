@@ -12,8 +12,8 @@ export default function Role() {
           alt='FUSwap'
         />
         <div className='box-link'>
-          <Link to="/login_manager" className='role-link link-1'>Login As Manager</Link>
-          <Link to="/login_customer" className='role-link link-2'>Login As Customer</Link>
+          <Link to="/m/login" className='role-link link-1'>Login As Manager</Link>
+          <Link to="/c/login" className='role-link link-2'>Login As Customer</Link>
         </div>
         <img
           className='img-2'
