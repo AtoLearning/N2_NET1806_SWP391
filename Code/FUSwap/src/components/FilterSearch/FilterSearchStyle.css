@@ -1,0 +1,50 @@
+/* FilterSearchStyle.css */
+.filter-container {
+    display: inline-block;
+    background-color: #ffde5970;
+    box-shadow: 0 0 4px 5px #FF974E;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .filter-category h3,
+  .filter-price h3,
+  .filter-type h3 {
+    font-family: Taviraj, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 10px;
+  }
+  
+  .filter-category ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .filter-category li {
+    font-family: Taviraj, sans-serif;
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+  
+  .filter-category li:hover {
+    text-decoration: underline;
+  }
+  
+  .filter-price label,
+  .filter-type label {
+    font-family: Taviraj, sans-serif;
+    font-size: 16px;
+    color: #000;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .filter-price input,
+  .filter-type input {
+    margin-right: 10px;
+  }
+  

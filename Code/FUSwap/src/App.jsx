@@ -14,7 +14,7 @@ import NotFound from './pages/NotFound/NotFound'
 import Role from './pages/Login/Role/Role'
 import LoginCustomer from './pages/Login/LoginCustomer/LoginCustomer'
 import LoginManager from './pages/Login/LoginManager/LoginManager'
-
+import SearchPage from './pages/SearchPage/SearchPage'
 const baseURL = 'http://localhost:8080/api/v1/customer/profile';
 
 function App() {
@@ -60,6 +60,7 @@ useEffect(() => {
       <Route path='/role' element={<Role />} />
       <Route path='/login_customer' element={<LoginCustomer />} />
       <Route path='/login_manager' element={<LoginManager />} />
+      <Route path='/SearchPage' element={<SearchPage />} />
     </Routes>
   );
 
@@ -68,6 +69,7 @@ useEffect(() => {
       <Route path='/home' element={<HomePage />} />
       <Route path='/customer_profile' element={<CProfile />} />
       <Route path='/not_found' element={<NotFound />} />
+      <Route path='/SearchPage' element={<SearchPage />} />
     </Routes>
   );
 
