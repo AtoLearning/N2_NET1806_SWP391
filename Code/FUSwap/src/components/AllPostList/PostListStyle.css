@@ -65,3 +65,14 @@
   font-size: 18px;
   color: #555;
 }
+
+.product-card {
+  transition: transform 0.3s ease;
+  cursor: pointer; /* Thêm con trỏ để hiển thị clickable */
+}
+
+.product-card:hover {
+  transform: scale(1.05); /* Tăng kích thước khi hover */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Thêm bóng để nổi bật */
+}
+
