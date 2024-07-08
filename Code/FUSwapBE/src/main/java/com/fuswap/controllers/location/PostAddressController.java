@@ -32,7 +32,7 @@ public class PostAddressController {
         this.wardService = wardService;
     }
 
-    @GetMapping("/customer/city")
+    @GetMapping("/guest/city")
     public ResponseEntity<ResponseDto> getCityList() {
         List<CityRes> cityResList = cityService.getCityList();
         return ResponseEntity.status(HttpStatus.OK).body(
@@ -40,7 +40,7 @@ public class PostAddressController {
         );
     }
 
-    @GetMapping("/customer/district")
+    @GetMapping("/guest/district")
     public ResponseEntity<ResponseDto> getDistrictListByCityId(@RequestParam(name = "cityId") int cityId) {
         List<DistrictRes> districtResList = districtService.getDistrictListByCityId(cityId);
         return ResponseEntity.status(HttpStatus.OK).body(
@@ -48,7 +48,7 @@ public class PostAddressController {
         );
     }
 
-    @GetMapping("/customer/ward")
+    @GetMapping("/guest/ward")
     public ResponseEntity<ResponseDto> getWardListByDistrictId(@RequestParam(name = "districtId") int districtId) {
         List<WardRes> wardResList = wardService.getWardListByDistrictId(districtId);
         return ResponseEntity.status(HttpStatus.OK).body(

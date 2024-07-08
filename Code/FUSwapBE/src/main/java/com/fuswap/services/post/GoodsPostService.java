@@ -70,6 +70,16 @@ public class GoodsPostService {
         log.info("pageNo {}", pageNo.toString());
         Pageable pageable = PageRequest.of(pageNo - 1, 12);
         Page<GoodsPost> goodsPostPage = goodsPostRepository.findAllAndIsAvailable(pageable);
+        return getGoodsPostRes(goodsPostPage);
+    }
+
+    public Page<GoodsPostRes> getPostByKeyword(Integer pageNo, String searchValue) {
+        Pageable pageable = PageRequest.of(pageNo - 1, 12);
+        Page<GoodsPost> goodsPostPage = goodsPostRepository.findAllAndIsAvailableAndByKeyword(pageable, searchValue);
+        return getGoodsPostRes(goodsPostPage);
+    }
+
+    private Page<GoodsPostRes> getGoodsPostRes(Page<GoodsPost> goodsPostPage) {
         return goodsPostPage.map(goodsPost -> new GoodsPostRes(
                 goodsPost.getPostID(),
                 goodsPost.getTitle(),

@@ -36,6 +36,21 @@ public class GoodsPostController {
         }
     }
 
+    @GetMapping("/guest/search/posts")
+    public ResponseEntity<ResponseDto> getPostsByKeyword(
+            @RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
+            @RequestParam(name = "searchValue") String searchValue) {
+        if(pageNo <= 0) pageNo = 1;
+        Page<GoodsPostRes> goodsPostResPage = goodsPostService.getPostByKeyword(pageNo, searchValue);
+        if(goodsPostResPage.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(new ResponseDto("200 OK", "Having no any posts!", "", 0));
+        } else {
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(new ResponseDto("200 OK", "200 OK", goodsPostResPage.get(), goodsPostResPage.getTotalPages()));
+        }
+    }
+
     @PostMapping("/customer/post")
     public ResponseEntity<ResponseDto> createGoodsPost(
             @RequestBody GoodsPostReq goodsPostReq,
