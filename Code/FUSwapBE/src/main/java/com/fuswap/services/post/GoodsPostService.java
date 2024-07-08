@@ -26,6 +26,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -171,14 +172,17 @@ public class GoodsPostService {
         }
     }
 
+    @Transactional(readOnly = true)
     public boolean updateGoodsPost(long postId, GoodsPostReq goodsPostReq) {
         Optional<GoodsPost> goodsPost = goodsPostRepository.findById(postId);
+        log.info("GOODS_POST_REQ: {}", goodsPostReq.toString());
         if(goodsPost.isPresent()) {
-            if(goodsPost.get().getTransaction() != null) {
+            log.info("GOODS_POST: {}", goodsPost.get());
+            if(goodsPost.get().getTransaction() == null) {
                 goodsPost.get().setTitle(goodsPostReq.getTitle());
                 goodsPost.get().setContent(goodsPostReq.getContent());
                 goodsPost.get().setPostImage(goodsPostReq.getPostImage());
-                if(!goodsPostReq.getIsExchange()) {
+                if(!goodsPost.get().getIsExchange()) {
                     goodsPost.get().setUnitPrice(goodsPostReq.getUnitPrice());
                 }
                 Optional<Ward> wardOptional = wardRepository.findById(goodsPostReq.getWard().getWardID());
@@ -196,7 +200,7 @@ public class GoodsPostService {
                 Optional<Category> categoryOptional = categoryRepository.findById(goodsPostReq.getCategoryReq().getCateId());
                 if(categoryOptional.isEmpty()) return false;
                 goodsPost.get().setCategory(categoryOptional.get());
-                goodsPostRepository.save(goodsPost.get());
+                goodsPostRepository.saveAndFlush(goodsPost.get());
                 return true;
             }
         }
