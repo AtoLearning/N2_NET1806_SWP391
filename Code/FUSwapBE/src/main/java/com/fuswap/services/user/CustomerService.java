@@ -49,7 +49,7 @@ public class CustomerService {
         return null;
     }
 
-    public boolean createAccount(CustomerRes customerDto) {
+    public boolean createAccount(Customer newCustomer) {
         Optional<Role> role = roleRepository.findById(3);
         Role r = new Role();
         if(role.isPresent()) {
@@ -57,15 +57,15 @@ public class CustomerService {
             r.setRoleName(role.get().getRoleName());
         }
         Customer customer = new Customer(
-                customerDto.getCUserName(),
-                customerDto.getGivenName(),
-                customerDto.getFamilyName(),
-                customerDto.getNickname(),
-                customerDto.getAvatar(),
-                customerDto.getPoints(),
-                customerDto.getPhone(),
-                customerDto.getDob(),
-                customerDto.getAddress(),
+                newCustomer.getCUserName(),
+                newCustomer.getGivenName(),
+                newCustomer.getFamilyName(),
+                newCustomer.getNickname(),
+                newCustomer.getAvatar(),
+                newCustomer.getPoints(),
+                newCustomer.getPhone(),
+                newCustomer.getDOB(),
+                newCustomer.getAddress(),
                 true,
                 false,
                 managerRepository.findByMUserName("admin"),

@@ -55,4 +55,20 @@ public class GoodsPostController {
                             "", 0));
         }
     }
+
+    @PutMapping("/customer/post/{postId}")
+    public ResponseEntity<ResponseDto> updateGoodsPost(
+            @PathVariable(name = "postId") long postId,
+            @RequestBody GoodsPostReq goodsPostReq) {
+        boolean isUpdated = goodsPostService.updateGoodsPost(postId, goodsPostReq);
+        if(isUpdated) {
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    new ResponseDto("200 OK", "Your post has been updated!", "", 0)
+            );
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                    new ResponseDto("400 BAD REQUEST", "Update post failed!", "", 0)
+            );
+        }
+    }
 }

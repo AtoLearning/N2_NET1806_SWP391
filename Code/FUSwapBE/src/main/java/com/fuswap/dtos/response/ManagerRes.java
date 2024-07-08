@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Getter
@@ -14,11 +15,12 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ManagerRes {
+public class ManagerRes implements Serializable {
 
     String mUserName;
     String nickName;
     String fullName;
+    String phone;
     String avatar;
     Date dob;
 
@@ -28,6 +30,7 @@ public class ManagerRes {
                 "MUserName='" + mUserName + '\'' +
                 ", NickName='" + nickName + '\'' +
                 ", FullName='" + fullName + '\'' +
+                ", Phone='" + phone + '\'' +
                 ", Avatar='" + avatar + '\'' +
                 ", DOB=" + dob +
                 '}';

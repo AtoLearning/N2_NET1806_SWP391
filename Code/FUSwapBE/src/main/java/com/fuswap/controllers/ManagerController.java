@@ -19,12 +19,4 @@ public class ManagerController {
         this.managerService = managerService;
     }
 
-    @GetMapping("/auth-status")
-    public ResponseEntity<String> getAuthStatus(Authentication authentication) {
-        if (authentication == null || !authentication.isAuthenticated()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Not authenticated");
-        } else {
-            return ResponseEntity.ok("Authenticated");
-        }
-    }
 }

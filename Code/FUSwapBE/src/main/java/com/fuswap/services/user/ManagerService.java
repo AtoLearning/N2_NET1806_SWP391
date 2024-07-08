@@ -15,4 +15,7 @@ public class ManagerService {
         this.managerRepository = managerRepository;
     }
 
+    public Manager findByMUserName(String username) {
+        return managerRepository.findByMUserName(username);
+    }
 }

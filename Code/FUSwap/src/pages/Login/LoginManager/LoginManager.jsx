@@ -13,7 +13,6 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(username + ": " + password)
     try {
       const response = await axios.post(baseURL, {username, password}, {
         headers: {
@@ -21,19 +20,15 @@ export default function Login() {
         },
         withCredentials: true
       })
-      console.log(response)
-      if (response.status === 200 && response.data.status === 'success') {
-        navigate('/home')
-      }else{
-        setError(response.message)
+      if (response.status === 200 && response.data.status === 'Login successful') {
+        navigate('/m/home')
       }
 
     } catch (error) {
-      console.log(error)
-      setError(error.message)
-      setTimeout(()=>{
-        setError('');
-      }, 5000);
+      setError(error.response.data.status)
+      if(error.response.status === 401 && error.response.data.status === 'Login failed') {
+        navigate('/m/login?error=true')
+      }
     }
   }
 
@@ -72,6 +67,7 @@ export default function Login() {
             {/*<button className='loginButton' type="submit"><p>Login</p></button>*/}
             <button className='loginButton' type="submit">Login</button>
           </form>
+          {error && <p style={{color: "red"}}>{error}</p>}
         </div>
       </div>
     </div>
