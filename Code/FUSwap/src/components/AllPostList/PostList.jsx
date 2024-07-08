@@ -90,7 +90,7 @@ export default function PostList() {
             <div className="product-grid">
                 {Array.isArray(products) && products.length > 0 ? (
                     products.map((product, index) => (
-                        <article className="product-card" key={index}>
+                        <article className="product-card" key={index} onClick={() => navigate("/PostInform")}>
                             <img
                                 src={product.postImage}
                                 alt="Product image"
