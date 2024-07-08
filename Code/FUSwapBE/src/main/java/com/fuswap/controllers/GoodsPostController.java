@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -59,8 +61,11 @@ public class GoodsPostController {
     @PutMapping("/customer/post/{postId}")
     public ResponseEntity<ResponseDto> updateGoodsPost(
             @PathVariable(name = "postId") long postId,
-            @RequestBody GoodsPostReq goodsPostReq) {
-        boolean isUpdated = goodsPostService.updateGoodsPost(postId, goodsPostReq);
+            @RequestBody GoodsPostReq goodsPostReq,
+            Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String username = userDetails.getUsername();
+        boolean isUpdated = goodsPostService.updateGoodsPost(postId, goodsPostReq, username);
         if(isUpdated) {
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseDto("200 OK", "Your post has been updated!", "", 0)
