@@ -12,6 +12,7 @@ import Role from './pages/Login/Role/Role'
 import LoginCustomer from './pages/Login/LoginCustomer/LoginCustomer'
 import LoginManager from './pages/Login/LoginManager/LoginManager'
 import SearchPage from "./pages/SearchPage/SearchPage.jsx";
+import PostInform from './pages/PostInform/PostInform'
 import axios from "axios";
 import {useEffect, useState} from "react";
 
@@ -31,6 +32,7 @@ function App() {
             <Route path='/m/login' element={<LoginManager />} />
             <Route path='/SearchPage' element={<SearchPage />} />
             <Route path='/customer_profile' element={<CProfile />} />
+            <Route path='/PostInform' element={<PostInform />} />
         </Routes>
         <FooterControl />
     </BrowserRouter>
