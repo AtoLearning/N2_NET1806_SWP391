@@ -173,12 +173,10 @@ public class GoodsPostService {
     }
 
     @Transactional(readOnly = true)
-    public boolean updateGoodsPost(long postId, GoodsPostReq goodsPostReq) {
+    public boolean updateGoodsPost(long postId, GoodsPostReq goodsPostReq, String username) {
         Optional<GoodsPost> goodsPost = goodsPostRepository.findById(postId);
-        log.info("GOODS_POST_REQ: {}", goodsPostReq.toString());
         if(goodsPost.isPresent()) {
-            log.info("GOODS_POST: {}", goodsPost.get());
-            if(goodsPost.get().getTransaction() == null) {
+            if(goodsPost.get().getTransaction() == null && goodsPost.get().getCustomer().getCUserName().equals(username)) {
                 goodsPost.get().setTitle(goodsPostReq.getTitle());
                 goodsPost.get().setContent(goodsPostReq.getContent());
                 goodsPost.get().setPostImage(goodsPostReq.getPostImage());
