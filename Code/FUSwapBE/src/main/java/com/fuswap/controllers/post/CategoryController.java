@@ -1,8 +1,7 @@
-package com.fuswap.controllers;
+package com.fuswap.controllers.post;
 
 import com.fuswap.dtos.response.CategoryRes;
 import com.fuswap.dtos.response.ResponseDto;
-import com.fuswap.entities.post.Category;
 import com.fuswap.services.post.CategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

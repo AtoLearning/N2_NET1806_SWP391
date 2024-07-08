@@ -26,7 +26,7 @@ public class Ward {
     Set<PostAddress> postAddressSet;
 
     @ManyToMany
-    @JoinTable(name = "tblWardByDistrict",
+    @JoinTable(name = "tblwardbydistrict",
                 joinColumns = {@JoinColumn(name = "wardid")},
                 inverseJoinColumns = {@JoinColumn(name = "districtid")})
     Set<District> districtSet;
