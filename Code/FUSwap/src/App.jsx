@@ -1,6 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useEffect, useState } from 'react';
-import axios from "axios";
 import './App.css'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import GHeader from './components/Header/GHeader'
@@ -15,76 +12,70 @@ import Role from './pages/Login/Role/Role'
 import LoginCustomer from './pages/Login/LoginCustomer/LoginCustomer'
 import LoginManager from './pages/Login/LoginManager/LoginManager'
 import SearchPage from "./pages/SearchPage/SearchPage.jsx";
+import axios from "axios";
+import {useEffect, useState} from "react";
 
-const baseURL = 'http://localhost:8080/api/v1/customer/profile';
+const baseURL = "http://localhost:8080/api/v1/auth-status"
 
 function App() {
   return (
     <BrowserRouter>
-      <Main />
+        <HeaderControl />
+        <Routes>
+            <Route path='/' element={<Welcome />} />
+            <Route path='/home' element={<HomePage />} />
+            <Route path='/about_us' element={<AboutUs />} />
+            <Route path='/not_found' element={<NotFound />} />
+            <Route path='/role' element={<Role />} />
+            <Route path='/c/login' element={<LoginCustomer />} />
+            <Route path='/m/login' element={<LoginManager />} />
+            <Route path='/SearchPage' element={<SearchPage />} />
+            <Route path='/customer_profile' element={<CProfile />} />
+        </Routes>
+        <FooterControl />
     </BrowserRouter>
   );
 }
 
-
-function Main() {
-
-const [user, setUser] = useState(null);
-useEffect(() => {
-    const getUserProfile = async () => {
+function HeaderControl() {
+    const [authStatus, setAuthStatus] = useState(false);
+    const [role, setRole] = useState("");
+    const checkAuthStatus = async() => {
         try {
-            const response = await axios.get(baseURL, { withCredentials: true });
+            const response = await axios.get(baseURL, {withCredentials: true});
             if (response.status === 200) {
-                setUser(response.data.obj);
-                // console.log(response.data.obj);
+                setAuthStatus(true)
+                setRole(response.data.obj)
             }
         } catch (error) {
-            if (error.response && error.response.status === 401) {
-                setUser(null);
-                // console.log("Unauthorized, no data");
-            } else {
-                // console.log("Error: ");
-                // console.log(error);
+            if(error.response && error.response.status === 401){
+                setAuthStatus(false);
+                setRole("")
             }
+            console.log(error);
         }
     };
+    useEffect(() => {
+        checkAuthStatus();
+    }, []);
+    if(authStatus) {
+        if(role.includes('ROLE_ADMIN') || role.includes('ROLE_MODERATOR')) {
+            console.log('ROLE_ADMIN');
+            return <CHeader />
+        } else if(role.includes('ROLE_CUSTOMER')) {
+            console.log('ROLE_CUSTOMER');
+            return <CHeader />
+        }
+    } else {
+        console.log("GUEST")
+        return <GHeader />
+    }
 
-    getUserProfile();
-}, []);
-
-  const guestRoutes = (
-    <Routes>
-      <Route path='/' element={<Welcome />} />
-      <Route path='/home' element={<HomePage />} />
-      <Route path='/about_us' element={<AboutUs />} />
-      <Route path='/not_found' element={<NotFound />} />
-      <Route path='/role' element={<Role />} />
-      <Route path='/login_customer' element={<LoginCustomer />} />
-      <Route path='/login_manager' element={<LoginManager />} />
-      <Route path='/SearchPage' element={<SearchPage />} />
-    </Routes>
-  );
-
-  const customerRoutes = (
-    <Routes>
-      <Route path='/home' element={<HomePage />} />
-      <Route path='/customer_profile' element={<CProfile />} />
-      <Route path='/not_found' element={<NotFound />} />
-    </Routes>
-  );
-
-  return (
-    <>
-      {user != null ? <CHeader /> : <GHeader />}
-      {user != null ? customerRoutes : guestRoutes}
-      {FooterControl()}
-    </>
-  );
 }
 
 function FooterControl() {
   const location = useLocation();
-  if(location.pathname !== '/login_customer' && location.pathname !=='/login_manager'&& location.pathname !== '/not_found'&& location.pathname !=='/role'){
+  if(location.pathname !== '/c/login' && location.pathname !=='/m/login' && location.pathname !== '/not_found'&& location.pathname !=='/role'){
     return <Footer />;
   }else{
     return null;

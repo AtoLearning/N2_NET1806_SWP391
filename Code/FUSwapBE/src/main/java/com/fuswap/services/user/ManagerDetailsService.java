@@ -24,14 +24,11 @@ public class ManagerDetailsService implements UserDetailsService {
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("username {}", username);
         if(username == null || username.isEmpty()) {username = "admin";}
         Manager manager = managerRepository.findByMUserName(username);
         if (manager == null) {
-            log.error("Manager not found with username: {}", username);
             throw new UsernameNotFoundException("Not found");
         }
-        log.info("Found manager: {}", manager.getMUserName() + manager.getPassword());
         return new org.springframework.security.core.userdetails.User(
                 manager.getMUserName(),
                 manager.getPassword(),

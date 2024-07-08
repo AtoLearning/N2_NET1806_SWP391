@@ -170,4 +170,36 @@ public class GoodsPostService {
             if(goodsPostOptional == null) return specialPostID;
         }
     }
+
+    public boolean updateGoodsPost(long postId, GoodsPostReq goodsPostReq) {
+        Optional<GoodsPost> goodsPost = goodsPostRepository.findById(postId);
+        if(goodsPost.isPresent()) {
+            if(goodsPost.get().getTransaction() != null) {
+                goodsPost.get().setTitle(goodsPostReq.getTitle());
+                goodsPost.get().setContent(goodsPostReq.getContent());
+                goodsPost.get().setPostImage(goodsPostReq.getPostImage());
+                if(!goodsPostReq.getIsExchange()) {
+                    goodsPost.get().setUnitPrice(goodsPostReq.getUnitPrice());
+                }
+                Optional<Ward> wardOptional = wardRepository.findById(goodsPostReq.getWard().getWardID());
+                Optional<District> districtOptional = districtRepository.findById(goodsPostReq.getDistrict().getDistrictID());
+                Optional<City> cityOptional = cityRepository.findById(goodsPostReq.getCity().getCityID());
+                goodsPost.get().getPostAddress().setStreetNumber(goodsPostReq.getStreetNumber());
+                goodsPost.get().getPostAddress().setStreet(goodsPostReq.getStreet());
+                if(wardOptional.isEmpty()) return false;
+                goodsPost.get().getPostAddress().setWard(wardOptional.get());
+                if(districtOptional.isEmpty()) return false;
+                goodsPost.get().getPostAddress().setDistrict(districtOptional.get());
+                if(cityOptional.isEmpty()) return false;
+                goodsPost.get().getPostAddress().setCity(cityOptional.get());
+
+                Optional<Category> categoryOptional = categoryRepository.findById(goodsPostReq.getCategoryReq().getCateId());
+                if(categoryOptional.isEmpty()) return false;
+                goodsPost.get().setCategory(categoryOptional.get());
+                goodsPostRepository.save(goodsPost.get());
+                return true;
+            }
+        }
+        return false;
+    }
 }

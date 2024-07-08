@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaGooglePlus } from "react-icons/fa";
 import './LoginCustomerStyle.css'
+import {useLocation, useParams} from "react-router-dom";
 
 const baseURL = "http://localhost:8080/oauth2/authorization/google";
 
@@ -9,6 +10,10 @@ const handleLogin = () => {
 };
 
 export default function Login() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const error = queryParams.get('error');
+  console.log(error)
   return (
     <div className='login'>
         <div className='login_left'>
@@ -45,6 +50,7 @@ export default function Login() {
             <div><p className='login_text'>Login email @fpt.edu.vn</p></div>
           </button>
           <div className='login_text'><p>Join with us</p></div>
+          {(error === 'inemail') && <p style={{color: "red"}}>Invalid email</p>}
         </div>
       </div>
       
