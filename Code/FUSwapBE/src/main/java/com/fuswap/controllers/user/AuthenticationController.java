@@ -1,4 +1,4 @@
-package com.fuswap.controllers;
+package com.fuswap.controllers.user;
 
 import com.fuswap.dtos.response.ResponseDto;
 import lombok.extern.slf4j.Slf4j;
