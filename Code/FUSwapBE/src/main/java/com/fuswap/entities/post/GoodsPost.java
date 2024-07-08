@@ -82,12 +82,12 @@ public class GoodsPost {
                 ", PostImage='" + PostImage + '\'' +
                 ", UnitPrice=" + UnitPrice +
                 ", CreateAt=" + CreateAt +
-                ", manager=" + manager +
-                ", customer=" + customer +
-                ", postAddress=" + postAddress +
-                ", category=" + category +
-                ", feedback=" + feedback +
-                ", transaction=" + transaction +
+                ", manager=" + (manager != null ? manager.getMUserName() : "") +
+                ", customer=" + (customer != null ? customer.getCUserName() : "") +
+                ", postAddress=" + (postAddress != null ? postAddress.getPostAddressID() : "") +
+                ", category=" + (category != null ? category.getCateName() : "") +
+                ", feedback=" + (feedback != null ? feedback.getContent() : "") +
+                ", transaction=" + (transaction != null ? transaction.getTransID() : "") +
                 '}';
     }
 }
