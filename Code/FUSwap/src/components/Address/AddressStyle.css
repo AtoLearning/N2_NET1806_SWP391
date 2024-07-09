@@ -1,0 +1,63 @@
+.address-contain{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    font-size: 1vw;
+    font-family: Taviraj;
+}
+.address-content{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.address-select{
+    display: block;
+    background-clip: padding-box;
+    background-color: #fff;
+    width: 96%;
+    height: 4vh;
+    overflow-y: auto;
+    
+}
+
+.address-select option{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 5vh;
+}
+.address-select:hover{
+    background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
+    border-radius: 10px;
+    border: none;
+}
+.select-1{
+    border-bottom: 2px solid #ffcc00;
+}
+.select-2{
+    border-bottom: 2px solid #FFB252;
+}
+.select-3{
+    border-bottom: 2px solid #FF7A00;
+}
+.select-1:focus{
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    outline: 0;
+}
+.select-2:focus{
+    border: 2px solid #FFB252;
+    border-radius: 10px;
+    outline: 0;
+}
+.select-3:focus{
+    border: 2px solid #FF7A00;
+    border-radius: 10px;
+    outline: 0;
+}
+
+
+
+  
+  
