@@ -1,8 +1,12 @@
 package com.fuswap.services.post;
 
-import com.fuswap.dtos.response.CustomerRes;
-import com.fuswap.dtos.request.GoodsPostReq;
-import com.fuswap.dtos.response.GoodsPostRes;
+import com.fuswap.dtos.location.CityDto;
+import com.fuswap.dtos.location.DistrictDto;
+import com.fuswap.dtos.location.WardDto;
+import com.fuswap.dtos.post.CategoryDto;
+import com.fuswap.dtos.user.CustomerDto;
+import com.fuswap.dtos.post.GoodsPostManageDto;
+import com.fuswap.dtos.post.GoodsPostViewDto;
 import com.fuswap.entities.location.City;
 import com.fuswap.entities.location.District;
 import com.fuswap.entities.location.PostAddress;
@@ -66,21 +70,21 @@ public class GoodsPostService {
         this.redisTemplate = redisTemplate;
     }
 
-    public Page<GoodsPostRes> getAllPosts(Integer pageNo) {
+    public Page<GoodsPostViewDto> getPostList(Integer pageNo) {
         log.info("pageNo {}", pageNo.toString());
         Pageable pageable = PageRequest.of(pageNo - 1, 12);
         Page<GoodsPost> goodsPostPage = goodsPostRepository.findAllAndIsAvailable(pageable);
-        return getGoodsPostRes(goodsPostPage);
+        return getGoodsPostViewDto(goodsPostPage);
     }
 
-    public Page<GoodsPostRes> getPostByKeyword(Integer pageNo, String searchValue) {
+    public Page<GoodsPostViewDto> getPostListByKeyword(Integer pageNo, String searchValue) {
         Pageable pageable = PageRequest.of(pageNo - 1, 12);
         Page<GoodsPost> goodsPostPage = goodsPostRepository.findAllAndIsAvailableAndByKeyword(pageable, searchValue);
-        return getGoodsPostRes(goodsPostPage);
+        return getGoodsPostViewDto(goodsPostPage);
     }
 
-    private Page<GoodsPostRes> getGoodsPostRes(Page<GoodsPost> goodsPostPage) {
-        return goodsPostPage.map(goodsPost -> new GoodsPostRes(
+    private Page<GoodsPostViewDto> getGoodsPostViewDto(Page<GoodsPost> goodsPostPage) {
+        return goodsPostPage.map(goodsPost -> new GoodsPostViewDto(
                 goodsPost.getPostID(),
                 goodsPost.getTitle(),
                 goodsPost.getContent(),
@@ -88,7 +92,7 @@ public class GoodsPostService {
                 goodsPost.getUnitPrice(),
                 goodsPost.getCreateAt(),
                 goodsPost.getPostImage(),
-                new CustomerRes(
+                new CustomerDto(
                         goodsPost.getCustomer().getCUserName(),
                         goodsPost.getCustomer().getGivenName(),
                         goodsPost.getCustomer().getFamilyName(),
@@ -109,16 +113,50 @@ public class GoodsPostService {
         ));
     }
 
-    public boolean createGoodsPost(GoodsPostReq goodsPostReq, String sessionId) {
+    private Page<GoodsPostManageDto> getGoodsPostManageDto(Page<GoodsPost> goodsPostPage) {
+        return goodsPostPage.map(goodsPost -> new GoodsPostManageDto(
+                goodsPost.getPostID(),
+                goodsPost.getSpecialPostID(),
+                goodsPost.getTitle(),
+                goodsPost.getContent(),
+                goodsPost.getIsExchange(),
+                goodsPost.getUnitPrice(),
+                goodsPost.getCreateAt(),
+                goodsPost.getPostImage(),
+                goodsPost.getPostAddress().getStreetNumber(),
+                goodsPost.getPostAddress().getStreet(),
+                new WardDto(
+                        goodsPost.getPostAddress().getWard().getWardID(),
+                        goodsPost.getPostAddress().getWard().getWardName()
+                ),
+                new DistrictDto(
+                        goodsPost.getPostAddress().getDistrict().getDistrictID(),
+                        goodsPost.getPostAddress().getDistrict().getDistrictName()
+                ),
+                new CityDto(
+                        goodsPost.getPostAddress().getCity().getCityID(),
+                        goodsPost.getPostAddress().getCity().getCityName()
+                ),
+                new CategoryDto(
+                        goodsPost.getCategory().getCateID(),
+                        goodsPost.getCategory().getCateName(),
+                        goodsPost.getCategory().getCateImage()
+                ),
+                goodsPost.getCustomer().getFamilyName() +
+                        goodsPost.getCustomer().getGivenName()
+        ));
+    }
+
+    public boolean createGoodsPost(GoodsPostManageDto goodsPostManageDto, String sessionId) {
         GoodsPost goodsPost = new GoodsPost();
         try {
             goodsPost.setSpecialPostID(geneSpecPostId());
-            goodsPost.setTitle(goodsPostReq.getTitle());
-            goodsPost.setContent(goodsPostReq.getContent());
-            goodsPost.setIsExchange(goodsPostReq.getIsExchange());
+            goodsPost.setTitle(goodsPostManageDto.getTitle());
+            goodsPost.setContent(goodsPostManageDto.getContent());
+            goodsPost.setIsExchange(goodsPostManageDto.getIsExchange());
             goodsPost.setIsAvailable(false);
-            goodsPost.setPostImage(goodsPostReq.getPostImage());
-            goodsPost.setUnitPrice(goodsPostReq.getUnitPrice());
+            goodsPost.setPostImage(goodsPostManageDto.getPostImage());
+            goodsPost.setUnitPrice(goodsPostManageDto.getUnitPrice());
             goodsPost.setCreateAt(Date.valueOf(LocalDate.now()));
 
             Customer customer = getCustomerByCUserName(sessionId);
@@ -128,24 +166,24 @@ public class GoodsPostService {
             goodsPost.setManager(manager);
 
             PostAddress postAddress = new PostAddress();
-            postAddress.setStreetNumber(goodsPostReq.getStreetNumber());
-            postAddress.setStreet(goodsPostReq.getStreet());
-            Optional<Ward> wardOptional = wardRepository.findById(goodsPostReq.getWard().getWardID());
+            postAddress.setStreetNumber(goodsPostManageDto.getStreetNumber());
+            postAddress.setStreet(goodsPostManageDto.getStreet());
+            Optional<Ward> wardOptional = wardRepository.findById(goodsPostManageDto.getWardDto().getWardId());
             if(wardOptional.isEmpty()) return false;
             Ward ward = wardOptional.get();
             postAddress.setWard(ward);
-            Optional<District> districtOptional = districtRepository.findById(goodsPostReq.getDistrict().getDistrictID());
+            Optional<District> districtOptional = districtRepository.findById(goodsPostManageDto.getDistrictDto().getDistrictId());
             if(districtOptional.isEmpty()) return false;
             District district = districtOptional.get();
             postAddress.setDistrict(district);
-            Optional<City> cityOptional = cityRepository.findById(goodsPostReq.getCity().getCityID());
+            Optional<City> cityOptional = cityRepository.findById(goodsPostManageDto.getCityDto().getCityId());
             if(cityOptional.isEmpty()) return false;
             City city = cityOptional.get();
             postAddress.setCity(city);
             postAddressRepository.save(postAddress);
             goodsPost.setPostAddress(postAddress);
 
-            Optional<Category> categoryOptional = categoryRepository.findById(goodsPostReq.getCategoryReq().getCateId());
+            Optional<Category> categoryOptional = categoryRepository.findById(goodsPostManageDto.getCategoryDto().getCateId());
             if (categoryOptional.isEmpty()) return false;
             Category category = categoryOptional.get();
             goodsPost.setCategory(category);
@@ -165,9 +203,9 @@ public class GoodsPostService {
             Map<Object, Object> sessionAttributes = redisTemplate
                     .opsForHash()
                     .entries("spring:session:sessions:" + sessionId);
-            CustomerRes customerRes = (CustomerRes)sessionAttributes.get("sessionAttr:profile");
-            if(customerRes != null) {
-                return customerRepository.findByCUserName(customerRes.getCUserName());
+            CustomerDto customerDto = (CustomerDto)sessionAttributes.get("sessionAttr:profile");
+            if(customerDto != null) {
+                return customerRepository.findByCUserName(customerDto.getCUserName());
             }
         }
         return null;
@@ -183,21 +221,21 @@ public class GoodsPostService {
     }
 
     @Transactional(readOnly = true)
-    public boolean updateGoodsPost(long postId, GoodsPostReq goodsPostReq, String username) {
+    public boolean updateGoodsPost(Long postId, GoodsPostManageDto goodsPostManageDto, String username) {
         Optional<GoodsPost> goodsPost = goodsPostRepository.findById(postId);
         if(goodsPost.isPresent()) {
             if(goodsPost.get().getTransaction() == null && goodsPost.get().getCustomer().getCUserName().equals(username)) {
-                goodsPost.get().setTitle(goodsPostReq.getTitle());
-                goodsPost.get().setContent(goodsPostReq.getContent());
-                goodsPost.get().setPostImage(goodsPostReq.getPostImage());
+                goodsPost.get().setTitle(goodsPostManageDto.getTitle());
+                goodsPost.get().setContent(goodsPostManageDto.getContent());
+                goodsPost.get().setPostImage(goodsPostManageDto.getPostImage());
                 if(!goodsPost.get().getIsExchange()) {
-                    goodsPost.get().setUnitPrice(goodsPostReq.getUnitPrice());
+                    goodsPost.get().setUnitPrice(goodsPostManageDto.getUnitPrice());
                 }
-                Optional<Ward> wardOptional = wardRepository.findById(goodsPostReq.getWard().getWardID());
-                Optional<District> districtOptional = districtRepository.findById(goodsPostReq.getDistrict().getDistrictID());
-                Optional<City> cityOptional = cityRepository.findById(goodsPostReq.getCity().getCityID());
-                goodsPost.get().getPostAddress().setStreetNumber(goodsPostReq.getStreetNumber());
-                goodsPost.get().getPostAddress().setStreet(goodsPostReq.getStreet());
+                Optional<Ward> wardOptional = wardRepository.findById(goodsPostManageDto.getWardDto().getWardId());
+                Optional<District> districtOptional = districtRepository.findById(goodsPostManageDto.getDistrictDto().getDistrictId());
+                Optional<City> cityOptional = cityRepository.findById(goodsPostManageDto.getCityDto().getCityId());
+                goodsPost.get().getPostAddress().setStreetNumber(goodsPostManageDto.getStreetNumber());
+                goodsPost.get().getPostAddress().setStreet(goodsPostManageDto.getStreet());
                 if(wardOptional.isEmpty()) return false;
                 goodsPost.get().getPostAddress().setWard(wardOptional.get());
                 if(districtOptional.isEmpty()) return false;
@@ -205,10 +243,95 @@ public class GoodsPostService {
                 if(cityOptional.isEmpty()) return false;
                 goodsPost.get().getPostAddress().setCity(cityOptional.get());
 
-                Optional<Category> categoryOptional = categoryRepository.findById(goodsPostReq.getCategoryReq().getCateId());
+                Optional<Category> categoryOptional = categoryRepository.findById(goodsPostManageDto.getCategoryDto().getCateId());
                 if(categoryOptional.isEmpty()) return false;
                 goodsPost.get().setCategory(categoryOptional.get());
                 goodsPostRepository.saveAndFlush(goodsPost.get());
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public GoodsPostViewDto getPostDetails(Long postId) {
+        GoodsPost goodsPost = goodsPostRepository.findByPostID(postId);
+        if(goodsPost != null) {
+            GoodsPostViewDto goodsPostViewDto = new GoodsPostViewDto();
+            goodsPostViewDto.setPostId(goodsPost.getPostID());
+            goodsPostViewDto.setTitle(goodsPost.getTitle());
+            goodsPostViewDto.setContent(goodsPost.getContent());
+            goodsPostViewDto.setIsExchange(goodsPost.getIsExchange());
+            goodsPostViewDto.setUnitPrice(goodsPost.getUnitPrice());
+            goodsPostViewDto.setCreateAt(goodsPost.getCreateAt());
+            goodsPostViewDto.setPostImage(goodsPost.getPostImage());
+            goodsPostViewDto.setCustomerDto( new CustomerDto(
+                    goodsPost.getCustomer().getCUserName(),
+                    goodsPost.getCustomer().getGivenName(),
+                    goodsPost.getCustomer().getFamilyName(),
+                    goodsPost.getCustomer().getNickname(),
+                    goodsPost.getCustomer().getAvatar(),
+                    goodsPost.getCustomer().getPoints(),
+                    goodsPost.getCustomer().getPhone(),
+                    goodsPost.getCustomer().getDOB(),
+                    goodsPost.getCustomer().getAddress(),
+                    goodsPost.getCustomer().getIsVerified()
+            ));
+            goodsPostViewDto.setStreetNumber(goodsPost.getPostAddress().getStreetNumber());
+            goodsPostViewDto.setStreet(goodsPost.getPostAddress().getStreet());
+            goodsPostViewDto.setWardName(goodsPost.getPostAddress().getWard().getWardName());
+            goodsPostViewDto.setDistrictName(goodsPost.getPostAddress().getDistrict().getDistrictName());
+            goodsPostViewDto.setCityName(goodsPost.getPostAddress().getCity().getCityName());
+            goodsPostViewDto.setCateName(goodsPost.getCategory().getCateName());
+            return goodsPostViewDto;
+        }
+        return null;
+    }
+
+    public GoodsPostManageDto getMyPostDetails(Long postId, String username) {
+        GoodsPost goodsPost = goodsPostRepository.findByPostID(postId);
+        if (goodsPost != null && goodsPost.getCustomer().getCUserName().equals(username)) {
+            GoodsPostManageDto goodsPostManageDto = new GoodsPostManageDto();
+            goodsPostManageDto.setTitle(goodsPost.getTitle());
+            goodsPostManageDto.setContent(goodsPost.getContent());
+            goodsPostManageDto.setIsExchange(goodsPost.getIsExchange());
+            goodsPostManageDto.setUnitPrice(goodsPost.getUnitPrice());
+            goodsPostManageDto.setPostImage(goodsPost.getPostImage());
+            goodsPostManageDto.setStreetNumber(goodsPost.getPostAddress().getStreetNumber());
+            goodsPostManageDto.setStreet(goodsPost.getPostAddress().getStreet());
+            goodsPostManageDto.setWardDto(new WardDto(
+                    goodsPost.getPostAddress().getWard().getWardID(),
+                    goodsPost.getPostAddress().getWard().getWardName()
+            ));
+            goodsPostManageDto.setDistrictDto(new DistrictDto(
+                    goodsPost.getPostAddress().getDistrict().getDistrictID(),
+                    goodsPost.getPostAddress().getDistrict().getDistrictName()
+            ));
+            goodsPostManageDto.setCityDto(new CityDto(
+                    goodsPost.getPostAddress().getCity().getCityID(),
+                    goodsPost.getPostAddress().getCity().getCityName()
+            ));
+            goodsPostManageDto.setCategoryDto(new CategoryDto(
+                    goodsPost.getCategory().getCateID(),
+                    goodsPost.getCategory().getCateName(),
+                    goodsPost.getCategory().getCateImage()
+            ));
+            goodsPostManageDto.setMUserName(goodsPost.getManager().getFullName());
+            return goodsPostManageDto;
+        }
+        return null;
+    }
+
+    public Page<GoodsPostManageDto> getMyPosts(int pageNo, String username) {
+        Pageable pageable = PageRequest.of(pageNo - 1, 12);
+        Page<GoodsPost> goodsPostPage = goodsPostRepository.findMyPosts(pageable, username);
+        return getGoodsPostManageDto(goodsPostPage);
+    }
+
+    public boolean deleteGoodsPost(Long postId, String username) {
+        GoodsPost goodsPost = goodsPostRepository.findByPostID(postId);
+        if(goodsPost != null && goodsPost.getCustomer().getCUserName().equals(username)) {
+            if(goodsPost.getTransaction() == null) {
+                goodsPostRepository.delete(goodsPost);
                 return true;
             }
         }

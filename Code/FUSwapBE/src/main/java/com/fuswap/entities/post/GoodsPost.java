@@ -1,6 +1,6 @@
 package com.fuswap.entities.post;
 
-import com.fuswap.entities.order.Transaction;
+import com.fuswap.entities.transaction.Transaction;
 import com.fuswap.entities.user.Manager;
 import com.fuswap.entities.location.PostAddress;
 import com.fuswap.entities.user.Customer;

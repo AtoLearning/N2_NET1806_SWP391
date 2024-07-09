@@ -1,6 +1,6 @@
 package com.fuswap.services.post;
 
-import com.fuswap.dtos.response.CategoryRes;
+import com.fuswap.dtos.post.CategoryDto;
 import com.fuswap.entities.post.Category;
 import com.fuswap.repositories.post.CategoryRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -18,16 +18,16 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public List<CategoryRes> getCategoryList() {
+    public List<CategoryDto> getCategoryList() {
         List<Category> categoryList = categoryRepository.findAll();
-        List<CategoryRes> categoryResList = new ArrayList<>();
+        List<CategoryDto> categoryDtoList = new ArrayList<>();
         for(Category category : categoryList) {
-            categoryResList.add(new CategoryRes(
+            categoryDtoList.add(new CategoryDto(
                     category.getCateID(),
                     category.getCateName(),
                     category.getCateImage()
             ));
         }
-        return categoryResList;
+        return categoryDtoList;
     }
 }

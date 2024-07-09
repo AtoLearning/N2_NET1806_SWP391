@@ -1,5 +1,6 @@
-package com.fuswap.dtos.response;
+package com.fuswap.dtos.post;
 
+import com.fuswap.dtos.user.CustomerDto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -10,7 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class GoodsPostRes {
+public class GoodsPostViewDto {
     Long postId;
     String title;
     String content;
@@ -18,7 +19,7 @@ public class GoodsPostRes {
     Float unitPrice;
     Date createAt;
     String postImage;
-    CustomerRes customerRes;
+    CustomerDto customerDto;
     String streetNumber;
     String street;
     String wardName;
@@ -36,7 +37,7 @@ public class GoodsPostRes {
                 ", unitPrice=" + unitPrice +
                 ", createAt=" + createAt +
                 ", postImage='" + postImage + '\'' +
-                ", customerDto=" + customerRes +
+                ", customerDto=" + customerDto +
                 ", streetNumber='" + streetNumber + '\'' +
                 ", street='" + street + '\'' +
                 ", wardName='" + wardName + '\'' +

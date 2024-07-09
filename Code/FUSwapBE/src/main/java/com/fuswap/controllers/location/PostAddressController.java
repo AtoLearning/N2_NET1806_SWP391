@@ -1,12 +1,11 @@
 package com.fuswap.controllers.location;
 
-import com.fuswap.dtos.response.CityRes;
-import com.fuswap.dtos.response.DistrictRes;
-import com.fuswap.dtos.response.ResponseDto;
-import com.fuswap.dtos.response.WardRes;
+import com.fuswap.dtos.location.CityDto;
+import com.fuswap.dtos.location.DistrictDto;
+import com.fuswap.dtos.ResponseDto;
+import com.fuswap.dtos.location.WardDto;
 import com.fuswap.services.location.CityService;
 import com.fuswap.services.location.DistrictService;
-import com.fuswap.services.location.PostAddressService;
 import com.fuswap.services.location.WardService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -32,27 +31,27 @@ public class PostAddressController {
         this.wardService = wardService;
     }
 
-    @GetMapping("/guest/city")
+    @GetMapping("/guest/cities")
     public ResponseEntity<ResponseDto> getCityList() {
-        List<CityRes> cityResList = cityService.getCityList();
+        List<CityDto> cityDtoList = cityService.getCityList();
         return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseDto("200 OK", "GET CITY LIST SUCCESSFUL", cityResList, 0)
+                new ResponseDto("200 OK", "GET CITY LIST SUCCESSFUL", cityDtoList, 0)
         );
     }
 
-    @GetMapping("/guest/district")
+    @GetMapping("/guest/districts")
     public ResponseEntity<ResponseDto> getDistrictListByCityId(@RequestParam(name = "cityId") int cityId) {
-        List<DistrictRes> districtResList = districtService.getDistrictListByCityId(cityId);
+        List<DistrictDto> districtDtoList = districtService.getDistrictListByCityId(cityId);
         return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseDto("200 OK", "GET DISTRICT LIST SUCCESSFUL", districtResList, 0)
+                new ResponseDto("200 OK", "GET DISTRICT LIST SUCCESSFUL", districtDtoList, 0)
         );
     }
 
-    @GetMapping("/guest/ward")
+    @GetMapping("/guest/wards")
     public ResponseEntity<ResponseDto> getWardListByDistrictId(@RequestParam(name = "districtId") int districtId) {
-        List<WardRes> wardResList = wardService.getWardListByDistrictId(districtId);
+        List<WardDto> wardDtoList = wardService.getWardListByDistrictId(districtId);
         return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseDto("200 OK", "GET WARD LIST SUCCESSFUL", wardResList, 0)
+                new ResponseDto("200 OK", "GET WARD LIST SUCCESSFUL", wardDtoList, 0)
         );
     }
 }

@@ -1,8 +1,6 @@
 package com.fuswap.services.location;
 
-import com.fuswap.dtos.response.CityRes;
-import com.fuswap.dtos.response.DistrictRes;
-import com.fuswap.entities.location.City;
+import com.fuswap.dtos.location.DistrictDto;
 import com.fuswap.entities.location.District;
 import com.fuswap.repositories.location.DistrictRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -20,15 +18,15 @@ public class DistrictService {
         this.districtRepository = districtRepository;
     }
 
-    public List<DistrictRes> getDistrictListByCityId(int cityId) {
+    public List<DistrictDto> getDistrictListByCityId(int cityId) {
         List<District> districtList = districtRepository.findDistrictsByCityID(cityId);
-        List<DistrictRes> districtResList = new ArrayList<>();
+        List<DistrictDto> districtDtoList = new ArrayList<>();
         for (District district : districtList) {
-            districtResList.add(new DistrictRes(
+            districtDtoList.add(new DistrictDto(
                     district.getDistrictID(),
                     district.getDistrictName()
             ));
         }
-        return districtResList;
+        return districtDtoList;
     }
 }
