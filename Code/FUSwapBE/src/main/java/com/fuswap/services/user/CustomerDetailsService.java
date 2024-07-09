@@ -15,11 +15,9 @@ import java.util.Collections;
 @Slf4j
 public class CustomerDetailsService implements UserDetailsService {
     private final CustomerRepository customerRepository;
-    private final CustomerService customerService;
 
-    public CustomerDetailsService(CustomerRepository customerRepository, CustomerService customerService) {
+    public CustomerDetailsService(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
-        this.customerService = customerService;
     }
 
     @Override

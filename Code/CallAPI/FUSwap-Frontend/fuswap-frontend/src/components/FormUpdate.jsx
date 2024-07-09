@@ -12,7 +12,7 @@ const initialState = {
     cateName: '',
     available: '',
     isDelete: false,
-    muserName: "admin"
+    muserName: "admin",
 }
 
 const error_init = {

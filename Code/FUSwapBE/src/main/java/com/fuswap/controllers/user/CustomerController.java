@@ -1,7 +1,7 @@
 package com.fuswap.controllers.user;
 
-import com.fuswap.dtos.response.CustomerRes;
-import com.fuswap.dtos.response.ResponseDto;
+import com.fuswap.dtos.user.CustomerDto;
+import com.fuswap.dtos.ResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
@@ -29,21 +29,20 @@ public class CustomerController {
     public ResponseEntity<ResponseDto> getCustomerProfile(
             @CookieValue(name = "SESSION", defaultValue = "") String sessionId) {
         sessionId = new String(Base64.getDecoder().decode(sessionId));
-//        log.info("sessionId: {}", sessionId);
         Boolean exists = redisTemplate.hasKey("spring:session:sessions:" + sessionId);
         if(Boolean.TRUE.equals(exists)) {
             Map<Object, Object> sessionAttributes = redisTemplate
                                                     .opsForHash()
                                                     .entries("spring:session:sessions:" + sessionId);
-            CustomerRes customerRes = (CustomerRes)sessionAttributes.get("sessionAttr:profile");
-            log.info("customerDto: {}", customerRes);
-            if(customerRes == null) {
+            CustomerDto customerDto = (CustomerDto)sessionAttributes.get("sessionAttr:profile");
+            log.info("customerDto: {}", customerDto);
+            if(customerDto == null) {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
                         new ResponseDto("401", "PROFILE IS NOT FOUND", null, 0)
                 );
             }
             return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseDto("200", "PROFILE IS FOUND", customerRes, 0)
+                    new ResponseDto("200", "PROFILE IS FOUND", customerDto, 0)
             );
         }
         return ResponseEntity.status(HttpStatus.OK).body(

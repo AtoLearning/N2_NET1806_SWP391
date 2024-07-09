@@ -1,43 +1,56 @@
-package com.fuswap.dtos.request;
+package com.fuswap.dtos.post;
 
+import com.fuswap.dtos.location.CityDto;
+import com.fuswap.dtos.location.DistrictDto;
+import com.fuswap.dtos.location.WardDto;
 import com.fuswap.entities.location.City;
 import com.fuswap.entities.location.District;
 import com.fuswap.entities.location.Ward;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class GoodsPostReq {
+public class GoodsPostManageDto {
+    Long postId;
+    String specialPostId;
     String title;
     String content;
     Boolean isExchange;
     Float unitPrice;
+    Date createAt;
     String postImage;
     String streetNumber;
     String street;
-    Ward ward;
-    District district;
-    City city;
-    CategoryReq categoryReq;
+    WardDto wardDto;
+    DistrictDto districtDto;
+    CityDto cityDto;
+    CategoryDto categoryDto;
+    String mUserName;
 
     @Override
     public String toString() {
         return "GoodsPostReq{" +
-                "title='" + title + '\'' +
+                "postId='" + postId + '\'' +
+                ", specialPostId='" + specialPostId + '\'' +
+                ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", isExchange=" + isExchange +
                 ", unitPrice=" + unitPrice +
+                ", createAt=" + createAt +
                 ", postImage='" + postImage + '\'' +
                 ", streetNumber='" + streetNumber + '\'' +
                 ", street='" + street + '\'' +
-                ", ward=" + ward +
-                ", district=" + district +
-                ", city=" + city +
-                ", categoryReq=" + categoryReq +
+                ", wardDto=" + wardDto +
+                ", districtDto=" + districtDto +
+                ", cityDto=" + cityDto +
+                ", categoryDto=" + categoryDto +
+                ", mUserName=" + mUserName +
                 '}';
     }
 }
