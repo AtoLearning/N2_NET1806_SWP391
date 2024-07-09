@@ -1,6 +1,6 @@
 package com.fuswap.services.user;
 
-import com.fuswap.dtos.response.CustomerRes;
+import com.fuswap.dtos.user.CustomerDto;
 import com.fuswap.entities.user.Role;
 import com.fuswap.repositories.user.CustomerRepository;
 import com.fuswap.repositories.user.ManagerRepository;
@@ -30,10 +30,10 @@ public class CustomerService {
     }
 
     @Transactional(readOnly = true)
-    public CustomerRes findByCUserName(String cUserName) {
+    public CustomerDto findByCUserName(String cUserName) {
         Customer customer = customerRepository.findByCUserName(cUserName);
         if(customer != null) {
-            return new CustomerRes(
+            return new CustomerDto(
                 customer.getCUserName(),
                 customer.getGivenName(),
                 customer.getFamilyName(),

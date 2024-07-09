@@ -1,4 +1,4 @@
-package com.fuswap.dtos.request;
+package com.fuswap.dtos.user;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -8,15 +8,15 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CategoryReq {
-    int cateId;
-    String cateName;
+public class RoleDto {
+    Integer roleID;
+    String roleName;
 
     @Override
     public String toString() {
-        return "CategoryReq{" +
-                "cateId='" + cateId + '\'' +
-                ", cateName='" + cateName + '\'' +
+        return "RoleDto{" +
+                "RoleID=" + roleID +
+                ", RoleName='" + roleName + '\'' +
                 '}';
     }
 }

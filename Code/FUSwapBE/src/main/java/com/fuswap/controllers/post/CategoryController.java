@@ -1,7 +1,7 @@
 package com.fuswap.controllers.post;
 
-import com.fuswap.dtos.response.CategoryRes;
-import com.fuswap.dtos.response.ResponseDto;
+import com.fuswap.dtos.post.CategoryDto;
+import com.fuswap.dtos.ResponseDto;
 import com.fuswap.services.post.CategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -24,7 +24,7 @@ public class CategoryController {
 
     @GetMapping("/guest/categories")
     public ResponseEntity<ResponseDto> getCategoryList() {
-        List<CategoryRes> categoryList = categoryService.getCategoryList();
+        List<CategoryDto> categoryList = categoryService.getCategoryList();
         return ResponseEntity.status(HttpStatus.OK).body(
                 new ResponseDto("200", "OK", categoryList, 0)
         );

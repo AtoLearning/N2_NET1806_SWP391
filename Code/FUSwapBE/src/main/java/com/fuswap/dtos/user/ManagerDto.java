@@ -1,4 +1,4 @@
-package com.fuswap.dtos.response;
+package com.fuswap.dtos.user;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -15,7 +15,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ManagerRes implements Serializable {
+public class ManagerDto implements Serializable {
 
     String mUserName;
     String nickName;

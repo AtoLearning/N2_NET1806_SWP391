@@ -1,6 +1,6 @@
-package com.fuswap.repositories.order;
+package com.fuswap.repositories.transaction;
 
-import com.fuswap.entities.order.Transaction;
+import com.fuswap.entities.transaction.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

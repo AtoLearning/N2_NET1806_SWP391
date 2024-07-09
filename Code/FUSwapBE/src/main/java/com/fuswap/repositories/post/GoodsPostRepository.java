@@ -14,6 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 public interface GoodsPostRepository extends JpaRepository<GoodsPost, Long>, PagingAndSortingRepository<GoodsPost, Long> {
     GoodsPost findBySpecialPostID(String specialPostID);
 
+    @Query("SELECT gp FROM GoodsPost gp WHERE gp.PostID = ?1")
+    GoodsPost findByPostID(Long postID);
+
     @Transactional(readOnly = true)
     @Query("SELECT gp FROM GoodsPost gp WHERE gp.IsAvailable = true")
     Page<GoodsPost> findAllAndIsAvailable(Pageable pageable);
@@ -21,4 +24,8 @@ public interface GoodsPostRepository extends JpaRepository<GoodsPost, Long>, Pag
     @Transactional(readOnly = true)
     @Query("SELECT gp FROM GoodsPost gp WHERE gp.IsAvailable = true AND (gp.Title LIKE %?1% OR gp.Content like %?1%)")
     Page<GoodsPost> findAllAndIsAvailableAndByKeyword(Pageable pageable, String searchValue);
+
+    @Transactional(readOnly = true)
+    @Query("SELECT gp FROM GoodsPost gp WHERE gp.customer.CUserName = ?1")
+    Page<GoodsPost> findMyPosts(Pageable pageable, String username);
 }

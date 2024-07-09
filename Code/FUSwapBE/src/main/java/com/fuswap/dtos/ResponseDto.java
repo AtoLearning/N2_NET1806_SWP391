@@ -1,4 +1,4 @@
-package com.fuswap.dtos.response;
+package com.fuswap.dtos;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

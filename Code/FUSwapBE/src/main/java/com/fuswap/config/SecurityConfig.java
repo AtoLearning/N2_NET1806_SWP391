@@ -1,7 +1,7 @@
 package com.fuswap.config;
 
-import com.fuswap.dtos.response.CustomerRes;
-import com.fuswap.dtos.response.ManagerRes;
+import com.fuswap.dtos.user.CustomerDto;
+import com.fuswap.dtos.user.ManagerDto;
 import com.fuswap.entities.user.CustomOidcUser;
 import com.fuswap.entities.user.Customer;
 import com.fuswap.entities.user.Manager;
@@ -123,8 +123,8 @@ public class SecurityConfig {
                     userRequest.getIdToken()
             );
             String email = oidcUser.getEmail();
-            CustomerRes customerRes = customerService.findByCUserName(email);
-            if(customerRes == null && email.endsWith("@fpt.edu.vn")) {
+            CustomerDto customerDto = customerService.findByCUserName(email);
+            if(customerDto == null && email.endsWith("@fpt.edu.vn")) {
                 Customer newCustomer = getCustomer(email, oidcUser);
                 customerService.createAccount(newCustomer);
             }
@@ -170,8 +170,8 @@ public class SecurityConfig {
     public AuthenticationSuccessHandler CustomerAuthenticationSuccessHandler() {
         return (request, response, authentication) -> {
             OidcUser user = (OidcUser)authentication.getPrincipal();
-            CustomerRes customerRes = customerService.findByCUserName(user.getEmail());
-            request.getSession().setAttribute("profile", customerRes);
+            CustomerDto customerDto = customerService.findByCUserName(user.getEmail());
+            request.getSession().setAttribute("profile", customerDto);
             response.sendRedirect(CUSTOMER_HOMEPAGE_AUTHORIZED);
         };
     }
@@ -181,7 +181,7 @@ public class SecurityConfig {
         return (request, response, authentication) -> {
             UserDetails userDetails = (UserDetails)authentication.getPrincipal();
             Manager manager = managerService.findByMUserName(userDetails.getUsername());
-            ManagerRes managerRes = new ManagerRes(
+            ManagerDto managerDto = new ManagerDto(
                     manager.getMUserName(),
                     manager.getFullName(),
                     manager.getNickname(),
@@ -189,7 +189,7 @@ public class SecurityConfig {
                     manager.getPhone(),
                     manager.getDOB()
             );
-            request.getSession().setAttribute("profile", managerRes);
+            request.getSession().setAttribute("profile", managerDto);
             response.setContentType("application/json;charset=UTF-8");
             response.setStatus(HttpServletResponse.SC_OK);
             PrintWriter writer = response.getWriter();
