@@ -5,7 +5,7 @@
   padding: 20px;
 }
 
-.product-card {
+.product-card-PostInform{
   box-shadow: 0 0 10px 6px rgba(254, 172, 98, 0.5);
   background-color: #fff;
   align-self: center;
@@ -163,4 +163,14 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.product-card-PostInform {
+  transition: transform 0.3s ease;
+  
+}
+
+.product-card-PostInform:hover {
+  transform: scale(1.05); /* Tăng kích thước khi hover */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Thêm bóng để nổi bật */
 }

@@ -23,7 +23,7 @@ function App() {
     <BrowserRouter>
         <HeaderControl />
         <Routes>
-            <Route path='/' element={<Welcome />} />
+            <Route path='/' element={<PostInform/>} />
             <Route path='/home' element={<HomePage />} />
             <Route path='/about_us' element={<AboutUs />} />
             <Route path='/not_found' element={<NotFound />} />

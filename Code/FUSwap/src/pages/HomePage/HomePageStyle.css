@@ -5,7 +5,7 @@
   justify-content: center;
   padding: 80px 20px;
   flex-direction: column;
-  width: 100%;
+  width: 100vw;
   box-sizing: border-box;
   overflow-x: hidden;
 }
@@ -67,21 +67,19 @@
 }
 
 .view-more-button:hover {
-  background-color: #e0873e;
+  background-color: solid #e0873e;
 }
 
 .section-title {
-  border-radius: 0 80px 80px 0;
-  box-shadow: 0 0 4px 5px #FF974E;
-  background-color: #ffde5970;
   margin-top: 54px;
-  width: 268px;
+  width: 200px;
   max-width: 100%;
   color: #000;
-  padding: 13px 25px;
   font-family: Taviraj, sans-serif;
   font-size: 25px;
   font-weight: 700;
+  border-bottom: 3px solid #FF974E; /* Thêm border-bottom */
+  
 }
 
 @media (max-width: 991px) {

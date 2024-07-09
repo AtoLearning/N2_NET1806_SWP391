@@ -1,15 +1,31 @@
-import React from 'react'
-import { Link } from "react-router-dom"
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import './SearchBox.css'
+import './SearchBox.css';
 
-export default function Search() {
+export default function SearchBox() {
+    const [query, setQuery] = useState("");
+    const navigate = useNavigate();
+
+    const handleSearch = () => {
+        if (query.trim()) {
+            navigate(`/SearchPage?query=${query}`);
+        }
+    };
+
     return (
         <div className="header_search">
-            <input className="search_text" placeholder="Search..." required />
-            <Link to="/SearchPage" title="SearchResult">
-            <button className="search_btn" title="Search"><FaSearch /></button>
-            </Link>
+            <input
+                className="search_text"
+                placeholder="Search..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                required
+            />
+            <button className="search_btn" title="Search" onClick={handleSearch}>
+                <FaSearch />
+            </button>
         </div>
-    )
+    );
 }
+
