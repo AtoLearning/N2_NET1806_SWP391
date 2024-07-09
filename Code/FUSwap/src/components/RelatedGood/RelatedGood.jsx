@@ -6,7 +6,7 @@ const apiUrl = "http://localhost:8080/api/v1/guest/related-products"; // URL API
 
 const RelatedGood = () => {
     const [startIndex, setStartIndex] = useState(0);
-    const itemsPerPage = 10; // Số lượng sản phẩm mỗi trang
+    const itemsPerPage = 8; // Số lượng sản phẩm mỗi trang
     const [products, setProducts] = useState([]);
     const [useSampleData, setUseSampleData] = useState(true); // Kiểm tra có sử dụng dữ liệu mẫu hay không
     const [loading, setLoading] = useState(true);
@@ -57,7 +57,7 @@ const RelatedGood = () => {
     }
 
     return (
-        <>
+        <div className="related-goods-containersss">
             <h3 className="related-goods-title">Related goods</h3>
             <div className="related-goods-container">
                 <div className="related-goods-grid">
@@ -100,7 +100,7 @@ const RelatedGood = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { FaHandshake, FaMoneyBillWave } from "react-icons/fa";
 import './PostInformStyle.css';
 import RelatedGood from "../../components/RelatedGood/RelatedGood";
-
+import UserInform from "../../components/UserInform/UserInform";
 const apiUrl = "http://localhost:8080/api/v1/guest/post/1"; // URL API để lấy dữ liệu bài đăng thực tế
 
 const PostInformSample = () => {
@@ -63,7 +63,7 @@ const PostInformSample = () => {
 
     return (
         <section className="product-container">
-            <article className="product-card">
+            <article className="product-card-PostInform">
                 <div className="product-border">
                     <div className="product-content">
                         <div className="image-column">
@@ -95,7 +95,7 @@ const PostInformSample = () => {
                         </div>
                     </div>
                 </div>
-                <div className="student-info">
+                {/* <div className="student-info">
                     <img
                         loading="lazy"
                         src={post.studentAvatar}
@@ -106,8 +106,9 @@ const PostInformSample = () => {
                         <h2 className="student-name">{post.student.name}</h2>
                         <p className="student-score">score: {post.student.score}</p>
                     </div>
-                </div>
+                </div> */}
             </article>
+            <UserInform/>   
             <RelatedGood relatedGoods={post.relatedGoods} />
         </section>
     );
