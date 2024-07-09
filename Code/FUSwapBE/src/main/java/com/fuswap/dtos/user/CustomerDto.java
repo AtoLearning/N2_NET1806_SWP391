@@ -1,4 +1,4 @@
-package com.fuswap.dtos.response;
+package com.fuswap.dtos.user;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,14 +15,14 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CustomerRes implements Serializable{
+public class CustomerDto implements Serializable{
 
     String cUserName;
     String givenName;
     String familyName;
     String nickname;
     String avatar;
-    float points;
+    Float points;
     String phone;
     Date dob;
     String address;

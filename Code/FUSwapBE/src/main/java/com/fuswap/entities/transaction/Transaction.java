@@ -1,4 +1,4 @@
-package com.fuswap.entities.order;
+package com.fuswap.entities.transaction;
 
 import com.fuswap.entities.post.GoodsPost;
 import com.fuswap.entities.user.Customer;

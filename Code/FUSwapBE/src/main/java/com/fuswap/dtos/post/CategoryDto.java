@@ -1,4 +1,4 @@
-package com.fuswap.dtos.response;
+package com.fuswap.dtos.post;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -8,7 +8,8 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class DistrictRes {
-    int districtId;
-    String districtName;
+public class CategoryDto {
+    int cateId;
+    String cateName;
+    String cateImage;
 }
