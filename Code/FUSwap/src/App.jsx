@@ -13,44 +13,50 @@ import LoginCustomer from './pages/Login/LoginCustomer/LoginCustomer'
 import LoginManager from './pages/Login/LoginManager/LoginManager'
 import SearchPage from "./pages/SearchPage/SearchPage.jsx";
 import PostInform from './pages/PostInform/PostInform'
+import MyPost from './pages/MyPost/MyPost'
+import TradePost from './pages/Post/TradePost'
+import SellPost from './pages/Post/SellPost'
 import axios from "axios";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 const baseURL = "http://localhost:8080/api/v1/auth-status"
 
 function App() {
-  return (
-    <BrowserRouter>
-        <HeaderControl />
-        <Routes>
-            <Route path='/' element={<Welcome />} />
-            <Route path='/home' element={<HomePage />} />
-            <Route path='/about_us' element={<AboutUs />} />
-            <Route path='/not_found' element={<NotFound />} />
-            <Route path='/role' element={<Role />} />
-            <Route path='/c/login' element={<LoginCustomer />} />
-            <Route path='/m/login' element={<LoginManager />} />
-            <Route path='/SearchPage' element={<SearchPage />} />
-            <Route path='/customer_profile' element={<CProfile />} />
-            <Route path='/PostInform' element={<PostInform />} />
-        </Routes>
-        <FooterControl />
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <HeaderControl />
+            <Routes>
+                <Route path='/' element={<Welcome />} />
+                <Route path='/home' element={<HomePage />} />
+                <Route path='/about_us' element={<AboutUs />} />
+                <Route path='/not_found' element={<NotFound />} />
+                <Route path='/role' element={<Role />} />
+                <Route path='/c/login' element={<LoginCustomer />} />
+                <Route path='/m/login' element={<LoginManager />} />
+                <Route path='/SearchPage' element={<SearchPage />} />
+                <Route path='/customer_profile' element={<CProfile />} />
+                <Route path='/PostInform' element={<PostInform />} />
+                <Route path="/my_post" element={<MyPost />} />
+                <Route path='/trade_post' element={<TradePost />} />
+                <Route path='/sell_post' element={<SellPost />} />
+            </Routes>
+            <FooterControl />
+        </BrowserRouter>
+    );
 }
 
 function HeaderControl() {
     const [authStatus, setAuthStatus] = useState(false);
     const [role, setRole] = useState("");
-    const checkAuthStatus = async() => {
+    const checkAuthStatus = async () => {
         try {
-            const response = await axios.get(baseURL, {withCredentials: true});
+            const response = await axios.get(baseURL, { withCredentials: true });
             if (response.status === 200) {
                 setAuthStatus(true)
                 setRole(response.data.obj)
             }
         } catch (error) {
-            if(error.response && error.response.status === 401){
+            if (error.response && error.response.status === 401) {
                 setAuthStatus(false);
                 setRole("")
             }
@@ -60,11 +66,11 @@ function HeaderControl() {
     useEffect(() => {
         checkAuthStatus();
     }, []);
-    if(authStatus) {
-        if(role.includes('ROLE_ADMIN') || role.includes('ROLE_MODERATOR')) {
+    if (authStatus) {
+        if (role.includes('ROLE_ADMIN') || role.includes('ROLE_MODERATOR')) {
             console.log('ROLE_ADMIN');
             return <CHeader />
-        } else if(role.includes('ROLE_CUSTOMER')) {
+        } else if (role.includes('ROLE_CUSTOMER')) {
             console.log('ROLE_CUSTOMER');
             return <CHeader />
         }
@@ -76,12 +82,12 @@ function HeaderControl() {
 }
 
 function FooterControl() {
-  const location = useLocation();
-  if(location.pathname !== '/c/login' && location.pathname !=='/m/login' && location.pathname !== '/not_found'&& location.pathname !=='/role'){
-    return <Footer />;
-  }else{
-    return null;
-  }
+    const location = useLocation();
+    if (location.pathname !== '/c/login' && location.pathname !== '/m/login' && location.pathname !== '/not_found' && location.pathname !== '/role') {
+        return <Footer />;
+    } else {
+        return null;
+    }
 }
 
 
