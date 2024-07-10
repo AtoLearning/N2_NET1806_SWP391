@@ -1,75 +1,48 @@
 /* SearchPageStyle.css */
-.main-container1 {
+.search-container {
   background-color: #fff;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 80px 20px;
-  flex-direction: column;
   width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
+ 
 }
 
-.content-wrapper1 {
+.search-content-wrapper {
   display: flex;
-  width: 100%;
-  max-width: 1200px;
+  width: 20%;
   flex-direction: column;
+  margin-top: 100px;
 }
 
-.page-content1 {
-  display: flex;
-  width: 100%; /* Thêm dòng này */
-  max-width: 1200px; /* Thêm dòng này */
-  flex-direction: row; /* Điều chỉnh để sử dụng hàng ngang giống như HomePage */
-}
 
-.filter-container1 {
-  flex: 0 0 auto;
-  margin-right: 20px;
-}
 
-.search-content1 {
-  flex: 1;
+.search-content {
   display: flex;
   flex-direction: column;
 }
 
-.section-title1 {
-  display: block; /* Sử dụng block để đảm bảo phần nền bao phủ toàn bộ nội dung */
-  width: fit-content; /* Điều chỉnh chiều rộng theo nội dung */
-  border-radius: 0 80px 80px 0;
-  box-shadow: 0 0 4px 5px #FF974E;
-  background-color: #ffde5970;
-  margin-top: 54px;
+.section-title {
+  width: fit-content; 
   color: #000;
-  padding: 13px 25px;
   font-family: Taviraj, sans-serif;
   font-size: 25px;
   font-weight: 700;
-  margin-left: 50px;
+  border-bottom: 3px solid #FF974E; 
 }
 
 @media (max-width: 991px) {
-  .main-container1 {
+  .search-container {
       padding: 20px;
   }
 
-  .content-wrapper1 {
+  .search-content-wrapper {
       margin-top: 40px;
   }
 
-  .section-title1 {
+  .section-title {
       padding: 13px 25px;
   }
 
-  .page-content1 {
+  .search-page-content {
       flex-direction: column;
-  }
-
-  .filter-container1 {
-      width: 100%;
-      margin-bottom: 20px;
   }
 }

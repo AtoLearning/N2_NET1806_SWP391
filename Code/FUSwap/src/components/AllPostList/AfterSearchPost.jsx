@@ -1,21 +1,24 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import './PostListStyle.css';
+import { Pagination } from "@nextui-org/react";
+import './AfterSearchPostStyle.css';
+import { FaHandshake, FaMoneyBillWave } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const baseURL = "http://localhost:8080/api/v1/guest/posts";
 
-export default function PostList() {
+export default function PostList({ searchQuery }) {
     const [posts, setPosts] = useState([]);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const navigate = useNavigate();
 
-    const getAllPosts = async (page) => {
+    const getAllPosts = async (page, searchQuery) => {
         try {
             const response = await axios.get(baseURL, {
                 params: {
-                    pageNo: page, 
+                    pageNo: page,
+                    query: searchQuery,
                 },
                 withCredentials: true
             });
@@ -33,8 +36,9 @@ export default function PostList() {
     };
 
     useEffect(() => {
-        getAllPosts(page);
-    }, [page]);
+        getAllPosts(page, searchQuery);
+    }, [page, searchQuery]);
+
     const handlePageChange = (newPage) => {
         setPage(newPage);
     };
@@ -56,12 +60,12 @@ export default function PostList() {
                                 {post.isExchange ? (
                                     <>
                                         <span>Trade</span>
-                                        
+                                        <span><FaHandshake /></span>
                                     </>
                                 ) : (
                                     <>
-                                        <span className="price-value">{post.unitPrice.toLocaleString()}</span>
-                                        
+                                        <span>{post.unitPrice} </span>
+                                        <span><FaMoneyBillWave /></span>
                                     </>
                                 )}
                             </div>

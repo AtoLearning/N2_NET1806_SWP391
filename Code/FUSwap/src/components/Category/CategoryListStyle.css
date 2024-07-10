@@ -4,9 +4,8 @@
 
 .category-section {
   box-shadow: 0 0 4px 5px #FF974E;
-  background-color: #ffde5970;
+  background-color: #ffb580;
   display: flex;
-  margin-top: 30px;
   gap: 17px;
   overflow-x: auto;
   white-space: nowrap;

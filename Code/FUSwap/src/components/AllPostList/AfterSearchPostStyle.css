@@ -1,0 +1,86 @@
+/* .post-list-container {
+    margin-top: 50px;
+  }
+  
+  .post-grid {
+    margin-top: 30px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); 
+  }
+  
+  .post-card {
+    box-shadow: 0 0 4px 5px rgba(119, 119, 119, 0.25);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #000;
+    font-weight: 400;
+    padding: 9px;
+    width: 15vw;
+  }
+  
+  .post-image {
+    width: 100%;
+    max-width: 190px;
+    aspect-ratio: 0.88;
+    object-fit: cover;
+  }
+  
+  .post-name {
+    margin-top: 8px;
+    font-family: Taviraj, sans-serif;
+    font-size: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    
+  }
+  
+  .post-description {
+    align-self: stretch;
+    margin-top: 4px;
+    font-family: Taviraj, sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    text-overflow: ellipsis;
+      overflow: hidden;
+     
+  }
+  
+  .post-price {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    font-family: Inter, sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+  }
+  
+  .pagination-container {
+    display: flex;
+    justify-content: center; 
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .no-data {
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .post-card {
+    transition: transform 0.3s ease;
+    cursor: pointer; 
+  }
+  
+  .post-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
+  }
+   */

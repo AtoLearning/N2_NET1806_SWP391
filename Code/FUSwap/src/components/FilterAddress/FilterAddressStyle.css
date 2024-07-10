@@ -8,10 +8,8 @@
   margin-top: 20px;
   border-radius: 5px;
   width: 100%;
-  max-width: 800px;
   justify-content: space-between;
   box-sizing: border-box;
-  margin-left: 50px;
 }
 
 .sort-by {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Select, SelectItem } from "@nextui-org/react";
-import './SortAddressStyle.css';
+import './FilterAddressStyle.css';
 
 const baseURL = "http://localhost:8080/api/v1/guest";
 
@@ -93,7 +93,7 @@ export default function SortAddress({ onSort }) {
     // JSX trả về hiển thị giao diện chọn thành phố, quận/huyện, phường/xã
     return (
         <div className="sort-address-container">
-            <div className="sort-by">Sorted by:</div>
+            
             <div className="sort-options">
                 <Select
                     label="City"

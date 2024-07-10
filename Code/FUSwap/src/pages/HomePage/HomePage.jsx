@@ -40,9 +40,9 @@ export default function HomePage() {
                 />
               </div>
             </div>
-            <div className="view-more-container">
+            {/* <div className="view-more-container">
               <button className="view-more-button">View more</button>
-            </div>
+            </div> */}
           </section>
 
           <CategoryList />
