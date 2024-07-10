@@ -1,0 +1,248 @@
+:root {
+    --primary-color: #ff7a00;
+    --secondary-color: #ffde59;
+    --background-color: #fff;
+    --text-color: #000;
+    --font-family: 'Taviraj', sans-serif;
+    --header-padding: 20px;
+    --border-radius: 50%;
+}
+
+.student-card {
+    transition: transform 0.3s ease;
+  }
+  
+  .student-card:hover {
+    transform: scale(1.05); /* Tăng kích thước khi hover */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Thêm bóng để nổi bật */
+  }
+
+.student-card {
+    margin-top: 20px;
+    align-self: center;
+    border: 2px solid var(--primary-color);
+    border-top: none;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    max-width: 1220px;
+}
+
+.header {
+    background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    width: 100%;
+    padding: var(--header-padding);
+}
+
+.student-info {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-container {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid var(--text-color);
+    border-radius: var(--border-radius);
+}
+
+.name-score-container {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.student-name1 {
+    font: 700 30px var(--font-family);
+}
+
+.student-score1 {
+    margin-bottom: 10px;
+    font: 400 20px var(--font-family);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+}
+
+.section-titles {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 24px;
+}
+
+.info-title{
+    font-family: var(--font-family);
+    text-decoration: underline;
+    flex: 1;
+    text-align: left;
+}
+
+.info-feedback-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.personal-info {
+    width: 45%;
+}
+
+.feedback-section1 {
+    width: 50%;
+}
+
+.full-name-container {
+    margin-bottom: 10px;
+}
+
+.full-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.full-name-label {
+    flex: 0 0 150px;
+    text-align: right;
+    font: 700 18px var(--font-family);
+}
+
+.full-name-value {
+    flex: 1;
+    font: 400 18px var(--font-family);
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+}
+
+.contact-label {
+    flex: 0 0 150px;
+    text-align: right;
+    font: 700 18px var(--font-family);
+    margin-right: 10px;
+}
+
+.contact-value {
+    flex: 1;
+    font: 400 18px var(--font-family);
+}
+
+.address-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.address-label {
+    flex: 0 0 150px;
+    text-align: right;
+    font: 700 18px var(--font-family);
+}
+
+.address-value {
+    flex: 1;
+    font: 400 18px var(--font-family);
+}
+
+.feedback-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.feedback-item {
+    display: flex;
+    gap: 10px;
+}
+
+.feedback-avatar {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+}
+
+.feedback-text {
+    border: 1px solid var(--primary-color);
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 80%;
+
+}
+
+.feedback-title {
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.feedback-type {
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.feedback-comment {
+    font-size: 14px;
+    color: var(--text-color);
+
+}
+
+.more-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+    align-self: flex-end;
+    margin-top: 10px;
+}
+
+@media (max-width: 991px) {
+    .header {
+        padding: 10px;
+    }
+
+    .info-feedback-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .personal-info, .feedback-section1 {
+        width: 100%;
+    }
+}

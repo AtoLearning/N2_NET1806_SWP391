@@ -1,10 +1,12 @@
 /* FilterSearchStyle.css */
 .filter-container {
     display: inline-block;
-    background-color: #ffde5970;
+    background: linear-gradient(to bottom, #ffde59 0%, #ff914d 100%);
     box-shadow: 0 0 4px 5px #FF974E;
     padding: 20px;
     margin-top: 20px;
+    width: 80%;
+    height: fit-content;
   }
   
   .filter-category h3,
