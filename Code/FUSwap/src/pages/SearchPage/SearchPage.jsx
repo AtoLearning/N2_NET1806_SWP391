@@ -5,7 +5,7 @@ import AfterSearchPost from "../../components/AllPostList/AfterSearchPost";
 import FilterSearch from "../../components/FilterSearch/FilterSearch";
 import FilterAdress from "../../components/FilterAddress/FilterAddress";
 import './SearchPageStyle.css';
-import {useLocation, useParams} from "react-router-dom";
+
 
 export default function SearchPage() {
     const location = useLocation();
