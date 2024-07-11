@@ -15,7 +15,7 @@ import java.util.Base64;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/customer")
+@RequestMapping("/api/v1")
 @Slf4j
 public class CustomerController {
     private final RedisTemplate<String, Object> redisTemplate;
@@ -25,7 +25,7 @@ public class CustomerController {
         this.redisTemplate = redisTemplate;
     }
 
-    @GetMapping("/profile")
+    @GetMapping("/customer/permission/profile")
     public ResponseEntity<ResponseDto> getCustomerProfile(
             @CookieValue(name = "SESSION", defaultValue = "") String sessionId) {
         sessionId = new String(Base64.getDecoder().decode(sessionId));

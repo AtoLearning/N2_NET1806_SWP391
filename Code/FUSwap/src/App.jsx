@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import {BrowserRouter, Navigate, Route, Routes, useLocation} from 'react-router-dom'
 import GHeader from './components/Header/GHeader'
 import CHeader from './components/Header/CHeader'
 import Footer from './components/Footer/Footer'
@@ -10,7 +10,6 @@ import NotFound from './pages/NotFound/NotFound'
 import Role from './pages/Login/Role/Role'
 import LoginCustomer from './pages/Login/LoginCustomer/LoginCustomer'
 import LoginManager from './pages/Login/LoginManager/LoginManager'
-import SearchPage from "./pages/SearchPage/SearchPage.jsx";
 import PostInform from './pages/PostInform/PostInform'
 import MyPost from './pages/MyPost/MyPost'
 import TradePost from './pages/Post/TradePost'
@@ -20,71 +19,101 @@ import TheOrders from './pages/TheOrders/TheOrders.jsx'
 import UserTransaction from './pages/Transactions/UserTransaction.jsx'
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { ToastContainer } from 'react-toastify'
 
 const baseURL = "http://localhost:8080/api/v1/auth-status"
 
-function App() {
-    return (
-        <BrowserRouter>
-            <HeaderControl />
-            <Routes>
-                <Route path='/' element={<PostInform />} />
-                <Route path='/home' element={<HomePage />} />
-                <Route path='/about_us' element={<AboutUs />} />
-                <Route path='/not_found' element={<NotFound />} />
-                <Route path='/role' element={<Role />} />
-                <Route path='/c/login' element={<LoginCustomer />} />
-                <Route path='/m/login' element={<LoginManager />} />
-                <Route path='/SearchPage' element={<SearchPage />} />
-                <Route path='/my_profile' element={<MyProfile />} />
-                <Route path='/PostInform' element={<PostInform />} />
-                <Route path="/my_post" element={<MyPost />} />
-                <Route path='/trade_post' element={<TradePost />} />
-                <Route path='/sell_post' element={<SellPost />} />
-                <Route path='/the_orders' element={<TheOrders />} />
-                <Route path='/sell_transaction' element={<UserTransaction/>} />
-                <Route path="/post/:id" element={<PostInform />} /> 
-            </Routes>
-            <FooterControl />
-        </BrowserRouter>
-    );
+const guestRoutes = (
+    <>
+        <GHeader />
+        <Routes>
+            <Route path='/' element={<Welcome />} />
+            <Route path='/home' element={<HomePage />} />
+            <Route path='/about-us' element={<AboutUs />} />
+            <Route path='/not-found' element={<NotFound />} />
+            <Route path='/role' element={<Role />} />
+            <Route path='/c/login' element={<LoginCustomer />} />
+            <Route path='/m/login' element={<LoginManager />} />
+            <Route path="*" element={<Navigate to="/role" />} />
+        </Routes>
+    </>
+);
 
+const customerRoutes = (
+    <>
+        <CHeader />
+        <Routes>
+            <Route path='/' element={<Welcome />} />
+            <Route path='/home' element={<HomePage />} />
+            <Route path='/about-us' element={<AboutUs />} />
+            <Route path='/not-found' element={<NotFound />} />
+            <Route path='/post/details/:postId' element={<PostInform />} />
+            {/*<Route path='/SearchPage' element={<SearchPage />} />*/}
+            <Route path='/c/my-profile' element={<CProfile />} />
+            <Route path="/c/my-posts" element={<MyPost />} />
+            <Route path='/c/trade-post' element={<TradePost />} />
+            <Route path='/c/sell-post' element={<SellPost />} />
+            <Route path="*" element={<Navigate to="/not-found" />} />
+        </Routes>
+    </>
+);
+
+const managerRoutes = (
+    <>
+        <CHeader />
+        <Routes>
+            <Route path='/' element={<Welcome />} />
+            <Route path='/home' element={<HomePage />} />
+            <Route path='/about-us' element={<AboutUs />} />
+            <Route path='/not-found' element={<NotFound />} />
+            <Route path='/post/details/:postId' element={<PostInform />} />
+            <Route path="*" element={<Navigate to="/not-found" />} />
+        </Routes>
+    </>
+);
+
+function App() {
+  return (
+    <BrowserRouter>
+        <ToastContainer position="top-right" autoClose={3000} />
+        <RoutesComponent />
+        <FooterControl />
+    </BrowserRouter>
+  );
 }
 
-function HeaderControl() {
-    const [authStatus, setAuthStatus] = useState(false);
-    const [role, setRole] = useState("");
+function RoutesComponent() {
+    // const [authStatus, setAuthStatus] = useState(false);
+    // const [role, setRole] = useState("");
+    const [route, setRoute] = useState(guestRoutes);
+    const [loading, setLoading] = useState(true);
     const checkAuthStatus = async () => {
         try {
             const response = await axios.get(baseURL, { withCredentials: true });
             if (response.status === 200) {
-                setAuthStatus(true)
-                setRole(response.data.obj)
+                if (response.data.obj.includes('ROLE_ADMIN') || response.data.obj.includes('ROLE_MODERATOR')) {
+                    setRoute(managerRoutes);
+                } else if (response.data.obj.includes('ROLE_CUSTOMER')) {
+                    setRoute(customerRoutes);
+                }
             }
         } catch (error) {
             if (error.response && error.response.status === 401) {
-                setAuthStatus(false);
-                setRole("")
+                setRoute(guestRoutes);
             }
-            console.log(error);
+        } finally {
+            setLoading(false); // Đánh dấu đã kết thúc loading sau khi xử lý
         }
     };
     useEffect(() => {
         checkAuthStatus();
     }, []);
-    if (authStatus) {
-        if (role.includes('ROLE_ADMIN') || role.includes('ROLE_MODERATOR')) {
-            console.log('ROLE_ADMIN');
-            return <CHeader />
-        } else if (role.includes('ROLE_CUSTOMER')) {
-            console.log('ROLE_CUSTOMER');
-            return <CHeader />
-        }
-    } else {
-        console.log("GUEST")
-        return <GHeader />
+
+    if (loading) {
+        return <div>Loading...</div>; // Nếu đang loading, hiển thị thông báo loading
     }
 
+    return route;
 }
 
 function FooterControl() {
