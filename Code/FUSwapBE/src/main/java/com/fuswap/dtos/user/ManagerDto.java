@@ -23,6 +23,7 @@ public class ManagerDto implements Serializable {
     String phone;
     String avatar;
     Date dob;
+    String gender;
 
     @Override
     public String toString() {
@@ -33,6 +34,7 @@ public class ManagerDto implements Serializable {
                 ", Phone='" + phone + '\'' +
                 ", Avatar='" + avatar + '\'' +
                 ", DOB=" + dob +
+                ", Gender='" + gender + '\'' +
                 '}';
     }
 }

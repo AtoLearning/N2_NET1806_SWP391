@@ -107,6 +107,7 @@ public class GoodsPostService {
                         goodsPost.getCustomer().getPhone(),
                         goodsPost.getCustomer().getDOB(),
                         goodsPost.getCustomer().getAddress(),
+                        goodsPost.getCustomer().getGender(),
                         goodsPost.getCustomer().getIsVerified(),
                         feedbackService.getFeedbackBySupplier(goodsPost.getCustomer().getCUserName())
                 ),
@@ -259,7 +260,7 @@ public class GoodsPostService {
         return false;
     }
 
-    public GoodsPostViewDto getPostDetails(Long postId) {
+    public GoodsPostViewDto getPostDetails(Long postId)     {
         GoodsPost goodsPost = goodsPostRepository.findByPostID(postId);
         if(goodsPost != null) {
             GoodsPostViewDto goodsPostViewDto = new GoodsPostViewDto();
@@ -280,6 +281,7 @@ public class GoodsPostService {
                     goodsPost.getCustomer().getPhone(),
                     goodsPost.getCustomer().getDOB(),
                     goodsPost.getCustomer().getAddress(),
+                    goodsPost.getCustomer().getGender(),
                     goodsPost.getCustomer().getIsVerified(),
                     feedbackService.getFeedbackBySupplier(goodsPost.getCustomer().getCUserName())
             ));

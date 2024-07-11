@@ -26,8 +26,8 @@ public class CustomerDto implements Serializable{
     Float points;
     String phone;
     Date dob;
+    String gender;
     String address;
-//    FeedbackDto feedbackDto;
     boolean isVerified;
 
     @Override
@@ -42,7 +42,7 @@ public class CustomerDto implements Serializable{
                 ", phone='" + phone + '\'' +
                 ", dob=" + dob +
                 ", address='" + address + '\'' +
-//                ", feedbackDto='" + feedbackDto + '\'' +
+                ", gender='" + gender + '\'' +
                 ", isVerified=" + isVerified +
                 '}';
     }
