@@ -6,7 +6,6 @@ import Footer from './components/Footer/Footer'
 import Welcome from './pages/Welcome'
 import HomePage from './pages/HomePage/HomePage'
 import AboutUs from './pages/AboutUs'
-import CProfile from './pages/CProfile'
 import NotFound from './pages/NotFound/NotFound'
 import Role from './pages/Login/Role/Role'
 import LoginCustomer from './pages/Login/LoginCustomer/LoginCustomer'
@@ -16,34 +15,37 @@ import PostInform from './pages/PostInform/PostInform'
 import MyPost from './pages/MyPost/MyPost'
 import TradePost from './pages/Post/TradePost'
 import SellPost from './pages/Post/SellPost'
-import axios from "axios";
-import { useEffect, useState } from "react";
+import MyProfile from './pages/MyProfile/MyProfile.jsx'
+import TheOrders from './pages/TheOrders/TheOrders.jsx'
+import axios from "axios"
+import { useEffect, useState } from "react"
 
 const baseURL = "http://localhost:8080/api/v1/auth-status"
 
 function App() {
-  return (
-    <BrowserRouter>
-        <HeaderControl />
-        <Routes>
-            <Route path='/' element={<PostInform/>} />
-            <Route path='/home' element={<HomePage />} />
-            <Route path='/about_us' element={<AboutUs />} />
-            <Route path='/not_found' element={<NotFound />} />
-            <Route path='/role' element={<Role />} />
-            <Route path='/c/login' element={<LoginCustomer />} />
-            <Route path='/m/login' element={<LoginManager />} />
-            <Route path='/SearchPage' element={<SearchPage />} />
-            <Route path='/customer_profile' element={<CProfile />} />
-            <Route path='/PostInform' element={<PostInform />} />
-            <Route path="/my_post" element={<MyPost />} />
+    return (
+        <BrowserRouter>
+            <HeaderControl />
+            <Routes>
+                <Route path='/' element={<PostInform />} />
+                <Route path='/home' element={<HomePage />} />
+                <Route path='/about_us' element={<AboutUs />} />
+                <Route path='/not_found' element={<NotFound />} />
+                <Route path='/role' element={<Role />} />
+                <Route path='/c/login' element={<LoginCustomer />} />
+                <Route path='/m/login' element={<LoginManager />} />
+                <Route path='/SearchPage' element={<SearchPage />} />
+                <Route path='/my_profile' element={<MyProfile />} />
+                <Route path='/PostInform' element={<PostInform />} />
+                <Route path="/my_post" element={<MyPost />} />
                 <Route path='/trade_post' element={<TradePost />} />
                 <Route path='/sell_post' element={<SellPost />} />
-        </Routes>
-        <FooterControl />
-    </BrowserRouter>
-  );
-   
+                <Route path='/the_orders' element={<TheOrders />} />
+            </Routes>
+            <FooterControl />
+        </BrowserRouter>
+    );
+
 }
 
 function HeaderControl() {

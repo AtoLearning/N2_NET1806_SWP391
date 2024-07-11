@@ -39,7 +39,7 @@ export default function SideBar() {
                                 <Link
                                     className={`subMenuItem ${selectedItem === 'My Profile' ? 'active' : ''}`}
                                     onClick={() => handleItemClick("My Profile")}
-                                    to={""}
+                                    to="/my_profile"
                                 >
                                     <span>My Profile</span>
                                 </Link>
@@ -70,7 +70,7 @@ export default function SideBar() {
                     <Link 
                     className={`menuItem ${selectedItem === 'The Orders' ? 'active' : ''}`}
                     onClick={() => handleItemClick("The Orders")}
-                    to={""}
+                    to={"/the_orders"}
                     >
                         <FaBox className='menuIcon' />
                         <span>The Orders</span>

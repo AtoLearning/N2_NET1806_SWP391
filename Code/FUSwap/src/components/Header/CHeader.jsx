@@ -49,12 +49,12 @@ export default function CHeader() {
                     </DropdownTrigger>
                     <DropdownMenu aria-label="User Actions">
                         <DropdownItem key="UserInfo">
-                            <Link to="/customer_profile">
+                            <Link to="/my_profile">
                                 My Profile
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="TheOrders">
-                            <Link to="">
+                            <Link to="/the_orders">
                                 The Orders
                             </Link>
                         </DropdownItem>

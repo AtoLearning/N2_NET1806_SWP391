@@ -1,0 +1,222 @@
+.orders-contain{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    font-size: 1.2vw;
+    font-family: Taviraj;
+}
+.orders-left{
+    width: 15%;
+}
+.orders-right{
+    width: 85%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.orders-head{
+    width: 80%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.orders-head-left{
+    width: 25%;
+    height: 60%;
+    position: relative;
+}
+.input-post-id{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    padding: 4%;
+    font-size: 1vw;
+    outline: none;
+    border: 2px solid #ff914d;
+}
+.orders-head-left p{
+    width: 30%;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    color: gray;
+    pointer-events: none;
+    transition: 0.5s ease;
+}
+
+.input-post-id:focus + p,
+.input-post-id:valid + p{
+    top: -4%;
+    height: 50%;
+    font-size: 1vw;
+    background-color: #ffcc00;
+    color: black;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.box-symbol-img{
+    position: absolute;
+    height: 100%;
+    width: 20%;
+    border-radius: 12px;
+    background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    top: 50%;
+    left: 80%;
+    transform: translateY(-50%);
+}
+.symbol-img{
+    height: 90%;
+}
+.orders-head-right{
+    width: 27%;
+    height: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+    background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
+}
+.orders-head-right label{
+    width: 33%;
+    text-align: center;
+}
+.orders-head-right img{
+    width: 24%;
+    height: 100%;
+}
+.orders-head-right p{
+    width: 43%;
+}
+.orders-content{
+    width: 80%;
+}
+.point-img{
+    height: 90%;
+}
+.post-img{
+    width: 20%;
+}
+.orders-card{
+    width: 100%;
+    height: 28vh;
+    margin: 1% 0;
+    border-top: 3px solid #ffde59;
+    border-left: 3px solid #ffde59;
+    border-right: 3px solid #ff914d;
+    border-bottom: 3px solid #ff914d;
+    display: flex;
+}
+.orders-card:hover{
+    box-shadow: 2px 2px 7px 0px #ff914d;
+}
+.orders-card:hover .feedback-btn{
+    background-color: white;
+}
+.box-post-img{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.post-img{
+    height: 90%;
+    width: 90%;
+}
+.box-post-content{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.orders-post-title{
+    width: 90%;
+    height:25%;
+    display: flex;
+    align-items: center;
+    font-size: 1.5vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.orders-post-content{
+    height: 45%;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.feedback-btn{
+    height: 15%;
+    border-radius: 40px;
+    width: 30%;
+    border: 2px solid rgb(255, 115, 0);
+}
+.feedback-btn:hover{
+    letter-spacing: 2px;
+    border-top: none;
+    border-left: none;
+    border-right: 2px solid rgb(255, 115, 0);
+    border-bottom: 2px solid rgb(255, 115, 0);
+    transition: 0.3s all ease-in;
+    background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
+}
+.orders-btn{
+    height: 10%;
+    width: 30%;
+    font-size: 0.8vw;
+}
+.orders-btn:hover{
+    letter-spacing: 2px;
+    font-size: 1vw;
+    border-bottom: 2px solid red;
+    color: red;
+    transition: 0.1s all ease-in;
+}
+
+.box-post-user{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.box-post-user{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.box-img-ava{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+}
+.nickname{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3vw;
+}
+.img-ava{
+    height: 100%;
+    border-radius: 50%;
+}
+.box-point{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 0.9vw;
+}
