@@ -49,10 +49,11 @@ const customerRoutes = (
             <Route path='/not-found' element={<NotFound />} />
             <Route path='/post/details/:postId' element={<PostInform />} />
             {/*<Route path='/SearchPage' element={<SearchPage />} />*/}
-            <Route path='/c/my-profile' element={<CProfile />} />
+            <Route path='/c/my-profile' element={<MyProfile />} />
             <Route path="/c/my-posts" element={<MyPost />} />
             <Route path='/c/trade-post' element={<TradePost />} />
             <Route path='/c/sell-post' element={<SellPost />} />
+            <Route path='/c/my-transaction' element={<UserTransaction />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
         </Routes>
     </>
