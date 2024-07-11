@@ -1,93 +1,133 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../MyProfile/MyProfileStyle.css'
 import SideBar from '../../components/SideBar/SideBar'
-import axios from 'axios';
+import axios from 'axios'
+import moment from 'moment'
+import {storage} from "../../firebaseConfig.js";
+import {ref, uploadBytes, getDownloadURL} from "firebase/storage";
+import {v4} from "uuid";
+
+const baseUrl = "http://localhost:8080/api/v1/customer/permission/profile"
+const updateUrl = "http://localhost:8080/api/v1/customer/permission/profile/update"
+
+const initialState = {
+    givenName: '',
+    nickname: '',
+    avatar: '',
+    phone: '',
+    dob: '',
+    gender: '',
+}
 
 export default function MyProfile() {
     //--------------------------------------------------------------------------------
 
-    const [profile, setProfile] = useState({
-        fullName: '',
-        nickname: '',
-        studentCode: '',
-        email: '',
-        gender: '',
-        birthday: '',
-        phone: '',
-        img: ''
-    });
+    const [profile, setProfile] = useState(initialState);
+    const [state, setState] = useState(initialState);
+    const [image, setImage] = useState(null);
+    const [imageURL, setImageURL] = useState("");
+    const updateImage = () => {
+        return new Promise((resolve, reject) => {
+            if (image == null) {
+                resolve(state.avatar);
+                return;
+            }
+            const imageRef = ref(storage, `images/${image.name + v4()}`);
+            uploadBytes(imageRef, image)
+                .then(snapshot => getDownloadURL(snapshot.ref))
+                .then(url => {
+                    console.log("Image URL:", url);
+                    resolve(url);
+                })
+                .catch(error => {
+                    console.error("Error uploading image:", error);
+                    reject(error);
+                });
+        });
+    };
     //--------------------------------------------------------------------------------
 
-    const [originalData, setOriginalData] = useState({});// lưu trữ dữ liệu ban đầu
-    //thay isFormModified --> isEditing
-    // const [isEditing, setIsEditing] = useState(false); // dùng để đánh dấu xem coi người dùng có đang sửa dữ liệu không để hiển thị nút submit (có api)
-    const [isFormModified, setIsFormModified] = useState(false);// dùng để đánh dấu xem coi người dùng có đang sửa dữ liệu không để hiển thị nút submit
+    const [isEditing, setIsEditing] = useState(false);
+
 
     //--------------------------------------------------------------------------------
     useEffect(() => {
         const fetchProfileData = async () => {
             try {
-                // Thay thế URL này bằng URL API thực tế của bạn
-                const response = await axios.get('http://your-backend-url/api/profile');
-                setProfile(response.data);
-                setOriginalData(response.data);
-
+                const response = await axios.get(baseUrl, {withCredentials: true });
+                const profileData = response.data.obj;
+                profileData.dob = moment(profileData.dob).format('YYYY-MM-DD');
+                setProfile(profileData);
+                setState(profileData);
             } catch (error) {
-                console.error('Error fetching profile data:', error);
-                //có thể bỏ đi phần fake dữ liệu bên dưới
-                //--------------------------------------------------------------------------------
-                // Sử dụng dữ liệu giả nếu không có API
-                const fakeData = {
-                    fullName: 'John Doe',
-                    nickname: 'Johnny',
-                    studentCode: '123456',
-                    email: 'john.doe@example.com',
-                    gender: 'Male',
-                    birthday: '1990-01-01',
-                    phone: '123-456-7890',
-                    img: 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FAnhDaiDienNu.jpg?alt=media&token=95e71a66-60a3-4a3d-b5d5-86b81b6bcdf1'
-                };
-
-                setProfile(fakeData);
-                setOriginalData(fakeData);
-                //--------------------------------------------------------------------------------
+                console.log(error);
             }
         };
 
         fetchProfileData();
     }, []);
     //--------------------------------------------------------------------------------
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProfile({
-            ...profile,
-            [name]: value,
-        });
-        //thay setIsFormModified --> setIsEditing
-        // setIsEditing(true);
-        setIsFormModified(true);
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        setImage(file);
+        setImageURL(URL.createObjectURL(file));
     };
+    const updatePersonalInformation = async (data) => {
+        console.log(data);
+        try {
+            const response = await axios.put(updateUrl, data, {withCredentials: true, responseType: "json"});
+            if (response.status === 200) {
+                // navigate('/my-posts');
+            }
+        }catch(error) {
+            if(error.response) {
+                console.log(error);
+            }
+        }
+    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (validateForm()) {
+            updateImage().then(url => {
+                const newState = { ...state, avatar: url };
+                updatePersonalInformation(newState);
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+        // else {
+        //     toast.error("Some info is invalid ~ Pls check again");
+        // }
+    }
+    const triggerFileInput = () => {
+        document.getElementById('avatarInput').click();
+        setIsEditing(true);
+    }
 
-    //--------------------------------------------------------------------------------
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //       await axios.put('', profile);
-    //       alert('Profile updated successfully!');
-    //       setOriginalData(profile);
-    //       setIsEditing(false);
-    //     } catch (error) {
-    //       console.error('Error updating profile data:', error);
-    //       alert('Error updating profile data');
-    //     }
-    // };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Xử lý gửi dữ liệu cập nhật lên backend
-        console.log('Form data submitted:', profile);
-    };
-    //--------------------------------------------------------------------------------
+    const handleInputChange = (event) => {
+        let { name, value } = event.target;
+        setState((state) => ({ ...state, [name]: value }));
+        setProfile((profile) => ({ ...profile, [name]: value }));
+        setIsEditing(true);
+    }
+    const validateForm = () => {
+        // let isValid = true;
+        // let errors = { ...error_init };
+        //
+        // if (cateName.trim().length < 5) {
+        //     errors.cateName_err = 'Category name must be more than 4 words';
+        //     isValid = false;
+        // }
+        //
+        // if(!(available.trim().toLowerCase() === "true" || available.trim().toLowerCase() === "false")) {
+        //     errors.available_err = 'TRUE or FALSE';
+        //     isValid = false;
+        // }
+        //
+        // setErrors(errors);
+        // return isValid;
+        return true;
+    }
 
     return (
         <div className='profile-contain'>
@@ -100,18 +140,17 @@ export default function MyProfile() {
                     </div>
                     <div className='profile-content'>
                         <form
-                            method='post'
-                            className='profile-info'
                             onSubmit={handleSubmit}
+                            className='profile-info'
                         >
                             <div className='box-info'>
                                 <label>Full Name:</label>
                                 <input
                                     className='info-input'
                                     type='text'
-                                    name='fullName'
-                                    value={profile.fullName}
-                                    onChange={handleChange}
+                                    name='givenName'
+                                    value={state.givenName}
+                                    onChange={handleInputChange}
                                 />
                             </div>
 
@@ -120,9 +159,9 @@ export default function MyProfile() {
                                 <input
                                     className='info-input'
                                     type='text'
-                                    name='nickName'
-                                    value={profile.nickname}
-                                    onChange={handleChange}
+                                    name='nickname'
+                                    value={state.nickname}
+                                    onChange={handleInputChange}
                                 />
                             </div>
 
@@ -131,8 +170,8 @@ export default function MyProfile() {
                                 <input
                                     className='info-input'
                                     type='email'
-                                    name='email'
-                                    value={profile.email}
+                                    name='cuserName'
+                                    value={profile.cuserName}
                                     readOnly
                                 />
                             </div>
@@ -145,8 +184,8 @@ export default function MyProfile() {
                                             type='radio'
                                             name='gender'
                                             value="Male"
-                                            checked={profile.gender === 'Male'}
-                                            onChange={handleChange}
+                                            checked={state.gender === 'Male'}
+                                            onChange={handleInputChange}
                                         />
                                         Male
                                     </p>
@@ -155,8 +194,8 @@ export default function MyProfile() {
                                             type='radio'
                                             name='gender'
                                             value="Female"
-                                            checked={profile.gender === 'Female'}
-                                            onChange={handleChange}
+                                            checked={state.gender === 'Female'}
+                                            onChange={handleInputChange}
                                         />
                                         Female
                                     </p>
@@ -165,8 +204,8 @@ export default function MyProfile() {
                                             type='radio'
                                             name='gender'
                                             value="Other"
-                                            checked={profile.gender === 'Other'}
-                                            onChange={handleChange}
+                                            checked={state.gender === 'Other'}
+                                            onChange={handleInputChange}
                                         />
                                         Other
                                     </p>
@@ -178,9 +217,9 @@ export default function MyProfile() {
                                 <input
                                     className='info-input'
                                     type='date'
-                                    name='birthday'
-                                    value={profile.birthday}
-                                    onChange={handleChange}
+                                    name='dob'
+                                    value={state.dob}
+                                    onChange={handleInputChange}
                                 />
                             </div>
 
@@ -190,27 +229,36 @@ export default function MyProfile() {
                                     className='info-input'
                                     type='phone'
                                     name='phone'
-                                    value={profile.phone}
-                                    onChange={handleChange}
+                                    value={state.phone}
+                                    onChange={handleInputChange}
                                 />
                             </div>
-                            {/* {isEditing && (<div className='box-info box-submit'><button className='update-btn' type="submit">Submit</button></div>)} */}
-                            {isFormModified && (<div className='box-info box-submit'><button className='update-btn' type="submit">Save</button></div>)}
+                            {isEditing && (<div className='box-info box-submit'><button className='update-btn' type="submit">Submit</button></div>)}
                         </form>
-                        <div className='profile-img'>
+                            <div className='profile-img'>
                             <div className='box-img'>
                                 <img
                                     className='avatar-img'
-                                    src={profile.img}
+                                    name='avatar'
+                                    src={imageURL || profile.avatar}
                                     alt='avatar'
+                                    type='file'
+                                    onChange={handleImageChange}
                                 />
                             </div>
-                            <div className='box-button'>
-                                <button className='avatar-button'>
-                                    Change picture
-                                </button>
+                                <div className='box-button'>
+                                    <input
+                                        type='file'
+                                        id='avatarInput'
+                                        className='avatar-input'
+                                        style={{display: 'none'}}
+                                        onChange={handleImageChange}
+                                    />
+                                    <button className='avatar-button' onClick={triggerFileInput}>
+                                        Change picture
+                                    </button>
+                                </div>
                             </div>
-                        </div>
                     </div>
                 </div>
             </div>
