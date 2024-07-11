@@ -75,9 +75,9 @@ const PostInformSample = () => {
                                         <p className="category-label">Category: {detailsPost.cateName}</p>
                                     </div>
                                     <div className="address-fields">
-                                        <p className="address-label-select1"> {post.address.city}</p>
-                                        <p className="address-label-select2">{post.address.district}</p>
-                                        <p className="address-label-select3"> {post.address.ward}</p>
+                                        <p className="address-label-select1"> post.address.city</p>
+                                        <p className="address-label-select2">post.address.district</p>
+                                        <p className="address-label-select3"> post.address.ward</p>
                                     </div>
                                 </div>
                                 
