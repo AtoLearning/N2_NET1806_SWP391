@@ -18,10 +18,15 @@ const PostInformSample = () => {
         description: 'This is a sample post description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna. Morbi a bibendum metus. Donec scelerisque sollicitudin enim eu venenatis. Duis tincidunt laoreet ex, in pretium orci vestibulum eget. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
         category: 'Sample Category',
         isExchange: false,
-        unitPrice: 30000,
+        unitPrice: 3000000000,
         student: {
             name: 'Student\'s name',
             score: '.......'
+        },
+        address: {
+            city: 'Hồ Chí Minh',
+            district: 'Quận 1',
+            ward: 'Phường 13'
         },
         image: 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FSymbol.png?alt=media&token=e4b817f4-8816-4106-8649-7c8560029868',
         studentAvatar: 'https://via.placeholder.com/100x100.png?text=Avatar',
@@ -74,41 +79,62 @@ const PostInformSample = () => {
                                 alt="Product"
                             />
                         </div>
+
                         <div className="info-column">
                             <div className="product-info">
-                                <h1 className="product-name">{post.title}</h1>
-                                <p className="description-label">Description:</p>
-                                <p>{post.description}</p>
-                                <p className="category-label">Category: {post.category}</p>
-                                <button className="trade-button">{post.isExchange ? (
+                                <div className="PostInform-header">
+                                    <h1 className="product-name">{post.title}</h1>
+                                    <form className='search-special-id'>
+                                        <input
+                                            className='input-special-id'
+                                            type='text'
+                                            name='postId'
+                                            required
+                                        />
+                                        <p>PostID</p>
+                                        <button className='special-box-symbol-img'>
+                                            <img
+                                                className='special-symbol-img'
+                                                src='https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FSymbol.png?alt=media&token=e4b817f4-8816-4106-8649-7c8560029868'
+                                                alt='symbol'
+                                            />
+                                        </button>
+                                    </form>
+                                </div>
+                                
+                                <div className="product-details">
+                                    <div className="product-description">
+                                        <p className="description-label">Description:</p>
+                                        <p>{post.description}</p>
+                                        <p className="category-label">Category: {post.category}</p>
+                                    </div>
+                                    <div className="address-fields">
+                                        <p className="address-label-select1"> {post.address.city}</p>
+                                        <p className="address-label-select2">{post.address.district}</p>
+                                        <p className="address-label-select3"> {post.address.ward}</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="PostInform-button">
+                                <button className="PostInform-trade-button">{post.isExchange ? (
                                     <>
                                         <span>Trade </span>
-                                        <span className="product-price"><FaHandshake /></span>
+                                        
                                     </>
                                 ) : (
                                     <>
                                         <span>{post.unitPrice} </span>
-                                        <span className="product-price"><FaMoneyBillWave /></span>
+                                        
                                     </>
                                 )}</button>
+                                </div>
+                               
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* <div className="student-info">
-                    <img
-                        loading="lazy"
-                        src={post.studentAvatar}
-                        className="student-avatar"
-                        alt="Student avatar"
-                    />
-                    <div className="student-details">
-                        <h2 className="student-name">{post.student.name}</h2>
-                        <p className="student-score">score: {post.student.score}</p>
-                    </div>
-                </div> */}
             </article>
-            <UserInform/>   
+            <UserInform />
             <RelatedGood relatedGoods={post.relatedGoods} />
         </section>
     );
