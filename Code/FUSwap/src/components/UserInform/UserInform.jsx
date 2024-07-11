@@ -1,87 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './UserInformStyle.css';  // Đảm bảo import file CSS
+import PropTypes from 'prop-types';
+import './UserInformStyle.css';
 
-const apiUrl = "http://localhost:8080/api/v1/guest/user/1"; // URL API để lấy dữ liệu người dùng thực tế
-
-const UserInform = () => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [useSampleData, setUseSampleData] = useState(true); // State để kiểm tra có sử dụng dữ liệu mẫu hay không
-
-  // Dữ liệu mẫu
-  const sampleData = {
-    name: "Student's name",
-    avatar: 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FAnhDaiDienNu.jpg?alt=media&token=95e71a66-60a3-4a3d-b5d5-86b81b6bcdf1',
-    fullName: 'Xxxxx Xxxx Xxxxx Xxxxx',
-    phone: '0xx xxxx xxx',
-    email: 'abcSExxxxxx@fpt.edu.vn',
-    streetNumber: 'Abc Bca Cab',
-    street: 'Abc Bca Cab',
-    ward: 'Abc Bca Cab',
-    district: 'Abc Bca Cab',
-    city: 'Abc Bca Cab',
-    point: 12,
-    rank: "Silver", // Thêm rank vào dữ liệu mẫu
-    feedbacks: [
-      {
-        avatar: 'https://cdn.builder.io/api/v1/image/assets/TEMP/aa4dad9768dcd770e0f35fa48082b99b20d8231e7533f4ccc8fd6041a47d14a0?apiKey=a4b48bf45df64e12b8f4c0de29c4c28f&',
-        title: "Goods' Tittle",
-        type: 'Trade',
-        comment: "That's great"
-      },
-      {
-        avatar: 'https://cdn.builder.io/api/v1/image/assets/TEMP/aa4dad9768dcd770e0f35fa48082b99b20d8231e7533f4ccc8fd6041a47d14a0?apiKey=a4b48bf45df64e12b8f4c0de29c4c28f&',
-        title: "Goods' Tittle",
-        type: 'Sell',
-        comment: "That's great"
-      },
-      {
-        avatar: 'https://cdn.builder.io/api/v1/image/assets/TEMP/aa4dad9768dcd770e0f35fa48082b99b20d8231e7533f4ccc8fd6041a47d14a0?apiKey=a4b48bf45df64e12b8f4c0de29c4c28f&',
-        title: "Goods' Tittle",
-        type: 'Trade',
-        comment: "That's great"
-      },
-      {
-        avatar: 'https://cdn.builder.io/api/v1/image/assets/TEMP/aa4dad9768dcd770e0f35fa48082b99b20d8231e7533f4ccc8fd6041a47d14a0?apiKey=a4b48bf45df64e12b8f4c0de29c4c28f&',
-        title: "Goods' Tittle",
-        type: 'Sell',
-        comment: "That's great"
-      }
-    ]
-  };
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      if (useSampleData) {
-        // Sử dụng dữ liệu mẫu và đặt loading thành false
-        setUser(sampleData);
-        setLoading(false);
-      } else {
-        try {
-          const response = await axios.get(apiUrl, {
-            withCredentials: true
-          });
-          if (response.status === 200) {
-            setUser(response.data);
-          }
-        } catch (error) {
-          console.log(error);
-        } finally {
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchUser();
-  }, [useSampleData]);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtName, cityName}) => {
 
   // Lấy từ 1 đến 3 feedbacks
-  const feedbacksToShow = user.feedbacks.slice(0, 3);
+  const feedbacksToShow = customerViewDto.feedbackDtoList.slice(0, 3);
+  console.log(feedbacksToShow);
 
   // Xác định màu nền, viền và chữ dựa trên rank
   let backgroundColor, borderColor, textColor;
@@ -110,7 +34,7 @@ const UserInform = () => {
           <div className="UIF-avatar-container">
             <img
               loading="lazy"
-              src={user.avatar}
+              src={customerViewDto.avatar}
               className="UIF-avatar"
               alt="Student avatar"
             />
@@ -118,8 +42,8 @@ const UserInform = () => {
 
           <div className="UIF-level-container">
             <div className="UIF-level">
-              <h2 className="UIF-student-name">{user.name}</h2>
-              <p className="UIF-rank">Rank:<span className='UIF-rank-title'  style={{ backgroundColor, border: `2px solid ${borderColor}`, color: textColor }}> {user.rank}</span></p>
+              <h2 className="UIF-student-name">{customerViewDto.givenName}</h2>
+              <p className="UIF-rank">Rank:<span className='UIF-rank-title'  style={{ backgroundColor, border: `2px solid ${borderColor}`, color: textColor }}> {customerViewDto.givenName}</span></p> 
             </div>
           </div>
         </div>
@@ -156,19 +80,19 @@ const UserInform = () => {
                 <div className="UIF-feedback-item" key={index}>
                   <img
                     loading="lazy"
-                    src={feedback.avatar}
+                    src={feedback.consumerAvatar}
                     className="UIF-feedback-avatar"
                     alt="Feedback avatar"
                   />
-                  <div className="UIF-feedback-text" >
-                    <h4 className="UIF-feedback-title">{feedback.title}</h4>
-                    <p className="UIF-feedback-type">{feedback.type}</p>
-                    <p className="UIF-feedback-comment">{feedback.comment}</p>
+                  <div className="UIF-feedback-text">
+                    <h4 className="UIF-feedback-title">{feedback.feedbackTitle}</h4>
+                    <p className="UIF-feedback-type">{feedback.isExchange ? "Exchange" : "Sell"}</p>
+                    <p className="UIF-feedback-comment">{feedback.content}</p>
                   </div>
                 </div>
               ))}
-              {user.feedbacks.length > 3 && (
-                <a href="#" className="UIF-more-link" style={{ color: textColor }}>
+              {customerViewDto.feedbackDtoList.length > 3 && (
+                <a href="#" className="UIF-more-link">
                   More &gt;&gt;
                 </a>
               )}
@@ -179,5 +103,26 @@ const UserInform = () => {
     </section>
   );
 };
-
+UserInform.propTypes = {
+  customerViewDto: PropTypes.shape({
+    avatar: PropTypes.string,
+    givenName: PropTypes.string,
+    phone: PropTypes.string,
+    cuserName: PropTypes.string,
+    feedbackDtoList: PropTypes.arrayOf(
+        PropTypes.shape({
+          feedbackId: PropTypes.number.isRequired,
+          consumerAvatar: PropTypes.string.isRequired,
+          feedbackTitle: PropTypes.string.isRequired,
+          content: PropTypes.string.isRequired,
+          isExchange: PropTypes.bool.isRequired,
+        })
+    ).isRequired,
+  }).isRequired,
+  streetNumber: PropTypes.string.isRequired,
+  street: PropTypes.string.isRequired,
+  wardName: PropTypes.string.isRequired,
+  districtName: PropTypes.string.isRequired,
+  cityName: PropTypes.string.isRequired,
+};
 export default UserInform;

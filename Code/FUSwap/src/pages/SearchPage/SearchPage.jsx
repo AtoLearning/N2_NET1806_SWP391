@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import CategoryList from "../../components/Category/CategoryList";
 import AfterSearchPost from "../../components/AllPostList/AfterSearchPost";
 import FilterSearch from "../../components/FilterSearch/FilterSearch";
 import FilterAdress from "../../components/FilterAddress/FilterAddress";
@@ -14,12 +12,12 @@ export default function SearchPage() {
 
     return (
         <main className="search-container">
-            
+
                 <div className="search-content-wrapper">
                     <FilterSearch />
                 </div>
                 <div className="search-content">
-                    <h2 className="section-title">Search results for keyword '{searchQuery}'</h2>
+                    <h2 className="section-title">Search results for keyword {searchQuery}</h2>
                     <FilterAdress />
                     <AfterSearchPost />
                 </div>

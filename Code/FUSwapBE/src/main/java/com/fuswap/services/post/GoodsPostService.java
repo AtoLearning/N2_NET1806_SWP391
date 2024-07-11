@@ -4,14 +4,17 @@ import com.fuswap.dtos.location.CityDto;
 import com.fuswap.dtos.location.DistrictDto;
 import com.fuswap.dtos.location.WardDto;
 import com.fuswap.dtos.post.CategoryDto;
+import com.fuswap.dtos.post.FeedbackDto;
 import com.fuswap.dtos.user.CustomerDto;
 import com.fuswap.dtos.post.GoodsPostManageDto;
 import com.fuswap.dtos.post.GoodsPostViewDto;
+import com.fuswap.dtos.user.CustomerViewDto;
 import com.fuswap.entities.location.City;
 import com.fuswap.entities.location.District;
 import com.fuswap.entities.location.PostAddress;
 import com.fuswap.entities.location.Ward;
 import com.fuswap.entities.post.Category;
+import com.fuswap.entities.post.Feedback;
 import com.fuswap.entities.post.GoodsPost;
 import com.fuswap.entities.user.Customer;
 import com.fuswap.entities.user.Manager;
@@ -48,6 +51,7 @@ public class GoodsPostService {
     private final WardRepository wardRepository;
     private final DistrictRepository districtRepository;
     private final CityRepository cityRepository;
+    private final FeedbackService feedbackService;
     private final RedisTemplate<String, Object> redisTemplate;
 
     public GoodsPostService(GoodsPostRepository goodsPostRepository,
@@ -57,7 +61,7 @@ public class GoodsPostService {
                             PostAddressRepository postAddressRepository,
                             WardRepository wardRepository,
                             DistrictRepository districtRepository,
-                            CityRepository cityRepository,
+                            CityRepository cityRepository, FeedbackService feedbackService,
                             RedisTemplate<String, Object> redisTemplate) {
         this.goodsPostRepository = goodsPostRepository;
         this.managerRepository = managerRepository;
@@ -67,6 +71,7 @@ public class GoodsPostService {
         this.wardRepository = wardRepository;
         this.districtRepository = districtRepository;
         this.cityRepository = cityRepository;
+        this.feedbackService = feedbackService;
         this.redisTemplate = redisTemplate;
     }
 
@@ -92,7 +97,7 @@ public class GoodsPostService {
                 goodsPost.getUnitPrice(),
                 goodsPost.getCreateAt(),
                 goodsPost.getPostImage(),
-                new CustomerDto(
+                new CustomerViewDto(
                         goodsPost.getCustomer().getCUserName(),
                         goodsPost.getCustomer().getGivenName(),
                         goodsPost.getCustomer().getFamilyName(),
@@ -102,7 +107,8 @@ public class GoodsPostService {
                         goodsPost.getCustomer().getPhone(),
                         goodsPost.getCustomer().getDOB(),
                         goodsPost.getCustomer().getAddress(),
-                        goodsPost.getCustomer().getIsVerified()
+                        goodsPost.getCustomer().getIsVerified(),
+                        feedbackService.getFeedbackBySupplier(goodsPost.getCustomer().getCUserName())
                 ),
                 goodsPost.getPostAddress().getStreetNumber(),
                 goodsPost.getPostAddress().getStreet(),
@@ -147,19 +153,19 @@ public class GoodsPostService {
         ));
     }
 
-    public boolean createGoodsPost(GoodsPostManageDto goodsPostManageDto, String sessionId) {
+    public boolean createGoodsPost(GoodsPostManageDto goodsPostManageDto, String cUserName) {
         GoodsPost goodsPost = new GoodsPost();
         try {
             goodsPost.setSpecialPostID(geneSpecPostId());
             goodsPost.setTitle(goodsPostManageDto.getTitle());
-            goodsPost.setContent(goodsPostManageDto.getContent());
+            goodsPost.setContent(goodsPostManageDto.getPostContent());
             goodsPost.setIsExchange(goodsPostManageDto.getIsExchange());
             goodsPost.setIsAvailable(false);
             goodsPost.setPostImage(goodsPostManageDto.getPostImage());
             goodsPost.setUnitPrice(goodsPostManageDto.getUnitPrice());
             goodsPost.setCreateAt(Date.valueOf(LocalDate.now()));
 
-            Customer customer = getCustomerByCUserName(sessionId);
+            Customer customer = customerRepository.findByCUserName(cUserName);
             goodsPost.setCustomer(customer);
 
             Manager manager = managerRepository.findByMUserName("admin");
@@ -226,7 +232,7 @@ public class GoodsPostService {
         if(goodsPost.isPresent()) {
             if(goodsPost.get().getTransaction() == null && goodsPost.get().getCustomer().getCUserName().equals(username)) {
                 goodsPost.get().setTitle(goodsPostManageDto.getTitle());
-                goodsPost.get().setContent(goodsPostManageDto.getContent());
+                goodsPost.get().setContent(goodsPostManageDto.getPostContent());
                 goodsPost.get().setPostImage(goodsPostManageDto.getPostImage());
                 if(!goodsPost.get().getIsExchange()) {
                     goodsPost.get().setUnitPrice(goodsPostManageDto.getUnitPrice());
@@ -264,7 +270,7 @@ public class GoodsPostService {
             goodsPostViewDto.setUnitPrice(goodsPost.getUnitPrice());
             goodsPostViewDto.setCreateAt(goodsPost.getCreateAt());
             goodsPostViewDto.setPostImage(goodsPost.getPostImage());
-            goodsPostViewDto.setCustomerDto( new CustomerDto(
+            goodsPostViewDto.setCustomerViewDto( new CustomerViewDto(
                     goodsPost.getCustomer().getCUserName(),
                     goodsPost.getCustomer().getGivenName(),
                     goodsPost.getCustomer().getFamilyName(),
@@ -274,7 +280,8 @@ public class GoodsPostService {
                     goodsPost.getCustomer().getPhone(),
                     goodsPost.getCustomer().getDOB(),
                     goodsPost.getCustomer().getAddress(),
-                    goodsPost.getCustomer().getIsVerified()
+                    goodsPost.getCustomer().getIsVerified(),
+                    feedbackService.getFeedbackBySupplier(goodsPost.getCustomer().getCUserName())
             ));
             goodsPostViewDto.setStreetNumber(goodsPost.getPostAddress().getStreetNumber());
             goodsPostViewDto.setStreet(goodsPost.getPostAddress().getStreet());
@@ -292,7 +299,7 @@ public class GoodsPostService {
         if (goodsPost != null && goodsPost.getCustomer().getCUserName().equals(username)) {
             GoodsPostManageDto goodsPostManageDto = new GoodsPostManageDto();
             goodsPostManageDto.setTitle(goodsPost.getTitle());
-            goodsPostManageDto.setContent(goodsPost.getContent());
+            goodsPostManageDto.setPostContent(goodsPost.getContent());
             goodsPostManageDto.setIsExchange(goodsPost.getIsExchange());
             goodsPostManageDto.setUnitPrice(goodsPost.getUnitPrice());
             goodsPostManageDto.setPostImage(goodsPost.getPostImage());

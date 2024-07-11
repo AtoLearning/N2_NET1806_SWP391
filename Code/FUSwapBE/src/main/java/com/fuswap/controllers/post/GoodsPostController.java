@@ -3,7 +3,9 @@ package com.fuswap.controllers.post;
 import com.fuswap.dtos.post.GoodsPostManageDto;
 import com.fuswap.dtos.post.GoodsPostViewDto;
 import com.fuswap.dtos.ResponseDto;
+import com.fuswap.dtos.user.CustomerDto;
 import com.fuswap.services.post.GoodsPostService;
+import com.fuswap.services.user.CustomerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -18,9 +20,11 @@ import org.springframework.web.bind.annotation.*;
 public class GoodsPostController {
 
     private final GoodsPostService goodsPostService;
+    private final CustomerService customerService;
 
-    public GoodsPostController(GoodsPostService goodsPostService) {
+    public GoodsPostController(GoodsPostService goodsPostService, CustomerService customerService) {
         this.goodsPostService = goodsPostService;
+        this.customerService = customerService;
     }
 
     @GetMapping("/guest/posts")
@@ -51,7 +55,7 @@ public class GoodsPostController {
         }
     }
 
-    @GetMapping("/guest/post/details/{postId}")
+    @GetMapping("/customer/post/details/{postId}")
     public ResponseEntity<ResponseDto> getPostDetails(@PathVariable(name = "postId") Long postId) {
         GoodsPostViewDto goodsPostViewDto = goodsPostService.getPostDetails(postId);
         if(goodsPostViewDto != null) {
@@ -65,7 +69,7 @@ public class GoodsPostController {
         }
     }
 
-    @GetMapping("/customer/my-post/details/{postId}")
+    @GetMapping("/customer/permission/my-post/details/{postId}")
     public ResponseEntity<ResponseDto> getMyPostDetails(
             @PathVariable(name = "postId") Long postId,
             Authentication authentication) {
@@ -82,7 +86,7 @@ public class GoodsPostController {
         }
     }
 
-    @GetMapping("/customer/my-posts")
+    @GetMapping("/customer/permission/my-posts")
     public ResponseEntity<ResponseDto> getMyPosts(
             @RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
             Authentication authentication) {
@@ -91,7 +95,7 @@ public class GoodsPostController {
         Page<GoodsPostManageDto> goodsPostManageDtoPage = goodsPostService.getMyPosts(pageNo, username);
         if(!goodsPostManageDtoPage.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseDto("200 OK", "YOUR POSTS HERE", goodsPostManageDtoPage, goodsPostManageDtoPage.getTotalPages())
+                    new ResponseDto("200 OK", "YOUR POSTS HERE", goodsPostManageDtoPage.get(), goodsPostManageDtoPage.getTotalPages())
             );
         } else {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body(
@@ -100,27 +104,36 @@ public class GoodsPostController {
         }
     }
 
-    @PostMapping("/customer/my-post/create")
+    @PostMapping("/customer/permission/my-post/create")
     public ResponseEntity<ResponseDto> createGoodsPost(
             @RequestBody GoodsPostManageDto goodsPostManageDto,
-            @CookieValue(name = "SESSION") String sessionId) {
-        boolean isCreated = goodsPostService.createGoodsPost(goodsPostManageDto, sessionId);
+            Authentication authentication) {
+        String username = getUserNameInAuthentication(authentication);
+        boolean isFullInformation = customerService.isFullInformation(username);
+        if(!isFullInformation) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(new ResponseDto(
+                            "400.1",
+                            "Less personal information",
+                            "", 0));
+        }
+        boolean isCreated = goodsPostService.createGoodsPost(goodsPostManageDto, username);
         if(isCreated) {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(new ResponseDto(
-                            "201 CREATED",
+                            "201",
                             "Your post is moderating! Please wait for a moment.",
                             goodsPostManageDto, 0));
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(new ResponseDto(
-                            "400 BAD REQUEST",
+                            "400",
                             "Create post failed!",
                             "", 0));
         }
     }
 
-    @PutMapping("/customer/my-post/update/{postId}")
+    @PutMapping("/customer/permission/my-post/update/{postId}")
     public ResponseEntity<ResponseDto> updateGoodsPost(
             @PathVariable(name = "postId") Long postId,
             @RequestBody GoodsPostManageDto goodsPostManageDto,
@@ -138,7 +151,7 @@ public class GoodsPostController {
         }
     }
 
-    @DeleteMapping("/customer/my-post/delete/{postId}")
+    @DeleteMapping("/customer/permission/my-post/delete/{postId}")
     public ResponseEntity<ResponseDto> deleteGoodsPost(
             @PathVariable(name = "postId") Long postId,
             Authentication authentication) {

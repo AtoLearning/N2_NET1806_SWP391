@@ -2,3 +2,18 @@
     width: 140px;
     height: auto;
 }
+
+@keyframes rainbow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.toast-rainbow-link {
+    display: inline-block;
+    background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb, #fbc2eb, #a18cd1, #a18cd1, #fbc2eb, #fad0c4);
+    background-size: 1800% 1800%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 8s ease infinite;
+    text-decoration: underline;
+}

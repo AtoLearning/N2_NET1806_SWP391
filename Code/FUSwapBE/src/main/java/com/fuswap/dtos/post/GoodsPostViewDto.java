@@ -1,6 +1,7 @@
 package com.fuswap.dtos.post;
 
 import com.fuswap.dtos.user.CustomerDto;
+import com.fuswap.dtos.user.CustomerViewDto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -19,7 +20,7 @@ public class GoodsPostViewDto {
     Float unitPrice;
     Date createAt;
     String postImage;
-    CustomerDto customerDto;
+    CustomerViewDto customerViewDto;
     String streetNumber;
     String street;
     String wardName;
@@ -37,7 +38,7 @@ public class GoodsPostViewDto {
                 ", unitPrice=" + unitPrice +
                 ", createAt=" + createAt +
                 ", postImage='" + postImage + '\'' +
-                ", customerDto=" + customerDto +
+                ", customerViewDto=" + customerViewDto +
                 ", streetNumber='" + streetNumber + '\'' +
                 ", street='" + street + '\'' +
                 ", wardName='" + wardName + '\'' +

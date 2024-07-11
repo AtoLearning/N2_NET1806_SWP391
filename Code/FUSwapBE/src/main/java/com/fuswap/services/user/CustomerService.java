@@ -79,4 +79,19 @@ public class CustomerService {
         customerRepository.save(customer);
         return true;
     }
+
+    public boolean isFullInformation(String cUserName) {
+        Customer customer = customerRepository.findByCUserName(cUserName);
+        if(customer != null) {
+            if(customer.getGivenName() == null || customer.getGivenName().isBlank()) return false;
+            if(customer.getFamilyName() == null || customer.getFamilyName().isBlank()) return false;
+            if(customer.getNickname() == null || customer.getNickname().isBlank()) return false;
+            if(customer.getAvatar() == null || customer.getAvatar().isBlank()) return false;
+            if(customer.getPhone() == null || customer.getPhone().isBlank()) return false;
+            if(customer.getDOB() == null) return false;
+            if(customer.getAddress() == null || customer.getAddress().isBlank()) return false;
+            return true;
+        }
+        return false;
+    }
 }

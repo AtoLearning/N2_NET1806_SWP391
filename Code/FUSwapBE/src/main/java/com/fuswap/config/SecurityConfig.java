@@ -5,6 +5,8 @@ import com.fuswap.dtos.user.ManagerDto;
 import com.fuswap.entities.user.CustomOidcUser;
 import com.fuswap.entities.user.Customer;
 import com.fuswap.entities.user.Manager;
+import com.fuswap.exceptions.CustomAccessDeniedHandler;
+import com.fuswap.exceptions.CustomAuthenticationEntryPoint;
 import com.fuswap.services.user.CustomerDetailsService;
 import com.fuswap.services.user.CustomerService;
 import com.fuswap.services.user.ManagerDetailsService;
@@ -83,7 +85,8 @@ public class SecurityConfig {
                 .requestMatchers(PUBLIC_ENDPOINT).permitAll()
                 .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
                 .requestMatchers("/api/v1/mod/**").hasAnyRole("ADMIN", "MODERATOR")
-                .requestMatchers("/api/v1/customer/**").hasRole("CUSTOMER")
+                .requestMatchers("/api/v1/customer/permission/**").hasRole("CUSTOMER")
+                .requestMatchers("/api/v1/customer/**").hasAnyRole("ADMIN", "MODERATOR", "CUSTOMER")
                 .anyRequest().authenticated());
         httpSecurity.exceptionHandling(exceptionHandling -> exceptionHandling
                 .accessDeniedHandler(customAccessDeniedHandler)
