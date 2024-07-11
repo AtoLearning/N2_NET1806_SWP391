@@ -6,7 +6,6 @@ import Footer from './components/Footer/Footer'
 import Welcome from './pages/Welcome'
 import HomePage from './pages/HomePage/HomePage'
 import AboutUs from './pages/AboutUs'
-import CProfile from './pages/CProfile'
 import NotFound from './pages/NotFound/NotFound'
 import Role from './pages/Login/Role/Role'
 import LoginCustomer from './pages/Login/LoginCustomer/LoginCustomer'
@@ -15,9 +14,12 @@ import PostInform from './pages/PostInform/PostInform'
 import MyPost from './pages/MyPost/MyPost'
 import TradePost from './pages/Post/TradePost'
 import SellPost from './pages/Post/SellPost'
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { ToastContainer } from 'react-toastify';
+import MyProfile from './pages/MyProfile/MyProfile.jsx'
+import TheOrders from './pages/TheOrders/TheOrders.jsx'
+import UserTransaction from './pages/Transactions/UserTransaction.jsx'
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { ToastContainer } from 'react-toastify'
 
 const baseURL = "http://localhost:8080/api/v1/auth-status"
 
