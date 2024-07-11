@@ -70,7 +70,7 @@ export default function SideBar() {
                     <Link 
                     className={`menuItem ${selectedItem === 'The Orders' ? 'active' : ''}`}
                     onClick={() => handleItemClick("The Orders")}
-                    to={""}
+                    to={"/the_orders"}
                     >
                         <FaBox className='menuIcon' />
                         <span>The Orders</span>
