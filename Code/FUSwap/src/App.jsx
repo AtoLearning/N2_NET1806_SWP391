@@ -43,6 +43,7 @@ function App() {
                 <Route path='/sell_post' element={<SellPost />} />
                 <Route path='/the_orders' element={<TheOrders />} />
                 <Route path='/sell_transaction' element={<UserTransaction/>} />
+                <Route path="/post/:id" element={<PostInform />} /> 
             </Routes>
             <FooterControl />
         </BrowserRouter>
