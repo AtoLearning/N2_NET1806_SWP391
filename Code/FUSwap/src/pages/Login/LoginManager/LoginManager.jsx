@@ -21,7 +21,7 @@ export default function Login() {
         withCredentials: true
       })
       if (response.status === 200 && response.data.status === 'Login successful') {
-        navigate('/m/home')
+        navigate('/home')
       }
 
     } catch (error) {

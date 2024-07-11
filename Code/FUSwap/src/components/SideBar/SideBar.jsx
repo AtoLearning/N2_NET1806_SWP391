@@ -39,7 +39,7 @@ export default function SideBar() {
                                 <Link
                                     className={`subMenuItem ${selectedItem === 'My Profile' ? 'active' : ''}`}
                                     onClick={() => handleItemClick("My Profile")}
-                                    to={""}
+                                    to={"/my-profile"}
                                 >
                                     <span>My Profile</span>
                                 </Link>
@@ -48,7 +48,7 @@ export default function SideBar() {
                                 <Link
                                     className={`subMenuItem ${selectedItem === 'My Post' ? 'active' : ''}`}
                                     onClick={() => handleItemClick("My Post")}
-                                    to="/my_post"
+                                    to="/my-post"
                                 >
                                     <span>My Post</span>
                                 </Link>

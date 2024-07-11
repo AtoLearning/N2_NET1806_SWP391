@@ -20,7 +20,7 @@ public class GoodsPostManageDto {
     Long postId;
     String specialPostId;
     String title;
-    String content;
+    String postContent;
     Boolean isExchange;
     Float unitPrice;
     Date createAt;
@@ -39,7 +39,7 @@ public class GoodsPostManageDto {
                 "postId='" + postId + '\'' +
                 ", specialPostId='" + specialPostId + '\'' +
                 ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
+                ", postContent='" + postContent + '\'' +
                 ", isExchange=" + isExchange +
                 ", unitPrice=" + unitPrice +
                 ", createAt=" + createAt +
