@@ -17,6 +17,7 @@ import TradePost from './pages/Post/TradePost'
 import SellPost from './pages/Post/SellPost'
 import MyProfile from './pages/MyProfile/MyProfile.jsx'
 import TheOrders from './pages/TheOrders/TheOrders.jsx'
+import UserTransaction from './pages/Transactions/UserTransaction.jsx'
 import axios from "axios"
 import { useEffect, useState } from "react"
 
@@ -41,6 +42,7 @@ function App() {
                 <Route path='/trade_post' element={<TradePost />} />
                 <Route path='/sell_post' element={<SellPost />} />
                 <Route path='/the_orders' element={<TheOrders />} />
+                <Route path='/sell_transaction' element={<UserTransaction/>} />
             </Routes>
             <FooterControl />
         </BrowserRouter>

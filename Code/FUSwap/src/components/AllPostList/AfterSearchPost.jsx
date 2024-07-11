@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Pagination } from "@nextui-org/react";
-import './AfterSearchPostStyle.css';
+import './PostListStyle.css';
 import { FaHandshake, FaMoneyBillWave } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
