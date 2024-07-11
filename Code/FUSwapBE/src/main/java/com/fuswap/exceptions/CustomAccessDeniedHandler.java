@@ -1,4 +1,4 @@
-package com.fuswap.config;
+package com.fuswap.exceptions;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

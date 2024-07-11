@@ -1,5 +1,6 @@
 package com.fuswap.dtos.user;
 
+import com.fuswap.dtos.post.FeedbackDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,7 @@ public class CustomerDto implements Serializable{
     String phone;
     Date dob;
     String address;
+//    FeedbackDto feedbackDto;
     boolean isVerified;
 
     @Override
@@ -40,6 +42,7 @@ public class CustomerDto implements Serializable{
                 ", phone='" + phone + '\'' +
                 ", dob=" + dob +
                 ", address='" + address + '\'' +
+//                ", feedbackDto='" + feedbackDto + '\'' +
                 ", isVerified=" + isVerified +
                 '}';
     }

@@ -43,8 +43,8 @@ export default function PostList() {
         <div className="post-list-container">
             <div className="post-grid">
                 {Array.isArray(posts) && posts.length > 0 ? (
-                    posts.map((post, index) => (
-                        <article className="post-card" key={index} onClick={() => navigate("/PostInform")}>
+                    posts.map((post) => (
+                        <article className="post-card" key={post.postId} onClick={() => navigate(`/post/details/${post.postId}`)}>
                             <img
                                 src={post.postImage}
                                 alt="Post image"
