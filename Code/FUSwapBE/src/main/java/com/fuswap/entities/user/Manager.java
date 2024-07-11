@@ -48,6 +48,9 @@ public class Manager implements Serializable, UserDetails {
     @Column(name = "dob")
     Date DOB;
 
+    @Column(name = "gender")
+    String Gender;
+
     @Column(name = "isavailable")
     Boolean IsAvailable;
 
@@ -83,6 +86,7 @@ public class Manager implements Serializable, UserDetails {
                 ", Phone='" + Phone + '\'' +
                 ", Avatar='" + Avatar + '\'' +
                 ", DOB=" + DOB +
+                ", Gender='" + Gender + '\'' +
                 ", IsAvailable=" + IsAvailable +
                 ", manager=" + manager +
                 ", managerSet=" + (managerSet != null ? managerSet.size() : 0)+

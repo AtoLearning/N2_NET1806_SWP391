@@ -5,6 +5,7 @@ import com.fuswap.entities.user.Role;
 import com.fuswap.repositories.user.CustomerRepository;
 import com.fuswap.repositories.user.ManagerRepository;
 import com.fuswap.repositories.user.RoleRepository;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import com.fuswap.entities.user.Customer;
@@ -42,6 +43,7 @@ public class CustomerService {
                 customer.getPoints(),
                 customer.getPhone(),
                 customer.getDOB(),
+                customer.getGender(),
                 customer.getAddress(),
                 customer.getIsVerified()
             );
@@ -66,6 +68,7 @@ public class CustomerService {
                 newCustomer.getPhone(),
                 newCustomer.getDOB(),
                 newCustomer.getAddress(),
+                newCustomer.getGender(),
                 true,
                 false,
                 managerRepository.findByMUserName("admin"),
@@ -89,7 +92,24 @@ public class CustomerService {
             if(customer.getAvatar() == null || customer.getAvatar().isBlank()) return false;
             if(customer.getPhone() == null || customer.getPhone().isBlank()) return false;
             if(customer.getDOB() == null) return false;
-            if(customer.getAddress() == null || customer.getAddress().isBlank()) return false;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean updateCustomerProfile(
+            CustomerDto customerDto,
+            HttpServletRequest request) {
+        Customer customer = customerRepository.findByCUserName(customerDto.getCUserName());
+        if(customer != null) {
+            if(!customerDto.getGivenName().isBlank()) customer.setGivenName(customerDto.getGivenName());
+            if(!customerDto.getNickname().isBlank()) customer.setNickname(customerDto.getNickname());
+            if(!customerDto.getGender().isBlank()) customer.setGender(customerDto.getGender());
+            if(!customerDto.getAvatar().isBlank()) customer.setAvatar(customerDto.getAvatar());
+            if(customerDto.getDob() != null) customer.setDOB(customerDto.getDob());
+            if(!customerDto.getPhone().isBlank()) customer.setPhone(customerDto.getPhone());
+            customerRepository.save(customer);
+            request.getSession().setAttribute("profile", findByCUserName(customer.getCUserName()));
             return true;
         }
         return false;

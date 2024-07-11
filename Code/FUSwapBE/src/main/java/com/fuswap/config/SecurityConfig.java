@@ -61,7 +61,7 @@ public class SecurityConfig {
     };
     private final String FAILURE_CUSTOMER_LOGIN_PAGE = "http://localhost:3000/c/login?error=inemail";
     private final String HOMEPAGE_AFTER_EXPIRE = "http://localhost:3000/";
-    private final String CUSTOMER_HOMEPAGE_AUTHORIZED = "http://localhost:3000/c/home";
+    private final String CUSTOMER_HOMEPAGE_AUTHORIZED = "http://localhost:3000/";
 
     public SecurityConfig(CustomerService customerService, ManagerService managerService,
                           CustomAuthenticationEntryPoint customAuthenticationEntryPoint, CustomAccessDeniedHandler customAccessDeniedHandler,
@@ -142,10 +142,11 @@ public class SecurityConfig {
         newCustomer.setCUserName(email);
         newCustomer.setGivenName(oidcUser.getGivenName());
         newCustomer.setFamilyName(oidcUser.getFamilyName());
-        newCustomer.setNickname("");
+        newCustomer.setNickname("FUSwapper");
         newCustomer.setAvatar(oidcUser.getPicture());
         newCustomer.setPoints(0f);
         newCustomer.setPhone("");
+        newCustomer.setGender("Nam");
         newCustomer.setDOB(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()));
         newCustomer.setAddress("");
         return newCustomer;
@@ -190,7 +191,8 @@ public class SecurityConfig {
                     manager.getNickname(),
                     manager.getAvatar(),
                     manager.getPhone(),
-                    manager.getDOB()
+                    manager.getDOB(),
+                    manager.getGender()
             );
             request.getSession().setAttribute("profile", managerDto);
             response.setContentType("application/json;charset=UTF-8");

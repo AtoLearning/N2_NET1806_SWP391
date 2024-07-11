@@ -29,6 +29,7 @@ CREATE TABLE tblCustomer (
   Phone	      varchar(10) NOT NULL,
   strAddress  nvarchar(200) NOT NULL, 
   DOB         date NOT NULL, 
+  Gender	  nvarchar(10) NOT NULL,
   IsVerified  bit NOT NULL, 
   IsAvailable bit NOT NULL, 
   MUserName   varchar(30),
@@ -58,6 +59,7 @@ CREATE TABLE tblManager (
   Phone			   varchar(10) NOT NULL,
   IsAvailable      bit NOT NULL,  
   DOB              date NOT NULL, 
+  Gender		   nvarchar(10) NOT NULL,
   ManagerMUserName varchar(30),
   PRIMARY KEY (MUserName));
 CREATE TABLE tblPost (

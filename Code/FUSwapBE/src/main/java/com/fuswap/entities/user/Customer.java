@@ -45,6 +45,9 @@ public class Customer implements Serializable {
     @Column(name = "dob")
     Date DOB;
 
+    @Column(name = "gender")
+    String Gender;
+
     @Column(name = "straddress")
     String Address;
 
@@ -88,6 +91,7 @@ public class Customer implements Serializable {
                 ", Points=" + Points +
                 ", Phone='" + Phone + '\'' +
                 ", DOB=" + DOB +
+                ", Gender='" + Gender + '\'' +
                 ", Address='" + Address + '\'' +
                 ", IsAvailable=" + IsAvailable +
                 ", IsVerified=" + IsVerified +
