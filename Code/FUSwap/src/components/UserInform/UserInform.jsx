@@ -7,94 +7,92 @@ const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtN
   const feedbacksToShow = customerViewDto.feedbackDtoList.slice(0, 3);
   console.log(feedbacksToShow);
 
+  // Xác định màu nền, viền và chữ dựa trên rank
+  let backgroundColor, borderColor, textColor;
+  if (user.rank === 'Gold') {
+    backgroundColor = '#00539c'; 
+    borderColor = '#FFD700'; 
+    textColor = '#FFD700';
+  } else if (user.rank === 'Silver') {
+    backgroundColor = '#747273'; 
+    borderColor = '#EFEFEF'; 
+    textColor = '#EFEFEF'; 
+  } else if (user.rank === 'Diamond') {
+    backgroundColor = '#00203FFF'; 
+    borderColor = '#ADEFD1FF'; 
+    textColor = '#ADEFD1FF'; 
+  } else {
+    backgroundColor = '#fff'; // Mặc định màu trắng nếu không có rank
+    borderColor = '#000'; // Border mặc định màu đen
+    textColor = '#000'; // Màu đen cho chữ
+  }
+
   return (
-    <section className="student-card">
-      <header className="header">
-        <div className="student-info">
-          <div className="avatar-container">
+    <section className="UIF-card">
+      <header className="UIF-header" >
+        <div className="UIF-info">
+          <div className="UIF-avatar-container">
             <img
               loading="lazy"
               src={customerViewDto.avatar}
-              className="avatar"
+              className="UIF-avatar"
               alt="Student avatar"
             />
           </div>
 
-          <div className="name-score-container">
-            <div className="name-score">
-              <h2 className="student-name1">{customerViewDto.givenName}</h2>
-              <p className="student-score1">score: </p>
+          <div className="UIF-level-container">
+            <div className="UIF-level">
+              <h2 className="UIF-student-name">{customerViewDto.givenName}</h2>
+              <p className="UIF-rank">Rank:<span className='UIF-rank-title'  style={{ backgroundColor, border: `2px solid ${borderColor}`, color: textColor }}> {customerViewDto.givenName}</span></p> 
             </div>
           </div>
         </div>
       </header>
-      <main className="main-content">
-        <div className="section-titles">
-          <h3 className="info-title">Information:</h3>
-          <h3 className="info-title">Feedback:</h3>
+      <main className="UIF-main-content">
+        <div className="UIF-section-titles">
+          <h3 className="UIF-info-title" >Information:</h3>
+          <h3 className="UIF-info-title" >Feedback:</h3>
         </div>
 
-        <div className="info-feedback-container">
-          <div className="personal-info">
-            <div className="full-name-container">
-              <div className="full-name">
-                <span className="full-name-label">Full name:</span>
-                <span className="full-name-value">{customerViewDto.givenName}</span>
-              </div>
-            </div>
-
-            <div className="contact-info">
-              <div className="contact-details">
-                <div className="contact-item">
-                  <p className="contact-label">Phone:</p>
-                  <p className="contact-value">{customerViewDto.phone}</p>
+        <div className="UIF-feedback-container">
+          <div className="UIF-personal-info">
+            <div className="UIF-contact-info">
+              <div className="UIF-contact-details">
+                <div className="UIF-fullname">
+                  <span className="UIF-fullname-label" >Full name:</span>
+                  <span className="UIF-fullname-value" >{user.fullName}</span>
                 </div>
-                <div className="contact-item">
-                  <p className="contact-label">Email:</p>
-                  <p className="contact-value">{customerViewDto.cuserName}</p>
+                <div className="UIF-contact-item">
+                  <p className="UIF-contact-label" >Phone:</p>
+                  <p className="UIF-contact-value" >{user.phone}</p>
                 </div>
-                <div className="contact-item">
-                  <p className="contact-label">StreetNumber:</p>
-                  <p className="contact-value">{streetNumber}</p>
-                </div>
-                <div className="contact-item">
-                  <p className="contact-label">Street:</p>
-                  <p className="contact-value">{street}</p>
-                </div>
-                <div className="contact-item">
-                  <p className="contact-label">Ward:</p>
-                  <p className="contact-value">{wardName}</p>
-                </div>
-                <div className="contact-item">
-                  <p className="contact-label">District:</p>
-                  <p className="contact-value">{districtName}</p>
-                </div>
-                <div className="contact-item">
-                  <p className="contact-label">City:</p>
-                  <p className="contact-value">{cityName}</p>
+                <div className="UIF-contact-item">
+                  <p className="UIF-contact-label" >Email:</p>
+                  <p className="UIF-contact-value" >{user.email}</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="feedback-section1">
-            <div className="feedback-content">
+
+          <div className="UIF-feedback-section">
+            <div className="UIF-feedback-content">
               {feedbacksToShow.map((feedback, index) => (
-                <div className="feedback-item" key={index}>
+                <div className="UIF-feedback-item" key={index}>
                   <img
                     loading="lazy"
                     src={feedback.consumerAvatar}
-                    className="feedback-avatar"
+                    className="UIF-feedback-avatar"
                     alt="Feedback avatar"
                   />
-                  <div className="feedback-text">
-                    <h4 className="feedback-title">{feedback.feedbackTitle}</h4>
-                    <p className="feedback-type">{feedback.isExchange ? "Exchange" : "Sell"}</p>
-                    <p className="feedback-comment">{feedback.content}</p>
+                  <div className="UIF-feedback-text">
+                    <h4 className="UIF-feedback-title">{feedback.feedbackTitle}</h4>
+                    <p className="UIF-feedback-type">{feedback.isExchange ? "Exchange" : "Sell"}</p>
+                    <p className="UIF-feedback-comment">{feedback.content}</p>
                   </div>
                 </div>
               ))}
               {customerViewDto.feedbackDtoList.length > 3 && (
-                <a href="#" className="more-link">
+                <a href="#" className="UIF-more-link">
                   More &gt;&gt;
                 </a>
               )}

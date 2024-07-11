@@ -45,23 +45,56 @@ const PostInformSample = () => {
                                 alt="Product"
                             />
                         </div>
+
                         <div className="info-column">
                             <div className="product-info">
-                                <h1 className="product-name">{detailsPost.title}</h1>
-                                <p className="description-label">Description:</p>
-                                <p>{detailsPost.content}</p>
-                                <p className="category-label">Category: {detailsPost.cateName}</p>
-                                <button className="trade-button">{detailsPost.isExchange ? (
+                                <div className="PostInform-header">
+                                    <h1 className="product-name">{detailsPost.title}</h1>
+                                    <form className='search-special-id'>
+                                        <input
+                                            className='input-special-id'
+                                            type='text'
+                                            name='postId'
+                                            required
+                                        />
+                                        <p>PostID</p>
+                                        <button className='special-box-symbol-img'>
+                                            <img
+                                                className='special-symbol-img'
+                                                src='https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FSymbol.png?alt=media&token=e4b817f4-8816-4106-8649-7c8560029868'
+                                                alt='symbol'
+                                            />
+                                        </button>
+                                    </form>
+                                </div>
+                                
+                                <div className="product-details">
+                                    <div className="product-description">
+                                        <p className="description-label">Description:</p>
+                                        <p>{detailsPost.content}</p>
+                                        <p className="category-label">Category: {detailsPost.cateName}</p>
+                                    </div>
+                                    <div className="address-fields">
+                                        <p className="address-label-select1"> {post.address.city}</p>
+                                        <p className="address-label-select2">{post.address.district}</p>
+                                        <p className="address-label-select3"> {post.address.ward}</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="PostInform-button">
+                                <button className="PostInform-trade-button">{detailsPost.isExchange ? (
                                     <>
                                         <span>Trade </span>
-                                        <span className="product-price"><FaHandshake /></span>
+                                        
                                     </>
                                 ) : (
                                     <>
                                         <span>{detailsPost.unitPrice} </span>
-                                        <span className="product-price"><FaMoneyBillWave /></span>
+                                        
                                     </>
                                 )}</button>
+                                </div>
+                               
                             </div>
                         </div>
                     </div>
