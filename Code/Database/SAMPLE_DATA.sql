@@ -21978,15 +21978,15 @@ INSERT INTO tblRole(RoleName) VALUES
 INSERT INTO tblManager(MUserName, strPassword, Nickname, FullName, Avatar, Phone, IsAvailable, DOB, Gender, ManagerMUserName) VALUES
 ('admin', 'admin@123', N'Ato', N'Nguyễn Trần Gia Bảo', 
 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/test%2Favt1.jpg?alt=media&token=1ecfe044-64c5-402c-aef2-f0e782cf69bd', 
-'', 1, '20000520', N'Nam', 'admin'),
+'', 1, '20000520', N'Female', 'admin'),
 
 ('mod1', 'mod1@123', N'Minh Thuận', N'Lê Ngọc Minh Thuận', 
 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/test%2Favt2.jpg?alt=media&token=68697b69-69e9-43dc-93c0-922040e6f391', 
-'', 1, '19881004', N'Nam', 'admin'),
+'', 1, '19881004', N'Female', 'admin'),
 
 ('mod2', 'mod2@123', N'Alex', N'Phạm Thị Thùy Trinh', 
 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/test%2Favt3.jpeg?alt=media&token=339040e0-df23-4f7f-9ba6-6ebcbf608a3b', 
-'', 1, '20030315', N'Nữ', 'admin');
+'', 1, '20030315', N'Male', 'admin');
 
 INSERT INTO tblManagerRole(MUserName, RoleID) VALUES
 ('admin', 1),
@@ -22008,17 +22008,17 @@ INSERT INTO tblCategory (CateName, CateImage, IsAvailable, MUserName) VALUES
 (N'Sport & Outdoor', '', 1, 'admin');
 
 INSERT [dbo].[tblCustomer] ([CUserName], [GivenName], [FamilyName], [Nickname], [Avatar], [Points], [Phone], 
-                            [strAddress], [DOB], [IsVerified], [IsAvailable], [MUserName], [RoleID]) VALUES 
+                            [strAddress], [DOB], [IsVerified], [IsAvailable], [MUserName], [Gender],[RoleID]) VALUES 
 (N'anhpthse171207@fpt.edu.vn', N'Pham Thi Hai Anh', N'(K17 HCM)', N'', 
 N'https://lh3.googleusercontent.com/a/ACg8ocL2yIs_icCsXXAnVX1d7BEIjt4IMBsk7GMDf9H1WfjJEz75Mw=s96-c', 
-0, N'', N'', CAST(N'2024-07-05' AS Date), 0, 1, N'admin', 3);
+0, N'', N'', CAST(N'2024-07-05' AS Date), 0, 1, N'admin',N'Female', 3);
 
 
 INSERT [dbo].[tblCustomer] ([CUserName], [GivenName], [FamilyName], [Nickname], [Avatar], [Points], [Phone], 
-							[strAddress], [DOB], [IsVerified], [IsAvailable], [MUserName], [RoleID]) VALUES 
+							[strAddress], [DOB], [IsVerified], [IsAvailable], [MUserName], [Gender],[RoleID]) VALUES 
 (N'baontgse171211@fpt.edu.vn', N'Nguyen Tran Gia Bao', N'(K17 HCM)', N'', 
 N'https://lh3.googleusercontent.com/a/ACg8ocJqh4P1wSkVZNETGAzSrpHN1BVaRLYj8T9psVnsyW9bOZTAYdw=s96-c', 
-0, N'', N'', CAST(N'2024-07-04' AS Date), 0, 1, N'admin', 3);
+0, N'', N'', CAST(N'2024-07-04' AS Date), 0, 1, N'admin',N'Male', 3);
 
 INSERT [dbo].[tblPostAddress] ([StreetNumber], [Street], [WardID], [DistrictID], [CityID]) VALUES (N'523/34', N'Nguyễn Thị Minh Khai', 1, 1, 1);
 INSERT [dbo].[tblPostAddress] ([StreetNumber], [Street], [WardID], [DistrictID], [CityID]) VALUES (N'128/45', N'Kha Vạn Cân', 8788, 557, 50);

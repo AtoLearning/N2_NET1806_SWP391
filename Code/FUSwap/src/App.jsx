@@ -47,7 +47,7 @@ const customerRoutes = (
             <Route path='/home' element={<HomePage />} />
             <Route path='/about-us' element={<AboutUs />} />
             <Route path='/not-found' element={<NotFound />} />
-            <Route path='/post/details/:postId' element={<PostInform />} />
+            <Route path='/c/post/details/:postId' element={<PostInform />} />
             {/*<Route path='/SearchPage' element={<SearchPage />} />*/}
             <Route path='/c/my-profile' element={<MyProfile />} />
             <Route path="/c/my-posts" element={<MyPost />} />
