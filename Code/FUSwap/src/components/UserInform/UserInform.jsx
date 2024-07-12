@@ -7,25 +7,25 @@ const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtN
   const feedbacksToShow = customerViewDto.feedbackDtoList.slice(0, 3);
   console.log(feedbacksToShow);
 
-  // Xác định màu nền, viền và chữ dựa trên rank
-  let backgroundColor, borderColor, textColor;
-  if (user.rank === 'Gold') {
-    backgroundColor = '#00539c'; 
-    borderColor = '#FFD700'; 
-    textColor = '#FFD700';
-  } else if (user.rank === 'Silver') {
-    backgroundColor = '#747273'; 
-    borderColor = '#EFEFEF'; 
-    textColor = '#EFEFEF'; 
-  } else if (user.rank === 'Diamond') {
-    backgroundColor = '#00203FFF'; 
-    borderColor = '#ADEFD1FF'; 
-    textColor = '#ADEFD1FF'; 
-  } else {
-    backgroundColor = '#fff'; // Mặc định màu trắng nếu không có rank
-    borderColor = '#000'; // Border mặc định màu đen
-    textColor = '#000'; // Màu đen cho chữ
-  }
+  // // Xác định màu nền, viền và chữ dựa trên rank
+  // let backgroundColor, borderColor, textColor;
+  // if (user.rank === 'Gold') {
+  //   backgroundColor = '#00539c';
+  //   borderColor = '#FFD700';
+  //   textColor = '#FFD700';
+  // } else if (user.rank === 'Silver') {
+  //   backgroundColor = '#747273';
+  //   borderColor = '#EFEFEF';
+  //   textColor = '#EFEFEF';
+  // } else if (user.rank === 'Diamond') {
+  //   backgroundColor = '#00203FFF';
+  //   borderColor = '#ADEFD1FF';
+  //   textColor = '#ADEFD1FF';
+  // } else {
+  //   backgroundColor = '#fff'; // Mặc định màu trắng nếu không có rank
+  //   borderColor = '#000'; // Border mặc định màu đen
+  //   textColor = '#000'; // Màu đen cho chữ
+  // }
 
   return (
     <section className="UIF-card">
@@ -43,7 +43,7 @@ const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtN
           <div className="UIF-level-container">
             <div className="UIF-level">
               <h2 className="UIF-student-name">{customerViewDto.givenName}</h2>
-              <p className="UIF-rank">Rank:<span className='UIF-rank-title'  style={{ backgroundColor, border: `2px solid ${borderColor}`, color: textColor }}> {customerViewDto.givenName}</span></p> 
+              {/*<p className="UIF-rank">Rank:<span className='UIF-rank-title'  style={{ backgroundColor, border: `2px solid ${borderColor}`, color: textColor }}> {customerViewDto.givenName}</span></p> */}
             </div>
           </div>
         </div>
@@ -60,15 +60,15 @@ const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtN
               <div className="UIF-contact-details">
                 <div className="UIF-fullname">
                   <span className="UIF-fullname-label" >Full name:</span>
-                  <span className="UIF-fullname-value" >{user.fullName}</span>
+                  <span className="UIF-fullname-value" >{customerViewDto.givenName}</span>
                 </div>
                 <div className="UIF-contact-item">
                   <p className="UIF-contact-label" >Phone:</p>
-                  <p className="UIF-contact-value" >{user.phone}</p>
+                  <p className="UIF-contact-value" >{customerViewDto.phone}</p>
                 </div>
                 <div className="UIF-contact-item">
                   <p className="UIF-contact-label" >Email:</p>
-                  <p className="UIF-contact-value" >{user.email}</p>
+                  <p className="UIF-contact-value" >{customerViewDto.cuserName}</p>
                 </div>
               </div>
             </div>
