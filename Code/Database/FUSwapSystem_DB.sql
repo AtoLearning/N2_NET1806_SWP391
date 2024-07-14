@@ -72,6 +72,7 @@ CREATE TABLE tblPost (
   PostImage     varchar(350) NOT NULL,
   UnitPrice     float NOT NULL, 
   CreateAt      date NOT NULL, 
+  PostStatus	nvarchar(30),
   MUserName     varchar(30), 
   CUserName     varchar(50), 
   FeedbackID	bigint NULL,
