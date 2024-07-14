@@ -128,6 +128,7 @@ public class GoodsPostService {
                 goodsPost.getContent(),
                 goodsPost.getIsExchange(),
                 goodsPost.getUnitPrice(),
+                goodsPost.getPostStatus(),
                 goodsPost.getCreateAt(),
                 goodsPost.getPostImage(),
                 goodsPost.getPostAddress().getStreetNumber(),
@@ -194,6 +195,8 @@ public class GoodsPostService {
             if (categoryOptional.isEmpty()) return false;
             Category category = categoryOptional.get();
             goodsPost.setCategory(category);
+
+            goodsPost.setPostStatus("Đang phê duyệt");
 
             goodsPostRepository.save(goodsPost);
             return true;
@@ -262,6 +265,15 @@ public class GoodsPostService {
 
     public GoodsPostViewDto getPostDetails(Long postId)     {
         GoodsPost goodsPost = goodsPostRepository.findByPostID(postId);
+        return getGoodsPostViewDto(goodsPost);
+    }
+
+    public GoodsPostViewDto getPostDetailsByTransId(Long transId)     {
+        GoodsPost goodsPost = goodsPostRepository.findByTransID(transId);
+        return getGoodsPostViewDto(goodsPost);
+    }
+
+    private GoodsPostViewDto getGoodsPostViewDto(GoodsPost goodsPost) {
         if(goodsPost != null) {
             GoodsPostViewDto goodsPostViewDto = new GoodsPostViewDto();
             goodsPostViewDto.setPostId(goodsPost.getPostID());
@@ -325,9 +337,18 @@ public class GoodsPostService {
                     goodsPost.getCategory().getCateImage()
             ));
             goodsPostManageDto.setMUserName(goodsPost.getManager().getFullName());
+            goodsPostManageDto.setPostStatus(goodsPost.getPostStatus());
             return goodsPostManageDto;
         }
         return null;
+    }
+
+    public GoodsPost getGoodsPostByPostIDAndSpecialPostID(Long postId, String specialPostId) {
+        return goodsPostRepository.findByPostIDAndSpecialPostID(postId, specialPostId);
+    }
+
+    public GoodsPost save(GoodsPost goodsPost) {
+        return goodsPostRepository.save(goodsPost);
     }
 
     public Page<GoodsPostManageDto> getMyPosts(int pageNo, String username) {

@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ public class Transaction {
     Long TransID;
 
     @Column(name = "createat")
-    Date CreateAt;
+    LocalDate CreateAt;
 
     @ManyToOne
     @JoinColumn(name = "consumer")
@@ -33,8 +34,11 @@ public class Transaction {
     @JoinColumn(name = "supplier")
     Customer supplier;
 
-    @OneToMany(mappedBy = "transaction")
-    Set<GoodsPost> goodsPostSet;
+    public Transaction(LocalDate createAt, Customer consumer, Customer supplier) {
+        CreateAt = createAt;
+        this.consumer = consumer;
+        this.supplier = supplier;
+    }
 
     @Override
     public String toString() {
@@ -43,7 +47,6 @@ public class Transaction {
                 ", CreateAt=" + CreateAt +
                 ", consumer=" + consumer +
                 ", supplier=" + supplier +
-                ", goodsPostSet=" + (goodsPostSet != null ? goodsPostSet.size() : 0) +
                 '}';
     }
 }
