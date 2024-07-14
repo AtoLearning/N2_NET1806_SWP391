@@ -21970,29 +21970,50 @@ INSERT INTO tblWardByDistrict(WardID, DistrictID) values (10598, 705);          
 INSERT INTO tblWardByDistrict(WardID, DistrictID) values (10599, 705);                  --10599
 INSERT INTO tblWardByDistrict(WardID, DistrictID) values (10600, 705);                  --10600
 
-INSERT INTO tblRole(RoleName) VALUES 
-('ADMIN'),
-('MODERATOR'),
-('CUSTOMER');
+INSERT [dbo].[tblRole] ([RoleName]) VALUES (N'ADMIN')
+INSERT [dbo].[tblRole] ([RoleName]) VALUES (N'MODERATOR')
+INSERT [dbo].[tblRole] ([RoleName]) VALUES (N'CUSTOMER')
 
-INSERT INTO tblManager(MUserName, strPassword, Nickname, FullName, Avatar, Phone, IsAvailable, DOB, Gender, ManagerMUserName) VALUES
-('admin', 'admin@123', N'Ato', N'Nguyễn Trần Gia Bảo', 
-'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/test%2Favt1.jpg?alt=media&token=1ecfe044-64c5-402c-aef2-f0e782cf69bd', 
-'', 1, '20000520', N'Female', 'admin'),
+INSERT [dbo].[tblManager] ([MUserName], [strPassword], [Nickname], 
+[FullName], [Avatar], [Phone], [IsAvailable], [DOB], [ManagerMUserName], [Gender]) VALUES 
+(N'admin', N'$2a$12$SHVYtJ1oX5VBfUpPi8nzue9reknSAEb/gUdTZw0o9/xzELEW84B7e', N'Ato', N'Nguyễn Trần Gia Bảo', 
+N'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/test%2Favt1.jpg?alt=media&token=1ecfe044-64c5-402c-aef2-f0e782cf69bd', 
+N'', 1, CAST(N'2000-05-20' AS Date), N'admin', N'Male')
 
-('mod1', 'mod1@123', N'Minh Thuận', N'Lê Ngọc Minh Thuận', 
-'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/test%2Favt2.jpg?alt=media&token=68697b69-69e9-43dc-93c0-922040e6f391', 
-'', 1, '19881004', N'Female', 'admin'),
+INSERT [dbo].[tblManager] ([MUserName], [strPassword], [Nickname], 
+[FullName], [Avatar], [Phone], [IsAvailable], [DOB], [ManagerMUserName], [Gender]) VALUES 
+(N'mod1', N'mod1@123', N'Minh Thuận', N'Lê Ngọc Minh Thuận', 
+N'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/test%2Favt2.jpg?alt=media&token=68697b69-69e9-43dc-93c0-922040e6f391', 
+N'', 1, CAST(N'1988-10-04' AS Date), N'admin', N'Male')
 
-('mod2', 'mod2@123', N'Alex', N'Phạm Thị Thùy Trinh', 
-'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/test%2Favt3.jpeg?alt=media&token=339040e0-df23-4f7f-9ba6-6ebcbf608a3b', 
-'', 1, '20030315', N'Male', 'admin');
+INSERT [dbo].[tblManager] ([MUserName], [strPassword], [Nickname], 
+[FullName], [Avatar], [Phone], [IsAvailable], [DOB], [ManagerMUserName], [Gender]) VALUES 
+(N'mod2', N'mod2@123', N'Alex', N'Phạm Thị Thùy Trinh', 
+N'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/test%2Favt3.jpeg?alt=media&token=339040e0-df23-4f7f-9ba6-6ebcbf608a3b', 
+N'', 1, CAST(N'2003-03-15' AS Date), N'admin', N'Female')
 
-INSERT INTO tblManagerRole(MUserName, RoleID) VALUES
-('admin', 1),
-('admin', 2),
-('mod1', 2),
-('mod2', 2);
+
+INSERT [dbo].[tblCustomer] ([CUserName], [GivenName], [FamilyName], [Nickname], 
+[Avatar], [Points], [Phone], [strAddress], [DOB], [IsVerified], [IsAvailable], [MUserName], [RoleID], [Gender]) VALUES 
+(N'anhpthse171207@fpt.edu.vn', N'Hai Anh', N'(K17 HCM)', N'únu', 
+N'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/images%2Ftc-authorization.pngdd162df4-26a3-4786-95fb-46a072c10363?alt=media&token=6a8dfc1e-0bfe-4a78-8f85-7cd74c412190', 
+0, N'0936668475', N'', CAST(N'2014-01-29' AS Date), 0, 1, N'admin', 3, N'Female')
+
+INSERT [dbo].[tblCustomer] ([CUserName], [GivenName], [FamilyName], [Nickname], 
+[Avatar], [Points], [Phone], [strAddress], [DOB], [IsVerified], [IsAvailable], [MUserName], [RoleID], [Gender]) VALUES 
+(N'baontgse171211@fpt.edu.vn', N'Nguyen Tran Gia Bao', N'(K17 HCM)', N'Ato', N'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/images%2Ftc-authorization.png964fa5f5-2120-4ba8-83db-463d54df183d?alt=media&token=f3d3d012-c2c5-4020-9c8f-933a9224144f', 
+0, N'0936668475', N'', CAST(N'2024-06-11' AS Date), 0, 1, N'admin', 3, N'Female')
+
+INSERT [dbo].[tblCustomer] ([CUserName], [GivenName], [FamilyName], [Nickname], 
+[Avatar], [Points], [Phone], [strAddress], [DOB], [IsVerified], [IsAvailable], [MUserName], [RoleID], [Gender]) VALUES 
+(N'loclpse171201@fpt.edu.vn', N'Le Phuoc Loc', N'(K17 HCM)', N'FUSwapper', N'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/images%2Fao-so-mi-nam-burberry-long-sleeve-shirt-8003852-mau-be-vang-jpg-1697788024-20102023144704.jpgbb1440d4-8b9a-45cf-bab6-2c556980ef51?alt=media&token=22abeb96-1146-45c0-ba57-38a37145c0c5', 
+0, N'0936668475', N'', CAST(N'2024-07-08' AS Date), 0, 1, N'admin', 3, N'Male')
+
+
+INSERT [dbo].[tblManagerRole] ([MUserName], [RoleID]) VALUES (N'admin', 1)
+INSERT [dbo].[tblManagerRole] ([MUserName], [RoleID]) VALUES (N'admin', 2)
+INSERT [dbo].[tblManagerRole] ([MUserName], [RoleID]) VALUES (N'mod1', 2)
+INSERT [dbo].[tblManagerRole] ([MUserName], [RoleID]) VALUES (N'mod2', 2)
 
 INSERT INTO tblCategory (CateName, CateImage, IsAvailable, MUserName) VALUES
 (N'Men Clothes', '', 1, 'admin'),
@@ -22006,19 +22027,6 @@ INSERT INTO tblCategory (CateName, CateImage, IsAvailable, MUserName) VALUES
 (N'Fashion Accessories', '', 1, 'admin'),
 (N'Automotive', '', 1, 'admin'),
 (N'Sport & Outdoor', '', 1, 'admin');
-
-INSERT [dbo].[tblCustomer] ([CUserName], [GivenName], [FamilyName], [Nickname], [Avatar], [Points], [Phone], 
-                            [strAddress], [DOB], [IsVerified], [IsAvailable], [MUserName], [Gender],[RoleID]) VALUES 
-(N'anhpthse171207@fpt.edu.vn', N'Pham Thi Hai Anh', N'(K17 HCM)', N'', 
-N'https://lh3.googleusercontent.com/a/ACg8ocL2yIs_icCsXXAnVX1d7BEIjt4IMBsk7GMDf9H1WfjJEz75Mw=s96-c', 
-0, N'', N'', CAST(N'2024-07-05' AS Date), 0, 1, N'admin',N'Female', 3);
-
-
-INSERT [dbo].[tblCustomer] ([CUserName], [GivenName], [FamilyName], [Nickname], [Avatar], [Points], [Phone], 
-							[strAddress], [DOB], [IsVerified], [IsAvailable], [MUserName], [Gender],[RoleID]) VALUES 
-(N'baontgse171211@fpt.edu.vn', N'Nguyen Tran Gia Bao', N'(K17 HCM)', N'', 
-N'https://lh3.googleusercontent.com/a/ACg8ocJqh4P1wSkVZNETGAzSrpHN1BVaRLYj8T9psVnsyW9bOZTAYdw=s96-c', 
-0, N'', N'', CAST(N'2024-07-04' AS Date), 0, 1, N'admin',N'Male', 3);
 
 INSERT [dbo].[tblPostAddress] ([StreetNumber], [Street], [WardID], [DistrictID], [CityID]) VALUES (N'523/34', N'Nguyễn Thị Minh Khai', 1, 1, 1);
 INSERT [dbo].[tblPostAddress] ([StreetNumber], [Street], [WardID], [DistrictID], [CityID]) VALUES (N'128/45', N'Kha Vạn Cân', 8788, 557, 50);
@@ -22038,21 +22046,27 @@ INSERT [dbo].[tblPostAddress] ([StreetNumber], [Street], [WardID], [DistrictID],
 INSERT [dbo].[tblPostAddress] ([StreetNumber], [Street], [WardID], [DistrictID], [CityID]) VALUES (N'128/45', N'Kha Vạn Cân', 6220, 346, 31);
 INSERT [dbo].[tblPostAddress] ([StreetNumber], [Street], [WardID], [DistrictID], [CityID]) VALUES (N'8963', N'Kha Vạn Cân', 8788, 557, 50);
 
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('6kntv', N'Laptop Asus i9 RTX3650 bảo hành 3 tháng', N'Laptop Asus i9 RTX3650 bảo hành 3 tháng. Máy sử dụng còn tốt, mua được 1 tháng, cần bán gấp tại TPHCM', 1, 0, N'', 15000000, CAST(N'2024-07-04' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 1, 3);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('du9k0', N'Điện thoại Samsung Galaxy S21 Ultra bảo hành 6 tháng', N'Điện thoại Samsung Galaxy S21 Ultra bảo hành 6 tháng. Máy còn rất mới, mua được 2 tháng, cần trao đổi sang laptop tại Hồ Chí Minh', 1, 1, N'', 0, CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 2, 10);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('6bWcs', N'Khám phá phong cách với áo sơ mi nam - Bảo hành 6 tháng', N'Chiếc áo sơ mi nam mới tinh với 6 tháng bảo hành. Chỉ mua 2 tháng trước, cần đổi lấy quần tây tại Hồ Chí Minh.', 1, 1, N'', 0, CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 3, 1);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('zBz6A', N'Laptop MacBook Air M1 - Bảo hành 1 năm', N'Laptop MacBook Air M1 mới tinh với 1 năm bảo hành. Mua cách đây 5 tháng, cần đổi lấy máy tính bảng tại Hồ Chí Minh.', 1, 1, N'', 0, CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 4, 3);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('wUKuF', N'Máy ảnh Canon EOS R6 - Bảo hành 1 năm', N'Máy ảnh Canon EOS R6 mới tinh với 1 năm bảo hành tại hcm, đối diện gigamall', 1, 0, N'', 22500000, CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 5, 4);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('xjZaN', N'Tủ lạnh Samsung - Bảo hành 2 năm', N'Tủ lạnh Samsung mới với 2 năm bảo hành tại thế giới di động', 1, 0, N'', 7800000, CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 6, 5);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('Htrqg', N'Xe máy Honda Air Blade - Bảo hành 1 năm', N'Chiếc xe máy Honda Air Blade mới với 1 năm bảo hành. Chỉ mua 3 tháng trước, cần đổi lấy một chiếc xe đạp điện tại Thái Bình', 1, 1, N'', 0, CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 7, 10);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('rluG4', N'Đồng hồ thông minh Rolex của Andree Right Hand', N'Chiếc đồng hồ thông minh tại sự kiện Year1 của rapper Andree Right Hand, huấn luyện viên Rap Việt mùa 3', 1, 0, N'', 1150000000, CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 8, 10);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('orTOs', N'Laptop Dell XPS 13 - Bảo hành 1 năm', N'Laptop Dell XPS 13 mới tinh với 1 năm bảo hành. Mua cách đây 4 tháng, cần đổi lấy máy tính để bàn tại Hồ Chí Minh.', 1, 1, N'', 0, CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 9, 3);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('F0iW7', N'Smart TV Sony - Bảo hành 1 năm', N'Chiếc Smart TV Sony mới tinh với 1 năm bảo hành. Mua cách đây 5 tháng, cần bán gấp', 1, 0, N'', 20000000, CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 10, 4);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('Ksm3D', N'Tủ lạnh Samsung - Bảo hành 2 năm', N'Tủ lạnh Samsung mới với 2 năm bảo hành', 1, 0, N'', 5000000, CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 11, 5);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('yDmDT', N'Sách kỹ năng mềm - Bảo hành 1 năm', N'Bộ sách kỹ năng mềm mới với 1 năm bảo hành. Mua cách đây 2 tháng, cần đổi lấy sách học tiếng Anh tại Đà Nẵng.', 1, 1, N'', 0, CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 12, 6);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('xO7Wb', N'Thực phẩm chức năng Omega-3 - Bảo hành 6 tháng', N'Hộp thực phẩm chức năng Omega-3 giúp sáng mắt, tăng vitamin A', 1, 0, N'', 500000, CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 13, 7);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('rWlHA', N'Mỹ phẩm dưỡng da - Bảo hành 6 tháng', N'Bộ mỹ phẩm dưỡng da mới của nhà Loren California', 1, 0, N'', 249000, CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 14, 8);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('u4bjH', N'Đồng hồ thông minh - Bảo hành 1 năm', N'Chiếc đồng hồ thông minh mới với 1 năm bảo hành. Chỉ mua 2 tháng trước, cần đổi lấy điện thoại tại Hồ Chí Minh.', 1, 1, N'', 0, CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 15, 10);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('QsXlq', N'Đồ chơi thể thao ngoài trời - Bảo hành 1 năm', N'Bộ đồ chơi thể thao ngoài trời mới với 1 năm bảo hành. Chỉ mua 2 tháng trước, cần đổi lấy dụng cụ thể thao trong nhà tại Hồ Chí Minh.', 1, 1, N'', 0, CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 16, 11);
-INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('AYAhF', N'Áo khoác nữ thời trang - Bảo hành 6 tháng', N'Chiếc áo khoác nữ mới tinh với 6 tháng bảo hành. Chỉ mua 2 tháng trước, cần đổi lấy váy tại Hồ Chí Minh.', 1, 1, N'', 0, CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 17, 2);
+INSERT [dbo].[tblFeedback] ([Content], [CreateAt], [CUserName]) VALUES (N'Thats great!', CAST(N'2023-09-09' AS Date), N'loclpse171201@fpt.edu.vn')
+INSERT [dbo].[tblFeedback] ([Content], [CreateAt], [CUserName]) VALUES (N'Hàng tốt, giao nhanh', CAST(N'2024-02-05' AS Date), N'loclpse171201@fpt.edu.vn')
+INSERT [dbo].[tblFeedback] ([Content], [CreateAt], [CUserName]) VALUES (N'Chủ thân thiện', CAST(N'2024-01-15' AS Date), N'loclpse171201@fpt.edu.vn')
+INSERT [dbo].[tblFeedback] ([Content], [CreateAt], [CUserName]) VALUES (N'Hàng phẩm lỗi, không được hỗ trợ', CAST(N'2024-07-01' AS Date), N'anhpthse171207@fpt.edu.vn')
+INSERT [dbo].[tblFeedback] ([Content], [CreateAt], [CUserName]) VALUES (N'Hàng phẩm lỗi, không được hỗ trợ', CAST(N'2024-07-01' AS Date), N'anhpthse171207@fpt.edu.vn')
+INSERT [dbo].[tblFeedback] ([Content], [CreateAt], [CUserName]) VALUES (N'Chủ thân thiện', CAST(N'2024-01-15' AS Date), N'loclpse171201@fpt.edu.vn')
 
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('6kntv', N'Laptop Asus i9 RTX3650 bảo hành 3 tháng', N'Laptop Asus i9 RTX3650 bảo hành 3 tháng. Máy sử dụng còn tốt, mua được 1 tháng, cần bán gấp tại TPHCM', 0, 0, N'', 15000000, N'Đã giao dịch', CAST(N'2024-07-04' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', 2, NULL, 1, 3);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('du9k0', N'Điện thoại Samsung Galaxy S21 Ultra bảo hành 6 tháng', N'Điện thoại Samsung Galaxy S21 Ultra bảo hành 6 tháng. Máy còn rất mới, mua được 2 tháng, cần trao đổi sang laptop tại Hồ Chí Minh', 0, 1, N'', 0, N'Đã giao dịch', CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', 3, NULL, 2, 10);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('6bWcs', N'Khám phá phong cách với áo sơ mi nam - Bảo hành 6 tháng', N'Chiếc áo sơ mi nam mới tinh với 6 tháng bảo hành. Chỉ mua 2 tháng trước, cần đổi lấy quần tây tại Hồ Chí Minh.', 0, 1, N'', 0, N'Đã giao dịch', CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', 4, NULL, 3, 1);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('zBz6A', N'Laptop MacBook Air M1 - Bảo hành 1 năm', N'Laptop MacBook Air M1 mới tinh với 1 năm bảo hành. Mua cách đây 5 tháng, cần đổi lấy máy tính bảng tại Hồ Chí Minh.', 0, 1, N'', 0, N'Đã giao dịch', CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', 5, NULL, 4, 3);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('wUKuF', N'Máy ảnh Canon EOS R6 - Bảo hành 1 năm', N'Máy ảnh Canon EOS R6 mới tinh với 1 năm bảo hành tại hcm, đối diện gigamall', 1, 0, N'', 22500000, N'Đạt yêu cầu', CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 5, 4);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('xjZaN', N'Tủ lạnh Samsung - Bảo hành 2 năm', N'Tủ lạnh Samsung mới với 2 năm bảo hành tại thế giới di động', 1, 0, N'', 7800000, N'Đạt yêu cầu', CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 6, 5);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('Htrqg', N'Xe máy Honda Air Blade - Bảo hành 1 năm', N'Chiếc xe máy Honda Air Blade mới với 1 năm bảo hành. Chỉ mua 3 tháng trước, cần đổi lấy một chiếc xe đạp điện tại Thái Bình', 1, 1, N'', 0, N'Đạt yêu cầu', CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 7, 10);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('rluG4', N'Đồng hồ thông minh Rolex của Andree Right Hand', N'Chiếc đồng hồ thông minh tại sự kiện Year1 của rapper Andree Right Hand, huấn luyện viên Rap Việt mùa 3', 1, 0, N'', 1150000000, N'Đạt yêu cầu', CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 8, 10);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('orTOs', N'Laptop Dell XPS 13 - Bảo hành 1 năm', N'Laptop Dell XPS 13 mới tinh với 1 năm bảo hành. Mua cách đây 4 tháng, cần đổi lấy máy tính để bàn tại Hồ Chí Minh.', 1, 1, N'', 0, N'Đạt yêu cầu', CAST(N'2024-07-05' AS Date), N'admin', N'baontgse171211@fpt.edu.vn', NULL, NULL, 9, 3);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('F0iW7', N'Smart TV Sony - Bảo hành 1 năm', N'Chiếc Smart TV Sony mới tinh với 1 năm bảo hành. Mua cách đây 5 tháng, cần bán gấp', 1, 0, N'', 20000000, N'Đạt yêu cầu', CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 10, 4);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('Ksm3D', N'Tủ lạnh Samsung - Bảo hành 2 năm', N'Tủ lạnh Samsung mới với 2 năm bảo hành', 1, 0, N'', 5000000, N'Đạt yêu cầu', CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 11, 5);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('yDmDT', N'Sách kỹ năng mềm - Bảo hành 1 năm', N'Bộ sách kỹ năng mềm mới với 1 năm bảo hành. Mua cách đây 2 tháng, cần đổi lấy sách học tiếng Anh tại Đà Nẵng.', 1, 1, N'', 0, N'Đạt yêu cầu', CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 12, 6);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('xO7Wb', N'Thực phẩm chức năng Omega-3 - Bảo hành 6 tháng', N'Hộp thực phẩm chức năng Omega-3 giúp sáng mắt, tăng vitamin A', 1, 0, N'', 500000, N'Đạt yêu cầu', CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 13, 7);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('rWlHA', N'Mỹ phẩm dưỡng da - Bảo hành 6 tháng', N'Bộ mỹ phẩm dưỡng da mới của nhà Loren California', 1, 0, N'', 249000, N'Đạt yêu cầu', CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 14, 8);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('u4bjH', N'Đồng hồ thông minh - Bảo hành 1 năm', N'Chiếc đồng hồ thông minh mới với 1 năm bảo hành. Chỉ mua 2 tháng trước, cần đổi lấy điện thoại tại Hồ Chí Minh.', 1, 1, N'', 0, N'Đạt yêu cầu', CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', NULL, NULL, 15, 10);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('QsXlq', N'Đồ chơi thể thao ngoài trời - Bảo hành 1 năm', N'Bộ đồ chơi thể thao ngoài trời mới với 1 năm bảo hành. Chỉ mua 2 tháng trước, cần đổi lấy dụng cụ thể thao trong nhà tại Hồ Chí Minh.', 0, 1, N'', 0, N'Đã giao dịch', CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', 1, NULL, 16, 11);
+INSERT [dbo].[tblPost] ([SpecialPostID], [Title], [Content], [IsAvailable], [IsExchange], [PostImage], [UnitPrice], [PostStatus], [CreateAt], [MUserName], [CUserName], [FeedbackID], [TransID], [PostAddressID], [CateID]) VALUES ('AYAhF', N'Áo khoác nữ thời trang - Bảo hành 6 tháng', N'Chiếc áo khoác nữ mới tinh với 6 tháng bảo hành. Chỉ mua 2 tháng trước, cần đổi lấy váy tại Hồ Chí Minh.', 0, 1, N'', 0, N'Đã giao dịch', CAST(N'2024-07-05' AS Date), N'admin', N'anhpthse171207@fpt.edu.vn', 6, NULL, 17, 2);
