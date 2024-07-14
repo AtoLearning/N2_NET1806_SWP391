@@ -20,7 +20,7 @@ const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtN
   // } else if (user.rank === 'Diamond') {
   //   backgroundColor = '#00203FFF'; 
   //   borderColor = '#ADEFD1FF'; 
-  //   textColor = '#ADEFD1FF'; 
+  //   textColor = '#ADEFD1FF';
   // } else {
   //   backgroundColor = '#fff'; // Mặc định màu trắng nếu không có rank
   //   borderColor = '#000'; // Border mặc định màu đen
@@ -60,15 +60,15 @@ const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtN
               <div className="UIF-contact-details">
                 <div className="UIF-fullname">
                   <span className="UIF-fullname-label" >Full name:</span>
-                  <span className="UIF-fullname-value" >user.fullName</span>
+                  <span className="UIF-fullname-value" >{customerViewDto.givenName}</span>
                 </div>
                 <div className="UIF-contact-item">
                   <p className="UIF-contact-label" >Phone:</p>
-                  <p className="UIF-contact-value" >user.phone</p>
+                  <p className="UIF-contact-value" >{customerViewDto.phone}</p>
                 </div>
                 <div className="UIF-contact-item">
                   <p className="UIF-contact-label" >Email:</p>
-                  <p className="UIF-contact-value" >user.email</p>
+                  <p className="UIF-contact-value" >{customerViewDto.cuserName}</p>
                 </div>
               </div>
             </div>
