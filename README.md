@@ -73,3 +73,17 @@ SPRINT 2
 * Pham Thi Hai Anh: UC07 (MP13 - MP17)
 * Nguyen Anh: UC07 (MP18 - MP21)
 * _Tran Hoang Huan_: UC05
+
+SPRINT 3
+========
+* Nguyen Tran Gia Bao: UC08 & UC09
+* Pham Thi Hai Anh: UC10 & UC11
+* Nguyen Anh: UC12
+* _Tran Hoang Huan_: UC13
+
+SPRINT 4
+========
+* Nguyen Tran Gia Bao: UC14 & UC18
+* Pham Thi Hai Anh: UC15
+* Nguyen Anh: UC16
+* _Tran Hoang Huan_: UC17
