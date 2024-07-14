@@ -23,6 +23,7 @@ public class GoodsPostManageDto {
     String postContent;
     Boolean isExchange;
     Float unitPrice;
+    String postStatus;
     Date createAt;
     String postImage;
     String streetNumber;
@@ -42,6 +43,7 @@ public class GoodsPostManageDto {
                 ", postContent='" + postContent + '\'' +
                 ", isExchange=" + isExchange +
                 ", unitPrice=" + unitPrice +
+                ", postStatus=" + postStatus +
                 ", createAt=" + createAt +
                 ", postImage='" + postImage + '\'' +
                 ", streetNumber='" + streetNumber + '\'' +

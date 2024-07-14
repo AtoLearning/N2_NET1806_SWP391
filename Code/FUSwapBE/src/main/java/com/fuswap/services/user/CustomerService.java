@@ -51,6 +51,10 @@ public class CustomerService {
         return null;
     }
 
+    public Customer getByCUserName(String cUserName) {
+        return customerRepository.findByCUserName(cUserName);
+    }
+
     public boolean createAccount(Customer newCustomer) {
         Optional<Role> role = roleRepository.findById(3);
         Role r = new Role();
@@ -113,5 +117,9 @@ public class CustomerService {
             return true;
         }
         return false;
+    }
+
+    public Customer save(Customer customer) {
+        return customerRepository.save(customer);
     }
 }

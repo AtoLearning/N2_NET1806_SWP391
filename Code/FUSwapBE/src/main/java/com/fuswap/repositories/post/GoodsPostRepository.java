@@ -31,4 +31,11 @@ public interface GoodsPostRepository extends JpaRepository<GoodsPost, Long>, Pag
     @Transactional(readOnly = true)
     @Query("SELECT gp FROM GoodsPost gp WHERE gp.customer.CUserName = ?1")
     Page<GoodsPost> findMyPosts(Pageable pageable, String username);
+
+    @Transactional(readOnly = true)
+    @Query("SELECT gp FROM GoodsPost gp WHERE gp.PostID = ?1 AND gp.specialPostID = ?2 AND gp.transaction IS NULL")
+    GoodsPost findByPostIDAndSpecialPostID(Long postId, String specialPostId);
+
+    @Query("SELECT gp FROM GoodsPost gp WHERE gp.transaction.TransID = ?1")
+    GoodsPost findByTransID(Long transId);
 }
