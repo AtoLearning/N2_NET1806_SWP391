@@ -1,0 +1,38 @@
+.MVP-search-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #FEAC62;
+    border-radius: 5px;
+}
+
+.MVP-search-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.MVP-search-item label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.MVP-search-item input,
+.MVP-search-item select {
+    width: 300px; /* Điều chỉnh độ rộng của input và select */
+    padding: 10px;
+    border: 2px solid #FEAC62;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+.MVP-search-item select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="5"><path fill="%23FEAC62" d="M2 0 L0 2 h4 z"/></svg>') no-repeat right center;
+    background-size: 10px 10px;
+}
