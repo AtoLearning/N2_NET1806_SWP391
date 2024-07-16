@@ -76,9 +76,14 @@ public class GoodsPostService {
     }
 
     public Page<GoodsPostViewDto> getPostList(Integer pageNo) {
-        log.info("pageNo {}", pageNo.toString());
         Pageable pageable = PageRequest.of(pageNo - 1, 12);
         Page<GoodsPost> goodsPostPage = goodsPostRepository.findAllAndIsAvailable(pageable);
+        return getGoodsPostViewDto(goodsPostPage);
+    }
+
+    public Page<GoodsPostViewDto> getSupplierPostList(Integer pageNo, String cuserName) {
+        Pageable pageable = PageRequest.of(pageNo - 1, 8);
+        Page<GoodsPost> goodsPostPage = goodsPostRepository.findByCUserNameAndIsAvailable(pageable, cuserName);
         return getGoodsPostViewDto(goodsPostPage);
     }
 
@@ -196,7 +201,7 @@ public class GoodsPostService {
             Category category = categoryOptional.get();
             goodsPost.setCategory(category);
 
-            goodsPost.setPostStatus("Đang phê duyệt");
+            goodsPost.setPostStatus("Approving");
 
             goodsPostRepository.save(goodsPost);
             return true;

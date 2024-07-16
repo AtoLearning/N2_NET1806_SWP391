@@ -86,7 +86,7 @@ public class TransactionService {
                 Transaction newTransaction = transactionRepository.save(transaction);
 
                 goodsPost.setIsAvailable(false);
-                goodsPost.setPostStatus("Đã giao dịch");
+                goodsPost.setPostStatus("Transacted");
                 goodsPost.setTransaction(newTransaction);
                 goodsPostService.save(goodsPost);
 
