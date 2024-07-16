@@ -14,6 +14,7 @@ import PostInform from './pages/PostInform/PostInform'
 import MyPost from './pages/MyPost/MyPost'
 import TradePost from './pages/Post/TradePost'
 import SellPost from './pages/Post/SellPost'
+import UpdatePost from './pages/Post/UpdatePost.jsx'
 import MyProfile from './pages/MyProfile/MyProfile.jsx'
 import TheOrders from './pages/TheOrders/TheOrders.jsx'
 import UserTransaction from './pages/Transactions/UserTransaction.jsx'
@@ -54,6 +55,7 @@ const customerRoutes = (
             <Route path="/c/my-posts" element={<MyPost />} />
             <Route path='/c/trade-post' element={<TradePost />} />
             <Route path='/c/sell-post' element={<SellPost />} />
+            <Route path='/c/update-post' element={<UpdatePost />} />
             <Route path='/c/my-transaction' element={<UserTransaction />} />
             <Route path='/c/my-transactions' element={<TheOrders />} />
             <Route path='/search' element={<SearchPage />} />

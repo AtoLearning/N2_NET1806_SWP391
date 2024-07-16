@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import '../ShowPost/ShowPostStyle.css'
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import axios from "axios";
 import PropTypes from "prop-types";
 import UserInform from "../UserInform/UserInform.jsx";
@@ -49,7 +49,7 @@ export default function ShowPost() {
           <div className='product'>
               {Array.isArray(posts) && posts.length > 0 ? (
                   posts.map((post) => (
-                      <div key={post.postId} className='card'>
+                      <Link key={post.postId} className='card' to="/c/update-post">
                           <div className='imgBox'>
                               <img
                                   className='proImg'
@@ -73,7 +73,7 @@ export default function ShowPost() {
                     }
                   </span>
                           </div>
-                      </div>
+                      </Link>
                   ))
               ) : (
                   <div className="no-data">No data!!!</div>
