@@ -43,6 +43,9 @@ public class GoodsPost {
     @Column(name = "unitprice")
     Float UnitPrice;
 
+    @Column(name = "reason")
+    String Reason;
+
     @Column(name = "poststatus")
     String PostStatus;
 
@@ -84,6 +87,7 @@ public class GoodsPost {
                 ", IsAvailable=" + IsAvailable +
                 ", PostImage='" + PostImage + '\'' +
                 ", UnitPrice=" + UnitPrice +
+                ", Reason=" + Reason +
                 ", PostStatus=" + PostStatus +
                 ", CreateAt=" + CreateAt +
                 ", manager=" + (manager != null ? manager.getMUserName() : "") +
