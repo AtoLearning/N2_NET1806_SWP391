@@ -1,0 +1,139 @@
+.report-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(108, 108, 108, 0.116);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+    font-family: Taviraj;
+}
+.report-contain{
+    width: 40%;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #ffeb9a 0%, #ffae7b 100%);
+    border-radius: 15px;
+}
+.report-content {
+    background: white;
+    border-radius: 15px;
+    position: relative;
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid black;
+}
+.report-content h2{
+    width: 100%;
+    height: 12%;
+    letter-spacing: 2px;
+    font-size: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
+    border-radius: 13px 13px 0px 0px;
+    background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
+}
+.post-info-rp{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 4px ;
+}
+.post-info-rp img{
+    height: 100%;
+    width: 15%;
+    object-fit: cover;
+    object-position: center;
+}
+.post-info-rp p{
+    width: 80%;
+    height: 90%;
+    font-size: 1vw;
+}
+.post-report{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.sub-content{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.sub-1{
+    height: 15%;
+}
+.sub-1 input{
+    height: 60%;
+    padding: 3px 10px;
+    outline: none;
+    border: 2px solid #ffcc00;
+    border-radius: 15px;
+    font-size: 1vw;
+}
+.sub-2{
+    height: 35%;
+}
+.sub-3{
+    width: 95%;
+    height: 35%;
+    display: flex;
+}
+.sub-2 textarea{
+    resize: none;
+    height: 75%;
+    padding: 10px;
+    border: 2px solid #ffcc00;
+    outline: none;
+    border-radius: 15px;
+    font-size: 1vw;
+}
+.report-buttons{
+    height: 10%;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.report-buttons button{
+    width: 20%;
+    height: 75%;
+    border-radius: 15px;
+}
+.rp-back-btn{
+    border: 1px solid #ffcc00;
+    color: gray;
+}
+.rp-submit-btn{
+    color: red;
+    border: 1px solid red;
+}
+.rp-back-btn:hover{
+    color: black;
+    letter-spacing: 2px;
+    border: 2px solid #ffcc00;
+}
+.rp-submit-btn:hover{
+    letter-spacing: 2px;
+    border: none;
+    color: black;
+    background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
+}
