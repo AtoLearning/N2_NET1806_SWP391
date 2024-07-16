@@ -14,12 +14,14 @@ import PostInform from './pages/PostInform/PostInform'
 import MyPost from './pages/MyPost/MyPost'
 import TradePost from './pages/Post/TradePost'
 import SellPost from './pages/Post/SellPost'
+import UpdatePost from './pages/Post/UpdatePost.jsx'
 import MyProfile from './pages/MyProfile/MyProfile.jsx'
 import TheOrders from './pages/TheOrders/TheOrders.jsx'
 import UserTransaction from './pages/Transactions/UserTransaction.jsx'
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { ToastContainer } from 'react-toastify'
+import SearchPage from "./pages/SearchPage/SearchPage.jsx";
 
 const baseURL = "http://localhost:8080/api/v1/auth-status"
 
@@ -34,6 +36,7 @@ const guestRoutes = (
             <Route path='/role' element={<Role />} />
             <Route path='/c/login' element={<LoginCustomer />} />
             <Route path='/m/login' element={<LoginManager />} />
+            <Route path='/search' element={<SearchPage />} />
             <Route path="*" element={<Navigate to="/role" />} />
         </Routes>
     </>
@@ -48,13 +51,14 @@ const customerRoutes = (
             <Route path='/about-us' element={<AboutUs />} />
             <Route path='/not-found' element={<NotFound />} />
             <Route path='/c/post/details/:postId' element={<PostInform />} />
-            {/*<Route path='/SearchPage' element={<SearchPage />} />*/}
             <Route path='/c/my-profile' element={<MyProfile />} />
             <Route path="/c/my-posts" element={<MyPost />} />
             <Route path='/c/trade-post' element={<TradePost />} />
             <Route path='/c/sell-post' element={<SellPost />} />
+            <Route path='/c/update-post' element={<UpdatePost />} />
             <Route path='/c/my-transaction' element={<UserTransaction />} />
             <Route path='/c/my-transactions' element={<TheOrders />} />
+            <Route path='/search' element={<SearchPage />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
         </Routes>
     </>

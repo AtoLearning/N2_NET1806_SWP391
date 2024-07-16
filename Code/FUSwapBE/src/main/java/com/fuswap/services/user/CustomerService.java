@@ -1,10 +1,14 @@
 package com.fuswap.services.user;
 
 import com.fuswap.dtos.user.CustomerDto;
+import com.fuswap.dtos.user.CustomerViewDto;
+import com.fuswap.dtos.user.SupplierDto;
 import com.fuswap.entities.user.Role;
 import com.fuswap.repositories.user.CustomerRepository;
 import com.fuswap.repositories.user.ManagerRepository;
 import com.fuswap.repositories.user.RoleRepository;
+import com.fuswap.services.post.FeedbackService;
+import com.fuswap.services.post.GoodsPostService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -20,14 +24,18 @@ public class CustomerService {
     private final CustomerRepository customerRepository;
     private final ManagerRepository managerRepository;
     private final RoleRepository roleRepository;
+    private final FeedbackService feedbackService;
+    private final GoodsPostService goodsPostService;
 
     public CustomerService(
             CustomerRepository customerRepository,
             ManagerRepository managerRepository,
-            RoleRepository roleRepository) {
+            RoleRepository roleRepository, FeedbackService feedbackService, GoodsPostService goodsPostService) {
         this.customerRepository = customerRepository;
         this.managerRepository = managerRepository;
         this.roleRepository = roleRepository;
+        this.feedbackService = feedbackService;
+        this.goodsPostService = goodsPostService;
     }
 
     @Transactional(readOnly = true)
@@ -49,6 +57,10 @@ public class CustomerService {
             );
         }
         return null;
+    }
+
+    public Customer getByCUserName(String cUserName) {
+        return customerRepository.findByCUserName(cUserName);
     }
 
     public boolean createAccount(Customer newCustomer) {
@@ -113,5 +125,33 @@ public class CustomerService {
             return true;
         }
         return false;
+    }
+
+    public Customer save(Customer customer) {
+        return customerRepository.save(customer);
+    }
+
+    public SupplierDto getSupplierProfile(int pageNo, String cuserName) {
+        Customer customer = getByCUserName(cuserName);
+        if(customer != null) {
+            SupplierDto supplierDto = new SupplierDto();
+            supplierDto.setCustomerViewDto(new CustomerViewDto(
+                customer.getCUserName(),
+                customer.getGivenName(),
+                customer.getFamilyName(),
+                customer.getNickname(),
+                customer.getAvatar(),
+                customer.getPoints(),
+                customer.getPhone(),
+                customer.getDOB(),
+                customer.getAddress(),
+                customer.getGender(),
+                customer.getIsVerified(),
+                feedbackService.getFeedbackBySupplier(cuserName)
+            ));
+            supplierDto.setGoodsPostViewDtoPage(goodsPostService.getSupplierPostList(pageNo, cuserName));
+            return supplierDto;
+        }
+        return null;
     }
 }

@@ -43,6 +43,12 @@ public class GoodsPost {
     @Column(name = "unitprice")
     Float UnitPrice;
 
+    @Column(name = "reason")
+    String Reason;
+
+    @Column(name = "poststatus")
+    String PostStatus;
+
     @Column(name = "createat")
     Date CreateAt;
 
@@ -66,7 +72,7 @@ public class GoodsPost {
     @JoinColumn(name = "feedbackid")
     Feedback feedback;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "transid")
     Transaction transaction;
 
@@ -81,6 +87,8 @@ public class GoodsPost {
                 ", IsAvailable=" + IsAvailable +
                 ", PostImage='" + PostImage + '\'' +
                 ", UnitPrice=" + UnitPrice +
+                ", Reason=" + Reason +
+                ", PostStatus=" + PostStatus +
                 ", CreateAt=" + CreateAt +
                 ", manager=" + (manager != null ? manager.getMUserName() : "") +
                 ", customer=" + (customer != null ? customer.getCUserName() : "") +
