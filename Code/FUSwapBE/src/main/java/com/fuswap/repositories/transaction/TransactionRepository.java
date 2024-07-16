@@ -14,4 +14,12 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
     @Transactional(readOnly = true)
     @Query("SELECT tr FROM Transaction tr WHERE tr.consumer.CUserName = ?1 OR tr.supplier.CUserName = ?1")
     Page<Transaction> getMyTransactions(Pageable pageable, String cUserName);
+
+    @Transactional(readOnly = true)
+    @Query("SELECT tr FROM Transaction tr WHERE tr.consumer.CUserName = ?1")
+    Page<Transaction> getMyConsumerTransactions(Pageable pageable, String cUserName);
+
+    @Transactional(readOnly = true)
+    @Query("SELECT tr FROM Transaction tr WHERE tr.supplier.CUserName = ?1")
+    Page<Transaction> getMySupplierTransactions(Pageable pageable, String cUserName);
 }
