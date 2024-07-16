@@ -3,6 +3,7 @@ import './TheOrdersStyle.css'
 import SideBar from '../../components/SideBar/SideBar'
 import Feedback from '../../components/Feedback/Feedback';
 import Report from '../../components/Report/Report';
+import { Link } from 'react-router-dom';
 
 
 export default function TheOrders() {
@@ -71,7 +72,7 @@ export default function TheOrders() {
                         />
                     </div>
                 </div>
-                <div className='orders-content'>
+                <Link className='orders-content' to="/c/my-transaction">
                     {cardData.map((data) => (
                         <div key={data.PostID} className='orders-card'>
                             <div className='box-post-img'>
@@ -127,7 +128,7 @@ export default function TheOrders() {
                     <div>
 
                     </div>
-                </div>
+                </Link>
             </div>
         </div>
     )
