@@ -41,8 +41,8 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/customer/permission/trans/create")
-    public ResponseEntity<ResponseDto> create
+//    @PostMapping("/customer/permission/trans/create")
+//    public ResponseEntity<ResponseDto> create
 
     private String getUserNameInAuthentication(Authentication authentication) {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();

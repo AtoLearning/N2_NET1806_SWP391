@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom"
-import { FaUser, FaTicketAlt, FaBox, FaSignOutAlt, FaCaretDown } from "react-icons/fa";
+import { FaUser, FaBox, FaSignOutAlt, FaLaptop } from "react-icons/fa";
 import '../SideBar/SideBarStyle.css'
 
 export default function SideBar() {
@@ -29,62 +29,33 @@ export default function SideBar() {
             </div>
             <ul className='menu'>
                 <li>
-                    <div className={`menuItem ${isSubItemSelected ? 'active' : ''}`} onClick={toggleAccount} to={"#"}>
-                        <FaUser className='menuIcon user' />
-                        <span className='down'>My Account <FaCaretDown className={`downIcon menuIcon ${isOpen ? 'open' : ''}`} /></span>
-                    </div>
-                    {isOpen && (
-                        <ul className='subMenu'>
-                            <li>
-                                <Link
-                                    className={`subMenuItem ${selectedItem === 'My Profile' ? 'active' : ''}`}
-                                    onClick={() => handleItemClick("My Profile")}
-                                    to={"/my-profile"}
-                                >
-                                    <span>My Profile</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    className={`subMenuItem ${selectedItem === 'My Post' ? 'active' : ''}`}
-                                    onClick={() => handleItemClick("My Post")}
-                                    to="/my-post"
-                                >
-                                    <span>My Post</span>
-                                </Link>
-                            </li>
-                            <li onClick={() => handleItemClick("My Coin")}>
-                                <Link
-                                    className={`subMenuItem ${selectedItem === 'My Coin' ? 'active' : ''}`}
-                                    onClick={() => handleItemClick("My Coin")}
-                                    to={""}
-                                >
-                                    <span>My Coin</span>
-                                </Link>
-                            </li>
-                        </ul>
-                    )}
-
-                </li>
-                <li>
-                    <Link 
-                    className={`menuItem ${selectedItem === 'The Orders' ? 'active' : ''}`}
-                    onClick={() => handleItemClick("The Orders")}
-                    to={"/the_orders"}
+                    <Link
+                        className={`menuItem ${selectedItem === 'My Profile' ? 'active' : ''}`}
+                        onClick={() => handleItemClick("My Profile")}
+                        to={"/c/my-profile"}
                     >
-                        <FaBox className='menuIcon' />
-                        <span>The Orders</span>
+                        <FaUser className='menuIcon' />
+                        <span>My Profile</span>
                     </Link>
                 </li>
                 <li>
-
-                    <Link 
-                    className={`menuItem ${selectedItem === 'The Voucher' ? 'active' : ''}`}
-                    onClick={() => handleItemClick("The Voucher")}
-                    to={""}
+                    <Link
+                        className={`menuItem ${selectedItem === 'My Post' ? 'active' : ''}`}
+                        onClick={() => handleItemClick("My Post")}
+                        to="/c/my-posts"
                     >
-                        <FaTicketAlt className='menuIcon' />
-                        <span>The Voucher</span>
+                        <FaLaptop className='menuIcon' />
+                        <span>My Post</span>
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        className={`menuItem ${selectedItem === 'The Orders' ? 'active' : ''}`}
+                        onClick={() => handleItemClick("The Orders")}
+                        to={"/c/my-transactions"}
+                    >
+                        <FaBox className='menuIcon' />
+                        <span>The Orders</span>
                     </Link>
                 </li>
                 <li>

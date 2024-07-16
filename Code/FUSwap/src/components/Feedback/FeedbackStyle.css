@@ -1,0 +1,115 @@
+/* ReviewModal.css */
+.fb-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(108, 108, 108, 0.116);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+  /* z-index: 1000; */
+  font-family: Taviraj;
+}
+.fb-contain{
+  width: 40%;
+  height: 65vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #ffeb9a 0%, #ffae7b 100%);
+  border-radius: 15px;
+}
+.fb-content {
+  background: white;
+  border-radius: 15px;
+  position: relative;
+  width: 95%;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid black;
+}
+.fb-content h2{
+  font-size: 2vw;
+  height: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid black;
+  border-radius: 13px 13px 0px 0px;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
+}
+.post-info-fb {
+  width: 100%;
+  height: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 4px ;
+}
+.post-info-fb img {
+  height: 100%;
+  width: 15%;
+  object-fit: cover;
+  object-position: center;
+}
+.post-info-fb p{
+  width: 80%;
+  height: 90%;
+  font-size: 1vw;
+}
+.post-feedback{
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.fb-textarea{
+  resize: none;
+  height: 60%;
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ffcc00;
+  outline: none;
+  border-radius: 15px;
+}
+.modal-buttons {
+  width: 90%;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal-buttons button{
+  width: 20%;
+  height: 50%;
+  border-radius: 15px;
+}
+.complete-btn{
+  color: red;
+  border: 1px solid red;
+}
+.back-btn{
+  border: 1px solid #ffcc00;
+  color: gray;
+}
+.back-btn:hover{
+  color: black;
+  letter-spacing: 2px;
+}
+.complete-btn:hover{
+  letter-spacing: 2px;
+  border: none;
+  font-size: 1vw;
+  color: black;
+  background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
+}
