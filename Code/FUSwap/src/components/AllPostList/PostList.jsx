@@ -60,7 +60,7 @@ export default function PostList() {
                                     </>
                                 ) : (
                                     <>
-                                        <span className="price-value">{post.unitPrice.toLocaleString()}</span>
+                                        <span className="price-value">{post.unitPrice.toLocaleString()} VND</span>
                                         
                                     </>
                                 )}

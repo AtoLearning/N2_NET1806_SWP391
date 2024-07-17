@@ -43,9 +43,26 @@ public class GoodsPostController {
     @GetMapping("/guest/posts/search")
     public ResponseEntity<ResponseDto> getPostListByKeyword(
             @RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
-            @RequestParam(name = "searchValue") String searchValue) {
+            @RequestParam(name = "searchValue") String searchValue,
+            @RequestParam(name = "cityName") String cityName,
+            @RequestParam(name = "districtName") String districtName,
+            @RequestParam(name = "wardName") String wardName,
+            @RequestParam(name = "priceSort") String priceSort,
+            @RequestParam(name = "dateSort") String dateSort,
+            @RequestParam(name = "postType") String postType,
+            @RequestParam(name = "cateName") String cateName) {
         if(pageNo <= 0) pageNo = 1;
-        Page<GoodsPostViewDto> goodsPostViewDtoPage = goodsPostService.getPostListByKeyword(pageNo, searchValue);
+        Page<GoodsPostViewDto> goodsPostViewDtoPage =
+                goodsPostService.getPostListByKeyword(
+                        pageNo,
+                        searchValue,
+                        cityName,
+                        districtName,
+                        wardName,
+                        priceSort,
+                        dateSort,
+                        postType,
+                        cateName);
         if(goodsPostViewDtoPage.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK)
                     .body(new ResponseDto("200 OK", "Having no any posts!", "", 0));
