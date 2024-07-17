@@ -2,6 +2,7 @@ package com.fuswap.repositories.post;
 
 import com.fuswap.entities.post.Feedback;
 import com.fuswap.entities.post.GoodsPost;
+import io.lettuce.core.dynamic.annotation.Param;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -25,8 +26,21 @@ public interface GoodsPostRepository extends JpaRepository<GoodsPost, Long>, Pag
     Page<GoodsPost> findAllAndIsAvailable(Pageable pageable);
 
     @Transactional(readOnly = true)
-    @Query("SELECT gp FROM GoodsPost gp WHERE gp.IsAvailable = true AND (gp.Title LIKE %?1% OR gp.Content like %?1%)")
-    Page<GoodsPost> findAllAndIsAvailableAndByKeyword(Pageable pageable, String searchValue);
+    @Query("SELECT gp FROM GoodsPost gp WHERE gp.IsAvailable = true " +
+            "AND (gp.Title LIKE %:searchValue% OR gp.Content like %:searchValue%) " +
+            "AND (:cityName IS NULL OR gp.postAddress.city.CityName = :cityName) " +
+            "AND (:districtName IS NULL OR gp.postAddress.district.DistrictName = :districtName) " +
+            "AND (:wardName IS NULL OR gp.postAddress.ward.WardName = :wardName) " +
+            "AND (:isExchange IS NULL OR gp.IsExchange = :isExchange) " +
+            "AND (:cateName IS NULL OR gp.category.CateName = :cateName)")
+    Page<GoodsPost> findAllAndIsAvailableAndByKeyword(
+            Pageable pageable,
+            @Param("searchValue") String searchValue,
+            @Param("cityName") String cityName,
+            @Param("districtName") String districtName,
+            @Param("wardName") String wardName,
+            @Param("isExchange") Boolean isExchange,
+            @Param("cateName") String cateName);
 
     @Transactional(readOnly = true)
     @Query("SELECT gp FROM GoodsPost gp WHERE gp.customer.CUserName = ?1")

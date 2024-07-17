@@ -9,7 +9,7 @@ export default function SearchBox() {
 
     const handleSearch = () => {
         if (query.trim()) {
-            navigate(`/SearchPage?query=${query}`);
+            navigate(`/search?searchValue=${query}`);
         }
     };
 

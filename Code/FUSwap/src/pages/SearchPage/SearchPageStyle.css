@@ -3,21 +3,18 @@
   background-color: #fff;
   display: flex;
   width: 100%;
- 
 }
 
 .search-content-wrapper {
   display: flex;
   width: 20%;
   flex-direction: column;
-  margin-top: 100px;
 }
-
-
 
 .search-content {
   display: flex;
   flex-direction: column;
+  width: 75%;
 }
 
 .section-title {
