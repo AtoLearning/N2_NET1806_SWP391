@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import './TheOrdersStyle.css'
 import SideBar from '../../components/SideBar/SideBar'
+import Feedback from '../../components/Feedback/Feedback';
+import Report from '../../components/Report/Report';
 import { Link } from 'react-router-dom';
 
 
@@ -13,14 +15,28 @@ export default function TheOrders() {
         { PostID: 5, Title: 'ABC5', Content: 'sdvgbhnjsd sbdhns', PostImage: 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FFPTU.jpeg?alt=media&token=16115063-0479-4763-a737-3a08e9f785d2', CustomerID: 5, Nickname: 'abc5', Avatar: 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FAnhDaiDienNu.jpg?alt=media&token=95e71a66-60a3-4a3d-b5d5-86b81b6bcdf1', Points: 8 },
         { PostID: 6, Title: 'ABC6', Content: 'sdvgbhnjsd sbdhns', PostImage: 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FFPTU.jpeg?alt=media&token=16115063-0479-4763-a737-3a08e9f785d2', CustomerID: 6, Nickname: 'abc6', Avatar: 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FAnhDaiDienNu.jpg?alt=media&token=95e71a66-60a3-4a3d-b5d5-86b81b6bcdf1', Points: 30 }
     ];
-    // const user = [
-    //     {CustomerID: 1, Nickname: 'abc1', Avatar: '', Points: 10},
-    //     {CustomerID: 2, Nickname: 'abc2', Avatar: '', Points: 20},
-    //     {CustomerID: 3, Nickname: 'abc3', Avatar: '', Points: 20},
-    //     {CustomerID: 4, Nickname: 'abc4', Avatar: '', Points: 5},
-    //     {CustomerID: 5, Nickname: 'abc5', Avatar: '', Points: 8},
-    //     {CustomerID: 6, Nickname: 'abc6', Avatar: '', Points: 30}
-    // ];
+
+    const [showFeedback, setShowFeedback] = useState(false);
+    const [selectedPost, setSelectedPost] = useState(null);
+    const [showReport, setShowReport] = useState(false);
+
+    const handleOpenFeedback = (data) => {
+        setSelectedPost(data);
+        setShowFeedback(true);
+    }
+
+    const handleCloseFeedback = () => {
+        setShowFeedback(false);
+    }
+
+    const handleOpenReport = (data) => {
+        setSelectedPost(data);
+        setShowReport(true);
+    }
+
+    const handleCloseReport = () => {
+        setShowReport(false);
+    }
     return (
         <div className='orders-contain'>
             <div className='orders-left'>
@@ -48,7 +64,7 @@ export default function TheOrders() {
                     </form>
                     <div className='orders-head-right'>
                         <label>My Point:</label>
-                        <p>xxx</p>
+                        <p>{cardData.Points}</p>
                         <img
                             className='point-img'
                             src='https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FPoint.png?alt=media&token=3468b01e-b275-4d50-9c9b-b4f5a7dd950c'
@@ -56,7 +72,7 @@ export default function TheOrders() {
                         />
                     </div>
                 </div>
-                <div className='orders-content'>
+                <Link className='orders-content' to="/c/my-transaction">
                     {cardData.map((data) => (
                         <div key={data.PostID} className='orders-card'>
                             <div className='box-post-img'>
@@ -69,7 +85,19 @@ export default function TheOrders() {
                             <div className='box-post-content'>
                                 <p className='orders-post-title'>{data.Title}</p>
                                 <p className='orders-post-content'>{data.Content}</p>
-                                <button className='feedback-btn'>Feedback</button>
+                                <button
+                                    className='feedback-btn'
+                                    onClick={() => handleOpenFeedback(data)}
+                                >
+                                    Feedback
+                                </button>
+                                {showFeedback && (
+                                    <Feedback
+                                        show={showFeedback}
+                                        onClose={handleCloseFeedback}
+                                        post={selectedPost}
+                                    />
+                                )}
                             </div>
                             <div className='box-post-user'>
                                 <div className='box-img-ava'>
@@ -81,18 +109,26 @@ export default function TheOrders() {
                                 </div>
                                 <p className='box-point'>Poin: {data.Points}</p>
                                 <p className='nickname'>{data.Nickname}</p>
-                                <button className='orders-btn'>
-                                    <Link to="">
-                                        Report
-                                    </Link>
+                                <button
+                                    className='orders-btn'
+                                    onClick={() => handleOpenReport(data)}
+                                >
+                                    Report
                                 </button>
+                                {showReport && (
+                                    <Report
+                                        show={showReport}
+                                        onClose={handleCloseReport}
+                                        post={selectedPost}
+                                    />
+                                )}
                             </div>
                         </div>
                     ))}
                     <div>
 
                     </div>
-                </div>
+                </Link>
             </div>
         </div>
     )

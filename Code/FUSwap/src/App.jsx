@@ -14,9 +14,11 @@ import PostInform from './pages/PostInform/PostInform'
 import MyPost from './pages/MyPost/MyPost'
 import TradePost from './pages/Post/TradePost'
 import SellPost from './pages/Post/SellPost'
+import UpdatePost from './pages/Post/UpdatePost.jsx'
 import MyProfile from './pages/MyProfile/MyProfile.jsx'
 import TheOrders from './pages/TheOrders/TheOrders.jsx'
 import UserTransaction from './pages/Transactions/UserTransaction.jsx'
+import PendingPosts from "./pages/ManagerPostByMor/PendingPosts.jsx"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { ToastContainer } from 'react-toastify'
@@ -54,6 +56,7 @@ const customerRoutes = (
             <Route path="/c/my-posts" element={<MyPost />} />
             <Route path='/c/trade-post' element={<TradePost />} />
             <Route path='/c/sell-post' element={<SellPost />} />
+            <Route path='/c/update-post' element={<UpdatePost />} />
             <Route path='/c/my-transaction' element={<UserTransaction />} />
             <Route path='/c/my-transactions' element={<TheOrders />} />
             <Route path='/search' element={<SearchPage />} />
@@ -71,6 +74,7 @@ const managerRoutes = (
             <Route path='/about-us' element={<AboutUs />} />
             <Route path='/not-found' element={<NotFound />} />
             <Route path='/post/details/:postId' element={<PostInform />} />
+            <Route path='/PendingPosts' element={<PendingPosts />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
         </Routes>
     </>

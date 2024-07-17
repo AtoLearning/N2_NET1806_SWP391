@@ -54,7 +54,12 @@ export default function CHeader() {
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="TheOrders">
-                            <Link to="/c/the-orders">
+                            <Link to="/c/my-posts">
+                                My Post
+                            </Link>
+                        </DropdownItem>
+                        <DropdownItem key="TheOrders">
+                            <Link to="/c/my-transactions">
                                 The Orders
                             </Link>
                         </DropdownItem>
