@@ -1,4 +1,4 @@
-import axios from "axios";
+ import axios from "axios";
 import React, { useEffect, useState } from 'react';
 import { FaHandshake, FaMoneyBillWave } from "react-icons/fa";
 import './UserTransactionStyle.css';
@@ -85,7 +85,7 @@ const PostInformSample = () => {
                     </div>
                     <div className="seller-total-container">
                         <div className="buyer-info">
-                            <p><span className="bold">Buyer Information</span>: </p>
+                            <p><span className="bold">Customer Information</span>: </p>
                             <p>{post.student.name}</p>
                             <p><span className="bold">Email</span>:</p>
                             <p>{post.gmail}</p>
@@ -94,7 +94,7 @@ const PostInformSample = () => {
                         </div>
 
                         <div className="seller-info">
-                            <p><span className="bold">Seller Information</span>:</p>
+                            <p><span className="bold">Supplier Information</span>:</p>
                             <p>{post.student.name}</p>
                             <p><span className="bold">Email</span>:</p>
                             <p>{post.gmail}</p>
