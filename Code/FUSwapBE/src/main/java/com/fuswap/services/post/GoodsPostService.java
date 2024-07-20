@@ -122,6 +122,7 @@ public class GoodsPostService {
     }
 
     private Page<GoodsPostViewDto> getGoodsPostViewDto(Page<GoodsPost> goodsPostPage) {
+        log.info("check");
         return goodsPostPage.map(goodsPost -> new GoodsPostViewDto(
                 goodsPost.getPostID(),
                 goodsPost.getTitle(),
@@ -144,6 +145,7 @@ public class GoodsPostService {
                         goodsPost.getCustomer().getIsVerified(),
                         feedbackService.getFeedbackBySupplier(goodsPost.getCustomer().getCUserName())
                 ),
+                feedbackService.getFeedbackByFeedbackId(goodsPost.getFeedback() == null ? 0L : goodsPost.getFeedback().getFeedbackID()),
                 goodsPost.getPostAddress().getStreetNumber(),
                 goodsPost.getPostAddress().getStreet(),
                 goodsPost.getPostAddress().getWard().getWardName(),
@@ -198,7 +200,7 @@ public class GoodsPostService {
             goodsPost.setIsAvailable(false);
             goodsPost.setPostImage(goodsPostManageDto.getPostImage());
             goodsPost.setUnitPrice(goodsPostManageDto.getUnitPrice());
-            goodsPost.setCreateAt(Date.valueOf(LocalDate.now()));
+            goodsPost.setCreateAt(LocalDate.now());
 
             Customer customer = customerRepository.findByCUserName(cUserName);
             goodsPost.setCustomer(customer);
@@ -330,6 +332,9 @@ public class GoodsPostService {
                     goodsPost.getCustomer().getIsVerified(),
                     feedbackService.getFeedbackBySupplier(goodsPost.getCustomer().getCUserName())
             ));
+            goodsPostViewDto.setFeedbackDto(feedbackService.getFeedbackByFeedbackId(
+                    goodsPost.getFeedback() == null ? 0L : goodsPost.getFeedback().getFeedbackID()
+            ));
             goodsPostViewDto.setStreetNumber(goodsPost.getPostAddress().getStreetNumber());
             goodsPostViewDto.setStreet(goodsPost.getPostAddress().getStreet());
             goodsPostViewDto.setWardName(goodsPost.getPostAddress().getWard().getWardName());
@@ -399,5 +404,9 @@ public class GoodsPostService {
             }
         }
         return false;
+    }
+
+    public GoodsPost findByPostID(Long postId) {
+        return goodsPostRepository.findByPostID(postId);
     }
 }

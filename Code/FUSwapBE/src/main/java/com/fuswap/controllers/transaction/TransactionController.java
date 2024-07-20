@@ -69,20 +69,21 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/customer/permission/trans/create/{postId}/{specialPostId}")
-    public ResponseEntity<ResponseDto> makeTransaction(
-            @PathVariable(name = "postId") Long postId,
-            @PathVariable(name = "specialPostId") String specialPostId,
-            Authentication authentication
-    ) {
-        String cUserName = getUserNameInAuthentication(authentication);
-        boolean isCreated = transactionService.makeTransaction(postId, specialPostId, cUserName);
-        if(isCreated) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(
-                    new ResponseDto("201", "Transaction is created successful!", "", 0)
-            );
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+        @PostMapping("/customer/permission/trans/create/{postId}/{specialPostId}")
+        public ResponseEntity<ResponseDto> makeTransaction(
+                @PathVariable(name = "postId") Long postId,
+                @PathVariable(name = "specialPostId") String specialPostId,
+                Authentication authentication
+        ) {
+            log.info("Check");
+            String cUserName = getUserNameInAuthentication(authentication);
+            boolean isCreated = transactionService.makeTransaction(postId, specialPostId, cUserName);
+            if(isCreated) {
+                return ResponseEntity.status(HttpStatus.CREATED).body(
+                        new ResponseDto("201", "Transaction is created successful!", "", 0)
+                );
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                     new ResponseDto("400", "Transaction is created fail!", "", 0)
             );
         }

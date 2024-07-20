@@ -38,7 +38,6 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 
 import java.io.PrintWriter;
 import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.*;
 
 @Slf4j
@@ -147,7 +146,7 @@ public class SecurityConfig {
         newCustomer.setPoints(0f);
         newCustomer.setPhone("");
         newCustomer.setGender("Nam");
-        newCustomer.setDOB(Date.from(LocalDate.now().atStartOfDay(ZoneId.systemDefault()).toInstant()));
+        newCustomer.setDOB(LocalDate.now());
         newCustomer.setAddress("");
         return newCustomer;
     }

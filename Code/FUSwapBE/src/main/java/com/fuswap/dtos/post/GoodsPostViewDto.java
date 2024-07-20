@@ -5,6 +5,7 @@ import com.fuswap.dtos.user.CustomerViewDto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -18,9 +19,10 @@ public class GoodsPostViewDto {
     String content;
     Boolean isExchange;
     Float unitPrice;
-    Date createAt;
+    LocalDate createAt;
     String postImage;
     CustomerViewDto customerViewDto;
+    FeedbackDto feedbackDto;
     String streetNumber;
     String street;
     String wardName;
@@ -39,6 +41,7 @@ public class GoodsPostViewDto {
                 ", createAt=" + createAt +
                 ", postImage='" + postImage + '\'' +
                 ", customerViewDto=" + customerViewDto +
+                ", feedbackDto=" + feedbackDto +
                 ", streetNumber='" + streetNumber + '\'' +
                 ", street='" + street + '\'' +
                 ", wardName='" + wardName + '\'' +
