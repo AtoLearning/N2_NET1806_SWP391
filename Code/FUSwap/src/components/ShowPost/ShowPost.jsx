@@ -6,25 +6,27 @@ import PropTypes from "prop-types";
 import UserInform from "../UserInform/UserInform.jsx";
 import * as propTypes from "prop-types";
 const baseURL = "http://localhost:8080/api/v1/customer/permission/my-posts";
-export default function ShowPost() {
+export default function ShowPost({postStatus, sortDate}) {
     const [posts, setPosts] = useState([]);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const navigate = useNavigate();
-
-    const getAllPosts = async (page) => {
+    const getAllPosts = async (page, postStatus, sortDate) => {
         try {
             const response = await axios.get(baseURL, {
                 params: {
                     pageNo: page,
+                    postStatus: postStatus,
+                    sortDate: sortDate,
                 },
                 withCredentials: true
             });
             if (response.status === 200) {
                 setPosts(response.data.obj);
                 setTotalPages(response.data.totalPages);
+            } else if (response.status === 204) {
+                setPosts(null)
             }
-            console.log(response.status)
         } catch (error) {
             console.log(error);
             if (error.response && error.response.status === 403) {
@@ -37,43 +39,72 @@ export default function ShowPost() {
     };
 
     useEffect(() => {
-        getAllPosts(page);
-    }, [page]);
+        getAllPosts(page, postStatus, sortDate);
+    }, [page, postStatus, sortDate]);
 
     const handlePageChange = (newPage) => {
         setPage(newPage);
     };
-    console.log(posts)
+    const handlePostReadonlyClick = (post) => {
+        navigate('/c/post-readonly', { state: { goodsPost: post } });
+    }
+    const handleUpdatePostClick = (postId) => {
+        navigate(`/c/update-post/${postId}`);
+    }
   return (
       <>
           <div className='product'>
               {Array.isArray(posts) && posts.length > 0 ? (
                   posts.map((post) => (
-                      <Link key={post.postId} className='card' to="/c/update-post">
-                          <div className='imgBox'>
-                              <img
-                                  className='proImg'
-                                  src={post.postImage}
-                                  alt='ProductImage'
-                              />
-                          </div>
-                          <div className='detail'>
-                              <h3>{post.title}</h3>
-                              <span className='text'>
-                    <p>PostID:</p>
-                    <p>{post.specialPostId}</p>
-                  </span>
-                              <p className='proContent'>
-                                  {post.postContent}
-                              </p>
-                              <span>
-                    {post.isExchange === true ?
-                        <span className='text type'>Trade</span> :
-                        <span className='text type'>{post.unitPrice}</span>
-                    }
-                  </span>
-                          </div>
-                      </Link>
+                      <React.Fragment key={post.postId}>
+                      {post.postStatus === "Reject" || post.postStatus === "Transacted" ? (
+                              <>
+                                  <div className='card' onClick={() => handlePostReadonlyClick(post)}>
+                                      <div className='imgBox'>
+                                          <img
+                                              className='proImg'
+                                              src={post.postImage}
+                                              alt='ProductImage'
+                                          />
+                                      </div>
+                                      <div className='detail'>
+                                          <h3>{post.title}</h3>
+                                          <span className='text'>
+                                            <p>PostID:</p>
+                                            <p>{post.specialPostId}</p>
+                                          </span>
+                                          <p className='proContent'>
+                                              {post.postContent}
+                                          </p>
+                                          <span><span className='text type'>{post.postStatus}</span></span>
+                                      </div>
+                                  </div>
+                              </>
+                          ) : (
+                              <>
+                                  <div className='card' onClick={() => handleUpdatePostClick(post.postId)}>
+                                      <div className='imgBox'>
+                                          <img
+                                              className='proImg'
+                                              src={post.postImage}
+                                              alt='ProductImage'
+                                          />
+                                      </div>
+                                      <div className='detail'>
+                                          <h3>{post.title}</h3>
+                                          <span className='text'>
+                                            <p>PostID:</p>
+                                            <p>{post.specialPostId}</p>
+                                          </span>
+                                          <p className='proContent'>
+                                              {post.postContent}
+                                          </p>
+                                          <span><span className='text type'>{post.postStatus}</span></span>
+                                      </div>
+                                  </div>
+                              </>
+                      )}
+                      </React.Fragment>
                   ))
               ) : (
                   <div className="no-data">No data!!!</div>

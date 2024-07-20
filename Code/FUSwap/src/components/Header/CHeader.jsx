@@ -1,12 +1,28 @@
-import {Dropdown, DropdownMenu, DropdownTrigger, DropdownItem, Button} from "@nextui-org/react";
-import React from 'react'
+import {Dropdown, DropdownMenu, DropdownTrigger, DropdownItem} from "@nextui-org/react";
 import { Link } from "react-router-dom"
 import SearchBox from '../SearchBox/SearchBox'
 import './HeaderStyle.css';
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const baseURL = "http://localhost:8080/logout";
-
+const baseUrl = "http://localhost:8080/api/v1/customer/permission/profile"
 export default function CHeader() {
+    const [profile, setProfile] = useState({});
+
+    useEffect(() => {
+        const fetchProfileData = async () => {
+            try {
+                const response = await axios.get(baseUrl, {withCredentials: true });
+                setProfile(response.data.obj);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchProfileData();
+    }, []);
+
     const handleLogout = () => {
         window.location.href = baseURL;
     };
@@ -42,7 +58,7 @@ export default function CHeader() {
                         <button>
                             <img
                                 className="img_avatar"
-                                src='https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FAnhDaiDienNu.jpg?alt=media&token=95e71a66-60a3-4a3d-b5d5-86b81b6bcdf1'
+                                src={profile.avatar}
                                 alt='avatar'
                             />
                         </button>
@@ -50,17 +66,17 @@ export default function CHeader() {
                     <DropdownMenu aria-label="User Actions">
                         <DropdownItem key="UserInfo">
                             <Link to="/c/my-profile">
-                                My Profile
+                                Profile
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="TheOrders">
                             <Link to="/c/my-posts">
-                                My Post
+                                Goods Post
                             </Link>
                         </DropdownItem>
-                        <DropdownItem key="TheOrders">
+                        <DropdownItem key="MyTransctions">
                             <Link to="/c/my-transactions">
-                                The Orders
+                                Transaction
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="LogOut">

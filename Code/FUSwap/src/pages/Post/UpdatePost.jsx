@@ -1,50 +1,59 @@
-import { useCallback, useEffect, useState } from 'react';
-import Address from '../../components/Address/Address';
-import './UpdatePostStyle.css';
-import { FaTimes, FaEdit } from 'react-icons/fa';
+import {useCallback, useEffect, useRef, useState} from 'react'
+import Address from '../../components/Address/Address'
+import './PostStyle.css'
+import { FaTimes } from 'react-icons/fa';
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import {Link, useNavigate, useParams} from "react-router-dom";
+import {toast} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { storage } from "../../firebaseConfig.js";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { v4 } from "uuid";
-
-const initialState = {
-    title: 'Sample Title',
-    postContent: 'Sample content for the post',
-    isExchange: false,
-    unitPrice: 100,
-    postImage: 'sampleImage.jpg',
-    streetNumber: '123',
-    street: 'Sample Street',
-    wardDto: {
-        wardId: 1,
-        wardName: 'Sample Ward'
-    },
-    districtDto: {
-        districtId: 1,
-        districtName: 'Sample District'
-    },
-    cityDto: {
-        cityId: 1,
-        cityName: 'Sample City'
-    },
-    categoryDto: {
-        cateId: 1,
-        cateName: 'Sample Category'
-    }
-}
+import {storage} from "../../firebaseConfig.js";
+import {ref, uploadBytes, getDownloadURL} from "firebase/storage";
+import {v4} from "uuid";
 
 const cateUrl = "http://localhost:8080/api/v1/guest/categories";
-const addUrl = "http://localhost:8080/api/v1/customer/permission/my-post/create";
+const updateUrl = "http://localhost:8080/api/v1/customer/permission/my-post/update";
+const postDetailsUrl = "http://localhost:8080/api/v1/customer/permission/my-post/details";
 
-export default function TradePost() {
+const initialState = {
+    postId: 0,
+    specialPostId: '',
+    title: '',
+    postContent: '',
+    isExchange: true,
+    unitPrice: 0,
+    postStatus: '',
+    createAt: '',
+    postImage: '',
+    streetNumber: '',
+    street: '',
+    wardDto: {
+        wardId: 0,
+        wardName: ''
+    },
+    districtDto: {
+        districtId: 0,
+        districtName: ''
+    },
+    cityDto: {
+        cityId: 0,
+        cityName: ''
+    },
+    categoryDto: {
+        cateId: 0,
+        cateName: '',
+        cateImage: '',
+    },
+    muserName: ''
+}
+
+export default function UpdatePost() {
     const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
+    const [post, setPost] = useState(initialState);
     const [state, setState] = useState(initialState);
     const [image, setImage] = useState(null);
     const [imageURL, setImageURL] = useState("");
+    const { postId } = useParams();
 
     const updateImage = () => {
         return new Promise((resolve, reject) => {
@@ -65,10 +74,9 @@ export default function TradePost() {
                 });
         });
     };
-
     const getAllCategories = async () => {
         try {
-            const response = await axios.get(cateUrl, { withCredentials: true });
+            const response = await axios.get(cateUrl, {withCredentials: true});
             if (response.status === 200) {
                 setCategories(response.data.obj);
                 console.log(response.data);
@@ -77,23 +85,46 @@ export default function TradePost() {
             console.log(error);
         }
     };
-
     useEffect(() => {
         getAllCategories();
     }, []);
-
-    const addNewPost = async (data) => {
-        try {
-            const response = await axios.post(addUrl, data, { withCredentials: true, responseType: "json" });
-            console.log(response);
-            if (response.status === 201) {
-                toast.success(response.data.message);
-                navigate('/my-posts');
-            }
-        } catch (error) {
-            if (error.response) {
+    useEffect(() => {
+        const getDetailsPost = async (postId) => {
+            try {
+                const response = await axios.get(`${postDetailsUrl}/${postId}`, {
+                    withCredentials: true
+                });
+                if (response.status === 200) {
+                    const postDetails = response.data.obj;
+                    setPost(postDetails);
+                    setState(postDetails);
+                }
+            } catch (error) {
                 console.log(error);
-                if (error.response.data.status === '400.1') {
+                if(error.response && error.response.status === 401) {
+                    navigate("/role");
+                }
+            }
+        };
+        getDetailsPost(postId);
+    }, [postId, navigate]);
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        setImage(file);
+        setImageURL(URL.createObjectURL(file));
+    };
+    const updatePostInfor = async (data, postId) => {
+        console.log(data)
+        try {
+            const response = await axios.put(`${updateUrl}/${postId}`, data, {withCredentials: true, responseType: "json"});
+            if (response.status === 200) {
+                toast.success(response.data.message);
+                navigate('/c/my-posts');
+            }
+        }catch(error) {
+            if(error.response) {
+                console.log(error);
+                if(error.response.data.status === '400.1') {
                     toast.error(
                         <div>
                             <p><Link to="/c/profile" className="toast-rainbow-link">{error.response.data.message}</Link></p>
@@ -105,31 +136,25 @@ export default function TradePost() {
             }
         }
     }
-
-    const handleImageChange = (event) => {
-        const file = event.target.files[0];
-        setImage(file);
-        setImageURL(URL.createObjectURL(file));
-    };
-
     const handleSubmit = (event) => {
         event.preventDefault();
         if (validateForm()) {
             updateImage().then(url => {
                 const newState = { ...state, postImage: url };
-                console.log(newState);
-                addNewPost(newState);
+                updatePostInfor(newState, postId);
             }).catch(error => {
                 console.log(error);
             });
         }
+        // else {
+        //     toast.error("Some info is invalid ~ Pls check again");
+        // }
     }
-
     const handleInputChange = (event) => {
         let { name, value } = event.target;
         setState((state) => ({ ...state, [name]: value }));
+        setPost((post) => ({ ...post, [name]: value }));
     }
-
     const handleInputSelectChange = (event) => {
         const { value } = event.target;
         const selectedCategory = categories.find(category => category.cateId === parseInt(value));
@@ -141,38 +166,49 @@ export default function TradePost() {
             }
         }));
     };
-
     const handleCityChange = useCallback((cityId, cityName) => {
         setState((prevState) => ({
             ...prevState,
             cityDto: {
-                cityId,
+                cityId: parseInt(cityId),
                 cityName
             }
         }));
     }, []);
-
     const handleDistrictChange = useCallback((districtId, districtName) => {
         setState((prevState) => ({
             ...prevState,
             districtDto: {
-                districtId,
+                districtId: parseInt(districtId),
                 districtName
             }
         }));
     }, []);
-
     const handleWardChange = useCallback((wardId, wardName) => {
         setState((prevState) => ({
             ...prevState,
             wardDto: {
-                wardId,
+                wardId: parseInt(wardId),
                 wardName
             }
         }));
     }, []);
-
     const validateForm = () => {
+        // let isValid = true;
+        // let errors = { ...error_init };
+        //
+        // if (cateName.trim().length < 5) {
+        //     errors.cateName_err = 'Category name must be more than 4 words';
+        //     isValid = false;
+        // }
+        //
+        // if(!(available.trim().toLowerCase() === "true" || available.trim().toLowerCase() === "false")) {
+        //     errors.available_err = 'TRUE or FALSE';
+        //     isValid = false;
+        // }
+        //
+        // setErrors(errors);
+        // return isValid;
         return true;
     }
 
@@ -180,22 +216,15 @@ export default function TradePost() {
         <div className='post-contain'>
             <div className='post'>
                 <div className="post-header">
-                    {state.isExchange ? (
-                        <h1>Trade</h1>
-                    ) : (
-                        <h1>Sell</h1>
-                    )
-                    }
-
+                    <h1>New Goods Post</h1>
                     <button className="post-close-button">
-                        <Link to="/my-post">
-                            <FaTimes />
+                        <Link to="/c/my-posts">
+                            <FaTimes/>
                         </Link>
                     </button>
                 </div>
                 <div className="post-content">
                     <form onSubmit={handleSubmit} className="post-form">
-
                         <div className="form-group form-input">
                             <p>Title:</p>
                             <input
@@ -219,27 +248,6 @@ export default function TradePost() {
                                 />
                             </div>
                         </div>
-
-                        {state.isExchange ? (
-                            <></>
-                        ) : (
-                            <>
-                                <div className="form-price form-group">
-                                    <p>Price:</p>
-                                    <input
-                                        className='input-text input-1'
-                                        type='number'
-                                        name='unitPrice'
-                                        value={state.unitPrice}
-                                        onChange={handleInputChange}
-                                        required
-                                    />
-                                </div>
-                            </>
-                        )
-                        }
-
-
                         <div className="form-group image-category-address-group">
                             <div className="image-upload">
                                 <div className="input-img">
@@ -248,19 +256,26 @@ export default function TradePost() {
                                         <input
                                             type='file'
                                             name='postImage'
+                                            className='avatar-input'
                                             onChange={handleImageChange}
                                         />
                                     </div>
                                 </div>
-                                <div className="box-input-img"><img src={imageURL} alt="Preview" /></div>
+                                <div className="box-input-img">
+                                    <img
+                                         src={imageURL || post.postImage}
+                                         name='postImage'
+                                         alt='Post Image'
+                                         onChange={handleImageChange}
+                                    />
+                                </div>
                             </div>
                             <div className="category-address">
                                 <div className='box-select'>
                                     <select className="form-control select" onChange={handleInputSelectChange}>
                                         <option value={state.categoryDto.cateId}>{state.categoryDto.cateName}</option>
                                         {categories.map((category) => (
-                                            <option key={category.cateId}
-                                                value={category.cateId}>{category.cateName}</option>
+                                            <option key={category.cateId} value={category.cateId}>{category.cateName}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -269,12 +284,9 @@ export default function TradePost() {
                                         onCityChange={handleCityChange}
                                         onDistrictChange={handleDistrictChange}
                                         onWardChange={handleWardChange}
-                                        cityId={state.cityDto.cityId}
-                                        cityName={state.cityDto.cityName}
-                                        districtId={state.districtDto.districtId}
-                                        districtName={state.districtDto.districtName}
-                                        wardId={state.wardDto.wardId}
-                                        wardName={state.wardDto.wardName}
+                                        cityId={post.cityDto.cityId}
+                                        districtId={post.districtDto.districtId}
+                                        wardId={post.wardDto.wardId}
                                     />
                                 </div>
                             </div>
@@ -306,7 +318,7 @@ export default function TradePost() {
                         </div>
                     </form>
                 </div>
-            </div> 
+            </div>
         </div>
     )
 }

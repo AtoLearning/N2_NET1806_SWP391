@@ -23,6 +23,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { ToastContainer } from 'react-toastify'
 import SearchPage from "./pages/SearchPage/SearchPage.jsx";
+import PostReadonly from "./pages/Post/PostReadonly.jsx";
 
 const baseURL = "http://localhost:8080/api/v1/auth-status"
 
@@ -54,9 +55,10 @@ const customerRoutes = (
             <Route path='/c/post/details/:postId' element={<PostInform />} />
             <Route path='/c/my-profile' element={<MyProfile />} />
             <Route path="/c/my-posts" element={<MyPost />} />
-            <Route path='/c/trade-post' element={<TradePost />} />
-            <Route path='/c/sell-post' element={<SellPost />} />
-            <Route path='/c/update-post' element={<UpdatePost />} />
+            <Route path='/c/goods-post' element={<TradePost />} />
+            {/*<Route path='/c/sell-post' element={<SellPost />} />*/}
+            <Route path='/c/update-post/:postId' element={<UpdatePost />} />
+            <Route path='/c/post-readonly' element={<PostReadonly />} />
             <Route path='/c/my-transaction/details' element={<UserTransaction />} />
             <Route path='/c/my-transactions' element={<TheOrders />} />
             <Route path='/search' element={<SearchPage />} />

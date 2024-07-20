@@ -43,8 +43,9 @@ public interface GoodsPostRepository extends JpaRepository<GoodsPost, Long>, Pag
             @Param("cateName") String cateName);
 
     @Transactional(readOnly = true)
-    @Query("SELECT gp FROM GoodsPost gp WHERE gp.customer.CUserName = ?1")
-    Page<GoodsPost> findMyPosts(Pageable pageable, String username);
+    @Query("SELECT gp FROM GoodsPost gp WHERE gp.customer.CUserName = :username AND " +
+            "(:postStatus IS NULL OR gp.PostStatus = :postStatus)")
+    Page<GoodsPost> findMyPosts(Pageable pageable, String postStatus, String username);
 
     @Transactional(readOnly = true)
     @Query("SELECT gp FROM GoodsPost gp WHERE gp.PostID = ?1 AND gp.specialPostID = ?2 AND gp.transaction IS NULL")

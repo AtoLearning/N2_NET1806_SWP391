@@ -106,10 +106,12 @@ public class GoodsPostController {
     @GetMapping("/customer/permission/my-posts")
     public ResponseEntity<ResponseDto> getMyPosts(
             @RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
+            @RequestParam(name = "postStatus") String postStatus,
+            @RequestParam(name = "sortDate") String sortDate,
             Authentication authentication) {
         if(pageNo <= 0) pageNo = 1;
         String username = getUserNameInAuthentication(authentication);
-        Page<GoodsPostManageDto> goodsPostManageDtoPage = goodsPostService.getMyPosts(pageNo, username);
+        Page<GoodsPostManageDto> goodsPostManageDtoPage = goodsPostService.getMyPosts(pageNo, postStatus, sortDate, username);
         if(!goodsPostManageDtoPage.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseDto("200 OK", "YOUR POSTS HERE", goodsPostManageDtoPage.get(), goodsPostManageDtoPage.getTotalPages())

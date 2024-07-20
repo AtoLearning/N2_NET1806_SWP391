@@ -58,6 +58,9 @@ public class Customer implements Serializable {
     @Column(name = "isverified")
     Boolean IsVerified;
 
+    @Column(name = "cusrank")
+    String CusRank;
+
     @ManyToOne
     @JoinColumn(name = "musername")
     Manager manager;
@@ -96,6 +99,7 @@ public class Customer implements Serializable {
                 ", Address='" + Address + '\'' +
                 ", IsAvailable=" + IsAvailable +
                 ", IsVerified=" + IsVerified +
+                ", CusRank=" + CusRank +
                 ", manager=" + manager +
                 ", role=" + role +
                 ", goodsPostSet=" + (goodsPostSet != null ? goodsPostSet.size() : 0) +

@@ -24,10 +24,11 @@ public class TransactionController {
     @GetMapping("/customer/permission/my-trans")
     public ResponseEntity<ResponseDto> getMyTransactions(
             @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+            @RequestParam(name = "transType", defaultValue = "") String transType,
             Authentication authentication) {
         String cUserName = getUserNameInAuthentication(authentication);
         if(pageNo <= 0) pageNo = 1;
-        Page<TransactionViewDto> transactionDtoPage = transactionService.getMyTransactions(pageNo, cUserName);
+        Page<TransactionViewDto> transactionDtoPage = transactionService.getMyTransactions(pageNo, transType, cUserName);
         if(transactionDtoPage.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT)
                     .body(new ResponseDto("204", "Having no any transactions!", "", 0));
