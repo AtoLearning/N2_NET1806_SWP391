@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -24,7 +25,7 @@ public class Feedback {
     String Content;
 
     @Column(name = "createat")
-    Date CreateAt;
+    LocalDate CreateAt;
 
     @ManyToOne
     @JoinColumn(name = "cusername")

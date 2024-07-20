@@ -35,12 +35,12 @@ public class TransactionService {
     }
 
     public Page<TransactionViewDto> getMyTransactions(Integer pageNo, String cUserName) {
-        Pageable pageable = PageRequest.of(pageNo - 1, 6);
+        Pageable pageable = PageRequest.of(pageNo - 1, 3);
         Page<Transaction> transactionPage = transactionRepository.getMyTransactions(pageable, cUserName);
-        return getTransactionDto(transactionPage);
+        return getTransactionDto(transactionPage, cUserName);
     }
 
-    private Page<TransactionViewDto> getTransactionDto(Page<Transaction> transactionPage) {
+    private Page<TransactionViewDto> getTransactionDto(Page<Transaction> transactionPage, String cUserName) {
         return transactionPage.map(transaction -> new TransactionViewDto(
                 transaction.getTransID(),
                 transaction.getCreateAt(),
@@ -70,7 +70,8 @@ public class TransactionService {
                         "",
                         transaction.getSupplier().getIsVerified()
                 ),
-                goodsPostService.getPostDetailsByTransId(transaction.getTransID())
+                goodsPostService.getPostDetailsByTransId(transaction.getTransID()),
+                cUserName.equals(transaction.getConsumer().getCUserName()) ? "Consumption" : "Supply"
         ));
     }
 
@@ -117,12 +118,12 @@ public class TransactionService {
     public Page<TransactionViewDto> getMyConsumerTransactions(Integer pageNo, String cUserName) {
         Pageable pageable = PageRequest.of(pageNo - 1, 6);
         Page<Transaction> transactionPage = transactionRepository.getMyConsumerTransactions(pageable, cUserName);
-        return getTransactionDto(transactionPage);
+        return getTransactionDto(transactionPage, cUserName);
     }
 
     public Page<TransactionViewDto> getMySupplierTransactions(Integer pageNo, String cUserName) {
         Pageable pageable = PageRequest.of(pageNo - 1, 6);
         Page<Transaction> transactionPage = transactionRepository.getMySupplierTransactions(pageable, cUserName);
-        return getTransactionDto(transactionPage);
+        return getTransactionDto(transactionPage, cUserName);
     }
 }

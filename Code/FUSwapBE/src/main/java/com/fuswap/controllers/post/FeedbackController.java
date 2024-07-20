@@ -2,11 +2,14 @@ package com.fuswap.controllers.post;
 
 import com.fuswap.dtos.ResponseDto;
 import com.fuswap.dtos.post.FeedbackDto;
+import com.fuswap.dtos.post.FeedbackManageDto;
 import com.fuswap.services.post.FeedbackService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -34,5 +37,28 @@ public class FeedbackController {
                     new ResponseDto("204", "THE SUPPLIER HAS NOT HAVE ANY FEEDBACK", "", 0)
             );
         }
+    }
+
+    @PostMapping("/customer/permission/feedback/create")
+    public ResponseEntity<ResponseDto> createFeedback(
+            @RequestBody FeedbackManageDto feedbackManageDto,
+            Authentication authentication
+    ) {
+        String username = getUserNameInAuthentication(authentication);
+        boolean isCreate = feedbackService.createFeedback(feedbackManageDto, username);
+        if(isCreate) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(
+                    new ResponseDto("201", "FEEDBACK CREATED", "", 0)
+            );
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                    new ResponseDto("400", "FEEDBACK IS NOT CREATED", "", 0)
+            );
+        }
+    }
+
+    private String getUserNameInAuthentication(Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        return userDetails.getUsername();
     }
 }

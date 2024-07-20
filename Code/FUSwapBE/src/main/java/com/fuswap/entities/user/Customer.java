@@ -9,6 +9,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -43,7 +44,7 @@ public class Customer implements Serializable {
     String Phone;
 
     @Column(name = "dob")
-    Date DOB;
+    LocalDate DOB;
 
     @Column(name = "gender")
     String Gender;

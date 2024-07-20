@@ -12,14 +12,18 @@ import org.springframework.transaction.annotation.Transactional;
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
     @Transactional(readOnly = true)
-    @Query("SELECT tr FROM Transaction tr WHERE tr.consumer.CUserName = ?1 OR tr.supplier.CUserName = ?1")
+    @Query("SELECT tr FROM Transaction tr WHERE tr.consumer.CUserName = :cUserName " +
+            "OR tr.supplier.CUserName = :cUserName " +
+            "ORDER BY tr.CreateAt DESC" )
     Page<Transaction> getMyTransactions(Pageable pageable, String cUserName);
 
     @Transactional(readOnly = true)
-    @Query("SELECT tr FROM Transaction tr WHERE tr.consumer.CUserName = ?1")
+    @Query("SELECT tr FROM Transaction tr WHERE tr.consumer.CUserName = ?1 " +
+            "ORDER BY tr.CreateAt DESC" )
     Page<Transaction> getMyConsumerTransactions(Pageable pageable, String cUserName);
 
     @Transactional(readOnly = true)
-    @Query("SELECT tr FROM Transaction tr WHERE tr.supplier.CUserName = ?1")
+    @Query("SELECT tr FROM Transaction tr WHERE tr.supplier.CUserName = ?1 " +
+            "ORDER BY tr.CreateAt DESC" )
     Page<Transaction> getMySupplierTransactions(Pageable pageable, String cUserName);
 }

@@ -57,7 +57,7 @@ const customerRoutes = (
             <Route path='/c/trade-post' element={<TradePost />} />
             <Route path='/c/sell-post' element={<SellPost />} />
             <Route path='/c/update-post' element={<UpdatePost />} />
-            <Route path='/c/my-transaction' element={<UserTransaction />} />
+            <Route path='/c/my-transaction/details' element={<UserTransaction />} />
             <Route path='/c/my-transactions' element={<TheOrders />} />
             <Route path='/search' element={<SearchPage />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
