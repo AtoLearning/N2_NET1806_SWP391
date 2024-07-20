@@ -5,8 +5,11 @@ import Feedback from '../../components/Feedback/Feedback';
 import Report from '../../components/Report/Report';
 import {Link, useNavigate} from 'react-router-dom';
 import axios from "axios";
+import moment from "moment/moment.js";
+import {FaPlus} from "react-icons/fa";
 
 const MyTransUrl = "http://localhost:8080/api/v1/customer/permission/my-trans"
+const baseUrl = "http://localhost:8080/api/v1/customer/permission/profile"
 
 export default function TheOrders() {
     const [showFeedback, setShowFeedback] = useState(false);
@@ -14,14 +17,17 @@ export default function TheOrders() {
     const [selectedPost, setSelectedPost] = useState(null);
     const [transactions, setTransactions] = useState([]);
     const [page, setPage] = useState(1);
+    const [transType, setTransType] = useState("");
     const [totalPages, setTotalPages] = useState(0);
     const navigate = useNavigate();
+    const [profile, setProfile] = useState({});
 
-    const getAllTransactions = async (page) => {
+    const getAllTransactions = async (page, transType) => {
         try {
             const response = await axios.get(MyTransUrl, {
                 params: {
                     pageNo: page,
+                    transType: transType
                 },
                 withCredentials: true
             });
@@ -37,11 +43,21 @@ export default function TheOrders() {
             }
         }
     };
-
     useEffect(() => {
-        getAllTransactions(page);
-    }, [page]);
+        getAllTransactions(page, transType);
+    }, [page, transType]);
+    useEffect(() => {
+        const fetchProfileData = async () => {
+            try {
+                const response = await axios.get(baseUrl, {withCredentials: true });
+                setProfile(response.data.obj);
+            } catch (error) {
+                console.log(error);
+            }
+        };
 
+        fetchProfileData();
+    }, []);
     const handlePageChange = (newPage) => {
         setPage(newPage);
     };
@@ -72,6 +88,10 @@ export default function TheOrders() {
         navigate('/c/my-transaction/details', { state: { transaction: trans } });
     }
 
+    const handleClick = (transType, event) => {
+        setTransType(transType);
+    }
+
     return (
         <>
         <div className='orders-contain'>
@@ -80,42 +100,33 @@ export default function TheOrders() {
             </div>
             <div className='orders-right'>
                 <div className='orders-head'>
-                    <form className='orders-head-left'>
-                        <input
-                            className='input-post-id'
-                            type='text'
-                            // value={''}
-                            name='postId'
-                            required
-                        />
-                        <p>PostID</p>
-                        <button className='box-symbol-img'>
-                            <img
-                                className='symbol-img'
-                                src='https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FSymbol.png?alt=media&token=e4b817f4-8816-4106-8649-7c8560029868'
-                                alt='symbol'
-                            />
+                    <div className='box-btn'>
+                        <button className='createPost-btn btn-1' onClick={(event) => handleClick('Consumption', event)}>
+                            <span style={{fontSize: "16px"}}>Consumption</span>
                         </button>
-                    </form>
+                        <button className='createPost-btn btn-2' onClick={(event) => handleClick('Supply', event)}>
+                            <span style={{fontSize: "16px"}}>Supply</span>
+                        </button>
+                    </div>
                     <div className='orders-head-right'>
                         <label>My Point:</label>
-                        <p>{1}</p>
-                        <img
-                            className='point-img'
-                            src='https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FPoint.png?alt=media&token=3468b01e-b275-4d50-9c9b-b4f5a7dd950c'
-                            alt='point'
-                        />
-                    </div>
+                        <p>{profile.points}</p>
+                    <img
+                        className='point-img'
+                        src='https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FPoint.png?alt=media&token=3468b01e-b275-4d50-9c9b-b4f5a7dd950c'
+                        alt='point'
+                    />
                 </div>
-                    {transactions.map((trans) => (
-                        <div key={trans.transId} className='orders-content'
-                             onClick={() => handleCardClick(trans)}
-                        >
-                            <div className='orders-card'>
-                                <div className='box-post-img'>
-                                    <img
-                                        className='post-img'
-                                        src={trans.goodsPostViewDto.postImage}
+            </div>
+            {transactions.map((trans) => (
+                <div key={trans.transId} className='orders-content'
+                     onClick={() => handleCardClick(trans)}
+                >
+                    <div className='orders-card'>
+                        <div className='box-post-img'>
+                            <img
+                                className='post-img'
+                                src={trans.goodsPostViewDto.postImage}
                                         alt='postImage'
                                     />
                                 </div>

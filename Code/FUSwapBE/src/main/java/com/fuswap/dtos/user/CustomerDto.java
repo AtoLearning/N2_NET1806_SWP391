@@ -28,9 +28,10 @@ public class CustomerDto implements Serializable{
     Float points;
     String phone;
     LocalDate dob;
-    String gender;
     String address;
+    String gender;
     boolean isVerified;
+    String rank;
 
     @Override
     public String toString() {
@@ -46,6 +47,7 @@ public class CustomerDto implements Serializable{
                 ", address='" + address + '\'' +
                 ", gender='" + gender + '\'' +
                 ", isVerified=" + isVerified +
+                ", rank=" + rank +
                 '}';
     }
 }

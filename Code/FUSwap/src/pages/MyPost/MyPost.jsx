@@ -8,8 +8,7 @@ import SideBar from '../../components/SideBar/SideBar';
 
 export default function MyPost() {
   const [selectedType, setSelectedType] = useState("None");
-  const [selectedDay, setSelectedDay] = useState("None");
-  const [selectedPrice, setSelectedPrice] = useState("None");
+  const [selectedDay, setSelectedDay] = useState("Newest");
 
   return (
     <div className='postContainer'>
@@ -18,17 +17,25 @@ export default function MyPost() {
       </div>
       <div className='post-right'>
         <div className='filterMenu'>
-          <div className='boxFilterItem'>
+          <div className='boxFilterItem' style={{width:'50%'}}>
             <div className='filterItem'>
-              <span className='filterTittle'>Type</span>
+              <span className='filterTittle'>Post Status</span>
               <div className='filterBody'>
                 <RadioGroup
-                  value={selectedType}
-                  onValueChange={setSelectedType}
+                    value={selectedType}
+                    onValueChange={setSelectedType}
                 >
-                  <Radio value="Trade">Trade</Radio>
-                  <Radio value="Sell">Sell</Radio>
-                  <Radio value="None">None</Radio>
+                  <div className='radio-columns'>
+                    <div className='radio-column'>
+                      <Radio value="Approving">Approving</Radio>
+                      <Radio value="Approved">Approved</Radio>
+                      <Radio value="Reject">Reject</Radio>
+                    </div>
+                    <div className='radio-column'>
+                      <Radio value="Transacted">Transacted</Radio>
+                      <Radio value="None">None</Radio>
+                    </div>
+                  </div>
                 </RadioGroup>
                 <p className="text-default-500 text-small">Selected: {selectedType}</p>
               </div>
@@ -37,55 +44,34 @@ export default function MyPost() {
 
           <div className='boxFilterItem'>
             <div className='filterItem'>
-              <span className='filterTittle'>Date</span>
+              <span className='filterTittle'>Create date</span>
               <div className='filterBody'>
                 <RadioGroup
-                  value={selectedDay}
-                  onValueChange={setSelectedDay}
+                    value={selectedDay}
+                    onValueChange={setSelectedDay}
                 >
-                  <Radio value="Latest">Latest</Radio>
-                  <Radio value="Oddest">Oldest</Radio>
-                  <Radio value="None">None</Radio>
+                  <Radio value="Newest">Newest</Radio>
+                  <Radio value="Oldest">Oldest</Radio>
                 </RadioGroup>
                 <p className="text-default-500 text-small">Selected: {selectedDay}</p>
               </div>
             </div>
           </div>
 
-          <div className='boxFilterItem'>
-            <div className='filterItem'>
-              <span className='filterTittle'>Price</span>
-              <div className='filterBody'>
-                <RadioGroup
-                  value={selectedPrice}
-                  onValueChange={setSelectedPrice}
-                >
-                  <Radio value="Ascending" >Ascending</Radio>
-                  <Radio value="Decrease" >Decrease</Radio>
-                  <Radio value="None" >None</Radio>
-                </RadioGroup>
-                <p className="text-default-500 text-small">Selected: {selectedPrice}</p>
-              </div>
-            </div>
-          </div>
-
           <div className='box-btn'>
-            <button className='createPost-btn btn-1'>
+            <button className='createPost-btn-no-hover'>
               <FaPlus className='icon-btn' />
-              <Link to="/c/trade-post">
-              Trade Post
-            </Link>
-            </button>
-            <button className='createPost-btn btn-2'>
-              <FaPlus className='icon-btn' />
-              <Link to="/c/sell-post">
-              Sell Post
-            </Link>
+              <Link to="/c/goods-post">
+                Goods Post
+              </Link>
             </button>
           </div>
         </div>
 
-        <ShowPost />
+        <ShowPost
+          postStatus={selectedType}
+          sortDate={selectedDay}
+        />
       </div>
     </div>
   )

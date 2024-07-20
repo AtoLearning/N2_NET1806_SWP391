@@ -31,6 +31,7 @@ CREATE TABLE tblCustomer (
   DOB         date NOT NULL, 
   Gender	  nvarchar(10) NOT NULL,
   IsVerified  bit NOT NULL, 
+  CusRank	  varchar(10) NOT NULL,
   IsAvailable bit NOT NULL, 
   MUserName   varchar(30),
   RoleID	  int,

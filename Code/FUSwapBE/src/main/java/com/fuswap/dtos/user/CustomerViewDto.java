@@ -16,8 +16,8 @@ import java.util.List;
 public class CustomerViewDto extends CustomerDto {
     List<FeedbackDto> feedbackDtoList;
 
-    public CustomerViewDto(String cUserName, String givenName, String familyName, String nickname, String avatar, Float points, String phone, LocalDate dob, String address, String gender, boolean isVerified, List<FeedbackDto> feedbackDtoList) {
-        super(cUserName, givenName, familyName, nickname, avatar, points, phone, dob, address, gender, isVerified);
+    public CustomerViewDto(String cUserName, String givenName, String familyName, String nickname, String avatar, Float points, String phone, LocalDate dob, String address, String gender, boolean isVerified, String rank, List<FeedbackDto> feedbackDtoList) {
+        super(cUserName, givenName, familyName, nickname, avatar, points, phone, dob, address, gender, isVerified, rank);
         this.feedbackDtoList = feedbackDtoList;
     }
 

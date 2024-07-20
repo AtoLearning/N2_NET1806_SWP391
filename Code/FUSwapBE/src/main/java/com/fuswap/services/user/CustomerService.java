@@ -53,7 +53,8 @@ public class CustomerService {
                 customer.getDOB(),
                 customer.getGender(),
                 customer.getAddress(),
-                customer.getIsVerified()
+                customer.getIsVerified(),
+                customer.getCusRank()
             );
         }
         return null;
@@ -83,6 +84,7 @@ public class CustomerService {
                 newCustomer.getGender(),
                 true,
                 false,
+                "Silver",
                 managerRepository.findByMUserName("admin"),
                 r,
                 new HashSet<>(),
@@ -147,6 +149,7 @@ public class CustomerService {
                 customer.getAddress(),
                 customer.getGender(),
                 customer.getIsVerified(),
+                customer.getCusRank(),
                 feedbackService.getFeedbackBySupplier(cuserName)
             ));
             supplierDto.setGoodsPostViewDtoPage(goodsPostService.getSupplierPostList(pageNo, cuserName));

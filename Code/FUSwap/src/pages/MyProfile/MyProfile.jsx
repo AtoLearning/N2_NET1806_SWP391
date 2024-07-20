@@ -20,12 +20,13 @@ const initialState = {
 }
 
 export default function MyProfile() {
-    //--------------------------------------------------------------------------------
 
     const [profile, setProfile] = useState(initialState);
     const [state, setState] = useState(initialState);
     const [image, setImage] = useState(null);
     const [imageURL, setImageURL] = useState("");
+    const [isEditing, setIsEditing] = useState(false);
+
     const updateImage = () => {
         return new Promise((resolve, reject) => {
             if (image == null) {
@@ -45,12 +46,6 @@ export default function MyProfile() {
                 });
         });
     };
-    //--------------------------------------------------------------------------------
-
-    const [isEditing, setIsEditing] = useState(false);
-
-
-    //--------------------------------------------------------------------------------
     useEffect(() => {
         const fetchProfileData = async () => {
             try {
@@ -66,7 +61,6 @@ export default function MyProfile() {
 
         fetchProfileData();
     }, []);
-    //--------------------------------------------------------------------------------
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         setImage(file);
@@ -103,7 +97,6 @@ export default function MyProfile() {
         document.getElementById('avatarInput').click();
         setIsEditing(true);
     }
-
     const handleInputChange = (event) => {
         let { name, value } = event.target;
         setState((state) => ({ ...state, [name]: value }));
@@ -242,7 +235,6 @@ export default function MyProfile() {
                                     name='avatar'
                                     src={imageURL || profile.avatar}
                                     alt='avatar'
-                                    type='file'
                                     onChange={handleImageChange}
                                 />
                             </div>

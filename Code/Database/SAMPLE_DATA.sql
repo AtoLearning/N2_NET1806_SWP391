@@ -21994,20 +21994,20 @@ N'', 1, CAST(N'2003-03-15' AS Date), N'admin', N'Female')
 
 
 INSERT [dbo].[tblCustomer] ([CUserName], [GivenName], [FamilyName], [Nickname], 
-[Avatar], [Points], [Phone], [strAddress], [DOB], [IsVerified], [IsAvailable], [MUserName], [RoleID], [Gender]) VALUES 
+[Avatar], [Points], [Phone], [strAddress], [DOB], [IsVerified], [CusRank], [IsAvailable], [MUserName], [RoleID], [Gender]) VALUES 
 (N'anhpthse171207@fpt.edu.vn', N'Hai Anh', N'(K17 HCM)', N'únu', 
 N'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/images%2Ftc-authorization.pngdd162df4-26a3-4786-95fb-46a072c10363?alt=media&token=6a8dfc1e-0bfe-4a78-8f85-7cd74c412190', 
-0, N'0936668475', N'', CAST(N'2014-01-29' AS Date), 0, 1, N'admin', 3, N'Female')
+0, N'0936668475', N'', CAST(N'2014-01-29' AS Date), 0, 'Silver', 1, N'admin', 3, N'Female')
 
 INSERT [dbo].[tblCustomer] ([CUserName], [GivenName], [FamilyName], [Nickname], 
-[Avatar], [Points], [Phone], [strAddress], [DOB], [IsVerified], [IsAvailable], [MUserName], [RoleID], [Gender]) VALUES 
+[Avatar], [Points], [Phone], [strAddress], [DOB], [IsVerified], [CusRank], [IsAvailable], [MUserName], [RoleID], [Gender]) VALUES 
 (N'baontgse171211@fpt.edu.vn', N'Nguyen Tran Gia Bao', N'(K17 HCM)', N'Ato', N'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/images%2Ftc-authorization.png964fa5f5-2120-4ba8-83db-463d54df183d?alt=media&token=f3d3d012-c2c5-4020-9c8f-933a9224144f', 
-0, N'0936668475', N'', CAST(N'2024-06-11' AS Date), 0, 1, N'admin', 3, N'Female')
+0, N'0936668475', N'', CAST(N'2024-06-11' AS Date), 0, 'Silver', 1, N'admin', 3, N'Female')
 
 INSERT [dbo].[tblCustomer] ([CUserName], [GivenName], [FamilyName], [Nickname], 
-[Avatar], [Points], [Phone], [strAddress], [DOB], [IsVerified], [IsAvailable], [MUserName], [RoleID], [Gender]) VALUES 
+[Avatar], [Points], [Phone], [strAddress], [DOB], [IsVerified], [CusRank], [IsAvailable], [MUserName], [RoleID], [Gender]) VALUES 
 (N'loclpse171201@fpt.edu.vn', N'Le Phuoc Loc', N'(K17 HCM)', N'FUSwapper', N'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/images%2Fao-so-mi-nam-burberry-long-sleeve-shirt-8003852-mau-be-vang-jpg-1697788024-20102023144704.jpgbb1440d4-8b9a-45cf-bab6-2c556980ef51?alt=media&token=22abeb96-1146-45c0-ba57-38a37145c0c5', 
-0, N'0936668475', N'', CAST(N'2024-07-08' AS Date), 0, 1, N'admin', 3, N'Male')
+0, N'0936668475', N'', CAST(N'2024-07-08' AS Date), 0, 'Silver', 1, N'admin', 3, N'Male')
 
 
 INSERT [dbo].[tblManagerRole] ([MUserName], [RoleID]) VALUES (N'admin', 1)
