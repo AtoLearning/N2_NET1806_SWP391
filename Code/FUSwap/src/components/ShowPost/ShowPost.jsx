@@ -5,7 +5,9 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import UserInform from "../UserInform/UserInform.jsx";
 import * as propTypes from "prop-types";
+import {toast} from "react-toastify";
 const baseURL = "http://localhost:8080/api/v1/customer/permission/my-posts";
+const deleteUrl = "http://localhost:8080/api/v1/customer/permission/my-post/delete";
 export default function ShowPost({postStatus, sortDate}) {
     const [posts, setPosts] = useState([]);
     const [page, setPage] = useState(1);
@@ -51,6 +53,24 @@ export default function ShowPost({postStatus, sortDate}) {
     const handleUpdatePostClick = (postId) => {
         navigate(`/c/update-post/${postId}`);
     }
+    const handleDelete = async (postId) => {
+        if (window.confirm(`Are you sure that you want to delete this post: ${postId} ?`)) {
+            try {
+                const response = await axios.delete(`${deleteUrl}/${postId}`, {withCredentials: true });
+                console.log(response.data);
+                if (response.status === 200) {
+                    getAllPosts(page, postStatus, sortDate);
+                    toast.success(response.data.message);
+                }
+            } catch(error) {
+                toast.success(error.response.data.message);
+            }
+        }
+    }
+    const handleDeleteClick = (postId, event) => {
+        event.stopPropagation();
+        handleDelete(postId)
+    };
   return (
       <>
           <div className='product'>
@@ -81,31 +101,31 @@ export default function ShowPost({postStatus, sortDate}) {
                                   </div>
                               </>
                           ) : (
-                              <>
-                                  <div className='card' onClick={() => handleUpdatePostClick(post.postId)}>
-                                      <div className='imgBox'>
-                                          <img
-                                              className='proImg'
-                                              src={post.postImage}
-                                              alt='ProductImage'
-                                          />
-                                      </div>
-                                      <div className='detail'>
-                                          <h3>{post.title}</h3>
-                                          <span className='text'>
+                          <>
+                              <div className='card' onClick={() => handleUpdatePostClick(post.postId)}>
+                                  <div className='imgBox'>
+                                      <img
+                                          className='proImg'
+                                          src={post.postImage}
+                                          alt='ProductImage'
+                                      />
+                                  </div>
+                                  <div className='detail'>
+                                      <h3>{post.title}</h3>
+                                      <span className='text'>
                                             <p>PostID:</p>
                                             <p>{post.specialPostId}</p>
                                           </span>
-                                          <p className='proContent'>
-                                              {post.postContent}
-                                          </p>
-                                          <span><span className='text type'>{post.postStatus}</span></span>
-                                      </div>
-                                      <div className='Delete-btn'>
-                                        <button>Delete</button>
-                                      </div>
+                                      <p className='proContent'>
+                                          {post.postContent}
+                                      </p>
+                                      <span><span className='text type'>{post.postStatus}</span></span>
                                   </div>
-                              </>
+                                  <div className='Delete-btn'>
+                                      <button onClick={(event) => handleDeleteClick(post.postId, event)}>Delete</button>
+                                  </div>
+                              </div>
+                          </>
                       )}
                       </React.Fragment>
                   ))

@@ -126,7 +126,7 @@ public class SecurityConfig {
             );
             String email = oidcUser.getEmail();
             CustomerDto customerDto = customerService.findByCUserName(email);
-            if(customerDto == null && email.endsWith("@fpt.edu.vn")) {
+            if(customerDto == null && (email.endsWith("@fpt.edu.vn") || email.equals("manager.fuswap@gmail.com"))) {
                 Customer newCustomer = getCustomer(email, oidcUser);
                 customerService.createAccount(newCustomer);
             }
@@ -145,7 +145,7 @@ public class SecurityConfig {
         newCustomer.setAvatar(oidcUser.getPicture());
         newCustomer.setPoints(0f);
         newCustomer.setPhone("");
-        newCustomer.setGender("Nam");
+        newCustomer.setGender("Male");
         newCustomer.setDOB(LocalDate.now());
         newCustomer.setAddress("");
         return newCustomer;
@@ -186,14 +186,14 @@ public class SecurityConfig {
             Manager manager = managerService.findByMUserName(userDetails.getUsername());
             ManagerDto managerDto = new ManagerDto(
                     manager.getMUserName(),
-                    manager.getFullName(),
                     manager.getNickname(),
-                    manager.getAvatar(),
+                    manager.getFullName(),
                     manager.getPhone(),
+                    manager.getAvatar(),
                     manager.getDOB(),
                     manager.getGender()
             );
-            request.getSession().setAttribute("profile", managerDto);
+            request.getSession().setAttribute("managerProfile", managerDto);
             response.setContentType("application/json;charset=UTF-8");
             response.setStatus(HttpServletResponse.SC_OK);
             PrintWriter writer = response.getWriter();

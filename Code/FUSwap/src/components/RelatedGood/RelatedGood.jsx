@@ -12,6 +12,7 @@ const RelatedGood = ({postId, cateName, cuserName}) => {
     const navigate = useNavigate();
 
     const fetchProducts = async (postId, cateName, cuserName) => {
+        setPosts([]);
         try {
             const response = await axios.get(apiUrl, {
                 params: {
@@ -23,6 +24,7 @@ const RelatedGood = ({postId, cateName, cuserName}) => {
             });
             if (response.status === 200) {
                 setPosts(response.data.obj);
+                console.log(response.data.obj);
             }
         } catch (error) {
             console.log(error);
@@ -50,7 +52,7 @@ const RelatedGood = ({postId, cateName, cuserName}) => {
             <h3 className="related-goods-title">Related goods</h3>
             <div className="related-goods-container">
                 <div className="related-goods-grid">
-                    {visiblePosts.map((post) => (
+                    {visiblePosts && visiblePosts.map((post) => (
                         <div className="product-column" key={post.postId} onClick={() => handleProductClick(post.postId)}>
                             <div className="product-card-wrapper">
                                 <img

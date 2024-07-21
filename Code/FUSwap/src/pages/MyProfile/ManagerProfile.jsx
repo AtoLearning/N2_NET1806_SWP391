@@ -1,104 +1,142 @@
 import React, { useEffect, useState } from 'react'
 import '../MyProfile/MyProfileStyle.css'
 import axios from 'axios';
+import {getDownloadURL, ref, uploadBytes} from "firebase/storage";
+import {storage} from "../../firebaseConfig.js";
+import {v4} from "uuid";
+import moment from 'moment'
 
 const baseUrl = "http://localhost:8080/api/v1/manager/profile"
 const updateUrl = "http://localhost:8080/api/v1/manager/profile/update"
 
 const initialState = {
-    givenName: '',
-    nickname: '',
-    avatar: '',
+    nickName: '',
+    fullName: '',
     phone: '',
+    avatar: '',
     dob: '',
     gender: '',
 }
+const error_init = {
+    nickName_err: '',
+    fullName_err: '',
+    phone_err: '',
+    avatar_err: '',
+    dob_err: '',
+    gender_err: '',
+}
 
 export default function ManagerProfile() {
-    //--------------------------------------------------------------------------------
+    const [profile, setProfile] = useState(initialState);
+    const [state, setState] = useState(initialState);
+    const [errors, setErrors] = useState(error_init);
+    const [image, setImage] = useState(null);
+    const [imageURL, setImageURL] = useState("");
+    const [isEditing, setIsEditing] = useState(false);
 
-    const [profile, setProfile] = useState({
-        userName: '',
-        nickname: '',
-        fullName: '',
-        img: '',
-        phone: '',
-        birthday: '',
-        gender: '',
-        role: ''
-    });
-    //--------------------------------------------------------------------------------
-
-    const [originalData, setOriginalData] = useState({});// lưu trữ dữ liệu ban đầu
-    //thay isFormModified --> isEditing
-    // const [isEditing, setIsEditing] = useState(false); // dùng để đánh dấu xem coi người dùng có đang sửa dữ liệu không để hiển thị nút submit (có api)
-    const [isFormModified, setIsFormModified] = useState(false);// dùng để đánh dấu xem coi người dùng có đang sửa dữ liệu không để hiển thị nút submit
-
-    //--------------------------------------------------------------------------------
+    const updateImage = () => {
+        return new Promise((resolve, reject) => {
+            if (image == null) {
+                resolve(state.avatar);
+                return;
+            }
+            const imageRef = ref(storage, `images/${image.name + v4()}`);
+            uploadBytes(imageRef, image)
+                .then(snapshot => getDownloadURL(snapshot.ref))
+                .then(url => {
+                    console.log("Image URL:", url);
+                    resolve(url);
+                })
+                .catch(error => {
+                    console.error("Error uploading image:", error);
+                    reject(error);
+                });
+        });
+    };
     useEffect(() => {
         const fetchProfileData = async () => {
             try {
-                // Thay thế URL này bằng URL API thực tế của bạn
-                const response = await axios.get('http://your-backend-url/api/profile');
-                setProfile(response.data);
-                setOriginalData(response.data);
-
+                const response = await axios.get(baseUrl, {withCredentials: true });
+                const profileData = response.data.obj;
+                profileData.dob = moment(profileData.dob).format('YYYY-MM-DD');
+                setProfile(profileData);
+                setState(profileData);
+                console.log(profileData);
             } catch (error) {
-                console.error('Error fetching profile data:', error);
-                //có thể bỏ đi phần fake dữ liệu bên dưới
-                //--------------------------------------------------------------------------------
-                // Sử dụng dữ liệu giả nếu không có API
-                const fakeData = {
-                    userName: 'admin',
-                    nickname: 'John Doe',
-                    fullName: '123456',
-                    img: 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FAnhDaiDienNu.jpg?alt=media&token=95e71a66-60a3-4a3d-b5d5-86b81b6bcdf1',
-                    phone: '123-456-7890',
-                    birthday: '1990-01-01',
-                    gender: 'Male',
-                    role: 'Admin'
-                };
-
-                setProfile(fakeData);
-                setOriginalData(fakeData);
-                //--------------------------------------------------------------------------------
+                console.log(error);
             }
         };
 
         fetchProfileData();
     }, []);
-    //--------------------------------------------------------------------------------
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProfile({
-            ...profile,
-            [name]: value,
-        });
-        //thay setIsFormModified --> setIsEditing
-        // setIsEditing(true);
-        setIsFormModified(true);
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        setImage(file);
+        setImageURL(URL.createObjectURL(file));
     };
+    const updatePersonalInformation = async (data) => {
+        try {
+            const response = await axios.put(updateUrl, data, {withCredentials: true, responseType: "json"});
+            if (response.status === 200) {
+                window.location.reload();
+            }
+        }catch(error) {
+            if(error.response) {
+                console.log(error);
+            }
+        }
+    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if (validateForm()) {
+            updateImage().then(url => {
+                const newState = { ...state, avatar: url };
+                updatePersonalInformation(newState);
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+    }
+    const triggerFileInput = () => {
+        document.getElementById('avatarInput').click();
+        setIsEditing(true);
+    }
+    const handleInputChange = (event) => {
+        let { name, value } = event.target;
+        setState((state) => ({ ...state, [name]: value }));
+        setProfile((profile) => ({ ...profile, [name]: value }));
+        setIsEditing(true);
+    }
+    const validateForm = () => {
+        let isValid = true;
+        let errors = { ...error_init };
 
-    //--------------------------------------------------------------------------------
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //       await axios.put('', profile);
-    //       alert('Profile updated successfully!');
-    //       setOriginalData(profile);
-    //       setIsEditing(false);
-    //     } catch (error) {
-    //       console.error('Error updating profile data:', error);
-    //       alert('Error updating profile data');
-    //     }
-    // };
+        if (!(3 <= state.nickName.trim().length && state.nickName.trim().length <= 10)) {
+            errors.nickName_err = 'Nickname must be between 3 and 10 characters long';
+            isValid = false;
+        }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Xử lý gửi dữ liệu cập nhật lên backend
-        console.log('Form data submitted:', profile);
-    };
-    //--------------------------------------------------------------------------------
+        if (!(5 <= state.fullName.trim().length && state.fullName.trim().length <= 30)) {
+            errors.fullName_err = 'Full name must be between 5 and 30 characters long';
+            isValid = false;
+        }
+
+        if (!(state.phone.trim().length === 10)) {
+            errors.phone_err = 'Phone is not valid';
+            isValid = false;
+        }
+
+        const currentDate = new Date();
+        const selectedDate = new Date(state.dob);
+
+        if (selectedDate > currentDate) {
+            errors.dob_err = 'Date of birth cannot be in the future';
+            isValid = false;
+        }
+
+        setErrors(errors);
+        return isValid;
+    }
 
     return (
         <div className='m-profile-contain'>
@@ -110,7 +148,6 @@ export default function ManagerProfile() {
                     </div>
                     <div className='profile-content'>
                         <form
-                            method='post'
                             className='profile-info'
                             onSubmit={handleSubmit}
                         >
@@ -119,8 +156,8 @@ export default function ManagerProfile() {
                                 <input
                                     className='info-input'
                                     type='text'
-                                    name='userName'
-                                    value={profile.userName}
+                                    name='muserName'
+                                    value={profile.muserName}
                                     readOnly
                                 />
                             </div>
@@ -130,10 +167,17 @@ export default function ManagerProfile() {
                                     className='info-input'
                                     type='text'
                                     name='fullName'
-                                    value={profile.fullName}
-                                    onChange={handleChange}
+                                    value={state.fullName}
+                                    onChange={handleInputChange}
                                 />
                             </div>
+                            {errors.fullName_err &&
+                                <div className='box-info'>
+                                        <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                            {errors.fullName_err}
+                                        </span>
+                                </div>
+                            }
 
                             <div className='box-info'>
                                 <label>Nickname:</label>
@@ -141,10 +185,17 @@ export default function ManagerProfile() {
                                     className='info-input'
                                     type='text'
                                     name='nickName'
-                                    value={profile.nickname}
-                                    onChange={handleChange}
+                                    value={state.nickName}
+                                    onChange={handleInputChange}
                                 />
                             </div>
+                            {errors.nickName_err &&
+                                <div className='box-info'>
+                                        <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                            {errors.nickName_err}
+                                        </span>
+                                </div>
+                            }
 
                             <div className='box-info'>
                                 <label>Gender:</label>
@@ -154,8 +205,8 @@ export default function ManagerProfile() {
                                             type='radio'
                                             name='gender'
                                             value="Male"
-                                            checked={profile.gender === 'Male'}
-                                            onChange={handleChange}
+                                            checked={state.gender === 'Male'}
+                                            onChange={handleInputChange}
                                         />
                                         Male
                                     </p>
@@ -164,8 +215,8 @@ export default function ManagerProfile() {
                                             type='radio'
                                             name='gender'
                                             value="Female"
-                                            checked={profile.gender === 'Female'}
-                                            onChange={handleChange}
+                                            checked={state.gender === 'Female'}
+                                            onChange={handleInputChange}
                                         />
                                         Female
                                     </p>
@@ -174,8 +225,8 @@ export default function ManagerProfile() {
                                             type='radio'
                                             name='gender'
                                             value="Other"
-                                            checked={profile.gender === 'Other'}
-                                            onChange={handleChange}
+                                            checked={state.gender === 'Other'}
+                                            onChange={handleInputChange}
                                         />
                                         Other
                                     </p>
@@ -187,11 +238,18 @@ export default function ManagerProfile() {
                                 <input
                                     className='info-input'
                                     type='date'
-                                    name='birthday'
-                                    value={profile.birthday}
-                                    onChange={handleChange}
+                                    name='dob'
+                                    value={state.dob}
+                                    onChange={handleInputChange}
                                 />
                             </div>
+                            {errors.dob_err &&
+                                <div className='box-info'>
+                                        <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                            {errors.dob_err}
+                                        </span>
+                                </div>
+                            }
 
                             <div className='box-info'>
                                 <label>Phone:</label>
@@ -199,35 +257,42 @@ export default function ManagerProfile() {
                                     className='info-input'
                                     type='phone'
                                     name='phone'
-                                    value={profile.phone}
-                                    onChange={handleChange}
+                                    value={state.phone}
+                                    onChange={handleInputChange}
                                 />
                             </div>
+                            {errors.phone_err &&
+                                <div className='box-info'>
+                                        <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                            {errors.phone_err}
+                                        </span>
+                                </div>
+                            }
 
-                            <div className='box-info important'>
-                                <label>Role:</label>
-                                <input
-                                    className='info-input'
-                                    type='text'
-                                    name='role'
-                                    value={profile.role}
-                                    readOnly
-                                />
-                            </div>
-                            
-                            {/* {isEditing && (<div className='box-info box-submit'><button className='update-btn' type="submit">Submit</button></div>)} */}
-                            {isFormModified && (<div className='box-info box-submit'><button className='update-btn' type="submit">Save</button></div>)}
+                            {isEditing && (<div className='box-info box-submit'>
+                                <button className='update-btn' type="submit">Submit</button>
+                            </div>)}
+
                         </form>
                         <div className='profile-img'>
                             <div className='box-img'>
                                 <img
                                     className='avatar-img'
-                                    src={profile.img}
+                                    name='avatar'
+                                    src={imageURL || state.avatar}
                                     alt='avatar'
+                                    onChange={handleImageChange}
                                 />
                             </div>
                             <div className='box-button'>
-                                <button className='avatar-button'>
+                                <input
+                                    type='file'
+                                    id='avatarInput'
+                                    className='avatar-input'
+                                    style={{display: 'none'}}
+                                    onChange={handleImageChange}
+                                />
+                                <button className='avatar-button' onClick={triggerFileInput}>
                                     Change picture
                                 </button>
                             </div>

@@ -78,6 +78,7 @@ CREATE TABLE tblPost (
   MUserName     varchar(30), 
   CUserName     varchar(50), 
   FeedbackID	bigint NULL,
+  ReportID		bigint NULL,
   TransID	    bigint NULL,
   PostAddressID bigint, 
   CateID        int, 
@@ -128,6 +129,7 @@ ALTER TABLE tblPostAddress ADD CONSTRAINT FKPostAddres43697 FOREIGN KEY (Distric
 ALTER TABLE tblPostAddress ADD CONSTRAINT FKPostAddres628776 FOREIGN KEY (WardID) REFERENCES tblWard (WardID);
 ALTER TABLE tblPost ADD CONSTRAINT FKPost738984 FOREIGN KEY (CateID) REFERENCES tblCategory (CateID);
 ALTER TABLE tblPost ADD CONSTRAINT FKPost856936 FOREIGN KEY (FeedbackID) REFERENCES tblFeedback (FeedbackID);
+ALTER TABLE tblPost ADD CONSTRAINT FKPost859636 FOREIGN KEY (ReportID) REFERENCES tblReport (ReportID);
 ALTER TABLE tblTransaction ADD CONSTRAINT FKTransactio71904 FOREIGN KEY (Consumer) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblTransaction ADD CONSTRAINT FKTransactio355745 FOREIGN KEY (Supplier) REFERENCES tblCustomer (CUserName);
 ALTER TABLE tblManager ADD CONSTRAINT FKManager173667 FOREIGN KEY (ManagerMUserName) REFERENCES tblManager (MUserName);
