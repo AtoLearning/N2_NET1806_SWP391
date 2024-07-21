@@ -34,6 +34,7 @@ public class GoodsPostManageDto {
     CityDto cityDto;
     CategoryDto categoryDto;
     String mUserName;
+    String reason;
 
     @Override
     public String toString() {
@@ -54,6 +55,7 @@ public class GoodsPostManageDto {
                 ", cityDto=" + cityDto +
                 ", categoryDto=" + categoryDto +
                 ", mUserName=" + mUserName +
+                ", reason=" + reason +
                 '}';
     }
 }

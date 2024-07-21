@@ -72,7 +72,25 @@ const customerRoutes = (
     </>
 );
 
-const managerRoutes = (
+const adminRoutes = (
+    <>
+        <AHeader />
+        <Routes>
+            <Route path='/' element={<Welcome />} />
+            <Route path='/home' element={<HomePage />} />
+            <Route path='/about-us' element={<AboutUs />} />
+            <Route path='/not-found' element={<NotFound />} />
+            <Route path='/c/post/details/:postId' element={<PostInform />} />
+            <Route path='/m/moderate/posts' element={<PendingPosts />} />
+            <Route path='/m/view-post' element={<PostList/>} />
+            <Route path='/m/my-profile' element={<ManagerProfile/>} />
+            <Route path='/m/moderate/posts/details' element={<PostDetail />} />
+            <Route path="*" element={<Navigate to="/not-found" />} />
+        </Routes>
+    </>
+);
+
+const modRoutes = (
     <>
         <MHeader />
         <Routes>
@@ -80,12 +98,12 @@ const managerRoutes = (
             <Route path='/home' element={<HomePage />} />
             <Route path='/about-us' element={<AboutUs />} />
             <Route path='/not-found' element={<NotFound />} />
-            <Route path='/post/details/:postId' element={<PostInform />} />
-            <Route path='/PendingPosts' element={<PendingPosts />} />
+            <Route path='/c/post/details/:postId' element={<PostInform />} />
+            <Route path='/m/moderate/posts' element={<PendingPosts />} />
+            <Route path='/m/view-post' element={<PostList/>} />
+            <Route path='/m/my-profile' element={<ManagerProfile/>} />
+            <Route path='/m/moderate/posts/details' element={<PostDetail />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
-            <Route path='/m/view-post'element={<PostList/>} />
-            <Route path='/m/my_profile'element={<ManagerProfile/>} />
-            <Route path='/m/detail-post'element={<PostDetail />} />
         </Routes>
     </>
 );
@@ -109,8 +127,10 @@ function RoutesComponent() {
         try {
             const response = await axios.get(baseURL, { withCredentials: true });
             if (response.status === 200) {
-                if (response.data.obj.includes('ROLE_ADMIN') || response.data.obj.includes('ROLE_MODERATOR')) {
-                    setRoute(managerRoutes);
+                if (response.data.obj.includes('ROLE_ADMIN')) {
+                    setRoute(adminRoutes);
+                } else if(response.data.obj.includes('ROLE_MODERATOR')) {
+                    setRoute(modRoutes);
                 } else if (response.data.obj.includes('ROLE_CUSTOMER')) {
                     setRoute(customerRoutes);
                 }
@@ -120,7 +140,7 @@ function RoutesComponent() {
                 setRoute(guestRoutes);
             }
         } finally {
-            setLoading(false); // Đánh dấu đã kết thúc loading sau khi xử lý
+            setLoading(false);
         }
     };
     useEffect(() => {

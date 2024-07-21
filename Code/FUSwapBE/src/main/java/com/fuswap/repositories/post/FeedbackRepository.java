@@ -15,7 +15,7 @@ import java.util.List;
 public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
     @Transactional(readOnly = true)
     @Query("SELECT new com.fuswap.dtos.post.FeedbackDto" +
-            "(gp.feedback.FeedbackID, c.Avatar, gp.Title, gp.IsExchange, f.Content, f.CreateAt) " +
+            "(gp.feedback.FeedbackID, c.Avatar, c.Nickname, gp.Title, gp.IsExchange, f.Content, f.CreateAt) " +
             "FROM GoodsPost gp JOIN gp.feedback f " +
             "JOIN f.customer c " +
             "WHERE gp.customer.CUserName = ?1 " +
@@ -24,7 +24,7 @@ public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
 
     @Transactional(readOnly = true)
     @Query("SELECT new com.fuswap.dtos.post.FeedbackDto" +
-            "(gp.feedback.FeedbackID, c.Avatar, gp.Title, gp.IsExchange, f.Content, f.CreateAt) " +
+            "(gp.feedback.FeedbackID, c.Avatar, c.Nickname, gp.Title, gp.IsExchange, f.Content, f.CreateAt) " +
             "FROM GoodsPost gp JOIN gp.feedback f " +
             "JOIN f.customer c " +
             "WHERE gp.customer.CUserName = ?1 " +
@@ -33,7 +33,7 @@ public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
 
     @Transactional(readOnly = true)
     @Query("SELECT new com.fuswap.dtos.post.FeedbackDto" +
-            "(gp.feedback.FeedbackID, c.Avatar, gp.Title, gp.IsExchange, f.Content, f.CreateAt) " +
+            "(gp.feedback.FeedbackID, c.Avatar, c.Nickname, gp.Title, gp.IsExchange, f.Content, f.CreateAt) " +
             "FROM GoodsPost gp JOIN gp.feedback f " +
             "JOIN f.customer c " +
             "WHERE gp.feedback.FeedbackID = :feedbackId")

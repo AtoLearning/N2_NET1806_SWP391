@@ -5,7 +5,7 @@ import axios from "axios";
 
 const baseURL = "http://localhost:8080/api/v1/perform_login";
 
-export default function Login() {
+export default function LoginManager() {
   const [username, setUserName] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -21,7 +21,8 @@ export default function Login() {
         withCredentials: true
       })
       if (response.status === 200 && response.data.status === 'Login successful') {
-        navigate('/home')
+        navigate('/m/moderate/posts')
+        window.location.reload();
       }
 
     } catch (error) {

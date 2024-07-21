@@ -131,6 +131,7 @@ public class GoodsPostService {
                 goodsPost.getUnitPrice(),
                 goodsPost.getCreateAt(),
                 goodsPost.getPostImage(),
+                goodsPost.getPostStatus(),
                 new CustomerViewDto(
                         goodsPost.getCustomer().getCUserName(),
                         goodsPost.getCustomer().getGivenName(),
@@ -152,7 +153,10 @@ public class GoodsPostService {
                 goodsPost.getPostAddress().getWard().getWardName(),
                 goodsPost.getPostAddress().getDistrict().getDistrictName(),
                 goodsPost.getPostAddress().getCity().getCityName(),
-                goodsPost.getCategory().getCateName()
+                goodsPost.getCategory().getCateName(),
+                goodsPost.getManager().getMUserName(),
+                goodsPost.getManager().getFullName(),
+                goodsPost.getReason()
         ));
     }
 
@@ -187,7 +191,8 @@ public class GoodsPostService {
                         goodsPost.getCategory().getCateImage()
                 ),
                 goodsPost.getCustomer().getFamilyName() +
-                        goodsPost.getCustomer().getGivenName()
+                        goodsPost.getCustomer().getGivenName(),
+                goodsPost.getReason()
         ));
     }
 

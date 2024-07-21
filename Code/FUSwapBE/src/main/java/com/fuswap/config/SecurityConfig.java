@@ -83,7 +83,7 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests(request -> request
                 .requestMatchers(PUBLIC_ENDPOINT).permitAll()
                 .requestMatchers("/api/v1/admin/**").hasRole("ADMIN")
-                .requestMatchers("/api/v1/mod/**").hasAnyRole("ADMIN", "MODERATOR")
+                .requestMatchers("/api/v1/manager/**").hasAnyRole("ADMIN", "MODERATOR")
                 .requestMatchers("/api/v1/customer/permission/**").hasRole("CUSTOMER")
                 .requestMatchers("/api/v1/customer/**").hasAnyRole("ADMIN", "MODERATOR", "CUSTOMER")
                 .anyRequest().authenticated());

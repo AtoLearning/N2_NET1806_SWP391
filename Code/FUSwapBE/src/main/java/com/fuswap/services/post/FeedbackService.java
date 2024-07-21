@@ -22,14 +22,11 @@ import java.util.List;
 public class FeedbackService {
     private final FeedbackRepository feedbackRepository;
     private final CustomerRepository customerRepository;
-    private final GoodsPostRepository postRepository;
     private final GoodsPostRepository goodsPostRepository;
 
-    public FeedbackService(FeedbackRepository feedbackRepository, CustomerRepository customerRepository, GoodsPostRepository postRepository, GoodsPostRepository goodsPostRepository) {
+    public FeedbackService(FeedbackRepository feedbackRepository, CustomerRepository customerRepository, GoodsPostRepository goodsPostRepository) {
         this.feedbackRepository = feedbackRepository;
-
         this.customerRepository = customerRepository;
-        this.postRepository = postRepository;
         this.goodsPostRepository = goodsPostRepository;
     }
 

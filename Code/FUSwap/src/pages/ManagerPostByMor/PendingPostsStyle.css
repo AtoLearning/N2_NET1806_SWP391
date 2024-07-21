@@ -9,7 +9,7 @@ body {
 
 .PPM-container {
     display: flex;
-    height: 100vh;
+    height: 110vh;
     width: 100%;
 }
 
@@ -71,4 +71,19 @@ a {
 
 h2 {
     margin-bottom: 20px;
+}
+
+.button-on {
+    background-color: orange;
+    color: white;
+    border: 1px solid black;
+    border-radius: 50px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.button-off {
+    color: black;
+    padding: 5px 10px;
+    cursor: pointer;
 }

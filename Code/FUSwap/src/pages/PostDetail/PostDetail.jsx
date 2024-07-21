@@ -1,51 +1,106 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import '../PostDetail/PostDetailStyle.css'
+import {Link, useLocation, useNavigate} from "react-router-dom";
+import PropTypes from "prop-types";
+import {FaTimes} from "react-icons/fa";
+import axios from "axios";
+const baseUrl = "http://localhost:8080/api/v1/manager/posts/moderate"
 
-export default function () {
+const initialState = {
+    reason: '',
+    status: '',
+}
+
+export default function PostDetail() {
     const [show, setShow] = useState(false);
-    const [reason, setReason] = useState('');
+    const [state, setState] = useState(initialState);
     const [error, setError] = useState('');
-    const handleShow = () => {
-        setShow(true);
-        setError('');
-    }
-    const handelChange = (event) => {
-        setReason(event.target.value);
-    }
+    const navigate = useNavigate();
+
+    const handleShow = (status) => {
+        if (status === 'Approved') {
+            setState({ ...state, reason: '', status });
+            moderatePost({ ...state, status }, post.postId);
+        } else {
+            setState({ ...state, status });
+            setShow(true);
+            setError('');
+        }
+    };
+
+    const handleChange = (event) => {
+        setState({ ...state, reason: event.target.value });
+    };
+
     const handleBack = () => {
         setShow(false);
-        setReason('');
+        setState({ ...state, reason: '', status: '' });
         setError('');
-    }
+    };
+
     const handleSendClick = () => {
-        if (reason.trim === '') {
+        if (state.reason.trim() === '' && state.status === 'Rejected') {
             setError('Please provide a reason for refusal.');
         } else {
-            console.log('Reason for refusal:', reason);
             setError('');
             setShow(false);
-            setReason('');
+            moderatePost(state, post.postId);
+        }
+    };
+
+    const location = useLocation();
+    const { post } = location.state || {};
+
+    const moderatePost = async (data, postId) => {
+        if(data.status === 'Approved') {
+            data.reason = '';
+        }
+        try {
+            const response = await axios.put(`${baseUrl}/${postId}`, data, {withCredentials: true, responseType: "json"});
+            if (response.status === 200) {
+                navigate('/m/moderate/posts');
+            }
+        }catch(error) {
+            if(error.response) {
+                console.log(error);
+            }
         }
     }
-    const post = {
-        title: 'Máy tính laptop hàng chính hãng (DELL-HP) Ram 8GB Intel Core i5 - i7 ổ SSD 256GB màn 12.5", 14",15.6',
-        content: 'Hải Nam Computer - Cam Kết Hàng Chính Hãng - Uy tín - Chất Lượng Máy tính laptop hàng chính hãng Ram 8GB Intel Core i5 - i7 ổ SSD 256GB - Bảo hành 12 tháng. LƯU Ý : - MÁY LÀ HÀNG ĐÃ QUA SỬ DỤNG, NGOẠI HÌNH TẦM 98% (LIKENEW) - PHỤ KIỆN CÓ: MÁ',
-        postImage: 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2Fgoods%2F71ehzrGUO7L.jpg?alt=media&token=be24d056-34fb-435e-9c45-dc21b7bb4508',
-        date: '21-07-2024',
-        avatar: 'https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FAnhDaiDienNam.jpg?alt=media&token=3d50445b-94f0-4631-ad57-a756e436ca0b',
-        email: 'nnnaaasexxxxx1@fpt.edu.vn',
-        fullName: 'Nguyen Nguyen Nguyen Nguyen Ng',
-        streetNumber: '193D/21',
-        street: 'Pham Van Bach',
-        ward: 'Dương Minh Châu',
-        district: 'Go Vap',
-        city: 'Ho Chi Minh',
-    };
+    const validateForm = () => {
+        // let isValid = true;
+        // let errors = { ...error_init };
+        //
+        // if (cateName.trim().length < 5) {
+        //     errors.cateName_err = 'Category name must be more than 4 words';
+        //     isValid = false;
+        // }
+        //
+        // if(!(available.trim().toLowerCase() === "true" || available.trim().toLowerCase() === "false")) {
+        //     errors.available_err = 'TRUE or FALSE';
+        //     isValid = false;
+        // }
+        //
+        // setErrors(errors);
+        // return isValid;
+        return true;
+    }
+
+    if (!post) {
+        return <div>No post data available.</div>;
+    }
+
+    const isPostActionable = post.postStatus !== 'Rejected' && post.postStatus !== 'Transacted';
+
     return (
         <div className='post-detail-contain'>
             <div className='post-detail-content'>
-                <div className='post-detail-header'>
-                    <h2>Post Information</h2>
+                <div className="post-header">
+                    <h1>Post Information</h1>
+                    <button className="post-close-button">
+                        <Link to="/m/moderate/posts">
+                            <FaTimes/>
+                        </Link>
+                    </button>
                 </div>
                 <div className='post-detail-body'>
                     <div className='box-detail-img-user'>
@@ -55,15 +110,16 @@ export default function () {
                                 alt="goods"
                             />
                         </div>
-                        <div className='detail-date'>{post.date}</div>
+                        <div className='detail-date'>{post.createAt}</div>
                         <div className='detail-user'>
                             <img
-                                src={post.avatar}
+                                src={post.customerViewDto.avatar}
                                 alt="avatar"
                             />
                             <p>
-                                <span>{post.email}</span>
-                                <span>{post.fullName}</span>
+                                <span>{post.customerViewDto.cuserName}</span>
+                                <span>{post.customerViewDto.givenName}</span>
+                                <span>{post.customerViewDto.rank} - {post.customerViewDto.points} pts</span>
                             </p>
                         </div>
                     </div>
@@ -87,52 +143,63 @@ export default function () {
                             </div>
                             <div>
                                 <label>Ward:</label>
-                                <div>{post.ward}</div>
+                                <div>{post.wardName}</div>
                             </div>
                         </div>
                         <div className='box-detail-2'>
                             <div>
                                 <label>District:</label>
-                                <div>{post.district}</div>
+                                <div>{post.districtName}</div>
                             </div>
                             <div>
                                 <label>City:</label>
-                                <div>{post.city}</div>
+                                <div>{post.cityName}</div>
                             </div>
                         </div>
-                        {show === true ?
+                        {post.postStatus === 'Rejected' && (
+                            <div className='box-detail-2'>
+                                <div>
+                                    <label>Reason for rejection:</label>
+                                    <div>{post.reason}</div>
+                                </div>
+                            </div>
+                        )
+                        }
+                        {show && isPostActionable && post.postStatus === 'Approved' &&
                             (
                                 <form className='box-detail-reason'>
                                     <label>Reason for refuse:</label>
                                     <textarea
                                         id="reason"
-                                        value={reason}
-                                        onChange={handelChange}
+                                        value={state.reason}
+                                        onChange={handleChange}
                                         placeholder="Provide a reason for refusal"
                                     />
+                                    {error && <p className="error-message">{error}</p>}
                                 </form>
-                            ) : ''
+                            )
                         }
                     </div>
                 </div>
-                {show === false ?
+                {isPostActionable && !show ?
                     (<div className='post-detail-button'>
                         <div className='btn-back'>
-                            <button onClick={''}>Back</button>
+                            <button onClick={handleBack}>Back</button>
                         </div>
                         <div className='box-detail-btn'>
-                            <button className='btn-refuse' onClick={handleShow}>Refuse</button>
-                            <button className='btn-accept' onClick={''}>Accept</button>
+                            <button className='btn-refuse' onClick={() => handleShow('Rejected')}>Reject</button>
+                            {post.postStatus !== 'Approved' && (
+                                <button className='btn-accept' onClick={() => handleShow('Approved')}>Approve</button>
+                            )}
                         </div>
                     </div>)
-                    :
-                    (
+                    : isPostActionable && (
                         <div className='post-detail-button'>
                             <div className='btn-back'>
                                 <button onClick={handleBack}>Back</button>
                             </div>
                             <div className='box-detail-btn'>
-                                <button className='btn-refuse' onClick={handleSendClick}>Send</button>
+                                <button className='btn-refuse' onClick={handleSendClick}>Submit</button>
                             </div>
                         </div>
                     )
@@ -141,3 +208,21 @@ export default function () {
         </div>
     )
 }
+PostDetail.propTypes = {
+    post: PropTypes.shape({
+        postImage: PropTypes.string,
+        createAt: PropTypes.string,
+        customerViewDto: PropTypes.shape({
+            avatar: PropTypes.string,
+            cuserName: PropTypes.string,
+            givenName: PropTypes.string,
+        }),
+        title: PropTypes.string,
+        postContent: PropTypes.string,
+        streetNumber: PropTypes.string,
+        street: PropTypes.string,
+        wardName: PropTypes.string,
+        districtName: PropTypes.string,
+        cityName: PropTypes.string,
+    }).isRequired,
+};

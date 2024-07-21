@@ -129,7 +129,8 @@ const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtN
                     />
                     <div className="UIF-feedback-text">
                       <h4 className="UIF-feedback-title">{feedback.feedbackTitle}</h4>
-                      <p className="UIF-feedback-type">{feedback.isExchange ? "Exchange" : "Sell"}</p>
+                      {/*<p className="UIF-feedback-type">{feedback.isExchange ? "Exchange" : "Sell"}</p>*/}
+                      <p className="UIF-feedback-type">{feedback.nickname}</p>
                       <p className="UIF-feedback-comment">{feedback.content}</p>
                     </div>
                   </div>
@@ -167,6 +168,8 @@ UserInform.propTypes = {
     cuserName: PropTypes.string,
     rank: PropTypes.string,
     points: PropTypes.number,
+    nickname: PropTypes.string,
+    gender: PropTypes.string,
     feedbackDtoList: PropTypes.arrayOf(
         PropTypes.shape({
           feedbackId: PropTypes.number.isRequired,

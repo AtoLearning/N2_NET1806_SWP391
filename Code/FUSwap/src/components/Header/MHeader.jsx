@@ -2,8 +2,11 @@ import { Dropdown, DropdownMenu, DropdownTrigger, DropdownItem } from "@nextui-o
 import React from 'react'
 import { Link } from "react-router-dom"
 import './HeaderStyle.css';
-
-export default function CHeader() {
+const logoutURL = "http://localhost:8080/logout";
+export default function MHeader() {
+    const handleLogout = () => {
+        window.location.href = logoutURL;
+    };
     return (
         <header className="header">
             <div className="header_left">
@@ -15,13 +18,16 @@ export default function CHeader() {
                     />
                 </div>
 
-                <nav className="header_nav_mod">
+                <nav className="header_nav">
                     <ul className="header_ul">
                         <li>
-                            <Link to="/m/view-post" aria-current="page"><span>Post</span></Link>
+                            <Link to="/" aria-current="page">Welcome</Link>
                         </li>
                         <li>
-                            <Link to=""><span>Report</span></Link>
+                            <Link to="/home">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/about-us">About Us</Link>
                         </li>
                     </ul>
                 </nav>
@@ -39,12 +45,22 @@ export default function CHeader() {
                     </DropdownTrigger>
                     <DropdownMenu aria-label="User Actions">
                         <DropdownItem key="UserInfo">
-                            <Link to="/m/my_profile">
-                                My Profile
+                            <Link to="/m/my-profile">
+                                Profile
+                            </Link>
+                        </DropdownItem>
+                        <DropdownItem key="ModeratePost">
+                            <Link to="/m/moderate/posts">
+                                Moderate Post
+                            </Link>
+                        </DropdownItem>
+                        <DropdownItem key="ModerateReport">
+                            <Link to="#">
+                                Moderate Report
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="LogOut">
-                            <Link to="">
+                            <Link to="#" onClick={handleLogout}>
                                 Log out
                             </Link>
                         </DropdownItem>
