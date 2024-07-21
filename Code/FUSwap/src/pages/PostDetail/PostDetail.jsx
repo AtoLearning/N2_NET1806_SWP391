@@ -165,7 +165,7 @@ export default function PostDetail() {
                             </div>
                         )
                         }
-                        {show && isPostActionable && post.postStatus === 'Approved' &&
+                        {show && isPostActionable && (post.postStatus === 'Approved' || post.postStatus === 'Approving') &&
                             (
                                 <form className='box-detail-reason'>
                                     <label>Reason for refuse:</label>
