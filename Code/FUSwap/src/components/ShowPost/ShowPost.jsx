@@ -101,6 +101,9 @@ export default function ShowPost({postStatus, sortDate}) {
                                           </p>
                                           <span><span className='text type'>{post.postStatus}</span></span>
                                       </div>
+                                      <div className='Delete-btn'>
+                                        <button>Delete</button>
+                                      </div>
                                   </div>
                               </>
                       )}
