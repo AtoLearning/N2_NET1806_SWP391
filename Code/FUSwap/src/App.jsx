@@ -22,6 +22,11 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { ToastContainer } from 'react-toastify'
 import SearchPage from "./pages/SearchPage/SearchPage.jsx";
+import MHeader from './components/Header/MHeader.jsx'
+import AHeader from './components/Header/AHeader.jsx'
+import PostList from './components/AllPostList/PostList.jsx'
+import ManagerProfile from './pages/MyProfile/ManagerProfile.jsx'
+import PostDetail from './pages/PostDetail/PostDetail.jsx'
 
 const baseURL = "http://localhost:8080/api/v1/auth-status"
 
@@ -66,7 +71,7 @@ const customerRoutes = (
 
 const managerRoutes = (
     <>
-        <CHeader />
+        <MHeader />
         <Routes>
             <Route path='/' element={<Welcome />} />
             <Route path='/home' element={<HomePage />} />
@@ -74,6 +79,9 @@ const managerRoutes = (
             <Route path='/not-found' element={<NotFound />} />
             <Route path='/post/details/:postId' element={<PostInform />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
+            <Route path='/m/view-post'element={<PostList/>} />
+            <Route path='/m/my_profile'element={<ManagerProfile/>} />
+            <Route path='/m/detail-post'element={<PostDetail />} />
         </Routes>
     </>
 );
