@@ -14,6 +14,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1")
 @Slf4j
@@ -78,6 +80,24 @@ public class GoodsPostController {
         if(goodsPostViewDto != null) {
             return ResponseEntity.status(HttpStatus.OK).body(
                     new ResponseDto("200 OK", "GOODS POST DETAILS", goodsPostViewDto, 0)
+            );
+        } else {
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    new ResponseDto("404 Not Found", "404 Not Found", "", 0)
+            );
+        }
+    }
+
+    @GetMapping("/customer/post/details/related-goods")
+    public ResponseEntity<ResponseDto> getRelatedGoods(
+            @RequestParam(name = "postId") Long postId,
+            @RequestParam(name = "cateName") String cateName,
+            @RequestParam(name = "cuserName") String cuserName
+    ) {
+        List<GoodsPostViewDto> goodsPostViewDtoList = goodsPostService.getRelatedGoods(postId, cateName, cuserName);
+        if(!goodsPostViewDtoList.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    new ResponseDto("200 OK", "GOODS POST DETAILS", goodsPostViewDtoList, 0)
             );
         } else {
             return ResponseEntity.status(HttpStatus.OK).body(

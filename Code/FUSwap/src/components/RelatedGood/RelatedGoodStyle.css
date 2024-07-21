@@ -56,7 +56,13 @@
     font-family: Taviraj, sans-serif;
     align-self: center;
     margin-top: 10px;
-    font-size: xx-large;
+    font-size: small;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    max-width: 300px;
+    display: block;
 }
 
 .product-column {
