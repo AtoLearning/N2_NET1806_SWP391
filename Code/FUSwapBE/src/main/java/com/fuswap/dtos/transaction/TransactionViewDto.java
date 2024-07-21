@@ -19,4 +19,5 @@ public class TransactionViewDto {
     CustomerDto consumer;
     CustomerDto supplier;
     GoodsPostViewDto goodsPostViewDto;
+    String transType;
 }

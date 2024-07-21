@@ -1,138 +1,133 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Select, SelectItem } from "@nextui-org/react";
 import './FilterAddressStyle.css';
+import PropTypes from "prop-types";
 
-const baseURL = "http://localhost:8080/api/v1/guest";
+const cityUrl = "http://localhost:8080/api/v1/guest/cities";
+const districtUrl = "http://localhost:8080/api/v1/guest/districts";
+const wardUrl = "http://localhost:8080/api/v1/guest/wards";
 
-export default function SortAddress({ onSort }) {
-    // Khai báo các biến state
-    const [cities, setCities] = useState([]);
-    const [districts, setDistricts] = useState([]);
-    const [wards, setWards] = useState([]);
+export default function FilterAddress({ onCityChange, onDistrictChange, onWardChange }) {
     const [selectedCity, setSelectedCity] = useState('');
     const [selectedDistrict, setSelectedDistrict] = useState('');
     const [selectedWard, setSelectedWard] = useState('');
+    const[cities, setCities] = useState([]);
+    const[districts, setDistricts] = useState([]);
+    const[wards, setWards] = useState([]);
 
-    // Hàm gọi API để lấy danh sách thành phố
-    const getCities = async () => {
-        try {
-            const response = await axios.get(`${baseURL}/cities`, { withCredentials: true });
-            if (response.status === 200) {
-                setCities(response.data);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    // Hàm gọi API để lấy danh sách quận/huyện dựa trên thành phố đã chọn
-    const getDistricts = async (city) => {
-        try {
-            const response = await axios.get(`${baseURL}/districts`, {
-                params: { city },
-                withCredentials: true
-            });
-            if (response.status === 200) {
-                setDistricts(response.data);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    // Hàm gọi API để lấy danh sách phường/xã dựa trên quận/huyện đã chọn
-    const getWards = async (district) => {
-        try {
-            const response = await axios.get(`${baseURL}/wards`, {
-                params: { district },
-                withCredentials: true
-            });
-            if (response.status === 200) {
-                setWards(response.data);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    // useEffect để gọi API khi component được mount
     useEffect(() => {
-        getCities();
+        const selectedWardObj = wards.find(ward => ward.wardId === parseInt(selectedWard));
+        onWardChange(selectedWard, selectedWardObj?.wardName || '');
+    }, [selectedWard, wards, onWardChange]);
+
+    useEffect(() => {
+        const getCityList = async () => {
+            try {
+                const response = await axios.get(cityUrl, {withCredentials: true});
+                setCities(response.data.obj);
+            } catch (error) {
+                console.error('Error getting list of city data', error);
+            }
+        }
+
+        getCityList();
     }, []);
 
-    // useEffect để gọi API khi thành phố được chọn thay đổi
     useEffect(() => {
-        if (selectedCity) {
-            getDistricts(selectedCity);
+        const getDistrictList = async () => {
+            if (selectedCity) {
+                try {
+                    const response = await axios.get(districtUrl, {
+                        params: {
+                            cityId: selectedCity
+                        },
+                        withCredentials: true});
+                    setDistricts(response.data.obj);
+                    setWards([]);
+                    setSelectedDistrict('');
+                    setSelectedWard('');
+                } catch (error) {
+                    console.error('Error getting list of district data', error);
+                }
+            } else {
+                setDistricts([]);
+                setWards([]);
+                setSelectedDistrict('');
+                setSelectedWard('');
+            }
         }
-    }, [selectedCity]);
+        getDistrictList();
+        const selectedCityObj = cities.find(city => city.cityId === parseInt(selectedCity));
+        onCityChange(selectedCity, selectedCityObj?.cityName || '');
+    }, [selectedCity, cities, onCityChange]);
 
-    // useEffect để gọi API khi quận/huyện được chọn thay đổi
     useEffect(() => {
-        if (selectedDistrict) {
-            getWards(selectedDistrict);
+        const getWardList = async () => {
+            if (selectedCity && selectedDistrict) {
+                try {
+                    const response = await axios.get(wardUrl, {
+                        params: {
+                            districtId: selectedDistrict
+                        },
+                        withCredentials: true
+                    });
+                    setWards(response.data.obj);
+                    setSelectedWard('');
+                } catch (error) {
+                    console.error('Error getting list of ward data', error);
+                }
+            } else {
+                setWards([]);
+                setSelectedWard('');
+            }
         }
-    }, [selectedDistrict]);
-
-    // Hàm xử lý khi người dùng chọn thành phố, quận/huyện, hoặc phường/xã
-    const handleSort = (option, value) => {
-        if (option === 'city') {
-            setSelectedCity(value);
-            setSelectedDistrict('');
-            setSelectedWard('');
-        } else if (option === 'district') {
-            setSelectedDistrict(value);
-            setSelectedWard('');
-        } else if (option === 'ward') {
-            setSelectedWard(value);
-        }
-        onSort({ option, value });
-    };
-
-    // JSX trả về hiển thị giao diện chọn thành phố, quận/huyện, phường/xã
+        getWardList();
+        const selectedDistrictObj = districts.find(district => district.districtId === parseInt(selectedDistrict));
+        onDistrictChange(selectedDistrict, selectedDistrictObj?.districtName || '');
+    }, [selectedCity, selectedDistrict, districts, onDistrictChange]);
     return (
         <div className="sort-address-container">
-            
+
             <div className="sort-options">
-                <Select
-                    label="City"
-                    placeholder="Select a city"
-                    onChange={(e) => handleSort('city', e.target.value)}
-                    className="sort-select"
+                <select
+                    className='address-select select-1'
                     value={selectedCity}
+                    onChange={(e) => setSelectedCity(e.target.value)}
                 >
+                    <option value="">Select City</option>
                     {cities.map((city) => (
-                        <SelectItem key={city.id} value={city.name}>{city.name}</SelectItem>
+                        <option key={city.cityId} value={city.cityId}>{city.cityName}</option>
                     ))}
-                </Select>
+                </select>
 
-                <Select
-                    label="District"
-                    placeholder="Select a district"
-                    onChange={(e) => handleSort('district', e.target.value)}
-                    className="sort-select"
+                <select
+                    className='address-select select-2'
                     value={selectedDistrict}
-                    disabled={!selectedCity}
+                    onChange={(e) => setSelectedDistrict(e.target.value)}
                 >
+                    <option value="">Select District</option>
                     {districts.map((district) => (
-                        <SelectItem key={district.id} value={district.name}>{district.name}</SelectItem>
+                        <option key={district.districtId} value={district.districtId}>{district.districtName}</option>
                     ))}
-                </Select>
+                </select>
 
-                <Select
-                    label="Ward"
-                    placeholder="Select a ward"
-                    onChange={(e) => handleSort('ward', e.target.value)}
-                    className="sort-select"
+                <select
+                    className='address-select select-3'
                     value={selectedWard}
-                    disabled={!selectedDistrict}
+                    onChange={(e) => setSelectedWard(e.target.value)}
                 >
+                    <option value="">Select Ward</option>
                     {wards.map((ward) => (
-                        <SelectItem key={ward.id} value={ward.name}>{ward.name}</SelectItem>
+                        <option key={ward.wardId} value={ward.wardId}>{ward.wardName}</option>
                     ))}
-                </Select>
+                </select>
             </div>
         </div>
     );
 }
+
+FilterAddress.propTypes = {
+    onCityChange: PropTypes.func.isRequired,
+    onDistrictChange: PropTypes.func.isRequired,
+    onWardChange: PropTypes.func.isRequired
+};

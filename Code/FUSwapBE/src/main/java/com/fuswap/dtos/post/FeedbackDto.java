@@ -3,7 +3,7 @@ package com.fuswap.dtos.post;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -16,7 +16,5 @@ public class FeedbackDto {
     String feedbackTitle; //Title of goods post that contains this feedback
     Boolean isExchange; ////Type of goods post that contains this feedback
     String content;
-    Date createAt;
-
-
+    LocalDate createAt;
 }

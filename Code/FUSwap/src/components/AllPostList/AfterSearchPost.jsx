@@ -1,24 +1,30 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Pagination } from "@nextui-org/react";
 import './PostListStyle.css';
 import { FaHandshake, FaMoneyBillWave } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types';
 
-const baseURL = "http://localhost:8080/api/v1/guest/posts";
+const baseURL = "http://localhost:8080/api/v1/guest/posts/search";
 
-export default function PostList({ searchQuery }) {
+export default function AfterSearchPost({ searchValue, cityName, districtName, wardName, priceSort, dateSort, postType, cateName }) {
     const [posts, setPosts] = useState([]);
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const navigate = useNavigate();
-
-    const getAllPosts = async (page, searchQuery) => {
+    const getAllPosts = async (page, searchValue, cityName, districtName, wardName, priceSort, dateSort, postType, cateName) => {
         try {
             const response = await axios.get(baseURL, {
                 params: {
                     pageNo: page,
-                    query: searchQuery,
+                    searchValue: searchValue,
+                    cityName: cityName,
+                    districtName: districtName,
+                    wardName: wardName,
+                    priceSort: priceSort,
+                    dateSort: dateSort,
+                    postType: postType,
+                    cateName: cateName,
                 },
                 withCredentials: true
             });
@@ -36,8 +42,8 @@ export default function PostList({ searchQuery }) {
     };
 
     useEffect(() => {
-        getAllPosts(page, searchQuery);
-    }, [page, searchQuery]);
+        getAllPosts(page, searchValue, cityName, districtName, wardName, priceSort, dateSort, postType, cateName);
+    }, [page, searchValue, cityName, districtName, wardName, priceSort, dateSort, postType, cateName]);
 
     const handlePageChange = (newPage) => {
         setPage(newPage);
@@ -60,12 +66,10 @@ export default function PostList({ searchQuery }) {
                                 {post.isExchange ? (
                                     <>
                                         <span>Trade</span>
-                                        <span><FaHandshake /></span>
                                     </>
                                 ) : (
                                     <>
-                                        <span>{post.unitPrice} </span>
-                                        <span><FaMoneyBillWave /></span>
+                                        <span>{post.unitPrice.toLocaleString()} VND</span>
                                     </>
                                 )}
                             </div>
@@ -87,3 +91,13 @@ export default function PostList({ searchQuery }) {
         </div>
     );
 }
+AfterSearchPost.propTypes = {
+    searchValue: PropTypes.string.isRequired,
+    cityName: PropTypes.string.isRequired,
+    districtName: PropTypes.string.isRequired,
+    wardName: PropTypes.string.isRequired,
+    priceSort: PropTypes.string.isRequired,
+    dateSort: PropTypes.string.isRequired,
+    postType: PropTypes.string.isRequired,
+    cateName: PropTypes.string.isRequired,
+};

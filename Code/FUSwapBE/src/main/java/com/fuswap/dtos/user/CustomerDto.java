@@ -7,8 +7,10 @@ import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 import lombok.AccessLevel;
+import org.springframework.cglib.core.Local;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -25,10 +27,11 @@ public class CustomerDto implements Serializable{
     String avatar;
     Float points;
     String phone;
-    Date dob;
-    String gender;
+    LocalDate dob;
     String address;
+    String gender;
     boolean isVerified;
+    String rank;
 
     @Override
     public String toString() {
@@ -44,6 +47,7 @@ public class CustomerDto implements Serializable{
                 ", address='" + address + '\'' +
                 ", gender='" + gender + '\'' +
                 ", isVerified=" + isVerified +
+                ", rank=" + rank +
                 '}';
     }
 }

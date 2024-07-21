@@ -1,61 +1,68 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link } from "react-router-dom"
 import { FaUser, FaBox, FaSignOutAlt, FaLaptop } from "react-icons/fa";
 import '../SideBar/SideBarStyle.css'
-
+import axios from "axios";
+const baseUrl = "http://localhost:8080/api/v1/customer/permission/profile"
 export default function SideBar() {
-    const [isOpen, setIsOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState('');
+    const [profile, setProfile] = useState({});
 
-    const toggleAccount = () => {
-        setIsOpen(!isOpen);
-    };
+    useEffect(() => {
+        const fetchProfileData = async () => {
+            try {
+                const response = await axios.get(baseUrl, {withCredentials: true });
+                setProfile(response.data.obj);
+            } catch (error) {
+                console.log(error);
+            }
+        };
 
+        fetchProfileData();
+    }, []);
     const handleItemClick = (item) => {
         setSelectedItem(item);
     };
-
-    const isSubItemSelected = ['My Profile', 'My Post', 'My Coin'].includes(selectedItem);
 
     return (
         <nav className='sideBar'>
             <div className='profile'>
                 <img
                     className=''
-                    src='https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FAnhDaiDienNu.jpg?alt=media&token=95e71a66-60a3-4a3d-b5d5-86b81b6bcdf1'
+                    src={profile.avatar}
                     alt='avatar'
                 />
-                <span>NickName</span>
+                <span>{profile.nickname}</span>
             </div>
             <ul className='menu'>
                 <li>
                     <Link
-                        className={`menuItem ${selectedItem === 'My Profile' ? 'active' : ''}`}
-                        onClick={() => handleItemClick("My Profile")}
+                        className={`menuItem ${selectedItem === 'Profile' ? 'active' : ''}`}
+                        onClick={() => handleItemClick("Profile")}
                         to={"/c/my-profile"}
                     >
                         <FaUser className='menuIcon' />
-                        <span>My Profile</span>
+                        <span>Profile</span>
                     </Link>
                 </li>
                 <li>
                     <Link
-                        className={`menuItem ${selectedItem === 'My Post' ? 'active' : ''}`}
-                        onClick={() => handleItemClick("My Post")}
+                        className={`menuItem ${selectedItem === 'Goods Post' ? 'active' : ''}`}
+                        onClick={() => handleItemClick("Goods Post")}
                         to="/c/my-posts"
                     >
                         <FaLaptop className='menuIcon' />
-                        <span>My Post</span>
+                        <span>Goods Post</span>
                     </Link>
                 </li>
                 <li>
                     <Link
-                        className={`menuItem ${selectedItem === 'The Orders' ? 'active' : ''}`}
-                        onClick={() => handleItemClick("The Orders")}
+                        className={`menuItem ${selectedItem === 'Transaction' ? 'active' : ''}`}
+                        onClick={() => handleItemClick("Transaction")}
                         to={"/c/my-transactions"}
                     >
                         <FaBox className='menuIcon' />
-                        <span>The Orders</span>
+                        <span>Transaction</span>
                     </Link>
                 </li>
                 <li>

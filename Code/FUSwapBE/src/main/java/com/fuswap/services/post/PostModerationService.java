@@ -68,8 +68,7 @@ public class PostModerationService {
                         goodsPost.getCategory().getCateName(),
                         goodsPost.getCategory().getCateImage()
                 ),
-                goodsPost.getCustomer().getFamilyName() +
-                        goodsPost.getCustomer().getGivenName()
+                goodsPost.getManager().getFullName()
         ));
     }
 

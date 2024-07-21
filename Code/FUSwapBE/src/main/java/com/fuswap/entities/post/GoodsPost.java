@@ -7,6 +7,8 @@ import com.fuswap.entities.user.Customer;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -50,7 +52,7 @@ public class GoodsPost {
     String PostStatus;
 
     @Column(name = "createat")
-    Date CreateAt;
+    LocalDate CreateAt;
 
     @ManyToOne
     @JoinColumn(name = "musername")

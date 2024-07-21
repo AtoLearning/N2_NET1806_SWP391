@@ -24,10 +24,11 @@ public class TransactionController {
     @GetMapping("/customer/permission/my-trans")
     public ResponseEntity<ResponseDto> getMyTransactions(
             @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+            @RequestParam(name = "transType", defaultValue = "") String transType,
             Authentication authentication) {
         String cUserName = getUserNameInAuthentication(authentication);
         if(pageNo <= 0) pageNo = 1;
-        Page<TransactionViewDto> transactionDtoPage = transactionService.getMyTransactions(pageNo, cUserName);
+        Page<TransactionViewDto> transactionDtoPage = transactionService.getMyTransactions(pageNo, transType, cUserName);
         if(transactionDtoPage.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT)
                     .body(new ResponseDto("204", "Having no any transactions!", "", 0));
@@ -69,20 +70,21 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/customer/permission/trans/create/{postId}/{specialPostId}")
-    public ResponseEntity<ResponseDto> makeTransaction(
-            @PathVariable(name = "postId") Long postId,
-            @PathVariable(name = "specialPostId") String specialPostId,
-            Authentication authentication
-    ) {
-        String cUserName = getUserNameInAuthentication(authentication);
-        boolean isCreated = transactionService.makeTransaction(postId, specialPostId, cUserName);
-        if(isCreated) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(
-                    new ResponseDto("201", "Transaction is created successful!", "", 0)
-            );
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+        @PostMapping("/customer/permission/trans/create/{postId}/{specialPostId}")
+        public ResponseEntity<ResponseDto> makeTransaction(
+                @PathVariable(name = "postId") Long postId,
+                @PathVariable(name = "specialPostId") String specialPostId,
+                Authentication authentication
+        ) {
+            log.info("Check");
+            String cUserName = getUserNameInAuthentication(authentication);
+            boolean isCreated = transactionService.makeTransaction(postId, specialPostId, cUserName);
+            if(isCreated) {
+                return ResponseEntity.status(HttpStatus.CREATED).body(
+                        new ResponseDto("201", "Transaction is created successful!", "", 0)
+                );
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
                     new ResponseDto("400", "Transaction is created fail!", "", 0)
             );
         }

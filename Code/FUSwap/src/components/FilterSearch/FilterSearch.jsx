@@ -1,115 +1,71 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import PropTypes from 'prop-types';
 import './FilterSearchStyle.css';
 
-const baseURL = "http://localhost:8080/api/v1/guest/categories"; // URL API để lấy dữ liệu danh mục
+const baseURL = "http://localhost:8080/api/v1/guest/categories";
 
-export default function FilterSearch() {
+export default function FilterSearch({onCateChange, onPostTypeChange}) {
     const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState("");
-    const [selectedPrice, setSelectedPrice] = useState("");
-    const [selectedType, setSelectedType] = useState("");
-    const [useSampleData, setUseSampleData] = useState(true); // State để kiểm tra có sử dụng dữ liệu mẫu hay không
 
-    // Dữ liệu mẫu
-    const sampleCategories = [
-        { name: "Sample Category 1" },
-        { name: "Sample Category 2" },
-        { name: "Sample Category 3" },
-        { name: "Sample Category 4" },
-        { name: "Sample Category 5" },
-    ];
+    const getAllCategories = async () => {
+        try {
+            const response = await axios.get(baseURL, {withCredentials: true});
+            if (response.status === 200) {
+                setCategories(response.data.obj);
+                console.log(response.data);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     useEffect(() => {
-        const fetchCategories = async () => {
-            if (useSampleData) {
-                // Sử dụng dữ liệu mẫu và đặt loading thành false
-                setCategories(sampleCategories);
-            } else {
-                try {
-                    const response = await axios.get(baseURL, { withCredentials: true });
-                    if (response.status === 200) {
-                        setCategories(response.data.obj);
-                    }
-                } catch (error) {
-                    console.log(error);
-                }
-            }
-        };
+        getAllCategories();
+    }, []);
 
-        fetchCategories();
-    }, [useSampleData]);
-
-    const handleCategoryChange = (category) => {
-        setSelectedCategory(category);
+    const handleCategoryChange = (cateId) => {
+        const selectedCateObj = categories.find(category => category.cateId === parseInt(cateId));
+        onCateChange(cateId, selectedCateObj?.cateName || '');
     };
 
-    const handlePriceChange = (price) => {
-        setSelectedPrice(price);
-    };
-
-    const handleTypeChange = (type) => {
-        setSelectedType(type);
+    const handlePostTypeChange = (type) => {
+        onPostTypeChange(type !== null ? type : "");
     };
 
     return (
         <div className="filter-container">
             <div className="filter-category">
-                <h3>All categories</h3>
+                <h3>Category</h3>
                 <ul>
+                    <li onClick={() => handleCategoryChange("")}>All</li>
                     {categories.map((category, index) => (
-                        <li key={index} onClick={() => handleCategoryChange(category.name)}>
-                            {category.name}
+                        <li key={index} onClick={() => handleCategoryChange(category.cateId)}>
+                            {category.cateName}
                         </li>
                     ))}
                 </ul>
             </div>
-            <div className="filter-price">
-                <h3>Price</h3>
-                <label>
-                    <input
-                        type="radio"
-                        name="price"
-                        value="low-to-high"
-                        checked={selectedPrice === "low-to-high"}
-                        onChange={() => handlePriceChange("low-to-high")}
-                    />
-                    from lowest to highest
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="price"
-                        value="high-to-low"
-                        checked={selectedPrice === "high-to-low"}
-                        onChange={() => handlePriceChange("high-to-low")}
-                    />
-                    from highest to lowest
-                </label>
-            </div>
-            <div className="filter-type">
-                <h3>Type</h3>
-                <label>
-                    <input
-                        type="radio"
-                        name="type"
-                        value="sell"
-                        checked={selectedType === "sell"}
-                        onChange={() => handleTypeChange("sell")}
-                    />
-                    Sell
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="type"
-                        value="trade"
-                        checked={selectedType === "trade"}
-                        onChange={() => handleTypeChange("trade")}
-                    />
-                    Trade
-                </label>
+            <div className="filter-category">
+                <h3>Post&apos;s Type</h3>
+                <ul>
+                    <li onClick={() => handlePostTypeChange("")}>All</li>
+                    <li
+                        onClick={() => handlePostTypeChange('sell')}
+                    >
+                        Sell post
+                    </li>
+                    <li
+                        onClick={() => handlePostTypeChange('exchange')}
+                    >
+                        Exchange post
+                    </li>
+                </ul>
             </div>
         </div>
     );
 }
+FilterSearch.propTypes = {
+    onCateChange: PropTypes.func.isRequired,
+    onPostTypeChange: PropTypes.func.isRequired
+};
