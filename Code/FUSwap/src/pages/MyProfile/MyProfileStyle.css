@@ -66,8 +66,13 @@
     font-weight: 600;
 }
 .info-input{
+    display: inline-flex;
+    align-items: center;
     width: 60%;
     outline: none;
+}
+.info-input svg {
+    margin-left: 8px;
 }
 .info-radio{
     display: flex;

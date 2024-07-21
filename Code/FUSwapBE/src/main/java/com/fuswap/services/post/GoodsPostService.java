@@ -419,4 +419,47 @@ public class GoodsPostService {
     public GoodsPost findByPostID(Long postId) {
         return goodsPostRepository.findByPostID(postId);
     }
+
+    public List<GoodsPostViewDto> getRelatedGoods(Long postId, String cateName, String cuserName) {
+        List<GoodsPost> goodsPostList = new ArrayList<>();
+        List<GoodsPostViewDto> goodsPostViewDtoList = new ArrayList<>();
+        goodsPostList = goodsPostRepository.getRelatedGoods(postId, cateName, cuserName);
+        if(goodsPostList.size() < 3) {goodsPostList.addAll(goodsPostRepository.findAll());}
+        for(GoodsPost goodsPost : goodsPostList) {
+            GoodsPostViewDto goodsPostViewDto = new GoodsPostViewDto();
+            goodsPostViewDto.setPostId(goodsPost.getPostID());
+            goodsPostViewDto.setTitle(goodsPost.getTitle());
+            goodsPostViewDto.setContent(goodsPost.getContent());
+            goodsPostViewDto.setIsExchange(goodsPost.getIsExchange());
+            goodsPostViewDto.setUnitPrice(goodsPost.getUnitPrice());
+            goodsPostViewDto.setCreateAt(goodsPost.getCreateAt());
+            goodsPostViewDto.setPostImage(goodsPost.getPostImage());
+            goodsPostViewDto.setCustomerViewDto( new CustomerViewDto(
+                    goodsPost.getCustomer().getCUserName(),
+                    goodsPost.getCustomer().getGivenName(),
+                    goodsPost.getCustomer().getFamilyName(),
+                    goodsPost.getCustomer().getNickname(),
+                    goodsPost.getCustomer().getAvatar(),
+                    goodsPost.getCustomer().getPoints(),
+                    goodsPost.getCustomer().getPhone(),
+                    goodsPost.getCustomer().getDOB(),
+                    goodsPost.getCustomer().getAddress(),
+                    goodsPost.getCustomer().getGender(),
+                    goodsPost.getCustomer().getIsVerified(),
+                    goodsPost.getCustomer().getCusRank(),
+                    feedbackService.getFeedbackBySupplier(goodsPost.getCustomer().getCUserName())
+            ));
+            goodsPostViewDto.setFeedbackDto(feedbackService.getFeedbackByFeedbackId(
+                    goodsPost.getFeedback() == null ? 0L : goodsPost.getFeedback().getFeedbackID()
+            ));
+            goodsPostViewDto.setStreetNumber(goodsPost.getPostAddress().getStreetNumber());
+            goodsPostViewDto.setStreet(goodsPost.getPostAddress().getStreet());
+            goodsPostViewDto.setWardName(goodsPost.getPostAddress().getWard().getWardName());
+            goodsPostViewDto.setDistrictName(goodsPost.getPostAddress().getDistrict().getDistrictName());
+            goodsPostViewDto.setCityName(goodsPost.getPostAddress().getCity().getCityName());
+            goodsPostViewDto.setCateName(goodsPost.getCategory().getCateName());
+            goodsPostViewDtoList.add(goodsPostViewDto);
+        }
+        return goodsPostViewDtoList;
+    }
 }

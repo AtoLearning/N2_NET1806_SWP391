@@ -2,7 +2,7 @@ import {Dropdown, DropdownMenu, DropdownTrigger, DropdownItem} from "@nextui-org
 import { Link } from "react-router-dom"
 import SearchBox from '../SearchBox/SearchBox'
 import './HeaderStyle.css';
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 const baseURL = "http://localhost:8080/logout";
@@ -40,21 +40,21 @@ export default function CHeader() {
                 <nav className="header_nav">
                     <ul className="header_ul">
                         <li>
-                            <Link to="/home" aria-current="page"><span>Home</span></Link>
+                            <Link to="/" aria-current="page">Welcome</Link>
                         </li>
                         <li>
-                            <Link to=""><span>Trade</span></Link>
+                            <Link to="/home">Home</Link>
                         </li>
                         <li>
-                            <Link to=""><span>Sell</span></Link>
+                            <Link to="/about-us">About Us</Link>
                         </li>
                     </ul>
                 </nav>
             </div>
             <div className="header_right">
-                <SearchBox />
+                <SearchBox/>
                 <Dropdown backdrop="blur">
-                    <DropdownTrigger>
+                <DropdownTrigger>
                         <button>
                             <img
                                 className="img_avatar"

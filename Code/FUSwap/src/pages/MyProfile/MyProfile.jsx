@@ -6,6 +6,7 @@ import moment from 'moment'
 import {storage} from "../../firebaseConfig.js";
 import {ref, uploadBytes, getDownloadURL} from "firebase/storage";
 import {v4} from "uuid";
+import {FaLeaf, FaSeedling, FaTree} from "react-icons/fa";
 
 const baseUrl = "http://localhost:8080/api/v1/customer/permission/profile"
 const updateUrl = "http://localhost:8080/api/v1/customer/permission/profile/update"
@@ -122,6 +123,15 @@ export default function MyProfile() {
         return true;
     }
 
+    let rankIcon;
+    if (profile.rank === 'Gold') {
+        rankIcon = <FaSeedling />;
+    } else if (profile.rank === 'Silver') {
+        rankIcon = <FaLeaf />;
+    } else if (profile.rank === 'Diamond') {
+        rankIcon = <FaTree />;
+    }
+
     return (
         <div className='profile-contain'>
             <div className='profile-left'><SideBar /></div>
@@ -148,12 +158,12 @@ export default function MyProfile() {
                             </div>
 
                             <div className='box-info'>
-                                <label>Nickname:</label>
+                                <label>Phone:</label>
                                 <input
                                     className='info-input'
-                                    type='text'
-                                    name='nickname'
-                                    value={state.nickname}
+                                    type='phone'
+                                    name='phone'
+                                    value={state.phone}
                                     onChange={handleInputChange}
                                 />
                             </div>
@@ -166,6 +176,35 @@ export default function MyProfile() {
                                     name='cuserName'
                                     value={profile.cuserName}
                                     readOnly
+                                />
+                            </div>
+
+                            <div className='box-info important'>
+                                <label>Points:</label>
+                                <input
+                                    className='info-input'
+                                    type='number'
+                                    name='points'
+                                    value={profile.points}
+                                    readOnly
+                                />
+                            </div>
+
+                            <div className='box-info important'>
+                                <label>Rank:</label>
+                                <span className='info-input'>
+                                    {profile.rank} {rankIcon}
+                                </span>
+                            </div>
+
+                            <div className='box-info'>
+                                <label>Nickname:</label>
+                                <input
+                                    className='info-input'
+                                    type='text'
+                                    name='nickname'
+                                    value={state.nickname}
+                                    onChange={handleInputChange}
                                 />
                             </div>
 
@@ -216,19 +255,11 @@ export default function MyProfile() {
                                 />
                             </div>
 
-                            <div className='box-info'>
-                                <label>Phone:</label>
-                                <input
-                                    className='info-input'
-                                    type='phone'
-                                    name='phone'
-                                    value={state.phone}
-                                    onChange={handleInputChange}
-                                />
-                            </div>
-                            {isEditing && (<div className='box-info box-submit'><button className='update-btn' type="submit">Submit</button></div>)}
+                            {isEditing && (<div className='box-info box-submit'>
+                                <button className='update-btn' type="submit">Submit</button>
+                            </div>)}
                         </form>
-                            <div className='profile-img'>
+                        <div className='profile-img'>
                             <div className='box-img'>
                                 <img
                                     className='avatar-img'

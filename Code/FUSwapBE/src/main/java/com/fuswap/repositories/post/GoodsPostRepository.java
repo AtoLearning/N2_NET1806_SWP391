@@ -1,5 +1,6 @@
 package com.fuswap.repositories.post;
 
+import com.fuswap.dtos.post.GoodsPostViewDto;
 import com.fuswap.entities.post.Feedback;
 import com.fuswap.entities.post.GoodsPost;
 import io.lettuce.core.dynamic.annotation.Param;
@@ -65,4 +66,10 @@ public interface GoodsPostRepository extends JpaRepository<GoodsPost, Long>, Pag
     @Transactional(readOnly = true)
     @Query("SELECT gp FROM GoodsPost gp WHERE gp.customer.CUserName = ?1")
     Page<GoodsPost> findByCUserNameAndIsAvailable(Pageable pageable, String cuserName);
+
+    @Transactional(readOnly = true)
+    @Query("SELECT gp FROM GoodsPost gp WHERE gp.PostID != :postId AND " +
+            "((:cateName IS NULL OR gp.category.CateName = :cateName) OR " +
+            "(:cuserName IS NULL OR gp.customer.CUserName = :cuserName))")
+    List<GoodsPost> getRelatedGoods(Long postId, String cateName, String cuserName);
 }

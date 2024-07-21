@@ -4,6 +4,7 @@ import { FaUser, FaBox, FaSignOutAlt, FaLaptop } from "react-icons/fa";
 import '../SideBar/SideBarStyle.css'
 import axios from "axios";
 const baseUrl = "http://localhost:8080/api/v1/customer/permission/profile"
+const baseURL = "http://localhost:8080/logout";
 export default function SideBar() {
     const [selectedItem, setSelectedItem] = useState('');
     const [profile, setProfile] = useState({});
@@ -23,7 +24,9 @@ export default function SideBar() {
     const handleItemClick = (item) => {
         setSelectedItem(item);
     };
-
+    const handleLogout = () => {
+        window.location.href = baseURL;
+    };
     return (
         <nav className='sideBar'>
             <div className='profile'>
@@ -66,7 +69,7 @@ export default function SideBar() {
                     </Link>
                 </li>
                 <li>
-                    <Link className='menuItem' to={""}>
+                    <Link className='menuItem' to="#" onClick={handleLogout}>
                         <FaSignOutAlt className='menuIcon' />
                         <span>Log Out</span>
                     </Link>

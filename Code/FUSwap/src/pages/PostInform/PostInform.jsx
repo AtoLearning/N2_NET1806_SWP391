@@ -11,11 +11,12 @@ const baseUrl = "http://localhost:8080/api/v1/customer/post/details";
 const urlToMakeTrans = "http://localhost:8080/api/v1/customer/permission/trans/create";
 
 const PostInformSample = () => {
-    const [detailsPost, setDetailsPost] = useState("");
+    const [detailsPost, setDetailsPost] = useState({});
     const { postId } = useParams();
     const navigate = useNavigate();
     const [specialPostId, setSpecialPostId] = useState("");
     const [mesg, setMesg] = useState("");
+    const [feedbackPage, setFeedbackPage] = useState(1);
 
     useEffect(() => {
         const getDetailsPost = async (postId) => {
@@ -34,6 +35,8 @@ const PostInformSample = () => {
             }
         };
         getDetailsPost(postId);
+        setFeedbackPage(1);
+        window.scrollTo(0, 0);
     }, [postId, navigate]);
 
     const makeTransaction = async (postId, specialPostId) => {
@@ -140,9 +143,17 @@ const PostInformSample = () => {
                     wardName={detailsPost.wardName}
                     districtName={detailsPost.districtName}
                     cityName={detailsPost.cityName}
+                    feedbackPage={feedbackPage}
+                    setFeedbackPage={setFeedbackPage}
                 />
             )}
-            <RelatedGood relatedGoods={detailsPost.relatedGoods} />
+            {detailsPost.customerViewDto && (
+                <RelatedGood
+                    postId={detailsPost.postId}
+                    cateName={detailsPost.cateName}
+                    cuserName={detailsPost.customerViewDto.cuserName}
+                />
+            )}
         </section>
     );
 };

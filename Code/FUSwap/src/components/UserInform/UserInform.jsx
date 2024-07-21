@@ -1,22 +1,24 @@
 import PropTypes from 'prop-types';
 import './UserInformStyle.css';
 import {FaGem, FaLeaf, FaSeedling, FaTree} from "react-icons/fa";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtName, cityName}) => {
+const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtName, cityName, feedbackPage, setFeedbackPage}) => {
   const [currentPage, setCurrentPage] = useState(1);
   const feedbacksPerPage = 3;
 
-  const indexOfLastFeedback = currentPage * feedbacksPerPage;
+  const indexOfLastFeedback = feedbackPage * feedbacksPerPage;
   const indexOfFirstFeedback = indexOfLastFeedback - feedbacksPerPage;
   const currentFeedbacks = customerViewDto.feedbackDtoList.slice(indexOfFirstFeedback, indexOfLastFeedback);
 
+  const totalPages = Math.ceil(customerViewDto.feedbackDtoList.length / feedbacksPerPage);
+
   const paginatePrev = () => {
-    setCurrentPage(currentPage > 1 ? currentPage - 1 : 1);
+    setFeedbackPage(feedbackPage > 1 ? feedbackPage - 1 : 1);
   };
 
   const paginateNext = () => {
-    setCurrentPage(currentPage < Math.ceil(customerViewDto.feedbackDtoList.length / feedbacksPerPage) ? currentPage + 1 : currentPage);
+    setFeedbackPage(feedbackPage < totalPages ? feedbackPage + 1 : totalPages);
   };
 
   let backgroundColor, borderColor, textColor, rankIcon;
@@ -36,6 +38,10 @@ const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtN
     textColor = '#7cf6f6';
     rankIcon = <FaTree />;
   }
+
+  useEffect(() => {
+    setFeedbackPage(1);
+  }, [customerViewDto, setFeedbackPage]);
 
   return (
     <section className="UIF-card">
@@ -132,14 +138,16 @@ const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtN
             {customerViewDto.feedbackDtoList.length > 0 && (
                 <div className="UIF-pagination">
                   <button
-                      className={`UIF-pagination-btn ${currentPage === 1 ? 'disabled' : 'active'}`}
+                      className={`UIF-pagination-btn ${feedbackPage === 1 ? 'disabled' : ''}`}
                       onClick={paginatePrev}
+                      disabled={feedbackPage === 1}
                   >
                     Previous
                   </button>
                   <button
-                      className={`UIF-pagination-btn ${currentPage === Math.ceil(customerViewDto.feedbackDtoList.length / feedbacksPerPage) ? 'disabled' : 'active'}`}
+                      className={`UIF-pagination-btn ${feedbackPage >= totalPages ? 'disabled' : ''}`}
                       onClick={paginateNext}
+                      disabled={feedbackPage >= totalPages}
                   >
                     Next
                   </button>
