@@ -229,7 +229,7 @@ export default function UpdatePost() {
         <div className='post-contain'>
             <div className='post'>
                 <div className="post-header">
-                    <h1>New Goods Post</h1>
+                    <h1>Update Post Information</h1>
                     <button className="post-close-button">
                         <Link to="/c/my-posts">
                             <FaTimes/>
