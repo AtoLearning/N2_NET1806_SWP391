@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: Taviraj;
-    /* font-family: Arial, sans-serif;  */
+    /* font-family: Arial, sans-serif; */
 }
 
 .PPM-container {
@@ -14,16 +14,11 @@ body {
     height: 110vh;
     width: 100%;
 }
-.report-title{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
-/* .PPM-sidebar {
+.PPM-sidebar {
     width: 20%;
     background: linear-gradient(to Right, #ffde59 0%, #ff914d 100%);
-} */
+}
 
 .PPM-main-content {
     width: 80%;

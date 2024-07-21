@@ -29,6 +29,7 @@ import PostList from './components/AllPostList/PostList.jsx'
 import ManagerProfile from './pages/MyProfile/ManagerProfile.jsx'
 import PostDetail from './pages/PostDetail/PostDetail.jsx'
 import PostReadonly from "./pages/Post/PostReadonly.jsx";
+import ViewListReports from './pages/ViewListReportByMod/ViewListReports.jsx'
 
 const baseURL = "http://localhost:8080/api/v1/auth-status"
 
@@ -103,6 +104,7 @@ const modRoutes = (
             <Route path='/m/view-post' element={<PostList/>} />
             <Route path='/m/my-profile' element={<ManagerProfile/>} />
             <Route path='/m/moderate/posts/details' element={<PostDetail />} />
+            <Route path='/m/moderate/reports' element={<ViewListReports/>} />
             <Route path="*" element={<Navigate to="/not-found" />} />
         </Routes>
     </>
