@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useState} from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import Address from '../../components/Address/Address'
 import './PostStyle.css'
 import { FaTimes } from 'react-icons/fa';
@@ -35,6 +35,12 @@ const initialState = {
         cateName: ''
     }
 }
+const error_init = {
+    title_err: '',
+    postContent_err: '',
+    streetNumber_err: '',
+    street_err: '',
+}
 
 const cateUrl = "http://localhost:8080/api/v1/guest/categories";
 const addUrl = "http://localhost:8080/api/v1/customer/permission/my-post/create";
@@ -43,6 +49,7 @@ export default function TradePost() {
     const navigate = useNavigate();
     const [categories, setCategories] = useState([]);
     const [state, setState] = useState(initialState);
+    const [errors, setErrors] = useState(error_init);
     const [image, setImage] = useState(null);
     const [imageURL, setImageURL] = useState("");
     const updateImage = () => {
@@ -87,7 +94,7 @@ export default function TradePost() {
                 toast.success(response.data.message);
                 navigate('/my-posts');
             }
-        }catch(error) {
+        } catch(error) {
             if(error.response) {
                 console.log(error);
                 if(error.response.data.status === '400.1') {
@@ -173,22 +180,31 @@ export default function TradePost() {
     }, []);
 
     const validateForm = () => {
-        // let isValid = true;
-        // let errors = { ...error_init };
-        //
-        // if (cateName.trim().length < 5) {
-        //     errors.cateName_err = 'Category name must be more than 4 words';
-        //     isValid = false;
-        // }
-        //
-        // if(!(available.trim().toLowerCase() === "true" || available.trim().toLowerCase() === "false")) {
-        //     errors.available_err = 'TRUE or FALSE';
-        //     isValid = false;
-        // }
-        //
-        // setErrors(errors);
-        // return isValid;
-        return true;
+        let isValid = true;
+        let errors = { ...error_init };
+
+        if (!(10 <= state.title.trim().length && state.title.trim().length <= 100)) {
+            errors.title_err = 'Title must be between 10 and 100 characters long';
+            isValid = false;
+        }
+
+        if (!(30 <= state.postContent.trim().length && state.postContent.trim().length <= 200)) {
+            errors.postContent_err = 'Description must be between 30 and 200 characters long';
+            isValid = false;
+        }
+
+        if (!(1 <= state.streetNumber.trim().length && state.streetNumber.trim().length <= 50)) {
+            errors.streetNumber_err = 'Street number must be between 1 and 50 characters long';
+            isValid = false;
+        }
+
+        if (!(10 <= state.street.trim().length && state.street.trim().length <= 150)) {
+            errors.street_err = 'Street must be between 10 and 150 characters long';
+            isValid = false;
+        }
+
+        setErrors(errors);
+        return isValid;
     }
 
     return (
@@ -215,6 +231,13 @@ export default function TradePost() {
                                 required
                             />
                         </div>
+                        {errors.title_err &&
+                            <div className='form-group'>
+                                        <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                            {errors.title_err}
+                                        </span>
+                            </div>
+                        }
                         <div className="form-group form-textarea">
                             <p>Description:</p>
                             <div className='box-textarea'>
@@ -226,6 +249,13 @@ export default function TradePost() {
                                     required
                                 />
                             </div>
+                            {errors.postContent_err &&
+                                <div className='form-group'>
+                                        <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                            {errors.postContent_err}
+                                        </span>
+                                </div>
+                            }
                         </div>
                         <div className="form-group image-category-address-group">
                             <div className="image-upload">
@@ -244,7 +274,7 @@ export default function TradePost() {
                             </div>
                             <div className="category-address">
                             <div className='box-select'>
-                                <select className="form-control select" onChange={handleInputSelectChange}>
+                                <select className="form-control select" onChange={handleInputSelectChange} required>
                                         <option value="">Select Category</option>
                                         {categories.map((category) => (
                                             <option key={category.cateId} value={category.cateId}>{category.cateName}</option>
@@ -271,6 +301,13 @@ export default function TradePost() {
                                 required
                             />
                         </div>
+                        {errors.streetNumber_err &&
+                            <div className='form-group'>
+                                        <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                            {errors.streetNumber_err}
+                                        </span>
+                            </div>
+                        }
                         <div className="form-group form-input">
                             <p>Street:</p>
                             <input
@@ -282,6 +319,13 @@ export default function TradePost() {
                                 required
                             />
                         </div>
+                        {errors.street_err &&
+                            <div className='form-group'>
+                                        <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                            {errors.street_err}
+                                        </span>
+                            </div>
+                        }
                         <div className='box-button'>
                             <button className="post-button" type="submit">Post</button>
                         </div>

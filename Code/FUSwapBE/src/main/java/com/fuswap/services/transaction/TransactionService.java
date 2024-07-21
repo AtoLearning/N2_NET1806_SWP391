@@ -9,6 +9,7 @@ import com.fuswap.repositories.transaction.TransactionRepository;
 import com.fuswap.repositories.user.CustomerRepository;
 import com.fuswap.services.post.GoodsPostService;
 import com.fuswap.services.user.CustomerService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cglib.core.Local;
 import org.springframework.data.domain.Page;
@@ -90,7 +91,7 @@ public class TransactionService {
         ));
     }
 
-    public boolean makeTransaction(Long postId, String specialPostId, String cUserName) {
+    public boolean makeTransaction(Long postId, String specialPostId, String cUserName, HttpServletRequest request) {
         Customer customer = customerService.getByCUserName(cUserName);
         if(customer != null) {
             GoodsPost goodsPost = goodsPostService.getGoodsPostByPostIDAndSpecialPostID(postId, specialPostId);
@@ -133,6 +134,7 @@ public class TransactionService {
                     customerService.save(goodsPost.getCustomer());
                 }
                 customerService.save(customer);
+                request.getSession().setAttribute("profile", customerService.findByCUserName(customer.getCUserName()));
                 return true;
             }
         }

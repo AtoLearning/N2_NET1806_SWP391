@@ -21,8 +21,8 @@ export default function TheOrders() {
     const [totalPages, setTotalPages] = useState(0);
     const navigate = useNavigate();
     const [profile, setProfile] = useState({});
-
     const getAllTransactions = async (page, transType) => {
+        setTransactions([]);
         try {
             const response = await axios.get(MyTransUrl, {
                 params: {
@@ -118,8 +118,8 @@ export default function TheOrders() {
                     />
                 </div>
             </div>
-            {transactions.map((trans) => (
-                <div key={trans.transId} className='orders-content'
+            {transactions.length > 0 ? transactions.map((trans, index) => (
+                <div key={index} className='orders-content'
                      onClick={() => handleCardClick(trans)}
                 >
                     <div className='orders-card'>
@@ -227,7 +227,9 @@ export default function TheOrders() {
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    )) : (
+                        <span>No transactions found</span>
+                    )}
             </div>
         </div>
         <div style={{textAlign: 'center', marginTop: '20px'}}>

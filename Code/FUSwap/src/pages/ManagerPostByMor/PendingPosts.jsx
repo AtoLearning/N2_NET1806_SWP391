@@ -66,9 +66,9 @@ const PendingPosts = () => {
 
     return (
         <div className="PPM-container">
-            <div className="PPM-sidebar">
-                <SideBar />
-            </div>
+            {/*<div className="PPM-sidebar">*/}
+            {/*    <SideBar />*/}
+            {/*</div>*/}
             <div className="PPM-main-content">
                 <div className="MVP-search-container">
                     <div className="MVP-search-item">

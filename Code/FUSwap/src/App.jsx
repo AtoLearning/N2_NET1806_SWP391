@@ -29,6 +29,7 @@ import PostList from './components/AllPostList/PostList.jsx'
 import ManagerProfile from './pages/MyProfile/ManagerProfile.jsx'
 import PostDetail from './pages/PostDetail/PostDetail.jsx'
 import PostReadonly from "./pages/Post/PostReadonly.jsx";
+import ListPost from "./pages/ViewListPost/ListPost.jsx";
 
 const baseURL = "http://localhost:8080/api/v1/auth-status"
 
@@ -82,7 +83,6 @@ const adminRoutes = (
             <Route path='/not-found' element={<NotFound />} />
             <Route path='/c/post/details/:postId' element={<PostInform />} />
             <Route path='/m/moderate/posts' element={<PendingPosts />} />
-            <Route path='/m/view-post' element={<PostList/>} />
             <Route path='/m/my-profile' element={<ManagerProfile/>} />
             <Route path='/m/moderate/posts/details' element={<PostDetail />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
@@ -100,7 +100,6 @@ const modRoutes = (
             <Route path='/not-found' element={<NotFound />} />
             <Route path='/c/post/details/:postId' element={<PostInform />} />
             <Route path='/m/moderate/posts' element={<PendingPosts />} />
-            <Route path='/m/view-post' element={<PostList/>} />
             <Route path='/m/my-profile' element={<ManagerProfile/>} />
             <Route path='/m/moderate/posts/details' element={<PostDetail />} />
             <Route path="*" element={<Navigate to="/not-found" />} />

@@ -40,8 +40,11 @@ export default function PostDetail() {
 
     const handleSendClick = () => {
         if (state.reason.trim() === '' && state.status === 'Rejected') {
-            setError('Please provide a reason for refusal.');
-        } else {
+            setError('Please provide a reason for refusal');
+        } else if(!(10 <= state.reason.trim().length && state.reason.trim().length <= 100)) {
+            setError('Reason must be between 10 and 100');
+        }
+        else {
             setError('');
             setShow(false);
             moderatePost(state, post.postId);
@@ -65,24 +68,6 @@ export default function PostDetail() {
                 console.log(error);
             }
         }
-    }
-    const validateForm = () => {
-        // let isValid = true;
-        // let errors = { ...error_init };
-        //
-        // if (cateName.trim().length < 5) {
-        //     errors.cateName_err = 'Category name must be more than 4 words';
-        //     isValid = false;
-        // }
-        //
-        // if(!(available.trim().toLowerCase() === "true" || available.trim().toLowerCase() === "false")) {
-        //     errors.available_err = 'TRUE or FALSE';
-        //     isValid = false;
-        // }
-        //
-        // setErrors(errors);
-        // return isValid;
-        return true;
     }
 
     if (!post) {
@@ -165,7 +150,7 @@ export default function PostDetail() {
                             </div>
                         )
                         }
-                        {show && isPostActionable && post.postStatus === 'Approved' &&
+                        {show && isPostActionable && (post.postStatus === 'Approved' || post.postStatus === 'Approving') &&
                             (
                                 <form className='box-detail-reason'>
                                     <label>Reason for refuse:</label>
@@ -175,7 +160,7 @@ export default function PostDetail() {
                                         onChange={handleChange}
                                         placeholder="Provide a reason for refusal"
                                     />
-                                    {error && <p className="error-message">{error}</p>}
+                                    {error && <p style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>{error}</p>}
                                 </form>
                             )
                         }

@@ -45,7 +45,7 @@ export default function AHeader() {
                     </DropdownTrigger>
                     <DropdownMenu aria-label="User Actions">
                         <DropdownItem key="UserInfo">
-                            <Link to="/m/my_profile">
+                            <Link to="/m/my-profile">
                                 Profile
                             </Link>
                         </DropdownItem>
