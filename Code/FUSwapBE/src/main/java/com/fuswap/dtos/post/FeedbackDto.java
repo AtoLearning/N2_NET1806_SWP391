@@ -13,6 +13,7 @@ import java.time.LocalDate;
 public class FeedbackDto {
     Long feedbackId;
     String consumerAvatar; //Avatar of feedback-er
+    String nickname;
     String feedbackTitle; //Title of goods post that contains this feedback
     Boolean isExchange; ////Type of goods post that contains this feedback
     String content;

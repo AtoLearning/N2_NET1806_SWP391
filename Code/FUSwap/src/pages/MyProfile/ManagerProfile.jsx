@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import '../MyProfile/MyProfileStyle.css'
-import SideBar from '../../components/SideBar/SideBar'
 import axios from 'axios';
+
+const baseUrl = "http://localhost:8080/api/v1/manager/profile"
+const updateUrl = "http://localhost:8080/api/v1/manager/profile/update"
+
+const initialState = {
+    givenName: '',
+    nickname: '',
+    avatar: '',
+    phone: '',
+    dob: '',
+    gender: '',
+}
 
 export default function ManagerProfile() {
     //--------------------------------------------------------------------------------

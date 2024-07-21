@@ -54,7 +54,7 @@ export default function AfterSearchPost({ searchValue, cityName, districtName, w
             <div className="post-grid">
                 {Array.isArray(posts) && posts.length > 0 ? (
                     posts.map((post, index) => (
-                        <article className="post-card" key={index} onClick={() => navigate("/PostInform")}>
+                        <article className="post-card" key={index} onClick={() => navigate(`/c/post/details/${post.postId}`)}>
                             <img
                                 src={post.postImage}
                                 alt="Post image"

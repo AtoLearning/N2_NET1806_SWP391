@@ -1,10 +1,12 @@
 import { Dropdown, DropdownMenu, DropdownTrigger, DropdownItem } from "@nextui-org/react";
 import React from 'react'
 import { Link } from "react-router-dom"
-import SearchBox from '../SearchBox/SearchBox'
 import './HeaderStyle.css';
-
-export default function CHeader() {
+const logoutURL = "http://localhost:8080/logout";
+export default function AHeader() {
+    const handleLogout = () => {
+        window.location.href = logoutURL;
+    };
     return (
         <header className="header">
             <div className="header_left">
@@ -19,13 +21,13 @@ export default function CHeader() {
                 <nav className="header_nav">
                     <ul className="header_ul">
                         <li>
-                            <Link to="/home" aria-current="page"><span>Post</span></Link>
+                            <Link to="/" aria-current="page">Welcome</Link>
                         </li>
                         <li>
-                            <Link to=""><span>Report</span></Link>
+                            <Link to="/home">Home</Link>
                         </li>
                         <li>
-                            <Link to=""><span>Account</span></Link>
+                            <Link to="/about-us">About Us</Link>
                         </li>
                     </ul>
                 </nav>
@@ -44,11 +46,26 @@ export default function CHeader() {
                     <DropdownMenu aria-label="User Actions">
                         <DropdownItem key="UserInfo">
                             <Link to="/m/my_profile">
-                                My Profile
+                                Profile
+                            </Link>
+                        </DropdownItem>
+                        <DropdownItem key="ManageAccount">
+                            <Link to="#">
+                                Manager Account
+                            </Link>
+                        </DropdownItem>
+                        <DropdownItem key="ManagePost">
+                            <Link to="#">
+                                Manage Post
+                            </Link>
+                        </DropdownItem>
+                        <DropdownItem key="ManageReport">
+                            <Link to="#">
+                                Manage Report
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="LogOut">
-                            <Link to="">
+                            <Link to="#" onClick={handleLogout}>
                                 Log out
                             </Link>
                         </DropdownItem>

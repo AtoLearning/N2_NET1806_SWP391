@@ -57,7 +57,7 @@ export default function ShowPost({postStatus, sortDate}) {
               {Array.isArray(posts) && posts.length > 0 ? (
                   posts.map((post) => (
                       <React.Fragment key={post.postId}>
-                      {post.postStatus === "Reject" || post.postStatus === "Transacted" ? (
+                      {post.postStatus === "Rejected" || post.postStatus === "Transacted" ? (
                               <>
                                   <div className='card' onClick={() => handlePostReadonlyClick(post)}>
                                       <div className='imgBox'>

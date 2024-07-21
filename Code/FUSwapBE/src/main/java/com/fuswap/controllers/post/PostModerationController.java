@@ -24,23 +24,28 @@ public class PostModerationController {
         this.postModerationService = postModerationService;
     }
 
-    @GetMapping("/mod/posts")
+    @GetMapping("/manager/posts")
     public ResponseEntity<ResponseDto> getPostModerationList(
             @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
-            @RequestParam(name = "status", defaultValue = "") String status) {
+            @RequestParam(name = "status", defaultValue = "") String status,
+            @RequestParam(name = "gmail", defaultValue = "") String gmail,
+            @RequestParam(name = "sortDate", defaultValue = "") String sortDate,
+            @RequestParam(name = "myModPost", defaultValue = "false") String myModPost,
+            Authentication authentication) {
         if(pageNo <= 0) pageNo = 1;
-        Page<GoodsPostManageDto> goodsPostManageDtoPage = postModerationService.getPostModerationList(pageNo, status);
-        if(goodsPostManageDtoPage.isEmpty()) {
+        String mUserName = getUserNameInAuthentication(authentication);
+        Page<GoodsPostViewDto> goodsPostViewDtoPage = postModerationService.getPostModerationList(pageNo, status, gmail, sortDate, myModPost, mUserName);
+        if(goodsPostViewDtoPage.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK)
                     .body(new ResponseDto("200 OK", "Having no any posts!", "", 0));
         } else {
             return ResponseEntity.status(HttpStatus.OK)
-                    .body(new ResponseDto("200 OK", "200 OK", goodsPostManageDtoPage.get(), goodsPostManageDtoPage.getTotalPages()));
+                    .body(new ResponseDto("200 OK", "200 OK", goodsPostViewDtoPage.get(), goodsPostViewDtoPage.getTotalPages()));
         }
     }
 
 
-    @GetMapping("/mod/my-post-moderation")
+    @GetMapping("/manager/my-post-moderation")
     public ResponseEntity<ResponseDto> getMyPostModerationList(
             @RequestParam(name = "pageNo", defaultValue = "1") int pageNo,
             Authentication authentication) {
@@ -58,7 +63,7 @@ public class PostModerationController {
         }
     }
 
-    @PutMapping("mod/posts/moderate/{postId}")
+    @PutMapping("manager/posts/moderate/{postId}")
     public ResponseEntity<ResponseDto> moderatePost(
             @PathVariable(name = "postId") Long postId,
             @RequestBody PostModerationDto postModerationDto,

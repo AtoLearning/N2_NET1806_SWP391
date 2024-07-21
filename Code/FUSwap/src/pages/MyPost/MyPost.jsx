@@ -29,7 +29,7 @@ export default function MyPost() {
                     <div className='radio-column'>
                       <Radio value="Approving">Approving</Radio>
                       <Radio value="Approved">Approved</Radio>
-                      <Radio value="Reject">Reject</Radio>
+                      <Radio value="Rejected">Rejected</Radio>
                     </div>
                     <div className='radio-column'>
                       <Radio value="Transacted">Transacted</Radio>

@@ -21,6 +21,7 @@ public class GoodsPostViewDto {
     Float unitPrice;
     LocalDate createAt;
     String postImage;
+    String postStatus;
     CustomerViewDto customerViewDto;
     FeedbackDto feedbackDto;
     String streetNumber;
@@ -29,6 +30,9 @@ public class GoodsPostViewDto {
     String districtName;
     String cityName;
     String cateName;
+    String mUserName;
+    String managerFullName;
+    String reason;
 
     @Override
     public String toString() {
@@ -40,6 +44,7 @@ public class GoodsPostViewDto {
                 ", unitPrice=" + unitPrice +
                 ", createAt=" + createAt +
                 ", postImage='" + postImage + '\'' +
+                ", postStatus='" + postStatus + '\'' +
                 ", customerViewDto=" + customerViewDto +
                 ", feedbackDto=" + feedbackDto +
                 ", streetNumber='" + streetNumber + '\'' +
@@ -48,6 +53,9 @@ public class GoodsPostViewDto {
                 ", districtName='" + districtName + '\'' +
                 ", cityName='" + cityName + '\'' +
                 ", cateName='" + cateName + '\'' +
+                ", mUserName='" + mUserName + '\'' +
+                ", managerFullName='" + managerFullName + '\'' +
+                ", reason='" + reason + '\'' +
                 '}';
     }
 }

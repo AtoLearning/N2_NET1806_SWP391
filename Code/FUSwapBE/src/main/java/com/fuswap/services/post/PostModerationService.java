@@ -5,7 +5,9 @@ import com.fuswap.dtos.location.DistrictDto;
 import com.fuswap.dtos.location.WardDto;
 import com.fuswap.dtos.post.CategoryDto;
 import com.fuswap.dtos.post.GoodsPostManageDto;
+import com.fuswap.dtos.post.GoodsPostViewDto;
 import com.fuswap.dtos.post.PostModerationDto;
+import com.fuswap.dtos.user.CustomerViewDto;
 import com.fuswap.entities.post.GoodsPost;
 import com.fuswap.entities.user.Manager;
 import com.fuswap.repositories.post.GoodsPostRepository;
@@ -14,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -21,21 +24,64 @@ import org.springframework.stereotype.Service;
 public class PostModerationService {
     private final GoodsPostRepository goodsPostRepository;
     private final ManagerService managerService;
+    private final FeedbackService feedbackService;
 
-    public PostModerationService(GoodsPostRepository goodsPostRepository, ManagerService managerService) {
+    public PostModerationService(GoodsPostRepository goodsPostRepository, ManagerService managerService, FeedbackService feedbackService) {
         this.goodsPostRepository = goodsPostRepository;
         this.managerService = managerService;
+        this.feedbackService = feedbackService;
     }
 
-    public Page<GoodsPostManageDto> getPostModerationList(Integer pageNo, String status) {
-        Pageable pageable = PageRequest.of(pageNo - 1, 12);
-        Page<GoodsPost> goodsPostPage;
-        if(status.isBlank()) {
-            goodsPostPage = goodsPostRepository.findAll(pageable);
-        } else {
-            goodsPostPage = goodsPostRepository.findAllAndStatus(pageable, status);
+    public Page<GoodsPostViewDto> getPostModerationList(Integer pageNo, String status, String gmail, String sortDate, String myModPost, String mUserName) {
+        Sort sort = Sort.by("CreateAt");
+        if (sortDate != null) {
+            sort = Sort.by(sortDate.equalsIgnoreCase("oldest") ? Sort.Direction.ASC : Sort.Direction.DESC, "CreateAt");
         }
-        return getGoodsPostManageDto(goodsPostPage);
+        Pageable pageable = PageRequest.of(pageNo - 1, 10, sort);
+        if(status.equals("None")) status = "";
+        if(myModPost.equalsIgnoreCase("false")) mUserName = "";
+        log.info("MUserName: {}", mUserName);
+        Page<GoodsPost> goodsPostPage = goodsPostRepository.findByStatusAndGmail(pageable, status, gmail, mUserName);
+        return getGoodsPostViewDto(goodsPostPage);
+    }
+
+    private Page<GoodsPostViewDto> getGoodsPostViewDto(Page<GoodsPost> goodsPostPage) {
+        log.info("check");
+        return goodsPostPage.map(goodsPost -> new GoodsPostViewDto(
+                goodsPost.getPostID(),
+                goodsPost.getTitle(),
+                goodsPost.getContent(),
+                goodsPost.getIsExchange(),
+                goodsPost.getUnitPrice(),
+                goodsPost.getCreateAt(),
+                goodsPost.getPostImage(),
+                goodsPost.getPostStatus(),
+                new CustomerViewDto(
+                        goodsPost.getCustomer().getCUserName(),
+                        goodsPost.getCustomer().getGivenName(),
+                        goodsPost.getCustomer().getFamilyName(),
+                        goodsPost.getCustomer().getNickname(),
+                        goodsPost.getCustomer().getAvatar(),
+                        goodsPost.getCustomer().getPoints(),
+                        goodsPost.getCustomer().getPhone(),
+                        goodsPost.getCustomer().getDOB(),
+                        goodsPost.getCustomer().getAddress(),
+                        goodsPost.getCustomer().getGender(),
+                        goodsPost.getCustomer().getIsVerified(),
+                        goodsPost.getCustomer().getCusRank(),
+                        feedbackService.getFeedbackBySupplier(goodsPost.getCustomer().getCUserName())
+                ),
+                feedbackService.getFeedbackByFeedbackId(goodsPost.getFeedback() == null ? 0L : goodsPost.getFeedback().getFeedbackID()),
+                goodsPost.getPostAddress().getStreetNumber(),
+                goodsPost.getPostAddress().getStreet(),
+                goodsPost.getPostAddress().getWard().getWardName(),
+                goodsPost.getPostAddress().getDistrict().getDistrictName(),
+                goodsPost.getPostAddress().getCity().getCityName(),
+                goodsPost.getCategory().getCateName(),
+                goodsPost.getManager().getMUserName(),
+                goodsPost.getManager().getFullName(),
+                goodsPost.getReason()
+        ));
     }
 
     private Page<GoodsPostManageDto> getGoodsPostManageDto(Page<GoodsPost> goodsPostPage) {
@@ -68,7 +114,8 @@ public class PostModerationService {
                         goodsPost.getCategory().getCateName(),
                         goodsPost.getCategory().getCateImage()
                 ),
-                goodsPost.getManager().getFullName()
+                goodsPost.getManager().getFullName(),
+                goodsPost.getReason()
         ));
     }
 
@@ -83,7 +130,7 @@ public class PostModerationService {
         if(manager != null) {
             GoodsPost goodsPost = goodsPostRepository.findByPostID(postId);
             if(goodsPost != null && postModerationDto != null) {
-                if(goodsPost.getPostStatus().equals("Approving")) {
+                if(goodsPost.getPostStatus().equals("Approving") || goodsPost.getPostStatus().equals("Approved")) {
                     goodsPost.setPostStatus(postModerationDto.getStatus());
                     goodsPost.setReason(postModerationDto.getReason());
                     goodsPost.setManager(manager);

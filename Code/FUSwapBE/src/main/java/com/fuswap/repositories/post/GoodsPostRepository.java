@@ -56,8 +56,14 @@ public interface GoodsPostRepository extends JpaRepository<GoodsPost, Long>, Pag
     GoodsPost findByTransID(Long transId);
 
     @Transactional(readOnly = true)
-    @Query("SELECT gp FROM GoodsPost gp WHERE gp.PostStatus = ?1")
-    Page<GoodsPost> findAllAndStatus(Pageable pageable, String status);
+    @Query("SELECT gp FROM GoodsPost gp WHERE (:status = '' OR gp.PostStatus = :status) " +
+            "AND (gp.customer.CUserName LIKE %:gmail%) " +
+            "AND (:mUserName = '' OR gp.manager.MUserName = :mUserName)")
+    Page<GoodsPost> findByStatusAndGmail(
+            Pageable pageable,
+            @Param("status") String status,
+            @Param("gmail") String gmail,
+            @Param("mUserName") String mUserName);
 
     @Transactional(readOnly = true)
     @Query("SELECT gp FROM GoodsPost gp WHERE gp.manager.MUserName = ?1")

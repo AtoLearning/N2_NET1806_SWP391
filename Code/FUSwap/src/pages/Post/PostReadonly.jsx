@@ -44,16 +44,19 @@ export default function PostReadonly() {
                                 <div className="input-img">
                                     <p>Image:</p>
                                 </div>
-                                <div className="box-input-img"><img src={goodsPost.postImage} alt="Preview" /></div>
+                                <div className="box-input-img"><img src={goodsPost.postImage} alt="Preview"/></div>
                             </div>
                             <div className="category-address">
                                 <div className='box-select' style={{marginLeft: "-2%", marginBottom: "2%"}}>
                                     <p className="form-control select">Category: {goodsPost.categoryDto.cateName}</p>
                                 </div>
                                 <div className='box-address'>
-                                    <p className='address-select select-3' style={{marginBottom: "5%"}}>Ward: {goodsPost.wardDto.wardName}</p>
-                                    <p className='address-select select-3' style={{marginBottom: "5%"}}>District: {goodsPost.districtDto.districtName}</p>
-                                    <p className='address-select select-3' style={{marginBottom: "5%"}}>City: {goodsPost.cityDto.cityName}</p>
+                                    <p className='address-select select-3'
+                                       style={{marginBottom: "5%"}}>Ward: {goodsPost.wardDto.wardName}</p>
+                                    <p className='address-select select-3'
+                                       style={{marginBottom: "5%"}}>District: {goodsPost.districtDto.districtName}</p>
+                                    <p className='address-select select-3'
+                                       style={{marginBottom: "5%"}}>City: {goodsPost.cityDto.cityName}</p>
                                 </div>
                             </div>
                         </div>
@@ -72,6 +75,15 @@ export default function PostReadonly() {
                                 className='input-text input-2'
                                 type='text'
                                 value={goodsPost.street}
+                                readOnly
+                            />
+                        </div>
+                        <div className="form-group form-input">
+                            <p>Reason for rejection:</p>
+                            <input
+                                className='input-text input-2'
+                                type='text'
+                                value={goodsPost.reason}
                                 readOnly
                             />
                         </div>

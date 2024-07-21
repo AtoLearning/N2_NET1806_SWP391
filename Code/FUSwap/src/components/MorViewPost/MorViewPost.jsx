@@ -20,11 +20,13 @@ const MorViewPost = ({ onSearchChange, onSortChange }) => {
                 />
             </div>
             <div className="MVP-search-item">
-                <label htmlFor="searchType">Type</label>
+                <label htmlFor="searchType">Status</label>
                 <select id="searchType" onChange={e => onSortChange(e.target.value, 'type')}>
-                    <option value="">Select Type</option>
-                    <option value="Trade">Trade</option>
-                    <option value="Sell">Sell</option>
+                    <option value="">Select Status</option>
+                    <option value="Approving">Approving</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Transacted">Transacted</option>
+                    <option value="Reject">Reject</option>
                 </select>
             </div>
             <div className="MVP-search-item">
