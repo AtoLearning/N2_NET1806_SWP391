@@ -1,5 +1,6 @@
 
 .header{
+    width: 100%;
     height: 10vh;
     background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
     display: flex;
@@ -16,6 +17,12 @@
 .header_nav{
     align-content: center;
     width: 33vw;
+    height: 100%;
+    margin-left: 4vw;
+}
+.header_nav_mod{
+    align-content: center;
+    width: 25vw;
     height: 100%;
     margin-left: 4vw;
 }
