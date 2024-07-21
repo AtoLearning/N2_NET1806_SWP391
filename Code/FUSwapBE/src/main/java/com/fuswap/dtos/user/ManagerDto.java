@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -22,7 +23,7 @@ public class ManagerDto implements Serializable {
     String fullName;
     String phone;
     String avatar;
-    Date dob;
+    LocalDate dob;
     String gender;
 
     @Override

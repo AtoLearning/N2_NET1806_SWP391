@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.PPM-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+.PPM-sidebar {
+    width: 20%;
+    background: linear-gradient(to Right, #ffde59 0%, #ff914d 100%);
+}
+
+.PPM-main-content {
+    width: 80%;
+    padding: 20px;
+    background-color: #fff;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+thead th {
+    background-color: #FFEDAC; /* Màu nhạt hơn */
+    padding: 10px;
+    text-align: left;
+    color: #000000;
+    border-bottom: 3px solid #ffcc00;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #FEAC62;
+}
+
+.email-info {
+    display: flex;
+    align-items: center;
+}
+
+.email-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.email-info div p {
+    margin: 0;
+}
+
+.PPM-ViewMore{
+    color: rgb(67, 64, 214);
+    text-decoration: underline;
+}
+
+a {
+    color: #FEAC62;
+    text-decoration: none;
+}
+
+h2 {
+    margin-bottom: 20px;
+}

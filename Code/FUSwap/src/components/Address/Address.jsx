@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import '../Address/AddressStyle.css';
+import PropTypes from "prop-types";
 
 const cityUrl = "http://localhost:8080/api/v1/guest/cities";
 const districtUrl = "http://localhost:8080/api/v1/guest/districts";
 const wardUrl = "http://localhost:8080/api/v1/guest/wards";
 
-export default function Address({ onCityChange, onDistrictChange, onWardChange }) {
-    const [selectedCity, setSelectedCity] = useState('');
-    const [selectedDistrict, setSelectedDistrict] = useState('');
-    const [selectedWard, setSelectedWard] = useState('');
+export default function Address({ onCityChange, onDistrictChange, onWardChange, cityId, districtId, wardId }) {
+    const [selectedCity, setSelectedCity] = useState(cityId);
+    const [selectedDistrict, setSelectedDistrict] = useState(districtId);
+    const [selectedWard, setSelectedWard] = useState(wardId);
     const[cities, setCities] = useState([]);
     const[districts, setDistricts] = useState([]);
     const[wards, setWards] = useState([]);
+
+    useEffect(() => {
+        setSelectedCity(cityId);
+        setSelectedDistrict(districtId);
+        setSelectedWard(wardId);
+    }, [cityId, districtId, wardId]);
 
     useEffect(() => {
         const selectedWardObj = wards.find(ward => ward.wardId === parseInt(selectedWard));
@@ -43,16 +50,26 @@ export default function Address({ onCityChange, onDistrictChange, onWardChange }
                         withCredentials: true});
                     setDistricts(response.data.obj);
                     setWards([]);
-                    setSelectedDistrict('');
-                    setSelectedWard('');
+                    if(districtId && wardId) {
+                        setSelectedDistrict(districtId);
+                        setSelectedWard(wardId);
+                    } else {
+                        setSelectedDistrict('');
+                        setSelectedWard('');
+                    }
                 } catch (error) {
                     console.error('Error getting list of district data', error);
                 }
             } else {
                 setDistricts([]);
                 setWards([]);
-                setSelectedDistrict('');
-                setSelectedWard('');
+                if(districtId && wardId) {
+                    setSelectedDistrict(districtId);
+                    setSelectedWard(wardId);
+                } else {
+                    setSelectedDistrict('');
+                    setSelectedWard('');
+                }
             }
         }
         getDistrictList();
@@ -71,13 +88,21 @@ export default function Address({ onCityChange, onDistrictChange, onWardChange }
                         withCredentials: true
                     });
                     setWards(response.data.obj);
-                    setSelectedWard('');
+                    if(wardId) {
+                        setSelectedWard(wardId);
+                    } else {
+                        setSelectedWard('');
+                    }
                 } catch (error) {
                     console.error('Error getting list of ward data', error);
                 }
             } else {
                 setWards([]);
-                setSelectedWard('');
+                if(wardId) {
+                    setSelectedWard(wardId);
+                } else {
+                    setSelectedWard('');
+                }
             }
         }
         getWardList();
@@ -126,3 +151,12 @@ export default function Address({ onCityChange, onDistrictChange, onWardChange }
         </div>
     )
 }
+
+Address.propTypes = {
+    onCityChange: PropTypes.func.isRequired,
+    onDistrictChange: PropTypes.func.isRequired,
+    onWardChange: PropTypes.func.isRequired,
+    cityId: PropTypes.number.isRequired,
+    districtId: PropTypes.number.isRequired,
+    wardId: PropTypes.number.isRequired,
+};

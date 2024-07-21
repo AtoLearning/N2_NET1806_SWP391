@@ -18,7 +18,8 @@ public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
             "(gp.feedback.FeedbackID, c.Avatar, gp.Title, gp.IsExchange, f.Content, f.CreateAt) " +
             "FROM GoodsPost gp JOIN gp.feedback f " +
             "JOIN f.customer c " +
-            "WHERE gp.customer.CUserName = ?1")
+            "WHERE gp.customer.CUserName = ?1 " +
+            "ORDER BY f.CreateAt DESC" )
     List<FeedbackDto> getFeedbackBySupplier(String supplierUserName);
 
     @Transactional(readOnly = true)
@@ -26,6 +27,15 @@ public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
             "(gp.feedback.FeedbackID, c.Avatar, gp.Title, gp.IsExchange, f.Content, f.CreateAt) " +
             "FROM GoodsPost gp JOIN gp.feedback f " +
             "JOIN f.customer c " +
-            "WHERE gp.customer.CUserName = ?1")
+            "WHERE gp.customer.CUserName = ?1 " +
+            "ORDER BY f.CreateAt DESC" )
     Page<FeedbackDto> getFeedbackBySupplier(Pageable pageable, String supplierUserName);
+
+    @Transactional(readOnly = true)
+    @Query("SELECT new com.fuswap.dtos.post.FeedbackDto" +
+            "(gp.feedback.FeedbackID, c.Avatar, gp.Title, gp.IsExchange, f.Content, f.CreateAt) " +
+            "FROM GoodsPost gp JOIN gp.feedback f " +
+            "JOIN f.customer c " +
+            "WHERE gp.feedback.FeedbackID = :feedbackId")
+    FeedbackDto findByFeedbackId(Long feedbackId);
 }

@@ -34,13 +34,26 @@ public class TransactionService {
         this.goodsPostService = goodsPostService;
     }
 
-    public Page<TransactionViewDto> getMyTransactions(Integer pageNo, String cUserName) {
-        Pageable pageable = PageRequest.of(pageNo - 1, 6);
-        Page<Transaction> transactionPage = transactionRepository.getMyTransactions(pageable, cUserName);
-        return getTransactionDto(transactionPage);
+    public Page<TransactionViewDto> getMyTransactions(Integer pageNo, String transType, String cUserName) {
+        Pageable pageable = PageRequest.of(pageNo - 1, 3);
+        Page<Transaction> transactionPage;
+        switch(transType) {
+            case "Consumption": {
+                transactionPage = transactionRepository.getMyConsumerTransactions(pageable, cUserName);
+                break;
+            }
+            case "Supply": {
+                transactionPage = transactionRepository.getMySupplierTransactions(pageable, cUserName);
+                break;
+            }
+            default: {
+                transactionPage = transactionRepository.getMyTransactions(pageable, cUserName);
+            }
+        }
+        return getTransactionDto(transactionPage, cUserName);
     }
 
-    private Page<TransactionViewDto> getTransactionDto(Page<Transaction> transactionPage) {
+    private Page<TransactionViewDto> getTransactionDto(Page<Transaction> transactionPage, String cUserName) {
         return transactionPage.map(transaction -> new TransactionViewDto(
                 transaction.getTransID(),
                 transaction.getCreateAt(),
@@ -54,8 +67,9 @@ public class TransactionService {
                         transaction.getConsumer().getPhone(),
                         transaction.getConsumer().getDOB(),
                         transaction.getConsumer().getGender(),
-                        "",
-                        transaction.getConsumer().getIsVerified()
+                        transaction.getConsumer().getAddress(),
+                        transaction.getConsumer().getIsVerified(),
+                        transaction.getConsumer().getCusRank()
                 ),
                 new CustomerDto(
                         transaction.getSupplier().getCUserName(),
@@ -67,10 +81,12 @@ public class TransactionService {
                         transaction.getSupplier().getPhone(),
                         transaction.getSupplier().getDOB(),
                         transaction.getSupplier().getGender(),
-                        "",
-                        transaction.getSupplier().getIsVerified()
+                        transaction.getSupplier().getAddress(),
+                        transaction.getSupplier().getIsVerified(),
+                        transaction.getSupplier().getCusRank()
                 ),
-                goodsPostService.getPostDetailsByTransId(transaction.getTransID())
+                goodsPostService.getPostDetailsByTransId(transaction.getTransID()),
+                cUserName.equals(transaction.getConsumer().getCUserName()) ? "Consumption" : "Supply"
         ));
     }
 
@@ -94,16 +110,25 @@ public class TransactionService {
                     customer.setPoints(customer.getPoints() + 0.5f);
                     if(customer.getPoints() >= 30) {
                         customer.setIsVerified(true);
+                        customer.setCusRank("Diamond");
+                    } else if(15 <= customer.getPoints() && customer.getPoints() <= 29) {
+                        customer.setCusRank("Gold");
                     }
                 } else {
                     customer.setPoints(customer.getPoints() + 0.5f);
                     if(customer.getPoints() >= 30) {
                         customer.setIsVerified(true);
+                        customer.setCusRank("Diamond");
+                    } else if(15 <= customer.getPoints() && customer.getPoints() <= 29) {
+                        customer.setCusRank("Gold");
                     }
 
                     goodsPost.getCustomer().setPoints(goodsPost.getCustomer().getPoints() + 0.5f);
                     if(goodsPost.getCustomer().getPoints() >= 30) {
                         goodsPost.getCustomer().setIsVerified(true);
+                        goodsPost.getCustomer().setCusRank("Diamond");
+                    } else if(15 <= goodsPost.getCustomer().getPoints() && goodsPost.getCustomer().getPoints() <= 29) {
+                        goodsPost.getCustomer().setCusRank("Gold");
                     }
                     customerService.save(goodsPost.getCustomer());
                 }
@@ -117,12 +142,12 @@ public class TransactionService {
     public Page<TransactionViewDto> getMyConsumerTransactions(Integer pageNo, String cUserName) {
         Pageable pageable = PageRequest.of(pageNo - 1, 6);
         Page<Transaction> transactionPage = transactionRepository.getMyConsumerTransactions(pageable, cUserName);
-        return getTransactionDto(transactionPage);
+        return getTransactionDto(transactionPage, cUserName);
     }
 
     public Page<TransactionViewDto> getMySupplierTransactions(Integer pageNo, String cUserName) {
         Pageable pageable = PageRequest.of(pageNo - 1, 6);
         Page<Transaction> transactionPage = transactionRepository.getMySupplierTransactions(pageable, cUserName);
-        return getTransactionDto(transactionPage);
+        return getTransactionDto(transactionPage, cUserName);
     }
 }

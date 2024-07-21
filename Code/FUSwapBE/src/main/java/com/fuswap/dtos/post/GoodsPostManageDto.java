@@ -9,6 +9,7 @@ import com.fuswap.entities.location.Ward;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -24,7 +25,7 @@ public class GoodsPostManageDto {
     Boolean isExchange;
     Float unitPrice;
     String postStatus;
-    Date createAt;
+    LocalDate createAt;
     String postImage;
     String streetNumber;
     String street;

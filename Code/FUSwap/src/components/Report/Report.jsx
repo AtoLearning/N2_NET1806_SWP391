@@ -3,6 +3,10 @@ import '../../components/Report/ReportStyle.css'
 
 export default function Report({ show, onClose, post }) {
     if (!show) return null;
+    const handleBackClick = (event) => {
+        event.preventDefault();
+        onClose();
+    };
     return (
         <div className='report-overlay'>
             <div className='report-contain'>
@@ -37,8 +41,8 @@ export default function Report({ show, onClose, post }) {
                             />
                         </div>
                         <div className='report-buttons'>
-                            <button className='rp-back-btn' onClick={onClose}>Back</button>
-                            <button className='rp-submit-btn' onClick={''}>Submit</button>
+                            <button className='rp-back-btn' onClick={handleBackClick}>Back</button>
+                            <button className='rp-submit-btn' onClick={(e) => e.preventDefault()}>Submit</button>
                         </div>
                     </form>
                 </div>

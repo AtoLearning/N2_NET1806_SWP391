@@ -28,6 +28,7 @@ import com.fuswap.repositories.post.GoodsPostRepository;
 import com.fuswap.repositories.user.ManagerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.data.domain.Page;
@@ -87,13 +88,41 @@ public class GoodsPostService {
         return getGoodsPostViewDto(goodsPostPage);
     }
 
-    public Page<GoodsPostViewDto> getPostListByKeyword(Integer pageNo, String searchValue) {
-        Pageable pageable = PageRequest.of(pageNo - 1, 12);
-        Page<GoodsPost> goodsPostPage = goodsPostRepository.findAllAndIsAvailableAndByKeyword(pageable, searchValue);
+    public Page<GoodsPostViewDto> getPostListByKeyword(
+            int pageNo,
+            String searchValue,
+            String cityName,
+            String districtName,
+            String wardName,
+            String priceSort,
+            String dateSort,
+            String postType,
+            String cateName) {
+        Sort sort = Sort.by("PostID");
+        if (priceSort != null && dateSort != null) {
+            Sort priceSortOrder = Sort.by(priceSort.equalsIgnoreCase("price-asc") ? Sort.Direction.ASC : Sort.Direction.DESC, "UnitPrice");
+            Sort dateSortOrder = Sort.by(dateSort.equalsIgnoreCase("date-asc") ? Sort.Direction.ASC : Sort.Direction.DESC, "CreateAt");
+            sort = priceSortOrder.and(dateSortOrder);
+        } else if (priceSort != null) {
+            sort = Sort.by(priceSort.equalsIgnoreCase("price-asc") ? Sort.Direction.ASC : Sort.Direction.DESC, "UnitPrice");
+        } else if (dateSort != null) {
+            sort = Sort.by(dateSort.equalsIgnoreCase("date-asc") ? Sort.Direction.ASC : Sort.Direction.DESC, "CreateAt");
+        }
+        Pageable pageable = PageRequest.of(pageNo - 1, 12, sort);
+        Page<GoodsPost> goodsPostPage =
+                goodsPostRepository.findAllAndIsAvailableAndByKeyword(
+                        pageable,
+                        searchValue,
+                        cityName.isBlank() ? null : cityName,
+                        districtName.isBlank() ? null : districtName,
+                        wardName.isBlank() ? null : wardName,
+                        postType.isBlank() ? null : postType.equals("exchange"),
+                        cateName.isBlank() ? null : cateName);
         return getGoodsPostViewDto(goodsPostPage);
     }
 
     private Page<GoodsPostViewDto> getGoodsPostViewDto(Page<GoodsPost> goodsPostPage) {
+        log.info("check");
         return goodsPostPage.map(goodsPost -> new GoodsPostViewDto(
                 goodsPost.getPostID(),
                 goodsPost.getTitle(),
@@ -114,8 +143,10 @@ public class GoodsPostService {
                         goodsPost.getCustomer().getAddress(),
                         goodsPost.getCustomer().getGender(),
                         goodsPost.getCustomer().getIsVerified(),
+                        goodsPost.getCustomer().getCusRank(),
                         feedbackService.getFeedbackBySupplier(goodsPost.getCustomer().getCUserName())
                 ),
+                feedbackService.getFeedbackByFeedbackId(goodsPost.getFeedback() == null ? 0L : goodsPost.getFeedback().getFeedbackID()),
                 goodsPost.getPostAddress().getStreetNumber(),
                 goodsPost.getPostAddress().getStreet(),
                 goodsPost.getPostAddress().getWard().getWardName(),
@@ -170,7 +201,7 @@ public class GoodsPostService {
             goodsPost.setIsAvailable(false);
             goodsPost.setPostImage(goodsPostManageDto.getPostImage());
             goodsPost.setUnitPrice(goodsPostManageDto.getUnitPrice());
-            goodsPost.setCreateAt(Date.valueOf(LocalDate.now()));
+            goodsPost.setCreateAt(LocalDate.now());
 
             Customer customer = customerRepository.findByCUserName(cUserName);
             goodsPost.setCustomer(customer);
@@ -300,7 +331,11 @@ public class GoodsPostService {
                     goodsPost.getCustomer().getAddress(),
                     goodsPost.getCustomer().getGender(),
                     goodsPost.getCustomer().getIsVerified(),
+                    goodsPost.getCustomer().getCusRank(),
                     feedbackService.getFeedbackBySupplier(goodsPost.getCustomer().getCUserName())
+            ));
+            goodsPostViewDto.setFeedbackDto(feedbackService.getFeedbackByFeedbackId(
+                    goodsPost.getFeedback() == null ? 0L : goodsPost.getFeedback().getFeedbackID()
             ));
             goodsPostViewDto.setStreetNumber(goodsPost.getPostAddress().getStreetNumber());
             goodsPostViewDto.setStreet(goodsPost.getPostAddress().getStreet());
@@ -317,6 +352,8 @@ public class GoodsPostService {
         GoodsPost goodsPost = goodsPostRepository.findByPostID(postId);
         if (goodsPost != null && goodsPost.getCustomer().getCUserName().equals(username)) {
             GoodsPostManageDto goodsPostManageDto = new GoodsPostManageDto();
+            goodsPostManageDto.setPostId(goodsPost.getPostID());
+            goodsPostManageDto.setSpecialPostId(goodsPost.getSpecialPostID());
             goodsPostManageDto.setTitle(goodsPost.getTitle());
             goodsPostManageDto.setPostContent(goodsPost.getContent());
             goodsPostManageDto.setIsExchange(goodsPost.getIsExchange());
@@ -343,6 +380,7 @@ public class GoodsPostService {
             ));
             goodsPostManageDto.setMUserName(goodsPost.getManager().getFullName());
             goodsPostManageDto.setPostStatus(goodsPost.getPostStatus());
+            goodsPostManageDto.setCreateAt(goodsPost.getCreateAt());
             return goodsPostManageDto;
         }
         return null;
@@ -356,9 +394,14 @@ public class GoodsPostService {
         return goodsPostRepository.save(goodsPost);
     }
 
-    public Page<GoodsPostManageDto> getMyPosts(int pageNo, String username) {
-        Pageable pageable = PageRequest.of(pageNo - 1, 12);
-        Page<GoodsPost> goodsPostPage = goodsPostRepository.findMyPosts(pageable, username);
+    public Page<GoodsPostManageDto> getMyPosts(int pageNo, String postStatus, String sortDate, String username) {
+        if(postStatus.equals("None")) postStatus = null;
+        Sort sort = Sort.by("CreateAt");
+        if (sortDate != null) {
+            sort = Sort.by(sortDate.equalsIgnoreCase("oldest") ? Sort.Direction.ASC : Sort.Direction.DESC, "CreateAt");
+        }
+        Pageable pageable = PageRequest.of(pageNo - 1, 12, sort);
+        Page<GoodsPost> goodsPostPage = goodsPostRepository.findMyPosts(pageable, postStatus, username);
         return getGoodsPostManageDto(goodsPostPage);
     }
 
@@ -371,5 +414,9 @@ public class GoodsPostService {
             }
         }
         return false;
+    }
+
+    public GoodsPost findByPostID(Long postId) {
+        return goodsPostRepository.findByPostID(postId);
     }
 }

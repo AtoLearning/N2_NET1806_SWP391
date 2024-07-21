@@ -9,6 +9,7 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -43,7 +44,7 @@ public class Customer implements Serializable {
     String Phone;
 
     @Column(name = "dob")
-    Date DOB;
+    LocalDate DOB;
 
     @Column(name = "gender")
     String Gender;
@@ -56,6 +57,9 @@ public class Customer implements Serializable {
 
     @Column(name = "isverified")
     Boolean IsVerified;
+
+    @Column(name = "cusrank")
+    String CusRank;
 
     @ManyToOne
     @JoinColumn(name = "musername")
@@ -95,6 +99,7 @@ public class Customer implements Serializable {
                 ", Address='" + Address + '\'' +
                 ", IsAvailable=" + IsAvailable +
                 ", IsVerified=" + IsVerified +
+                ", CusRank=" + CusRank +
                 ", manager=" + manager +
                 ", role=" + role +
                 ", goodsPostSet=" + (goodsPostSet != null ? goodsPostSet.size() : 0) +

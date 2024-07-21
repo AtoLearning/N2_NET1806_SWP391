@@ -1,31 +1,41 @@
 import PropTypes from 'prop-types';
 import './UserInformStyle.css';
+import {FaGem, FaLeaf, FaSeedling, FaTree} from "react-icons/fa";
+import {useState} from "react";
 
 const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtName, cityName}) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const feedbacksPerPage = 3;
 
-  // Lấy từ 1 đến 3 feedbacks
-  const feedbacksToShow = customerViewDto.feedbackDtoList.slice(0, 3);
-  console.log(feedbacksToShow);
+  const indexOfLastFeedback = currentPage * feedbacksPerPage;
+  const indexOfFirstFeedback = indexOfLastFeedback - feedbacksPerPage;
+  const currentFeedbacks = customerViewDto.feedbackDtoList.slice(indexOfFirstFeedback, indexOfLastFeedback);
 
-  // Xác định màu nền, viền và chữ dựa trên rank
-  // let backgroundColor, borderColor, textColor;
-  // if (user.rank === 'Gold') {
-  //   backgroundColor = '#00539c'; 
-  //   borderColor = '#FFD700'; 
-  //   textColor = '#FFD700';
-  // } else if (user.rank === 'Silver') {
-  //   backgroundColor = '#747273'; 
-  //   borderColor = '#EFEFEF'; 
-  //   textColor = '#EFEFEF'; 
-  // } else if (user.rank === 'Diamond') {
-  //   backgroundColor = '#00203FFF'; 
-  //   borderColor = '#ADEFD1FF'; 
-  //   textColor = '#ADEFD1FF';
-  // } else {
-  //   backgroundColor = '#fff'; // Mặc định màu trắng nếu không có rank
-  //   borderColor = '#000'; // Border mặc định màu đen
-  //   textColor = '#000'; // Màu đen cho chữ
-  // }
+  const paginatePrev = () => {
+    setCurrentPage(currentPage > 1 ? currentPage - 1 : 1);
+  };
+
+  const paginateNext = () => {
+    setCurrentPage(currentPage < Math.ceil(customerViewDto.feedbackDtoList.length / feedbacksPerPage) ? currentPage + 1 : currentPage);
+  };
+
+  let backgroundColor, borderColor, textColor, rankIcon;
+  if (customerViewDto.rank === 'Gold') {
+    backgroundColor = '#00539c';
+    borderColor = '#ffd000';
+    textColor = '#FFD700';
+    rankIcon = <FaSeedling />;
+  } else if (customerViewDto.rank === 'Silver') {
+    backgroundColor = '#747273';
+    borderColor = '#EFEFEF';
+    textColor = '#EFEFEF';
+    rankIcon = <FaLeaf />;
+  } else if (customerViewDto.rank === 'Diamond') {
+    backgroundColor = '#00203FFF';
+    borderColor = '#adcaef';
+    textColor = '#7cf6f6';
+    rankIcon = <FaTree />;
+  }
 
   return (
     <section className="UIF-card">
@@ -43,7 +53,19 @@ const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtN
           <div className="UIF-level-container">
             <div className="UIF-level">
               <h2 className="UIF-student-name">{customerViewDto.givenName}</h2>
-              {/* <p className="UIF-rank">Rank:<span className='UIF-rank-title'  style={{ backgroundColor, border: `2px solid ${borderColor}`, color: textColor }}> {customerViewDto.givenName}</span></p>  */}
+               <p className="UIF-rank">
+                 <span className='UIF-rank-title'
+                       style={{
+                         backgroundColor,
+                         border: `2px solid ${borderColor}`,
+                         color: textColor,
+                         fontWeight: "bolder"
+                       }}
+                 >
+                   {customerViewDto.rank}&ensp;
+                   {rankIcon}
+                 </span>
+               </p>
             </div>
           </div>
         </div>
@@ -59,16 +81,28 @@ const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtN
             <div className="UIF-contact-info">
               <div className="UIF-contact-details">
                 <div className="UIF-fullname">
-                  <span className="UIF-fullname-label" >Full name:</span>
-                  <span className="UIF-fullname-value" >{customerViewDto.givenName}</span>
+                  <span className="UIF-fullname-label">Full name:</span>
+                  <span className="UIF-fullname-value">{customerViewDto.givenName}</span>
                 </div>
                 <div className="UIF-contact-item">
-                  <p className="UIF-contact-label" >Phone:</p>
-                  <p className="UIF-contact-value" >{customerViewDto.phone}</p>
+                  <p className="UIF-contact-label">Phone:</p>
+                  <p className="UIF-contact-value">{customerViewDto.phone}</p>
                 </div>
                 <div className="UIF-contact-item">
-                  <p className="UIF-contact-label" >Email:</p>
-                  <p className="UIF-contact-value" >{customerViewDto.cuserName}</p>
+                  <p className="UIF-contact-label">Email:</p>
+                  <p className="UIF-contact-value">{customerViewDto.cuserName}</p>
+                </div>
+                <div className="UIF-fullname">
+                  <span className="UIF-fullname-label">Nickname:</span>
+                  <span className="UIF-fullname-value">{customerViewDto.nickname}</span>
+                </div>
+                <div className="UIF-fullname">
+                  <span className="UIF-fullname-label">Gender:</span>
+                  <span className="UIF-fullname-value">{customerViewDto.gender}</span>
+                </div>
+                <div className="UIF-contact-item">
+                  <p className="UIF-contact-label">Points:</p>
+                  <p className="UIF-contact-value">{customerViewDto.points}</p>
                 </div>
               </div>
             </div>
@@ -76,27 +110,41 @@ const UserInform = ({ customerViewDto, streetNumber, street, wardName, districtN
 
           <div className="UIF-feedback-section">
             <div className="UIF-feedback-content">
-              {feedbacksToShow.map((feedback, index) => (
-                <div className="UIF-feedback-item" key={index}>
-                  <img
-                    loading="lazy"
-                    src={feedback.consumerAvatar}
-                    className="UIF-feedback-avatar"
-                    alt="Feedback avatar"
-                  />
-                  <div className="UIF-feedback-text">
-                    <h4 className="UIF-feedback-title">{feedback.feedbackTitle}</h4>
-                    <p className="UIF-feedback-type">{feedback.isExchange ? "Exchange" : "Sell"}</p>
-                    <p className="UIF-feedback-comment">{feedback.content}</p>
+              {customerViewDto.feedbackDtoList.length === 0 ? (
+                  <p>No feedback available.</p>
+              ) : (
+                  currentFeedbacks.map((feedback, index) => (
+                      <div className="UIF-feedback-item" key={index}>
+                        <img
+                            loading="lazy"
+                        src={feedback.consumerAvatar}
+                        className="UIF-feedback-avatar"
+                        alt="Feedback avatar"
+                    />
+                    <div className="UIF-feedback-text">
+                      <h4 className="UIF-feedback-title">{feedback.feedbackTitle}</h4>
+                      <p className="UIF-feedback-type">{feedback.isExchange ? "Exchange" : "Sell"}</p>
+                      <p className="UIF-feedback-comment">{feedback.content}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-              {customerViewDto.feedbackDtoList.length > 3 && (
-                <a href="#" className="UIF-more-link">
-                  More &gt;&gt;
-                </a>
-              )}
+              )))}
             </div>
+            {customerViewDto.feedbackDtoList.length > 0 && (
+                <div className="UIF-pagination">
+                  <button
+                      className={`UIF-pagination-btn ${currentPage === 1 ? 'disabled' : 'active'}`}
+                      onClick={paginatePrev}
+                  >
+                    Previous
+                  </button>
+                  <button
+                      className={`UIF-pagination-btn ${currentPage === Math.ceil(customerViewDto.feedbackDtoList.length / feedbacksPerPage) ? 'disabled' : 'active'}`}
+                      onClick={paginateNext}
+                  >
+                    Next
+                  </button>
+                </div>
+            )}
           </div>
         </div>
       </main>
@@ -109,6 +157,8 @@ UserInform.propTypes = {
     givenName: PropTypes.string,
     phone: PropTypes.string,
     cuserName: PropTypes.string,
+    rank: PropTypes.string,
+    points: PropTypes.number,
     feedbackDtoList: PropTypes.arrayOf(
         PropTypes.shape({
           feedbackId: PropTypes.number.isRequired,

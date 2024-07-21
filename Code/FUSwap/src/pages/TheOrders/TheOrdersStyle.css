@@ -95,6 +95,7 @@
     width: 43%;
 }
 .orders-content{
+    cursor: pointer;
     width: 80%;
 }
 .point-img{
@@ -171,7 +172,7 @@
 }
 .orders-btn{
     height: 10%;
-    width: 30%;
+    width: 55%;
     font-size: 0.8vw;
 }
 .orders-btn:hover{
@@ -211,6 +212,22 @@
 .img-ava{
     height: 100%;
     border-radius: 50%;
+}
+.avatar-container {
+    display: flex;
+    align-items: center;
+}
+
+.img-ava-consumer {
+    margin-right: 16px;
+    border-radius: 50%;
+    width: 50px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
 }
 .box-point{
     width: 100%;

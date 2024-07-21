@@ -10,11 +10,7 @@
 
 .UIF-card {
     transition: transform 0.3s ease;
-  }
-  
-  .UIF-card:hover {
-    transform: scale(1.05); /* Tăng kích thước khi hover */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Thêm bóng để nổi bật */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   }
 
 .UIF-card {
@@ -27,6 +23,7 @@
     flex-direction: column;
     width: 100vw;
     max-width: 1220px;
+    height: 600px;
 }
 
 .UIF-header {
@@ -217,6 +214,37 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    /*overflow-y: auto;*/
+    height: 318px;
+}
+
+.UIF-pagination-btn {
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.UIF-pagination-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.UIF-pagination-btn.disabled {
+    background-color: #ddd;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.UIF-pagination {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+    height: 35px;
 }
 
 .UIF-feedback-item {

@@ -18,6 +18,7 @@ import UpdatePost from './pages/Post/UpdatePost.jsx'
 import MyProfile from './pages/MyProfile/MyProfile.jsx'
 import TheOrders from './pages/TheOrders/TheOrders.jsx'
 import UserTransaction from './pages/Transactions/UserTransaction.jsx'
+import PendingPosts from "./pages/ManagerPostByMor/PendingPosts.jsx"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { ToastContainer } from 'react-toastify'
@@ -27,6 +28,7 @@ import AHeader from './components/Header/AHeader.jsx'
 import PostList from './components/AllPostList/PostList.jsx'
 import ManagerProfile from './pages/MyProfile/ManagerProfile.jsx'
 import PostDetail from './pages/PostDetail/PostDetail.jsx'
+import PostReadonly from "./pages/Post/PostReadonly.jsx";
 
 const baseURL = "http://localhost:8080/api/v1/auth-status"
 
@@ -58,10 +60,11 @@ const customerRoutes = (
             <Route path='/c/post/details/:postId' element={<PostInform />} />
             <Route path='/c/my-profile' element={<MyProfile />} />
             <Route path="/c/my-posts" element={<MyPost />} />
-            <Route path='/c/trade-post' element={<TradePost />} />
-            <Route path='/c/sell-post' element={<SellPost />} />
-            <Route path='/c/update-post' element={<UpdatePost />} />
-            <Route path='/c/my-transaction' element={<UserTransaction />} />
+            <Route path='/c/goods-post' element={<TradePost />} />
+            {/*<Route path='/c/sell-post' element={<SellPost />} />*/}
+            <Route path='/c/update-post/:postId' element={<UpdatePost />} />
+            <Route path='/c/post-readonly' element={<PostReadonly />} />
+            <Route path='/c/my-transaction/details' element={<UserTransaction />} />
             <Route path='/c/my-transactions' element={<TheOrders />} />
             <Route path='/search' element={<SearchPage />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
@@ -78,6 +81,7 @@ const managerRoutes = (
             <Route path='/about-us' element={<AboutUs />} />
             <Route path='/not-found' element={<NotFound />} />
             <Route path='/post/details/:postId' element={<PostInform />} />
+            <Route path='/PendingPosts' element={<PendingPosts />} />
             <Route path="*" element={<Navigate to="/not-found" />} />
             <Route path='/m/view-post'element={<PostList/>} />
             <Route path='/m/my_profile'element={<ManagerProfile/>} />
