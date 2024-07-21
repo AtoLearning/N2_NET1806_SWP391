@@ -3,6 +3,7 @@ package com.fuswap.controllers.transaction;
 import com.fuswap.dtos.ResponseDto;
 import com.fuswap.dtos.transaction.TransactionViewDto;
 import com.fuswap.services.transaction.TransactionService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -74,11 +75,12 @@ public class TransactionController {
         public ResponseEntity<ResponseDto> makeTransaction(
                 @PathVariable(name = "postId") Long postId,
                 @PathVariable(name = "specialPostId") String specialPostId,
-                Authentication authentication
+                Authentication authentication,
+                HttpServletRequest request
         ) {
             log.info("Check");
             String cUserName = getUserNameInAuthentication(authentication);
-            boolean isCreated = transactionService.makeTransaction(postId, specialPostId, cUserName);
+            boolean isCreated = transactionService.makeTransaction(postId, specialPostId, cUserName, request);
             if(isCreated) {
                 return ResponseEntity.status(HttpStatus.CREATED).body(
                         new ResponseDto("201", "Transaction is created successful!", "", 0)

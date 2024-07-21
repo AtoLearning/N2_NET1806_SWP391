@@ -117,6 +117,7 @@ export default function Address({ onCityChange, onDistrictChange, onWardChange, 
                     className='address-select select-1'
                     value={selectedCity}
                     onChange={(e) => setSelectedCity(e.target.value)}
+                    required
                 >
                     <option value="" hidden>Select City</option>
                     {cities.map((city) => (
@@ -129,6 +130,7 @@ export default function Address({ onCityChange, onDistrictChange, onWardChange, 
                     className='address-select select-2'
                     value={selectedDistrict}
                     onChange={(e) => setSelectedDistrict(e.target.value)}
+                    required
                 >
                     <option value="" hidden>Select District</option>
                     {districts.map((district) => (
@@ -141,6 +143,7 @@ export default function Address({ onCityChange, onDistrictChange, onWardChange, 
                     className='address-select select-3'
                     value={selectedWard}
                     onChange={(e) => setSelectedWard(e.target.value)}
+                    required
                 >
                     <option value="" hidden>Select Ward</option>
                     {wards.map((ward) => (

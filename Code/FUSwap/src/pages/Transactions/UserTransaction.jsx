@@ -9,6 +9,7 @@ const apiUrl = "http://localhost:8080/api/v1/guest/post/1"; // URL API để l�
 const PostInformSample = () => {
     const location = useLocation();
     const { transaction } = location.state || {};
+
     return (
         <section className="product-container1">
             <div className='post-left'>

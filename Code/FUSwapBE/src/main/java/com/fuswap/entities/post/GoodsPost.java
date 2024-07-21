@@ -75,6 +75,10 @@ public class GoodsPost {
     Feedback feedback;
 
     @OneToOne
+    @JoinColumn(name = "reportid")
+    Report report;
+
+    @OneToOne
     @JoinColumn(name = "transid")
     Transaction transaction;
 
@@ -97,6 +101,7 @@ public class GoodsPost {
                 ", postAddress=" + (postAddress != null ? postAddress.getPostAddressID() : "") +
                 ", category=" + (category != null ? category.getCateName() : "") +
                 ", feedback=" + (feedback != null ? feedback.getContent() : "") +
+                ", report=" + (report != null ? report.getContent() : "") +
                 ", transaction=" + (transaction != null ? transaction.getTransID() : "") +
                 '}';
     }

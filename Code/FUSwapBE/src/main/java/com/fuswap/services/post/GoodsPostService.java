@@ -429,7 +429,7 @@ public class GoodsPostService {
         List<GoodsPost> goodsPostList = new ArrayList<>();
         List<GoodsPostViewDto> goodsPostViewDtoList = new ArrayList<>();
         goodsPostList = goodsPostRepository.getRelatedGoods(postId, cateName, cuserName);
-        if(goodsPostList.size() < 3) {goodsPostList.addAll(goodsPostRepository.findAll());}
+        if(goodsPostList.size() < 3) {goodsPostList.addAll(goodsPostRepository.findAllAndIsAvailableExceptRecentPost(postId));}
         for(GoodsPost goodsPost : goodsPostList) {
             GoodsPostViewDto goodsPostViewDto = new GoodsPostViewDto();
             goodsPostViewDto.setPostId(goodsPost.getPostID());

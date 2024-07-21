@@ -9,6 +9,7 @@ body {
 
 .PPM-container {
     display: flex;
+    justify-content: center;
     height: 110vh;
     width: 100%;
 }

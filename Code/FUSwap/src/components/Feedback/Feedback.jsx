@@ -9,10 +9,16 @@ const initialState = {
     postId: 0,
     feedbackContent: ""
 }
+
+const error_init = {
+    feedbackContent_err: '',
+}
+
 const baseUrl = "http://localhost:8080/api/v1/customer/permission/feedback/create";
 const Feedback = ({ show, onClose, trans }) => {
     const [state, setState] = useState(initialState);
     const navigate = useNavigate();
+    const [errors, setErrors] = useState(error_init);
     if (!show || !trans) return null;
 
     const createFeedback = async (data) => {
@@ -63,22 +69,16 @@ const Feedback = ({ show, onClose, trans }) => {
     }
 
     const validateForm = () => {
-        // let isValid = true;
-        // let errors = { ...error_init };
-        //
-        // if (cateName.trim().length < 5) {
-        //     errors.cateName_err = 'Category name must be more than 4 words';
-        //     isValid = false;
-        // }
-        //
-        // if(!(available.trim().toLowerCase() === "true" || available.trim().toLowerCase() === "false")) {
-        //     errors.available_err = 'TRUE or FALSE';
-        //     isValid = false;
-        // }
-        //
-        // setErrors(errors);
-        // return isValid;
-        return true;
+        let isValid = true;
+        let errors = { ...error_init };
+
+        if (!(5 <= state.feedbackContent.trim().length && state.feedbackContent.trim().length <= 200)) {
+            errors.feedbackContent_err = 'Content must be between 5 and 200 characters long';
+            isValid = false;
+        }
+
+        setErrors(errors);
+        return isValid;
     }
 
     return (
@@ -102,6 +102,10 @@ const Feedback = ({ show, onClose, trans }) => {
                                   onChange={handleTextareaChange}
                                   required
                         />
+                        {errors.feedbackContent_err &&
+                            <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                {errors.feedbackContent_err}
+                            </span>}
                         <div className="modal-buttons">
                             <button className='back-btn' onClick={handleBackClick}>Back</button>
                             <button className='complete-btn' type='submit'>Submit</button>
