@@ -1,0 +1,213 @@
+.post-detail-contain{
+    width: 100%;
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Taviraj;
+    font-size: 1vw;
+    line-height: 1.5;
+}
+.post-detail-content{
+    width: 80%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 4px solid #ffde59;
+    border-right: 4px solid #ff914d;
+    border-bottom: 4px solid #ff914d;
+}
+.post-detail-header{
+    width: 100%;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+    background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
+}
+.post-detail-body{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.box-detail-img-user{
+    width: 40%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #ffde59 0%, #ff914d 100%);
+}
+.detail-img{
+    margin-top: 1%;
+    width: 85%;
+    height: 75%;
+    position: relative;
+}
+.detail-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.detail-date{
+    position: absolute;
+    width: 10%;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 37%;
+    left: 32%;
+    background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
+}
+.detail-user{
+    width: 95%;
+    height: 18%;
+    margin-top: 1%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.detail-user img{
+    height: 68%;
+    width: 15%;
+    border-radius: 50%;
+}
+.detail-user p{
+    height: 90%;
+    width: 75%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.box-detail-post-info{
+    width: 55%;
+    height: 100%;   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.box-detail-1 label,
+.box-detail-2 label,
+.box-detail-title label,
+.box-detail-description label,
+.box-detail-reason label{
+    width: 100%;
+    height: 2em;
+    font-size: 1.1vw;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.box-detail-1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.box-detail-2{
+    display: flex;
+    justify-content: space-between;
+}
+.box-detail-reason{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.box-detail-reason textarea{
+    width: 100%;
+    height: 80%;
+    resize: none;
+    outline: none;
+    border: 2px solid #ff914d;
+    padding: 1%;
+}
+.box-detail-2 div{
+    width: 47%;
+    display: flex;
+    flex-direction: column;
+}
+.box-detail-1 div{
+    width: 100%;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    outline: none;
+}
+.box-detail-title div{
+    width: 100%;
+    height: 70%;
+    outline: none;
+}
+.box-detail-description div{
+    width: 100%;
+    height: 70%;
+    outline: none;
+}
+.box-detail-2 div div{
+    width: 100%;
+    height: 2.5em;
+    display: flex;
+    justify-content: center;
+    outline: none;
+}
+.box-detail-title{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.post-detail-button{
+    width: 100%;
+    height: 7%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2vw;
+}
+.post-detail-button div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.box-detail-btn{
+    justify-content: end;
+}
+.post-detail-button button{
+    width: 25%;
+    height: 80%;
+    margin: 0 2%;
+    border-radius: 15px;
+}
+.btn-refuse,
+.btn-back button{
+    color: rgb(97, 97, 97);
+    border: 2px solid rgb(97, 97, 97);
+    transition: all 0.2s ease-in;
+}
+.btn-accept{
+    color: red;
+    border: 2px solid red;
+    transition: all 0.2s ease-in;
+}
+.btn-accept:hover{
+    background: linear-gradient(to right, #ffde59 0%, #ff914d 100%);
+    border: none;
+    letter-spacing: 2px;
+    font-size: 1.3vw;
+}
+.btn-refuse:hover,
+.btn-back button:hover{
+    color: black;
+    border: 2px solid black;
+    letter-spacing: 2px;
+    font-size: 1.3vw;
+}
+
