@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../MyProfile/MyProfileStyle.css'
 import SideBar from '../../components/SideBar/SideBar'
 import axios from 'axios'
@@ -19,11 +19,20 @@ const initialState = {
     dob: '',
     gender: '',
 }
+const error_init = {
+    givenName_err: '',
+    fullName_err: '',
+    phone_err: '',
+    avatar_err: '',
+    dob_err: '',
+    gender_err: '',
+}
 
 export default function MyProfile() {
 
     const [profile, setProfile] = useState(initialState);
     const [state, setState] = useState(initialState);
+    const [errors, setErrors] = useState(error_init);
     const [image, setImage] = useState(null);
     const [imageURL, setImageURL] = useState("");
     const [isEditing, setIsEditing] = useState(false);
@@ -55,6 +64,7 @@ export default function MyProfile() {
                 profileData.dob = moment(profileData.dob).format('YYYY-MM-DD');
                 setProfile(profileData);
                 setState(profileData);
+                console.log(profileData);
             } catch (error) {
                 console.log(error);
             }
@@ -72,7 +82,7 @@ export default function MyProfile() {
         try {
             const response = await axios.put(updateUrl, data, {withCredentials: true, responseType: "json"});
             if (response.status === 200) {
-                // navigate('/my-posts');
+                window.location.reload();
             }
         }catch(error) {
             if(error.response) {
@@ -90,9 +100,6 @@ export default function MyProfile() {
                 console.log(error);
             });
         }
-        // else {
-        //     toast.error("Some info is invalid ~ Pls check again");
-        // }
     }
     const triggerFileInput = () => {
         document.getElementById('avatarInput').click();
@@ -105,22 +112,34 @@ export default function MyProfile() {
         setIsEditing(true);
     }
     const validateForm = () => {
-        // let isValid = true;
-        // let errors = { ...error_init };
-        //
-        // if (cateName.trim().length < 5) {
-        //     errors.cateName_err = 'Category name must be more than 4 words';
-        //     isValid = false;
-        // }
-        //
-        // if(!(available.trim().toLowerCase() === "true" || available.trim().toLowerCase() === "false")) {
-        //     errors.available_err = 'TRUE or FALSE';
-        //     isValid = false;
-        // }
-        //
-        // setErrors(errors);
-        // return isValid;
-        return true;
+        let isValid = true;
+        let errors = { ...error_init };
+
+        if (!(3 <= state.nickname.trim().length && state.nickname.trim().length <= 10)) {
+            errors.nickName_err = 'Nickname must be between 3 and 10 characters long';
+            isValid = false;
+        }
+
+        if (!(5 <= state.givenName.trim().length && state.givenName.trim().length <= 30)) {
+            errors.givenName_err = 'Full name must be between 5 and 30 characters long';
+            isValid = false;
+        }
+
+        if (!(state.phone.trim().length === 10)) {
+            errors.phone_err = 'Phone is not valid';
+            isValid = false;
+        }
+
+        const currentDate = new Date();
+        const selectedDate = new Date(state.dob);
+
+        if (selectedDate > currentDate) {
+            errors.dob_err = 'Date of birth cannot be in the future';
+            isValid = false;
+        }
+
+        setErrors(errors);
+        return isValid;
     }
 
     let rankIcon;
@@ -156,6 +175,13 @@ export default function MyProfile() {
                                     onChange={handleInputChange}
                                 />
                             </div>
+                            {errors.givenName_err &&
+                                <div className='box-info'>
+                                        <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                            {errors.givenName_err}
+                                        </span>
+                                </div>
+                            }
 
                             <div className='box-info'>
                                 <label>Phone:</label>
@@ -167,6 +193,13 @@ export default function MyProfile() {
                                     onChange={handleInputChange}
                                 />
                             </div>
+                            {errors.phone_err &&
+                                <div className='box-info'>
+                                        <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                            {errors.phone_err}
+                                        </span>
+                                </div>
+                            }
 
                             <div className='box-info important'>
                                 <label>Email:</label>
@@ -207,6 +240,13 @@ export default function MyProfile() {
                                     onChange={handleInputChange}
                                 />
                             </div>
+                            {errors.nickName_err &&
+                                <div className='box-info'>
+                                        <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                            {errors.nickName_err}
+                                        </span>
+                                </div>
+                            }
 
                             <div className='box-info'>
                                 <label>Gender:</label>
@@ -254,6 +294,13 @@ export default function MyProfile() {
                                     onChange={handleInputChange}
                                 />
                             </div>
+                            {errors.dob_err &&
+                                <div className='box-info'>
+                                        <span style={{fontWeight: "bold", fontSize: "16px", color: "red"}}>
+                                            {errors.dob_err}
+                                        </span>
+                                </div>
+                            }
 
                             {isEditing && (<div className='box-info box-submit'>
                                 <button className='update-btn' type="submit">Submit</button>
@@ -269,19 +316,19 @@ export default function MyProfile() {
                                     onChange={handleImageChange}
                                 />
                             </div>
-                                <div className='box-button'>
-                                    <input
-                                        type='file'
-                                        id='avatarInput'
-                                        className='avatar-input'
-                                        style={{display: 'none'}}
-                                        onChange={handleImageChange}
-                                    />
-                                    <button className='avatar-button' onClick={triggerFileInput}>
-                                        Change picture
-                                    </button>
-                                </div>
+                            <div className='box-button'>
+                                <input
+                                    type='file'
+                                    id='avatarInput'
+                                    className='avatar-input'
+                                    style={{display: 'none'}}
+                                    onChange={handleImageChange}
+                                />
+                                <button className='avatar-button' onClick={triggerFileInput}>
+                                    Change picture
+                                </button>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>

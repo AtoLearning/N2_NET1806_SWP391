@@ -27,6 +27,10 @@ public interface GoodsPostRepository extends JpaRepository<GoodsPost, Long>, Pag
     Page<GoodsPost> findAllAndIsAvailable(Pageable pageable);
 
     @Transactional(readOnly = true)
+    @Query("SELECT gp FROM GoodsPost gp WHERE gp.IsAvailable = true AND gp.PostID != :postId")
+    List<GoodsPost> findAllAndIsAvailableExceptRecentPost(Long postId);
+
+    @Transactional(readOnly = true)
     @Query("SELECT gp FROM GoodsPost gp WHERE gp.IsAvailable = true " +
             "AND (gp.Title LIKE %:searchValue% OR gp.Content like %:searchValue%) " +
             "AND (:cityName IS NULL OR gp.postAddress.city.CityName = :cityName) " +
@@ -74,8 +78,9 @@ public interface GoodsPostRepository extends JpaRepository<GoodsPost, Long>, Pag
     Page<GoodsPost> findByCUserNameAndIsAvailable(Pageable pageable, String cuserName);
 
     @Transactional(readOnly = true)
-    @Query("SELECT gp FROM GoodsPost gp WHERE gp.PostID != :postId AND " +
-            "((:cateName IS NULL OR gp.category.CateName = :cateName) OR " +
-            "(:cuserName IS NULL OR gp.customer.CUserName = :cuserName))")
+    @Query("SELECT gp FROM GoodsPost gp WHERE gp.PostID != :postId " +
+            "AND gp.IsAvailable = true " +
+            "AND (:cateName = '' OR gp.category.CateName = :cateName) " +
+            "AND (:cuserName = '' OR gp.customer.CUserName = :cuserName)")
     List<GoodsPost> getRelatedGoods(Long postId, String cateName, String cuserName);
 }

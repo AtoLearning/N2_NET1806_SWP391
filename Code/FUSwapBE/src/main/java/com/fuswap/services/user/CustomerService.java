@@ -51,8 +51,8 @@ public class CustomerService {
                 customer.getPoints(),
                 customer.getPhone(),
                 customer.getDOB(),
-                customer.getGender(),
                 customer.getAddress(),
+                customer.getGender(),
                 customer.getIsVerified(),
                 customer.getCusRank()
             );
