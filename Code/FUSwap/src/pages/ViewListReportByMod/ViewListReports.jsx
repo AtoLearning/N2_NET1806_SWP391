@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import axios from "axios";
-import './PendingPostsStyle.css';
-import SideBar from '../../components/SideBar/SideBar';
-import MorViewPost from '../../components/MorViewPost/MorViewPost';
+import './ViewListReportsStyle.css';
+// import SideBar from '../../components/SideBar/SideBar';
+// import MorViewPost from '../../components/MorViewPost/MorViewPost';
 import {useNavigate} from "react-router-dom";
 
 const fetchPendingPostsUrl = "http://localhost:8080/api/v1/manager/posts";
@@ -66,10 +66,13 @@ const PendingPosts = () => {
 
     return (
         <div className="PPM-container">
+            {/* <div className="PPM-sidebar">
+                <SideBar />
+            </div> */}
             <div className="PPM-main-content">
                 <div className="MVP-search-container">
                     <div className="MVP-search-item">
-                        <label htmlFor="searchGmail">Search gmail</label>
+                        <label htmlFor="searchGmail">Search Gmail</label>
                         <input
                             id="searchGmail"
                             type="text"
@@ -85,7 +88,8 @@ const PendingPosts = () => {
                             <option value="Approving">Approving</option>
                             <option value="Approved">Approved</option>
                             <option value="Rejected">Rejected</option>
-                            <option value="Transacted">Transacted</option>
+                            <option value="SentToAdmin">Sent To Admin</option>
+                            <option value="RejectedByAdmin">Rejected By Admin</option>
                             <option value="None">None</option>
                         </select>
                     </div>
@@ -103,7 +107,7 @@ const PendingPosts = () => {
                         className={myModPost === "true" ? "button-on" : "button-off"}
                         onClick={handleMyModPostChange}
                     >
-                        My moderate post
+                        My moderate report
                     </button>
                 </h2>
                 <table>
@@ -111,7 +115,7 @@ const PendingPosts = () => {
                     <tr>
                         <th>Gmail</th>
                         <th>Title</th>
-                        <th>Type</th>
+                        <th>Status</th>
                         <th>Create Date</th>
                         <th>Manager</th>
                         <th>Action</th>
@@ -132,7 +136,7 @@ const PendingPosts = () => {
                                     </div>
                                 </div>
                             </td>
-                            <td>{post.title || 'N/A'}</td>
+                            <td className='report-title'>{post.title || 'N/A'}</td>
                             <td>{post.postStatus || 'N/A'}</td>
                             <td>{post.createAt || 'N/A'}</td>
                             <td>{post.managerFullName}</td>
