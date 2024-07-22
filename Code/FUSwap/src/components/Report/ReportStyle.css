@@ -94,7 +94,23 @@
 }
 .sub-3{
     width: 95%;
-    height: 35%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+}
+.sub-3 div{
+    width: 100%;
+    height: 70%;
+}
+.sub-3 div img{
+    height: 100%;
+    width: 20%;
+    object-fit: cover;
+    object-position: center;
+}
+.sub-3-content{
+    width: 100%;
+    height: 40%;
     display: flex;
 }
 .sub-2 textarea{

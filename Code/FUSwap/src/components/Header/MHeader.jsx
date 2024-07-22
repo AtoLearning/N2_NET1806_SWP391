@@ -1,9 +1,27 @@
 import { Dropdown, DropdownMenu, DropdownTrigger, DropdownItem } from "@nextui-org/react";
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Link } from "react-router-dom"
 import './HeaderStyle.css';
+import axios from "axios";
 const logoutURL = "http://localhost:8080/logout";
+const baseUrl = "http://localhost:8080/api/v1/manager/profile"
 export default function MHeader() {
+
+    const [profile, setProfile] = useState({});
+
+    useEffect(() => {
+        const fetchProfileData = async () => {
+            try {
+                const response = await axios.get(baseUrl, {withCredentials: true });
+                setProfile(response.data.obj);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchProfileData();
+    }, []);
+
     const handleLogout = () => {
         window.location.href = logoutURL;
     };
@@ -38,7 +56,7 @@ export default function MHeader() {
                         <button>
                             <img
                                 className="img_avatar"
-                                src='https://firebasestorage.googleapis.com/v0/b/swp391-gea.appspot.com/o/image%2FimageApp%2FAnhDaiDienNu.jpg?alt=media&token=95e71a66-60a3-4a3d-b5d5-86b81b6bcdf1'
+                                src={profile.avatar}
                                 alt='avatar'
                             />
                         </button>

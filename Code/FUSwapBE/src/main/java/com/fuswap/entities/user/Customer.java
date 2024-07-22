@@ -3,14 +3,12 @@ package com.fuswap.entities.user;
 import com.fuswap.entities.transaction.Transaction;
 import com.fuswap.entities.post.Feedback;
 import com.fuswap.entities.post.GoodsPost;
-import com.fuswap.entities.post.Report;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Set;
 
 @Entity

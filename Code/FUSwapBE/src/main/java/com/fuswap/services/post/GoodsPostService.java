@@ -26,6 +26,7 @@ import com.fuswap.repositories.post.CategoryRepository;
 import com.fuswap.repositories.user.CustomerRepository;
 import com.fuswap.repositories.post.GoodsPostRepository;
 import com.fuswap.repositories.user.ManagerRepository;
+import com.fuswap.services.user.ReportService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.data.domain.Sort;
@@ -53,6 +54,7 @@ public class GoodsPostService {
     private final DistrictRepository districtRepository;
     private final CityRepository cityRepository;
     private final FeedbackService feedbackService;
+    private final ReportService reportService;
     private final RedisTemplate<String, Object> redisTemplate;
 
     public GoodsPostService(GoodsPostRepository goodsPostRepository,
@@ -62,7 +64,7 @@ public class GoodsPostService {
                             PostAddressRepository postAddressRepository,
                             WardRepository wardRepository,
                             DistrictRepository districtRepository,
-                            CityRepository cityRepository, FeedbackService feedbackService,
+                            CityRepository cityRepository, FeedbackService feedbackService, ReportService reportService,
                             RedisTemplate<String, Object> redisTemplate) {
         this.goodsPostRepository = goodsPostRepository;
         this.managerRepository = managerRepository;
@@ -73,6 +75,7 @@ public class GoodsPostService {
         this.districtRepository = districtRepository;
         this.cityRepository = cityRepository;
         this.feedbackService = feedbackService;
+        this.reportService = reportService;
         this.redisTemplate = redisTemplate;
     }
 
@@ -148,6 +151,7 @@ public class GoodsPostService {
                         feedbackService.getFeedbackBySupplier(goodsPost.getCustomer().getCUserName())
                 ),
                 feedbackService.getFeedbackByFeedbackId(goodsPost.getFeedback() == null ? 0L : goodsPost.getFeedback().getFeedbackID()),
+                reportService.getReportByReportId(goodsPost.getReport() == null ? 0L : goodsPost.getReport().getReportID()),
                 goodsPost.getPostAddress().getStreetNumber(),
                 goodsPost.getPostAddress().getStreet(),
                 goodsPost.getPostAddress().getWard().getWardName(),
@@ -342,6 +346,9 @@ public class GoodsPostService {
             goodsPostViewDto.setFeedbackDto(feedbackService.getFeedbackByFeedbackId(
                     goodsPost.getFeedback() == null ? 0L : goodsPost.getFeedback().getFeedbackID()
             ));
+            goodsPostViewDto.setReportManageDto(reportService.getReportByReportId(
+                    goodsPost.getReport() == null ? 0L : goodsPost.getReport().getReportID()
+            ));
             goodsPostViewDto.setStreetNumber(goodsPost.getPostAddress().getStreetNumber());
             goodsPostViewDto.setStreet(goodsPost.getPostAddress().getStreet());
             goodsPostViewDto.setWardName(goodsPost.getPostAddress().getWard().getWardName());
@@ -456,6 +463,9 @@ public class GoodsPostService {
             ));
             goodsPostViewDto.setFeedbackDto(feedbackService.getFeedbackByFeedbackId(
                     goodsPost.getFeedback() == null ? 0L : goodsPost.getFeedback().getFeedbackID()
+            ));
+            goodsPostViewDto.setReportManageDto(reportService.getReportByReportId(
+                    goodsPost.getReport() == null ? 0L : goodsPost.getReport().getReportID()
             ));
             goodsPostViewDto.setStreetNumber(goodsPost.getPostAddress().getStreetNumber());
             goodsPostViewDto.setStreet(goodsPost.getPostAddress().getStreet());

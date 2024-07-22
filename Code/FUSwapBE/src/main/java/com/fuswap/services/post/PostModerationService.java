@@ -12,6 +12,7 @@ import com.fuswap.entities.post.GoodsPost;
 import com.fuswap.entities.user.Manager;
 import com.fuswap.repositories.post.GoodsPostRepository;
 import com.fuswap.services.user.ManagerService;
+import com.fuswap.services.user.ReportService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,11 +26,13 @@ public class PostModerationService {
     private final GoodsPostRepository goodsPostRepository;
     private final ManagerService managerService;
     private final FeedbackService feedbackService;
+    private final ReportService reportService;
 
-    public PostModerationService(GoodsPostRepository goodsPostRepository, ManagerService managerService, FeedbackService feedbackService) {
+    public PostModerationService(GoodsPostRepository goodsPostRepository, ManagerService managerService, FeedbackService feedbackService, ReportService reportService) {
         this.goodsPostRepository = goodsPostRepository;
         this.managerService = managerService;
         this.feedbackService = feedbackService;
+        this.reportService = reportService;
     }
 
     public Page<GoodsPostViewDto> getPostModerationList(Integer pageNo, String status, String gmail, String sortDate, String myModPost, String mUserName) {
@@ -72,6 +75,7 @@ public class PostModerationService {
                         feedbackService.getFeedbackBySupplier(goodsPost.getCustomer().getCUserName())
                 ),
                 feedbackService.getFeedbackByFeedbackId(goodsPost.getFeedback() == null ? 0L : goodsPost.getFeedback().getFeedbackID()),
+                reportService.getReportByReportId(goodsPost.getReport() == null ? 0L : goodsPost.getReport().getReportID()),
                 goodsPost.getPostAddress().getStreetNumber(),
                 goodsPost.getPostAddress().getStreet(),
                 goodsPost.getPostAddress().getWard().getWardName(),

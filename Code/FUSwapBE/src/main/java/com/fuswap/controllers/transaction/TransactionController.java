@@ -70,7 +70,7 @@ public class TransactionController {
                     .body(new ResponseDto("200", "Transaction list!", transactionDtoPage.get(), transactionDtoPage.getTotalPages()));
         }
     }
-re
+
         @PostMapping("/customer/permission/trans/create/{postId}/{specialPostId}")
         public ResponseEntity<ResponseDto> makeTransaction(
                 @PathVariable(name = "postId") Long postId,
