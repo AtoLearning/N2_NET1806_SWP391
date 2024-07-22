@@ -61,7 +61,7 @@ export default function ViewListAcount() {
     };
 
     const handleViewMoreClick = (post) => {
-        navigate("/m/moderate/posts/details", { state: { post } });
+        navigate("/m/account-info", { state: { post } });
     };
     return (
         <div className="PPM-container">

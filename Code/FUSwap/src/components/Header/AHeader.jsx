@@ -68,17 +68,17 @@ export default function AHeader() {
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="ManageAccount">
-                            <Link to="#">
+                            <Link to="/m/list-account">
                                 Manager Account
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="ManagePost">
-                            <Link to="#">
+                            <Link to="/m/moderate/posts">
                                 Manage Post
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="ManageReport">
-                            <Link to="#">
+                            <Link to="/m/moderate/reports">
                                 Manage Report
                             </Link>
                         </DropdownItem>

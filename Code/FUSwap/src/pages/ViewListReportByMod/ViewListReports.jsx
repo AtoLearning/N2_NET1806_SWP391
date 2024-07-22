@@ -61,7 +61,7 @@ const PendingPosts = () => {
     };
 
     const handleViewMoreClick = (post) => {
-        navigate("/m/moderate/posts/details", { state: { post } });
+        navigate("/m/moderate/report/details", { state: { post } });
     };
 
     return (
