@@ -198,7 +198,7 @@ export default function TradePost() {
             isValid = false;
         }
 
-        if (!(10 <= state.street.trim().length && state.street.trim().length <= 150)) {
+        if (!(5 <= state.street.trim().length && state.street.trim().length <= 150)) {
             errors.street_err = 'Street must be between 10 and 150 characters long';
             isValid = false;
         }
