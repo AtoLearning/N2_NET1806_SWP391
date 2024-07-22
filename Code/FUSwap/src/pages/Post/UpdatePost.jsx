@@ -121,7 +121,6 @@ export default function UpdatePost() {
         setImageURL(URL.createObjectURL(file));
     };
     const updatePostInfor = async (data, postId) => {
-        console.log(data)
         try {
             const response = await axios.put(`${updateUrl}/${postId}`, data, {withCredentials: true, responseType: "json"});
             if (response.status === 200) {
@@ -216,7 +215,7 @@ export default function UpdatePost() {
             isValid = false;
         }
 
-        if (!(10 <= state.street.trim().length && state.street.trim().length <= 150)) {
+        if (!(5 <= state.street.trim().length && state.street.trim().length <= 150)) {
             errors.street_err = 'Street must be between 10 and 150 characters long';
             isValid = false;
         }
@@ -290,7 +289,7 @@ export default function UpdatePost() {
                                 </div>
                                 <div className="box-input-img">
                                     <img
-                                         src={imageURL || post.postImage}
+                                         src={post.postImage || imageURL}
                                          name='postImage'
                                          alt='Post Image'
                                          onChange={handleImageChange}
