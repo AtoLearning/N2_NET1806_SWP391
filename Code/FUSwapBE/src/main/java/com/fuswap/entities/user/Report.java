@@ -1,11 +1,10 @@
-package com.fuswap.entities.post;
+package com.fuswap.entities.user;
 
-import com.fuswap.entities.user.Customer;
-import com.fuswap.entities.user.Manager;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -34,7 +33,7 @@ public class Report {
     String ReportStatus;
 
     @Column(name = "createat")
-    Date CreateAt;
+    LocalDate CreateAt;
 
     @ManyToOne
     @JoinColumn(name = "musername")

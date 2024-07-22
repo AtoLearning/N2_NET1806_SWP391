@@ -92,7 +92,7 @@ export default function TradePost() {
             console.log(response);
             if (response.status === 201) {
                 toast.success(response.data.message);
-                navigate('/my-posts');
+                navigate('/c/my-posts');
             }
         } catch(error) {
             if(error.response) {

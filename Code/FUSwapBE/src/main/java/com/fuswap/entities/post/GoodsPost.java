@@ -4,12 +4,12 @@ import com.fuswap.entities.transaction.Transaction;
 import com.fuswap.entities.user.Manager;
 import com.fuswap.entities.location.PostAddress;
 import com.fuswap.entities.user.Customer;
+import com.fuswap.entities.user.Report;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Getter
 @Setter

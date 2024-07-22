@@ -34,6 +34,7 @@ export default function TheOrders() {
             if (response.status === 200) {
                 setTransactions(response.data.obj);
                 setTotalPages(response.data.totalPages);
+                console.log(response.data.obj);
             }
         } catch (error) {
             if (error.response && error.response.status === 403) {
@@ -191,36 +192,40 @@ export default function TheOrders() {
                                     </div>
                                     <p className='box-point'>Points: {trans.supplier.points}</p>
                                     <p className='nickname'>{trans.supplier.nickname}</p>
-                                    {trans.transType === "Consumption" ? (
+                                    {trans.transType === "Consumption" && (
                                         <>
-                                            <button
-                                                className='orders-btn'
-                                                onClick={(e) => handleOpenReport(trans, e)}
-                                            >
-                                                Report
-                                            </button>
-                                            {showReport && selectedPost?.transId === trans.transId && (
-                                                <Report
-                                                    show={showReport}
-                                                    onClose={handleCloseReport}
-                                                    post={selectedPost}
-                                                />
-                                            )}
-                                        </>
-                                    ) : (
-                                        <>
-                                            <button
-                                                className='orders-btn'
-                                                onClick={(e) => handleOpenReport(trans, e)}
-                                            >
-                                                View Report
-                                            </button>
-                                            {showReport && selectedPost?.transId === trans.transId && (
-                                                <Report
-                                                    show={showReport}
-                                                    onClose={handleCloseReport}
-                                                    post={selectedPost}
-                                                />
+                                            {trans.goodsPostViewDto.reportManageDto === null ? (
+                                                <>
+                                                    <button
+                                                        className='orders-btn'
+                                                        onClick={(e) => handleOpenReport(trans, e)}
+                                                    >
+                                                        Report
+                                                    </button>
+                                                    {showReport && selectedPost?.transId === trans.transId && (
+                                                        <Report
+                                                            show={showReport}
+                                                            onClose={handleCloseReport}
+                                                            trans={trans}
+                                                        />
+                                                    )}
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <button
+                                                        className='orders-btn'
+                                                        onClick={(e) => handleOpenReport(trans, e)}
+                                                    >
+                                                        View report
+                                                    </button>
+                                                    {showReport && selectedPost?.transId === trans.transId && (
+                                                        <Report
+                                                            show={showReport}
+                                                            onClose={handleCloseReport}
+                                                            trans={trans}
+                                                        />
+                                                    )}
+                                                </>
                                             )}
                                         </>
                                     )}

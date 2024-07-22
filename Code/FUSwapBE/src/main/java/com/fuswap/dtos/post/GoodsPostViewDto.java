@@ -2,6 +2,7 @@ package com.fuswap.dtos.post;
 
 import com.fuswap.dtos.user.CustomerDto;
 import com.fuswap.dtos.user.CustomerViewDto;
+import com.fuswap.dtos.user.ReportManageDto;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -24,6 +25,7 @@ public class GoodsPostViewDto {
     String postStatus;
     CustomerViewDto customerViewDto;
     FeedbackDto feedbackDto;
+    ReportManageDto reportManageDto;
     String streetNumber;
     String street;
     String wardName;
@@ -47,6 +49,7 @@ public class GoodsPostViewDto {
                 ", postStatus='" + postStatus + '\'' +
                 ", customerViewDto=" + customerViewDto +
                 ", feedbackDto=" + feedbackDto +
+                ", reportManageDto=" + reportManageDto +
                 ", streetNumber='" + streetNumber + '\'' +
                 ", street='" + street + '\'' +
                 ", wardName='" + wardName + '\'' +

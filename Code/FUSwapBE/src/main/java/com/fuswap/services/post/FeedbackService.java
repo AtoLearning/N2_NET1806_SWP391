@@ -41,7 +41,6 @@ public class FeedbackService {
     }
 
     public FeedbackDto getFeedbackByFeedbackId(Long feedbackId) {
-        log.info("getFeedbackByFeedbackId {}", feedbackId);
         return feedbackRepository.findByFeedbackId(feedbackId);
     }
 
