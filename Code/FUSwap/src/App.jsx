@@ -30,7 +30,9 @@ import ManagerProfile from './pages/MyProfile/ManagerProfile.jsx'
 import PostDetail from './pages/PostDetail/PostDetail.jsx'
 import PostReadonly from "./pages/Post/PostReadonly.jsx";
 import ViewListReports from './pages/ViewListReportByMod/ViewListReports.jsx'
+import ViewListAccountByManager from './pages/ViewListAccountByManager/ViewListAccount.jsx'
 import ViewReportDetailByManager from './pages/ViewReportDetailByManager/ViewReportDetail.jsx'
+import ViewCustomerInfoByManager from './pages/ViewCustomerInfoByManager/CustomerInfo.jsx'
 
 const baseURL = "http://localhost:8080/api/v1/auth-status"
 
@@ -86,6 +88,10 @@ const adminRoutes = (
             <Route path='/m/moderate/posts' element={<PendingPosts />} />
             <Route path='/m/my-profile' element={<ManagerProfile/>} />
             <Route path='/m/moderate/posts/details' element={<PostDetail />} />
+            <Route path='/m/moderate/reports' element={<ViewListReports/>} />
+            <Route path='/m/moderate/report/details' element={<ViewReportDetailByManager/>} />
+            <Route path='/m/list-account' element={<ViewListAccountByManager/>} />
+            <Route path='/m/account-info' element={<ViewCustomerInfoByManager/>} />
             <Route path="*" element={<Navigate to="/not-found" />} />
         </Routes>
     </>
