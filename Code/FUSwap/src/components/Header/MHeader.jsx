@@ -73,7 +73,7 @@ export default function MHeader() {
                             </Link>
                         </DropdownItem>
                         <DropdownItem key="ModerateReport">
-                            <Link to="#">
+                            <Link to="/m/moderate/reports">
                                 Moderate Report
                             </Link>
                         </DropdownItem>
